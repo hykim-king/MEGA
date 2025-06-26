@@ -15,7 +15,7 @@ public class DTO {
 	private int pageSize;// 10,20,30,50,100
 	private int pageNo;// 1,2,....
 
-	public DTO() {
+	public DTO()  {
 	}
 
 	/**
