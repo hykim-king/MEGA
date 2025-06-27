@@ -31,9 +31,11 @@
               AND TO_CHAR(ed.reg_dt, 'YYYY-MM-DD') = #{regDt}
             ORDER BY e.exercise_type DESC
         ) data
+        <![CDATA[
         WHERE ROWNUM <= (#{pageSize} * (#{pageNo}))
     )
     WHERE rnum >= ((#{pageNo} - 1) * #{pageSize} + 1)
+    ]]>
 </select>
 
 <!-- 단건등록 -->
@@ -53,7 +55,7 @@
         #{userId},
         #{eCode},
         #{cardioWeight},
-        #{strentthWeight},
+        #{strenthWeight},
         #{duration},
         #{setCount},
         #{repsPerSet},
@@ -69,7 +71,7 @@
         strenth_weight = #{strenthWeight},
         duration = #{duration},
         set_count = #{setCount},
-        reps_per_set = #{repsPerSet},
+        reps_per_set = #{repsPerSet}
     WHERE
         ed_code = #{edCode}
 </update>

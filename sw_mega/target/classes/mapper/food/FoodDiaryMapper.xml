@@ -3,7 +3,7 @@
 <mapper namespace="com.pcwk.ehr.mypage.mapper.FoodDiaryMapper">
 
 <!-- 사용자Id, 날짜 기준으로 전체 조회 -->
-<select id="doRetrieve" parameterType="FoodDiaryDTO"" resultType="FoodDiaryOutDTO">
+<select id="doRetrieve" parameterType="FoodDiaryDTO" resultType="FoodDiaryOutDTO">
 
     SELECT
         fd.fd_code,

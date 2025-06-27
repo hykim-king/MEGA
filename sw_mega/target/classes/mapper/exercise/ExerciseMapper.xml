@@ -30,9 +30,11 @@
             
             ORDER BY e_code DESC
         ) e
+         <![CDATA[
         WHERE ROWNUM <= #{pageSize} * (#{pageNo} - 1) + #{pageSize}
     )
     WHERE rnum >= #{pageSize} * (#{pageNo} - 1) + 1
+       ]]>
 </select>
 
 
