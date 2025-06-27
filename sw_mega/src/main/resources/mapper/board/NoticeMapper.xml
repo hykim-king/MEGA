@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.pcwk.ehr.board.mapper.NoticeMapper">
+
+    <select id="doSelectOne" resultType="com.pcwk.ehr.board.domain.NoticeDTO">
+        SELECT * FROM NOTICE ORDER BY NO_CODE DESC
+    </select>
+
+    <select id="doSave" parameterType="int" resultType="com.pcwk.ehr.board.domain.NoticeDTO">
+        SELECT * FROM NOTICE WHERE NO_CODE = #{noCode}
+    </select>
+
+  
+
+    <update id="doUpdate" parameterType="com.pcwk.ehr.board.domain.NoticeDTO">
+        UPDATE NOTICE
+        SET TITLE = #{title},
+            CONTENT = #{content},
+            UP_DT = SYSDATE
+        WHERE NO_CODE = #{noCode}
+    </update>
+
+    <delete id="doDelete" parameterType="com.pcwk.ehr.board.domain.NoticeDTO">
+        DELETE FROM NOTICE WHERE NO_CODE = #{noCode}
+    </delete>
+
+</mapper>
