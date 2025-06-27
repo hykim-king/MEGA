@@ -13,5 +13,7 @@
     <typeAlias alias="loginDTO" type="com.pcwk.ehr.login.LoginDTO"/>
     <typeAlias alias="findIdDTO" type="com.pcwk.ehr.findid.FindIdDTO"/>
     <typeAlias alias="findPwdDTO" type="com.pcwk.ehr.findpwd.FindPwdDTO"/>
+    <typeAlias alias="NoticeDTO" type="com.pcwk.ehr.board.domain.NoticeDTO"/>
+
   </typeAliases>
 </configuration>
