@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pcwk.ehr.mypage.mapper.ExerciseDiaryMapper">
+
+<!-- 전체조회(사용자 아이디, 날짜 기준) -->
+<select id="doRetrieve" resultType="ExerciseDiaryDTO" parameterType= "ExerciseDiaryOutDTO">
+    SELECT *
+    FROM (
+        SELECT ROWNUM AS rnum, data.*
+        FROM (
+            SELECT
+                ed.ed_code,
+                ed.user_id,
+                ed.e_code,
+                ed.cardio_weight,
+                ed.strenth_weight,
+                ed.duration,
+                ed.set_count,
+                ed.reps_per_set,
+                TO_CHAR(ed.reg_dt, 'yyyy-mm-dd') as reg_dt,
+                e.exercise_name,
+                e.exercise_type,
+                e.region,
+                e.weight,
+                e.cal_burn
+                
+            FROM exercise_diary ED
+            JOIN exercise E
+              ON ed.e_code = e.e_code
+            WHERE ed.user_id = #{userId}
+              AND TO_CHAR(ed.reg_dt, 'YYYY-MM-DD') = #{regDt}
+            ORDER BY e.exercise_type DESC
+        ) data
+        WHERE ROWNUM <= (#{pageSize} * (#{pageNo}))
+    )
+    WHERE rnum >= ((#{pageNo} - 1) * #{pageSize} + 1)
+</select>
+
+<!-- 단건등록 -->
+<insert id="doSave" parameterType="ExerciseDiaryDTO">
+    INSERT INTO exercise_diary (
+        ed_code,
+        user_id,
+        e_code,
+        cardio_weight,
+        strenth_weight,
+        duration,
+        set_count,
+        reps_per_set,
+        reg_dt
+    ) VALUES (
+        ED_SEQ.NEXTVAL,
+        #{userId},
+        #{eCode},
+        #{cardioWeight},
+        #{strentthWeight},
+        #{duration},
+        #{setCount},
+        #{repsPerSet},
+        #{regDt}
+    )
+</insert>
+
+<!-- 수정하기 -->
+<update id="doUpdate" parameterType="ExerciseDiaryDTO">
+    UPDATE exercise_diary
+    SET
+        cardio_weight = #{cardioWeight},
+        strenth_weight = #{strenthWeight},
+        duration = #{duration},
+        set_count = #{setCount},
+        reps_per_set = #{repsPerSet},
+    WHERE
+        ed_code = #{edCode}
+</update>
+
+
+<!-- 삭제하기 -->
+<delete id="doDelete" parameterType="ExerciseDiaryDTO">
+    DELETE FROM exercise_diary
+    WHERE ed_code = #{edCode}
+</delete>
+
+</mapper>
