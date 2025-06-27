@@ -1,6 +1,6 @@
 /**
- * Package Name : com.pcwk.ehr.cmn <br/>
- * 파일명 : PLog.java <br/>
+ * Package Name : com.pcwk.ehr.user.cmn <br/>
+ * File Name: PLog.java <br/>
  * Description:  <br/>
  * Modification imformation : <br/> 
  * ------------------------------------------<br/>
@@ -21,5 +21,5 @@ import org.apache.logging.log4j.Logger;
  *
  */
 public interface PLog {
-	Logger log=LogManager.getLogger(PLog.class);
+	 Logger log = LogManager.getLogger(PLog.class);
 }
