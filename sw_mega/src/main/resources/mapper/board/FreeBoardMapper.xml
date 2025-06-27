@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pcwk.ehr.mapper.FreeBoardMapper">
+
+<insert id="doInsert" parameterType="com.pcwk.ehr.board.domain.FreeBoardDTO">
+        INSERT INTO FREE_BOARD (
+            FB_CODE, USER_ID, TITLE, CONTENT, VIEW_COUNT, C_DT, UP_DT
+        ) VALUES (
+            #{fbCode}, #{userId}, #{title}, #{content}, #{viewCount}, SYSDATE, SYSDATE
+        )
+    </insert>
+
+    <update id="doUpdate" parameterType="com.pcwk.ehr.board.domain.FreeBoardDTO">
+        UPDATE FREE_BOARD
+        SET TITLE = #{title},
+            CONTENT = #{content},
+            VIEW_COUNT = #{viewCount},
+            UP_DT = SYSDATE
+        WHERE FB_CODE = #{fbCode}
+    </update>
+
+    <delete id="doDelete" parameterType="com.pcwk.ehr.board.domain.FreeBoardDTO">
+        DELETE FROM FREE_BOARD
+        WHERE FB_CODE = #{fbCode}
+    </delete>
+
+    <select id="doSelectOne" parameterType="com.pcwk.ehr.board.domain.FreeBoardDTO" resultType="com.pcwk.ehr.board.domain.FreeBoardDTO">
+        SELECT * FROM FREE_BOARD WHERE FB_CODE = #{fbCode}
+    </select>
+
+    <select id="doRetrieve" resultType="com.pcwk.ehr.board.domain.FreeBoardDTO">
+        SELECT * FROM FREE_BOARD ORDER BY FB_CODE DESC
+    </select>
+
+
+
+</mapper>
