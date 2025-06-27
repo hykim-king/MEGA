@@ -10,5 +10,6 @@
   
   <typeAliases>
     <typeAlias alias="SearchDTO" type="com.pcwk.ehr.cmn.SearchDTO"/>
+    <typeAlias alias="NoticeDTO" type="com.pcwk.ehr.board.domain.NoticeDTO"/>
   </typeAliases>
 </configuration>
