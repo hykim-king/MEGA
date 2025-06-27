@@ -9,9 +9,11 @@
         http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
         http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
      
+     <context:component-scan base-package="com.pcwk.ehr"/>
+     
      <!-- Mapper 자동 scann *Impl 제거 -->
      <bean class ="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="com.pcwk.ehr.mapper"></property>
+        <property name="basePackage" value="com.pcwk.ehr"></property>
      </bean>
     
     <!-- mybatis -->
