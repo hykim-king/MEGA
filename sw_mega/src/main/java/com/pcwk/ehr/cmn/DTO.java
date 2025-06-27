@@ -1,22 +1,31 @@
-/**
- * Package Name : com.pcwk.ehr.cmn <br/>
- * 파일명: DTO.java <br/>
- */
 package com.pcwk.ehr.cmn;
 
-/**
- * @author user
- *
- */
 public class DTO {
-	private int no;// 번호
-	private int totalCnt;// 총 글수
+	private int no         ; //번호
+	private int totalCnt  ; //총 글수
+	
+	private int pageSize  ; //10,20,30,50,100
+	private int pageNo    ; //1,2,.....
+	
+	public DTO() {}
+	
+	
 
-	private int pageSize;// 10,20,30,50,100
-	private int pageNo;// 1,2,....
-
-	public DTO()  {
+	/**
+	 * @param no
+	 * @param totalCnt
+	 * @param pageSize
+	 * @param pageNo
+	 */
+	public DTO(int no, int totalCnt, int pageSize, int pageNo) {
+		super();
+		this.no = no;
+		this.totalCnt = totalCnt;
+		this.pageSize = pageSize;
+		this.pageNo = pageNo;
 	}
+
+
 
 	/**
 	 * @return the pageSize
@@ -25,12 +34,16 @@ public class DTO {
 		return pageSize;
 	}
 
+
+
 	/**
 	 * @param pageSize the pageSize to set
 	 */
 	public void setPageSize(int pageSize) {
 		this.pageSize = pageSize;
 	}
+
+
 
 	/**
 	 * @return the pageNo
@@ -39,12 +52,16 @@ public class DTO {
 		return pageNo;
 	}
 
+
+
 	/**
 	 * @param pageNo the pageNo to set
 	 */
 	public void setPageNo(int pageNo) {
 		this.pageNo = pageNo;
 	}
+
+
 
 	/**
 	 * @return the no
@@ -74,9 +91,12 @@ public class DTO {
 		this.totalCnt = totalCnt;
 	}
 
+
+
 	@Override
 	public String toString() {
 		return "DTO [no=" + no + ", totalCnt=" + totalCnt + ", pageSize=" + pageSize + ", pageNo=" + pageNo + "]";
 	}
+
 
 }
