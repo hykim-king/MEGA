@@ -4,7 +4,7 @@
 
 
 <!-- 전체조회 -->
-<select id="doRetrieve" parameterType="FoodDTO" resultType="FoodDTO">
+<select id="doRetrieve" parameterType="SearchDTO" resultType="FoodDTO">
 
         SELECT A.*, B.*
         FROM (
@@ -82,6 +82,22 @@
 </insert>
 
 
+<!-- 다건등록 -->
+<insert id="saveAll">
+    INSERT INTO food                                        
+     SELECT '김치볶음밥' || level AS food_name,                     
+            200 AS st_grams,                          
+            40  AS cal,                    
+            10  AS carb,                       
+            10  AS fat,                   
+            30  AS prot,   
+            4   AS na                                               
+       FROM dual                        
+     <![CDATA[ CONNECT BY LEVEL <=502  ]]>                                   
+
+</insert>
+
+
 <!-- 수정(관리자 전용) -->
 <update id="doUpdate" parameterType="FoodDTO">
 
@@ -109,5 +125,11 @@
 <select id="getCount" resultType="java.lang.Integer">
         SELECT count(*) totalCnt from food
 </select>
+
+
+<!-- 전체삭제 -->
+<delete id="deleteAll">
+        DELETE FROM food
+</delete>
 
 </mapper>
