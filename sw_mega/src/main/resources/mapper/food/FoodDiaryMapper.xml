@@ -35,7 +35,7 @@
 <insert id="doSave" parameterType="FoodDiaryDTO">
 
     INSERT INTO food_diary (
-        FD_SEQ NEXTVAL,
+        FD_SEQ.NEXTVAL,
         user_id,
         food_name,
         grams,
