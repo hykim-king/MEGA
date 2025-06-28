@@ -2,92 +2,118 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.pcwk.ehr.mypage.mapper.ExerciseMapper">
 
-    <sql id="userWhere">
-    <where>
-                <if test="searchDiv != ''">
-                    <choose>
-                        <when test="searchDiv == '10'">
-                            AND exercise_name LIKE '%' || #{searchWord} || '%'
-                        </when>
-                        <when test="searchDiv == '20'">
-                            AND region LIKE '%' || #{searchWord} || '%'
-                        </when>
-                    </choose>
-                </if>
-            </where>
-    </sql>
+	<sql id="userWhere">
+		<where>
+			<if test="searchDiv != ''">
+				<choose>
+					<when test="searchDiv == '10'">
+						AND exercise_name LIKE '%' || #{searchWord} || '%'
+					</when>
+					<when test="searchDiv == '20'">
+						AND region LIKE '%' || #{searchWord} || '%'
+					</when>
+				</choose>
+			</if>
+		</where>
+	</sql>
 
 
-<!-- 전체 조회 + 페이징 -->
-<select id="doRetrieve" parameterType="ExerciseDTO" resultType="ExerciseDTO">
-    SELECT *
-    FROM (
-        SELECT ROWNUM AS rnum, e.*
-        FROM (
-            SELECT *
-            FROM exercise
-            <include refid="userWhere"></include>   
-            
-            ORDER BY e_code DESC
-        ) e
+	<!-- 전체 조회 + 페이징 -->
+	<select id="doRetrieve" parameterType="searchDTO"
+		resultType="ExerciseDTO">
+		SELECT *
+		FROM (
+		SELECT ROWNUM AS rnum, e.*
+		FROM (
+		SELECT *
+		FROM exercise
+		<include refid="userWhere"></include>
+
+		ORDER BY e_code DESC
+		) e
          <![CDATA[
         WHERE ROWNUM <= #{pageSize} * (#{pageNo} - 1) + #{pageSize}
     )
     WHERE rnum >= #{pageSize} * (#{pageNo} - 1) + 1
        ]]>
-</select>
+	</select>
 
 
-<!-- 단건조회 -->
-<select id="doSelectOne" parameterType="ExerciseDTO" resultType="ExerciseDTO">
-    SELECT *
-    FROM exercise
-    WHERE e_code = #{eCode}
-</select>
+	<!-- 단건조회 -->
+	<select id="doSelectOne" parameterType="ExerciseDTO" resultType="ExerciseDTO">
+		SELECT *
+		FROM exercise
+		WHERE e_code = #{eCode}
+	</select>
 
 
- <!-- 등록 -->
-<insert id="doSave" parameterType="ExerciseDTO">
-    INSERT INTO exercise (
-        E_SEQ NEXTVAL, 
-        exercise_name, 
-        exercise_type, 
-        region, 
-        gender,
-        weight, 
-        cal_burn
-    )
-    VALUES (
-        #{eCode}, #{exerciseName}, #{exerciseType}, #{region}, #{gender},
-        #{weight}, #{calBurn}
-    )
-</insert>
+	<!-- 등록 -->
+	<insert id="doSave" parameterType="ExerciseDTO">
+		INSERT INTO exercise (
+			e_code,
+			exercise_name,
+			exercise_type,
+			region,
+			gender,
+			weight,
+			cal_burn
+		)
+		VALUES (
+			E_SEQ.NEXTVAL, 
+			#{exerciseName}, 
+			#{exerciseType}, 
+			#{region, jdbcType=VARCHAR}, 
+			#{gender, jdbcType=VARCHAR},
+			#{weight, jdbcType=INTEGER}, 
+			#{calBurn}
+		)
+	</insert>
+
+	<!-- 다건등록 -->
+	<insert id="saveAll">
+		INSERT INTO exercise
+		SELECT e_seq.NEXTVAL AS eCode,
+		DECODE(MOD(LEVEL, 2), 0, '달리기', '벤치프레스') || LEVEL AS exerciseName,
+		DECODE(MOD(LEVEL, 2), 0, '유산소', '근력') AS exerciseType,
+		DECODE(MOD(LEVEL, 2), 0, '가슴', '하체') AS region,
+		'남성' AS gender,
+		50 AS weight,
+		100 AS calBurn
+		FROM dual                        
+     <![CDATA[ CONNECT BY LEVEL <=502  ]]>
+
+	</insert>
 
 
-<!-- 수정 -->
-<update id="doUpdate" parameterType="ExerciseDTO">
-    UPDATE exercise
-    SET
-        exercise_name = #{exerciseName},
-        exercise_type = #{exerciseType},
-        region = #{region},
-        gender = #{gender},
-        weight = #{weight},
-        cal_burn = #{calBurn}
-    WHERE e_code = #{eCode}
-</update>
+	<!-- 수정(관리자 전용) -->
+	<update id="doUpdate" parameterType="ExerciseDTO">
+		UPDATE exercise
+		SET
+		exercise_name = #{exerciseName},
+		exercise_type = #{exerciseType},
+		region = #{region},
+		gender = #{gender},
+		weight = #{weight},
+		cal_burn = #{calBurn}
+		WHERE e_code = #{eCode}
+	</update>
 
 
-<!-- 삭제 -->
-<delete id="doDelete" parameterType="ExerciseDTO">
-    DELETE FROM exercise
-    WHERE e_code = #{eCode}
-</delete>
+	<!-- 삭제(관리자 전용) -->
+	<delete id="doDelete" parameterType="ExerciseDTO">
+		DELETE FROM exercise
+		WHERE e_code = #{eCode}
+	</delete>
 
 
-<!-- 카운트 세기 -->
-<select id="getCount" resultType="java.lang.Integer">
-        SELECT count(*) totalCnt from exercise
-</select>
+	<!-- 카운트 세기 -->
+	<select id="getCount" resultType="java.lang.Integer">
+		SELECT count(*) totalCnt from exercise
+	</select>
+
+	<!-- 전체삭제 -->
+	<delete id="deleteAll">
+		DELETE FROM exercise
+	</delete>
 
 </mapper>

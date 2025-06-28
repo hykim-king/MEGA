@@ -7,8 +7,8 @@ public class ExerciseDTO {
 	private String exerciseType; //운동타입
 	private String region; //운동부위
 	private String gender; //성별
-	private int weight; //기준체중
-	private int calBurn; //소모칼로리
+	private Integer  weight; //기준체중
+	private int  calBurn; //소모칼로리
 	
 	public ExerciseDTO() {
 		// TODO Auto-generated constructor stub
@@ -23,10 +23,8 @@ public class ExerciseDTO {
 	 * @param weight
 	 * @param calBurn
 	 */
-	public ExerciseDTO(String eCode, String exerciseName, String exerciseType, String region, String gender, int weight,
+	public ExerciseDTO(String exerciseName, String exerciseType, String region, String gender, Integer weight,
 			int calBurn) {
-		super();
-		this.eCode = eCode;
 		this.exerciseName = exerciseName;
 		this.exerciseType = exerciseType;
 		this.region = region;
@@ -108,14 +106,14 @@ public class ExerciseDTO {
 	/**
 	 * @return the weight
 	 */
-	public int getWeight() {
+	public Integer getWeight() {
 		return weight;
 	}
 
 	/**
 	 * @param weight the weight to set
 	 */
-	public void setWeight(int weight) {
+	public void setWeight(Integer weight) {
 		this.weight = weight;
 	}
 
