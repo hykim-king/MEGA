@@ -2910,3 +2910,924 @@ Caused by: org.xml.sax.SAXParseException: 요소 유형 "select"과(와) 연관�
 [2025-06-28 18:21:45] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - └─────────────────────────────────────────────────────────┘
 [2025-06-28 18:21:45] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
 [2025-06-28 18:21:46] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+[2025-06-28 22:23:22] [INFO ] org.springframework.test.context.support.DefaultTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+[2025-06-28 22:23:22] [INFO ] org.springframework.test.context.support.DefaultTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@5c669da8, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@31920ade, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@1d483de4, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@4032d386, org.springframework.test.context.support.DirtiesContextTestExecutionListener@28d18df5, org.springframework.test.context.transaction.TransactionalTestExecutionListener@934b6cb, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@55cf0d14, org.springframework.test.context.event.EventPublishingTestExecutionListener@3b74ac8]
+[2025-06-28 22:23:24] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-28 22:23:24] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - │ setUp()                                                 │
+[2025-06-28 22:23:24] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-28 22:23:24] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - org.springframework.context.support.GenericApplicationContext@488d1cd7, started on Sat Jun 28 22:23:23 KST 2025
+[2025-06-28 22:23:24] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-28 22:23:24] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - │ tearDown()                                              │
+[2025-06-28 22:23:24] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-28 22:23:24] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-28 22:23:24] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - │ setUp()                                                 │
+[2025-06-28 22:23:24] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-28 22:23:24] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-28 22:23:24] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - │ doSelectOne()                                           │
+[2025-06-28 22:23:24] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-28 22:23:24] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+[2025-06-28 22:23:24] [WARN ] com.zaxxer.hikari.util.DriverDataSource - Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+[2025-06-28 22:23:25] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+[2025-06-28 22:23:25] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.deleteAll - ==>  Preparing: DELETE FROM exercise
+[2025-06-28 22:23:25] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.deleteAll - ==> Parameters: 
+[2025-06-28 22:23:25] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.deleteAll - <==    Updates: 3
+[2025-06-28 22:23:25] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - ==>  Preparing: INSERT INTO exercise ( e_code, exercise_name, exercise_type, region, gender, weight, cal_burn ) VALUES ( E_SEQ.NEXTVAL, ?, ?, ?, ?, ?, ? )
+[2025-06-28 22:23:25] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - ==> Parameters: 달리기(String), 유산소(String), null, 남성(String), 70(Integer), 150(Integer)
+[2025-06-28 22:23:25] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - <==    Updates: 1
+[2025-06-28 22:23:25] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - ==>  Preparing: INSERT INTO exercise ( e_code, exercise_name, exercise_type, region, gender, weight, cal_burn ) VALUES ( E_SEQ.NEXTVAL, ?, ?, ?, ?, ?, ? )
+[2025-06-28 22:23:25] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - ==> Parameters: 벤치프레스(String), 근력(String), 가슴(String), null, null, 100(Integer)
+[2025-06-28 22:23:25] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - <==    Updates: 1
+[2025-06-28 22:23:25] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - ==>  Preparing: INSERT INTO exercise ( e_code, exercise_name, exercise_type, region, gender, weight, cal_burn ) VALUES ( E_SEQ.NEXTVAL, ?, ?, ?, ?, ?, ? )
+[2025-06-28 22:23:25] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - ==> Parameters: 달리기(String), 유산소(String), null, 여성(String), 45(Integer), 100(Integer)
+[2025-06-28 22:23:25] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - <==    Updates: 1
+[2025-06-28 22:23:25] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.getCount - ==>  Preparing: SELECT count(*) totalCnt from exercise
+[2025-06-28 22:23:25] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.getCount - ==> Parameters: 
+[2025-06-28 22:23:25] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.getCount - <==      Total: 1
+[2025-06-28 22:23:25] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - 3
+[2025-06-28 22:23:25] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doRetrieve - ==>  Preparing: SELECT * FROM ( SELECT ROWNUM AS rnum, e.* FROM ( SELECT * FROM exercise WHERE region LIKE '%' || ? || '%' ORDER BY e_code DESC ) e WHERE ROWNUM <= ? * (? - 1) + ? ) WHERE rnum >= ? * (? - 1) + 1
+[2025-06-28 22:23:25] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doRetrieve - ==> Parameters: 유산소(String), 10(Integer), 1(Integer), 10(Integer), 10(Integer), 1(Integer)
+[2025-06-28 22:23:25] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doRetrieve - <==      Total: 0
+[2025-06-28 22:23:25] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-28 22:23:25] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - │ tearDown()                                              │
+[2025-06-28 22:23:25] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-28 22:23:25] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+[2025-06-28 22:23:25] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+[2025-06-28 22:24:10] [INFO ] org.springframework.test.context.support.DefaultTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+[2025-06-28 22:24:10] [INFO ] org.springframework.test.context.support.DefaultTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@5c669da8, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@31920ade, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@1d483de4, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@4032d386, org.springframework.test.context.support.DirtiesContextTestExecutionListener@28d18df5, org.springframework.test.context.transaction.TransactionalTestExecutionListener@934b6cb, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@55cf0d14, org.springframework.test.context.event.EventPublishingTestExecutionListener@3b74ac8]
+[2025-06-28 22:24:11] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-28 22:24:11] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - │ setUp()                                                 │
+[2025-06-28 22:24:11] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-28 22:24:11] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - org.springframework.context.support.GenericApplicationContext@488d1cd7, started on Sat Jun 28 22:24:10 KST 2025
+[2025-06-28 22:24:11] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-28 22:24:11] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - │ tearDown()                                              │
+[2025-06-28 22:24:11] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-28 22:24:11] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-28 22:24:11] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - │ setUp()                                                 │
+[2025-06-28 22:24:11] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-28 22:24:11] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-28 22:24:11] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - │ doSelectOne()                                           │
+[2025-06-28 22:24:11] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-28 22:24:11] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+[2025-06-28 22:24:11] [WARN ] com.zaxxer.hikari.util.DriverDataSource - Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+[2025-06-28 22:24:12] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+[2025-06-28 22:24:12] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.deleteAll - ==>  Preparing: DELETE FROM exercise
+[2025-06-28 22:24:12] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.deleteAll - ==> Parameters: 
+[2025-06-28 22:24:12] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.deleteAll - <==    Updates: 3
+[2025-06-28 22:24:12] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - ==>  Preparing: INSERT INTO exercise ( e_code, exercise_name, exercise_type, region, gender, weight, cal_burn ) VALUES ( E_SEQ.NEXTVAL, ?, ?, ?, ?, ?, ? )
+[2025-06-28 22:24:12] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - ==> Parameters: 달리기(String), 유산소(String), null, 남성(String), 70(Integer), 150(Integer)
+[2025-06-28 22:24:12] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - <==    Updates: 1
+[2025-06-28 22:24:12] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - ==>  Preparing: INSERT INTO exercise ( e_code, exercise_name, exercise_type, region, gender, weight, cal_burn ) VALUES ( E_SEQ.NEXTVAL, ?, ?, ?, ?, ?, ? )
+[2025-06-28 22:24:12] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - ==> Parameters: 벤치프레스(String), 근력(String), 가슴(String), null, null, 100(Integer)
+[2025-06-28 22:24:12] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - <==    Updates: 1
+[2025-06-28 22:24:12] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - ==>  Preparing: INSERT INTO exercise ( e_code, exercise_name, exercise_type, region, gender, weight, cal_burn ) VALUES ( E_SEQ.NEXTVAL, ?, ?, ?, ?, ?, ? )
+[2025-06-28 22:24:12] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - ==> Parameters: 달리기(String), 유산소(String), null, 여성(String), 45(Integer), 100(Integer)
+[2025-06-28 22:24:12] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - <==    Updates: 1
+[2025-06-28 22:24:12] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.getCount - ==>  Preparing: SELECT count(*) totalCnt from exercise
+[2025-06-28 22:24:12] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.getCount - ==> Parameters: 
+[2025-06-28 22:24:12] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.getCount - <==      Total: 1
+[2025-06-28 22:24:12] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - 3
+[2025-06-28 22:24:12] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doRetrieve - ==>  Preparing: SELECT * FROM ( SELECT ROWNUM AS rnum, e.* FROM ( SELECT * FROM exercise WHERE exercise_name LIKE '%' || ? || '%' ORDER BY e_code DESC ) e WHERE ROWNUM <= ? * (? - 1) + ? ) WHERE rnum >= ? * (? - 1) + 1
+[2025-06-28 22:24:12] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doRetrieve - ==> Parameters: 달리기(String), 10(Integer), 1(Integer), 10(Integer), 10(Integer), 1(Integer)
+[2025-06-28 22:24:12] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doRetrieve - <==      Total: 2
+[2025-06-28 22:24:12] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ExerciseDTO [eCode=7153, exerciseName=달리기, exerciseType=유산소, region=null, gender=여성, weight=45, calBurn=100]
+[2025-06-28 22:24:12] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ExerciseDTO [eCode=7151, exerciseName=달리기, exerciseType=유산소, region=null, gender=남성, weight=70, calBurn=150]
+[2025-06-28 22:24:12] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-28 22:24:12] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - │ tearDown()                                              │
+[2025-06-28 22:24:12] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-28 22:24:12] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+[2025-06-28 22:24:12] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+[2025-06-28 22:27:32] [INFO ] org.springframework.test.context.support.DefaultTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+[2025-06-28 22:27:32] [INFO ] org.springframework.test.context.support.DefaultTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@5c669da8, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@31920ade, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@1d483de4, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@4032d386, org.springframework.test.context.support.DirtiesContextTestExecutionListener@28d18df5, org.springframework.test.context.transaction.TransactionalTestExecutionListener@934b6cb, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@55cf0d14, org.springframework.test.context.event.EventPublishingTestExecutionListener@3b74ac8]
+[2025-06-28 22:27:33] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-28 22:27:33] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - │ setUp()                                                 │
+[2025-06-28 22:27:33] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-28 22:27:33] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - org.springframework.context.support.GenericApplicationContext@488d1cd7, started on Sat Jun 28 22:27:32 KST 2025
+[2025-06-28 22:27:33] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-28 22:27:33] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - │ tearDown()                                              │
+[2025-06-28 22:27:33] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-28 22:27:33] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-28 22:27:33] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - │ setUp()                                                 │
+[2025-06-28 22:27:33] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-28 22:27:33] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-28 22:27:33] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - │ doSelectOne()                                           │
+[2025-06-28 22:27:33] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-28 22:27:33] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+[2025-06-28 22:27:33] [WARN ] com.zaxxer.hikari.util.DriverDataSource - Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+[2025-06-28 22:27:34] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+[2025-06-28 22:27:34] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.deleteAll - ==>  Preparing: DELETE FROM exercise
+[2025-06-28 22:27:34] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.deleteAll - ==> Parameters: 
+[2025-06-28 22:27:34] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.deleteAll - <==    Updates: 3
+[2025-06-28 22:27:34] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - ==>  Preparing: INSERT INTO exercise ( e_code, exercise_name, exercise_type, region, gender, weight, cal_burn ) VALUES ( E_SEQ.NEXTVAL, ?, ?, ?, ?, ?, ? )
+[2025-06-28 22:27:34] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - ==> Parameters: 달리기(String), 유산소(String), null, 남성(String), 70(Integer), 150(Integer)
+[2025-06-28 22:27:34] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - <==    Updates: 1
+[2025-06-28 22:27:34] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - ==>  Preparing: INSERT INTO exercise ( e_code, exercise_name, exercise_type, region, gender, weight, cal_burn ) VALUES ( E_SEQ.NEXTVAL, ?, ?, ?, ?, ?, ? )
+[2025-06-28 22:27:34] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - ==> Parameters: 벤치프레스(String), 근력(String), 가슴(String), null, null, 100(Integer)
+[2025-06-28 22:27:34] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - <==    Updates: 1
+[2025-06-28 22:27:34] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - ==>  Preparing: INSERT INTO exercise ( e_code, exercise_name, exercise_type, region, gender, weight, cal_burn ) VALUES ( E_SEQ.NEXTVAL, ?, ?, ?, ?, ?, ? )
+[2025-06-28 22:27:34] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - ==> Parameters: 달리기(String), 유산소(String), null, 여성(String), 45(Integer), 100(Integer)
+[2025-06-28 22:27:34] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - <==    Updates: 1
+[2025-06-28 22:27:34] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.getCount - ==>  Preparing: SELECT count(*) totalCnt from exercise
+[2025-06-28 22:27:34] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.getCount - ==> Parameters: 
+[2025-06-28 22:27:34] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.getCount - <==      Total: 1
+[2025-06-28 22:27:34] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - 3
+[2025-06-28 22:27:34] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doRetrieve - ==>  Preparing: SELECT * FROM ( SELECT ROWNUM AS rnum, e.* FROM ( SELECT * FROM exercise WHERE exercise_name LIKE '%' || ? || '%' ORDER BY e_code DESC ) e WHERE ROWNUM <= ? * (? - 1) + ? ) WHERE rnum >= ? * (? - 1) + 1
+[2025-06-28 22:27:34] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doRetrieve - ==> Parameters: 달리기(String), 10(Integer), 1(Integer), 10(Integer), 10(Integer), 1(Integer)
+[2025-06-28 22:27:34] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doRetrieve - <==      Total: 2
+[2025-06-28 22:27:34] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ExerciseDTO [eCode=7156, exerciseName=달리기, exerciseType=유산소, region=null, gender=여성, weight=45, calBurn=100]
+[2025-06-28 22:27:34] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ExerciseDTO [eCode=7154, exerciseName=달리기, exerciseType=유산소, region=null, gender=남성, weight=70, calBurn=150]
+[2025-06-28 22:27:34] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - 7156
+[2025-06-28 22:27:34] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-28 22:27:34] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - │ tearDown()                                              │
+[2025-06-28 22:27:34] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-28 22:27:34] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+[2025-06-28 22:27:34] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+[2025-06-28 22:30:24] [INFO ] org.springframework.test.context.support.DefaultTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+[2025-06-28 22:30:24] [INFO ] org.springframework.test.context.support.DefaultTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@5c669da8, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@31920ade, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@1d483de4, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@4032d386, org.springframework.test.context.support.DirtiesContextTestExecutionListener@28d18df5, org.springframework.test.context.transaction.TransactionalTestExecutionListener@934b6cb, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@55cf0d14, org.springframework.test.context.event.EventPublishingTestExecutionListener@3b74ac8]
+[2025-06-28 22:30:26] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-28 22:30:26] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - │ setUp()                                                 │
+[2025-06-28 22:30:26] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-28 22:30:26] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - org.springframework.context.support.GenericApplicationContext@488d1cd7, started on Sat Jun 28 22:30:24 KST 2025
+[2025-06-28 22:30:26] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-28 22:30:26] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - │ tearDown()                                              │
+[2025-06-28 22:30:26] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-28 22:30:26] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-28 22:30:26] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - │ setUp()                                                 │
+[2025-06-28 22:30:26] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-28 22:30:26] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-28 22:30:26] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - │ doSelectOne()                                           │
+[2025-06-28 22:30:26] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-28 22:30:26] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+[2025-06-28 22:30:26] [WARN ] com.zaxxer.hikari.util.DriverDataSource - Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+[2025-06-28 22:30:27] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+[2025-06-28 22:30:27] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.deleteAll - ==>  Preparing: DELETE FROM exercise
+[2025-06-28 22:30:27] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.deleteAll - ==> Parameters: 
+[2025-06-28 22:30:27] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.deleteAll - <==    Updates: 3
+[2025-06-28 22:30:27] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - ==>  Preparing: INSERT INTO exercise ( e_code, exercise_name, exercise_type, region, gender, weight, cal_burn ) VALUES ( E_SEQ.NEXTVAL, ?, ?, ?, ?, ?, ? )
+[2025-06-28 22:30:27] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - ==> Parameters: 달리기(String), 유산소(String), null, 남성(String), 70(Integer), 150(Integer)
+[2025-06-28 22:30:27] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - <==    Updates: 1
+[2025-06-28 22:30:27] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - ==>  Preparing: INSERT INTO exercise ( e_code, exercise_name, exercise_type, region, gender, weight, cal_burn ) VALUES ( E_SEQ.NEXTVAL, ?, ?, ?, ?, ?, ? )
+[2025-06-28 22:30:27] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - ==> Parameters: 벤치프레스(String), 근력(String), 가슴(String), null, null, 100(Integer)
+[2025-06-28 22:30:27] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - <==    Updates: 1
+[2025-06-28 22:30:27] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - ==>  Preparing: INSERT INTO exercise ( e_code, exercise_name, exercise_type, region, gender, weight, cal_burn ) VALUES ( E_SEQ.NEXTVAL, ?, ?, ?, ?, ?, ? )
+[2025-06-28 22:30:27] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - ==> Parameters: 달리기(String), 유산소(String), null, 여성(String), 45(Integer), 100(Integer)
+[2025-06-28 22:30:27] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - <==    Updates: 1
+[2025-06-28 22:30:27] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.getCount - ==>  Preparing: SELECT count(*) totalCnt from exercise
+[2025-06-28 22:30:27] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.getCount - ==> Parameters: 
+[2025-06-28 22:30:27] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.getCount - <==      Total: 1
+[2025-06-28 22:30:27] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - 3
+[2025-06-28 22:30:27] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doRetrieve - ==>  Preparing: SELECT * FROM ( SELECT ROWNUM AS rnum, e.* FROM ( SELECT * FROM exercise WHERE exercise_name LIKE '%' || ? || '%' ORDER BY e_code DESC ) e WHERE ROWNUM <= ? * (? - 1) + ? ) WHERE rnum >= ? * (? - 1) + 1
+[2025-06-28 22:30:27] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doRetrieve - ==> Parameters: 달리기(String), 10(Integer), 1(Integer), 10(Integer), 10(Integer), 1(Integer)
+[2025-06-28 22:30:27] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doRetrieve - <==      Total: 2
+[2025-06-28 22:30:27] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ExerciseDTO [eCode=7159, exerciseName=달리기, exerciseType=유산소, region=null, gender=여성, weight=45, calBurn=100]
+[2025-06-28 22:30:27] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ExerciseDTO [eCode=7157, exerciseName=달리기, exerciseType=유산소, region=null, gender=남성, weight=70, calBurn=150]
+[2025-06-28 22:30:27] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - 7159
+[2025-06-28 22:30:27] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doUpdate - ==>  Preparing: UPDATE exercise SET exercise_name = ?, exercise_type = ?, region = ?, gender = ?, weight = ?, cal_burn = ? WHERE e_code = ?
+[2025-06-28 22:30:27] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-28 22:30:27] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - │ tearDown()                                              │
+[2025-06-28 22:30:27] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-28 22:30:27] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+[2025-06-28 22:30:27] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+[2025-06-28 22:32:06] [INFO ] org.springframework.test.context.support.DefaultTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+[2025-06-28 22:32:06] [INFO ] org.springframework.test.context.support.DefaultTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@5c669da8, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@31920ade, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@1d483de4, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@4032d386, org.springframework.test.context.support.DirtiesContextTestExecutionListener@28d18df5, org.springframework.test.context.transaction.TransactionalTestExecutionListener@934b6cb, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@55cf0d14, org.springframework.test.context.event.EventPublishingTestExecutionListener@3b74ac8]
+[2025-06-28 22:32:07] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-28 22:32:07] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - │ setUp()                                                 │
+[2025-06-28 22:32:07] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-28 22:32:07] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - org.springframework.context.support.GenericApplicationContext@488d1cd7, started on Sat Jun 28 22:32:06 KST 2025
+[2025-06-28 22:32:07] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-28 22:32:07] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - │ tearDown()                                              │
+[2025-06-28 22:32:07] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-28 22:32:07] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-28 22:32:07] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - │ setUp()                                                 │
+[2025-06-28 22:32:07] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-28 22:32:07] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-28 22:32:07] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - │ doSelectOne()                                           │
+[2025-06-28 22:32:07] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-28 22:32:07] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+[2025-06-28 22:32:07] [WARN ] com.zaxxer.hikari.util.DriverDataSource - Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+[2025-06-28 22:32:08] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+[2025-06-28 22:32:08] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.deleteAll - ==>  Preparing: DELETE FROM exercise
+[2025-06-28 22:32:08] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.deleteAll - ==> Parameters: 
+[2025-06-28 22:32:08] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.deleteAll - <==    Updates: 3
+[2025-06-28 22:32:08] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - ==>  Preparing: INSERT INTO exercise ( e_code, exercise_name, exercise_type, region, gender, weight, cal_burn ) VALUES ( E_SEQ.NEXTVAL, ?, ?, ?, ?, ?, ? )
+[2025-06-28 22:32:08] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - ==> Parameters: 달리기(String), 유산소(String), null, 남성(String), 70(Integer), 150(Integer)
+[2025-06-28 22:32:08] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - <==    Updates: 1
+[2025-06-28 22:32:08] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - ==>  Preparing: INSERT INTO exercise ( e_code, exercise_name, exercise_type, region, gender, weight, cal_burn ) VALUES ( E_SEQ.NEXTVAL, ?, ?, ?, ?, ?, ? )
+[2025-06-28 22:32:08] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - ==> Parameters: 벤치프레스(String), 근력(String), 가슴(String), null, null, 100(Integer)
+[2025-06-28 22:32:08] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - <==    Updates: 1
+[2025-06-28 22:32:08] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - ==>  Preparing: INSERT INTO exercise ( e_code, exercise_name, exercise_type, region, gender, weight, cal_burn ) VALUES ( E_SEQ.NEXTVAL, ?, ?, ?, ?, ?, ? )
+[2025-06-28 22:32:08] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - ==> Parameters: 달리기(String), 유산소(String), null, 여성(String), 45(Integer), 100(Integer)
+[2025-06-28 22:32:08] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - <==    Updates: 1
+[2025-06-28 22:32:08] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.getCount - ==>  Preparing: SELECT count(*) totalCnt from exercise
+[2025-06-28 22:32:08] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.getCount - ==> Parameters: 
+[2025-06-28 22:32:08] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.getCount - <==      Total: 1
+[2025-06-28 22:32:08] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - 3
+[2025-06-28 22:32:08] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doRetrieve - ==>  Preparing: SELECT * FROM ( SELECT ROWNUM AS rnum, e.* FROM ( SELECT * FROM exercise WHERE exercise_name LIKE '%' || ? || '%' ORDER BY e_code DESC ) e WHERE ROWNUM <= ? * (? - 1) + ? ) WHERE rnum >= ? * (? - 1) + 1
+[2025-06-28 22:32:08] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doRetrieve - ==> Parameters: 달리기(String), 10(Integer), 1(Integer), 10(Integer), 10(Integer), 1(Integer)
+[2025-06-28 22:32:09] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doRetrieve - <==      Total: 2
+[2025-06-28 22:32:09] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ExerciseDTO [eCode=7162, exerciseName=달리기, exerciseType=유산소, region=null, gender=여성, weight=45, calBurn=100]
+[2025-06-28 22:32:09] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ExerciseDTO [eCode=7160, exerciseName=달리기, exerciseType=유산소, region=null, gender=남성, weight=70, calBurn=150]
+[2025-06-28 22:32:09] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ExerciseDTO [eCode=7162, exerciseName=달리기, exerciseType=유산소, region=null, gender=여성, weight=45, calBurn=100]
+[2025-06-28 22:32:09] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-28 22:32:09] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - │ tearDown()                                              │
+[2025-06-28 22:32:09] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-28 22:32:09] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+[2025-06-28 22:32:09] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+[2025-06-28 22:32:40] [INFO ] org.springframework.test.context.support.DefaultTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+[2025-06-28 22:32:40] [INFO ] org.springframework.test.context.support.DefaultTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@5c669da8, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@31920ade, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@1d483de4, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@4032d386, org.springframework.test.context.support.DirtiesContextTestExecutionListener@28d18df5, org.springframework.test.context.transaction.TransactionalTestExecutionListener@934b6cb, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@55cf0d14, org.springframework.test.context.event.EventPublishingTestExecutionListener@3b74ac8]
+[2025-06-28 22:32:41] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-28 22:32:41] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - │ setUp()                                                 │
+[2025-06-28 22:32:41] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-28 22:32:41] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - org.springframework.context.support.GenericApplicationContext@488d1cd7, started on Sat Jun 28 22:32:40 KST 2025
+[2025-06-28 22:32:41] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-28 22:32:41] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - │ tearDown()                                              │
+[2025-06-28 22:32:41] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-28 22:32:41] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-28 22:32:41] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - │ setUp()                                                 │
+[2025-06-28 22:32:41] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-28 22:32:41] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-28 22:32:41] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - │ doSelectOne()                                           │
+[2025-06-28 22:32:41] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-28 22:32:41] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+[2025-06-28 22:32:41] [WARN ] com.zaxxer.hikari.util.DriverDataSource - Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+[2025-06-28 22:32:42] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+[2025-06-28 22:32:42] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.deleteAll - ==>  Preparing: DELETE FROM exercise
+[2025-06-28 22:32:42] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.deleteAll - ==> Parameters: 
+[2025-06-28 22:32:42] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.deleteAll - <==    Updates: 3
+[2025-06-28 22:32:42] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - ==>  Preparing: INSERT INTO exercise ( e_code, exercise_name, exercise_type, region, gender, weight, cal_burn ) VALUES ( E_SEQ.NEXTVAL, ?, ?, ?, ?, ?, ? )
+[2025-06-28 22:32:42] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - ==> Parameters: 달리기(String), 유산소(String), null, 남성(String), 70(Integer), 150(Integer)
+[2025-06-28 22:32:42] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - <==    Updates: 1
+[2025-06-28 22:32:42] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - ==>  Preparing: INSERT INTO exercise ( e_code, exercise_name, exercise_type, region, gender, weight, cal_burn ) VALUES ( E_SEQ.NEXTVAL, ?, ?, ?, ?, ?, ? )
+[2025-06-28 22:32:42] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - ==> Parameters: 벤치프레스(String), 근력(String), 가슴(String), null, null, 100(Integer)
+[2025-06-28 22:32:42] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - <==    Updates: 1
+[2025-06-28 22:32:42] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - ==>  Preparing: INSERT INTO exercise ( e_code, exercise_name, exercise_type, region, gender, weight, cal_burn ) VALUES ( E_SEQ.NEXTVAL, ?, ?, ?, ?, ?, ? )
+[2025-06-28 22:32:42] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - ==> Parameters: 달리기(String), 유산소(String), null, 여성(String), 45(Integer), 100(Integer)
+[2025-06-28 22:32:42] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - <==    Updates: 1
+[2025-06-28 22:32:42] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.getCount - ==>  Preparing: SELECT count(*) totalCnt from exercise
+[2025-06-28 22:32:42] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.getCount - ==> Parameters: 
+[2025-06-28 22:32:42] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.getCount - <==      Total: 1
+[2025-06-28 22:32:42] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - 3
+[2025-06-28 22:32:42] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doRetrieve - ==>  Preparing: SELECT * FROM ( SELECT ROWNUM AS rnum, e.* FROM ( SELECT * FROM exercise WHERE exercise_name LIKE '%' || ? || '%' ORDER BY e_code DESC ) e WHERE ROWNUM <= ? * (? - 1) + ? ) WHERE rnum >= ? * (? - 1) + 1
+[2025-06-28 22:32:42] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doRetrieve - ==> Parameters: 달리기(String), 10(Integer), 1(Integer), 10(Integer), 10(Integer), 1(Integer)
+[2025-06-28 22:32:42] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doRetrieve - <==      Total: 2
+[2025-06-28 22:32:42] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ExerciseDTO [eCode=7165, exerciseName=달리기, exerciseType=유산소, region=null, gender=여성, weight=45, calBurn=100]
+[2025-06-28 22:32:42] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ExerciseDTO [eCode=7163, exerciseName=달리기, exerciseType=유산소, region=null, gender=남성, weight=70, calBurn=150]
+[2025-06-28 22:32:42] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - inVO: ExerciseDTO [eCode=7165, exerciseName=달리기, exerciseType=유산소, region=null, gender=여성, weight=45, calBurn=100]
+[2025-06-28 22:32:42] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-28 22:32:42] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - │ tearDown()                                              │
+[2025-06-28 22:32:42] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-28 22:32:42] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+[2025-06-28 22:32:42] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+[2025-06-28 22:33:43] [INFO ] org.springframework.test.context.support.DefaultTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+[2025-06-28 22:33:43] [INFO ] org.springframework.test.context.support.DefaultTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@5c669da8, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@31920ade, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@1d483de4, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@4032d386, org.springframework.test.context.support.DirtiesContextTestExecutionListener@28d18df5, org.springframework.test.context.transaction.TransactionalTestExecutionListener@934b6cb, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@55cf0d14, org.springframework.test.context.event.EventPublishingTestExecutionListener@3b74ac8]
+[2025-06-28 22:33:45] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-28 22:33:45] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - │ setUp()                                                 │
+[2025-06-28 22:33:45] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-28 22:33:45] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - org.springframework.context.support.GenericApplicationContext@488d1cd7, started on Sat Jun 28 22:33:44 KST 2025
+[2025-06-28 22:33:45] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-28 22:33:45] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - │ tearDown()                                              │
+[2025-06-28 22:33:45] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-28 22:33:45] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-28 22:33:45] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - │ setUp()                                                 │
+[2025-06-28 22:33:45] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-28 22:33:45] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-28 22:33:45] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - │ doSelectOne()                                           │
+[2025-06-28 22:33:45] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-28 22:33:45] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+[2025-06-28 22:33:45] [WARN ] com.zaxxer.hikari.util.DriverDataSource - Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+[2025-06-28 22:33:46] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+[2025-06-28 22:33:46] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.deleteAll - ==>  Preparing: DELETE FROM exercise
+[2025-06-28 22:33:46] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.deleteAll - ==> Parameters: 
+[2025-06-28 22:33:46] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.deleteAll - <==    Updates: 3
+[2025-06-28 22:33:46] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - ==>  Preparing: INSERT INTO exercise ( e_code, exercise_name, exercise_type, region, gender, weight, cal_burn ) VALUES ( E_SEQ.NEXTVAL, ?, ?, ?, ?, ?, ? )
+[2025-06-28 22:33:46] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - ==> Parameters: 달리기(String), 유산소(String), null, 남성(String), 70(Integer), 150(Integer)
+[2025-06-28 22:33:46] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - <==    Updates: 1
+[2025-06-28 22:33:46] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - ==>  Preparing: INSERT INTO exercise ( e_code, exercise_name, exercise_type, region, gender, weight, cal_burn ) VALUES ( E_SEQ.NEXTVAL, ?, ?, ?, ?, ?, ? )
+[2025-06-28 22:33:46] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - ==> Parameters: 벤치프레스(String), 근력(String), 가슴(String), null, null, 100(Integer)
+[2025-06-28 22:33:46] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - <==    Updates: 1
+[2025-06-28 22:33:46] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - ==>  Preparing: INSERT INTO exercise ( e_code, exercise_name, exercise_type, region, gender, weight, cal_burn ) VALUES ( E_SEQ.NEXTVAL, ?, ?, ?, ?, ?, ? )
+[2025-06-28 22:33:46] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - ==> Parameters: 달리기(String), 유산소(String), null, 여성(String), 45(Integer), 100(Integer)
+[2025-06-28 22:33:46] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - <==    Updates: 1
+[2025-06-28 22:33:46] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.getCount - ==>  Preparing: SELECT count(*) totalCnt from exercise
+[2025-06-28 22:33:46] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.getCount - ==> Parameters: 
+[2025-06-28 22:33:46] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.getCount - <==      Total: 1
+[2025-06-28 22:33:46] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - count: 3
+[2025-06-28 22:33:46] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doRetrieve - ==>  Preparing: SELECT * FROM ( SELECT ROWNUM AS rnum, e.* FROM ( SELECT * FROM exercise WHERE exercise_name LIKE '%' || ? || '%' ORDER BY e_code DESC ) e WHERE ROWNUM <= ? * (? - 1) + ? ) WHERE rnum >= ? * (? - 1) + 1
+[2025-06-28 22:33:46] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doRetrieve - ==> Parameters: 달리기(String), 10(Integer), 1(Integer), 10(Integer), 10(Integer), 1(Integer)
+[2025-06-28 22:33:46] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doRetrieve - <==      Total: 2
+[2025-06-28 22:33:46] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ExerciseDTO [eCode=7168, exerciseName=달리기, exerciseType=유산소, region=null, gender=여성, weight=45, calBurn=100]
+[2025-06-28 22:33:46] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ExerciseDTO [eCode=7166, exerciseName=달리기, exerciseType=유산소, region=null, gender=남성, weight=70, calBurn=150]
+[2025-06-28 22:33:46] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - 7168
+[2025-06-28 22:33:46] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSelectOne - ==>  Preparing: SELECT * FROM exercise WHERE e_code = ?
+[2025-06-28 22:33:46] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSelectOne - ==> Parameters: 7168(String)
+[2025-06-28 22:33:46] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSelectOne - <==      Total: 1
+[2025-06-28 22:33:46] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - result: ExerciseDTO [eCode=7168, exerciseName=달리기, exerciseType=유산소, region=null, gender=여성, weight=45, calBurn=100]
+[2025-06-28 22:33:46] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-28 22:33:46] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - │ tearDown()                                              │
+[2025-06-28 22:33:46] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-28 22:33:46] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+[2025-06-28 22:33:46] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+[2025-06-28 22:34:35] [INFO ] org.springframework.test.context.support.DefaultTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+[2025-06-28 22:34:35] [INFO ] org.springframework.test.context.support.DefaultTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@5c669da8, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@31920ade, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@1d483de4, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@4032d386, org.springframework.test.context.support.DirtiesContextTestExecutionListener@28d18df5, org.springframework.test.context.transaction.TransactionalTestExecutionListener@934b6cb, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@55cf0d14, org.springframework.test.context.event.EventPublishingTestExecutionListener@3b74ac8]
+[2025-06-28 22:34:37] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-28 22:34:37] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - │ setUp()                                                 │
+[2025-06-28 22:34:37] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-28 22:34:37] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - org.springframework.context.support.GenericApplicationContext@488d1cd7, started on Sat Jun 28 22:34:35 KST 2025
+[2025-06-28 22:34:37] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-28 22:34:37] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - │ tearDown()                                              │
+[2025-06-28 22:34:37] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-28 22:34:37] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-28 22:34:37] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - │ setUp()                                                 │
+[2025-06-28 22:34:37] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-28 22:34:37] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-28 22:34:37] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - │ doSelectOne()                                           │
+[2025-06-28 22:34:37] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-28 22:34:37] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+[2025-06-28 22:34:37] [WARN ] com.zaxxer.hikari.util.DriverDataSource - Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+[2025-06-28 22:34:37] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+[2025-06-28 22:34:37] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.deleteAll - ==>  Preparing: DELETE FROM exercise
+[2025-06-28 22:34:37] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.deleteAll - ==> Parameters: 
+[2025-06-28 22:34:37] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.deleteAll - <==    Updates: 3
+[2025-06-28 22:34:37] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - ==>  Preparing: INSERT INTO exercise ( e_code, exercise_name, exercise_type, region, gender, weight, cal_burn ) VALUES ( E_SEQ.NEXTVAL, ?, ?, ?, ?, ?, ? )
+[2025-06-28 22:34:37] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - ==> Parameters: 달리기(String), 유산소(String), null, 남성(String), 70(Integer), 150(Integer)
+[2025-06-28 22:34:37] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - <==    Updates: 1
+[2025-06-28 22:34:37] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - ==>  Preparing: INSERT INTO exercise ( e_code, exercise_name, exercise_type, region, gender, weight, cal_burn ) VALUES ( E_SEQ.NEXTVAL, ?, ?, ?, ?, ?, ? )
+[2025-06-28 22:34:37] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - ==> Parameters: 벤치프레스(String), 근력(String), 가슴(String), null, null, 100(Integer)
+[2025-06-28 22:34:37] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - <==    Updates: 1
+[2025-06-28 22:34:37] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - ==>  Preparing: INSERT INTO exercise ( e_code, exercise_name, exercise_type, region, gender, weight, cal_burn ) VALUES ( E_SEQ.NEXTVAL, ?, ?, ?, ?, ?, ? )
+[2025-06-28 22:34:37] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - ==> Parameters: 달리기(String), 유산소(String), null, 여성(String), 45(Integer), 100(Integer)
+[2025-06-28 22:34:37] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - <==    Updates: 1
+[2025-06-28 22:34:37] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.getCount - ==>  Preparing: SELECT count(*) totalCnt from exercise
+[2025-06-28 22:34:37] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.getCount - ==> Parameters: 
+[2025-06-28 22:34:37] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.getCount - <==      Total: 1
+[2025-06-28 22:34:37] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - count: 3
+[2025-06-28 22:34:38] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doRetrieve - ==>  Preparing: SELECT * FROM ( SELECT ROWNUM AS rnum, e.* FROM ( SELECT * FROM exercise WHERE exercise_name LIKE '%' || ? || '%' ORDER BY e_code DESC ) e WHERE ROWNUM <= ? * (? - 1) + ? ) WHERE rnum >= ? * (? - 1) + 1
+[2025-06-28 22:34:38] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doRetrieve - ==> Parameters: 달리기(String), 10(Integer), 1(Integer), 10(Integer), 10(Integer), 1(Integer)
+[2025-06-28 22:34:38] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doRetrieve - <==      Total: 2
+[2025-06-28 22:34:38] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - vo: ExerciseDTO [eCode=7171, exerciseName=달리기, exerciseType=유산소, region=null, gender=여성, weight=45, calBurn=100]
+[2025-06-28 22:34:38] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - vo: ExerciseDTO [eCode=7169, exerciseName=달리기, exerciseType=유산소, region=null, gender=남성, weight=70, calBurn=150]
+[2025-06-28 22:34:38] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - selectedCode: 7171
+[2025-06-28 22:34:38] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSelectOne - ==>  Preparing: SELECT * FROM exercise WHERE e_code = ?
+[2025-06-28 22:34:38] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSelectOne - ==> Parameters: 7171(String)
+[2025-06-28 22:34:38] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSelectOne - <==      Total: 1
+[2025-06-28 22:34:38] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - result: ExerciseDTO [eCode=7171, exerciseName=달리기, exerciseType=유산소, region=null, gender=여성, weight=45, calBurn=100]
+[2025-06-28 22:34:38] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-28 22:34:38] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - │ tearDown()                                              │
+[2025-06-28 22:34:38] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-28 22:34:38] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+[2025-06-28 22:34:38] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+[2025-06-28 22:37:23] [INFO ] org.springframework.test.context.support.DefaultTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+[2025-06-28 22:37:23] [INFO ] org.springframework.test.context.support.DefaultTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@5c669da8, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@31920ade, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@1d483de4, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@4032d386, org.springframework.test.context.support.DirtiesContextTestExecutionListener@28d18df5, org.springframework.test.context.transaction.TransactionalTestExecutionListener@934b6cb, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@55cf0d14, org.springframework.test.context.event.EventPublishingTestExecutionListener@3b74ac8]
+[2025-06-28 22:37:24] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-28 22:37:24] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - │ setUp()                                                 │
+[2025-06-28 22:37:24] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-28 22:37:24] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - org.springframework.context.support.GenericApplicationContext@488d1cd7, started on Sat Jun 28 22:37:23 KST 2025
+[2025-06-28 22:37:24] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-28 22:37:24] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - │ tearDown()                                              │
+[2025-06-28 22:37:24] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-28 22:37:24] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-28 22:37:24] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - │ setUp()                                                 │
+[2025-06-28 22:37:24] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-28 22:37:24] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-28 22:37:24] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - │ doSelectOne()                                           │
+[2025-06-28 22:37:24] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-28 22:37:24] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+[2025-06-28 22:37:24] [WARN ] com.zaxxer.hikari.util.DriverDataSource - Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+[2025-06-28 22:37:25] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+[2025-06-28 22:37:25] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.deleteAll - ==>  Preparing: DELETE FROM exercise
+[2025-06-28 22:37:25] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.deleteAll - ==> Parameters: 
+[2025-06-28 22:37:25] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.deleteAll - <==    Updates: 3
+[2025-06-28 22:37:25] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - ==>  Preparing: INSERT INTO exercise ( e_code, exercise_name, exercise_type, region, gender, weight, cal_burn ) VALUES ( E_SEQ.NEXTVAL, ?, ?, ?, ?, ?, ? )
+[2025-06-28 22:37:25] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - ==> Parameters: 달리기(String), 유산소(String), null, 남성(String), 70(Integer), 150(Integer)
+[2025-06-28 22:37:25] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - <==    Updates: 1
+[2025-06-28 22:37:25] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - ==>  Preparing: INSERT INTO exercise ( e_code, exercise_name, exercise_type, region, gender, weight, cal_burn ) VALUES ( E_SEQ.NEXTVAL, ?, ?, ?, ?, ?, ? )
+[2025-06-28 22:37:25] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - ==> Parameters: 벤치프레스(String), 근력(String), 가슴(String), null, null, 100(Integer)
+[2025-06-28 22:37:25] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - <==    Updates: 1
+[2025-06-28 22:37:25] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - ==>  Preparing: INSERT INTO exercise ( e_code, exercise_name, exercise_type, region, gender, weight, cal_burn ) VALUES ( E_SEQ.NEXTVAL, ?, ?, ?, ?, ?, ? )
+[2025-06-28 22:37:25] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - ==> Parameters: 달리기(String), 유산소(String), null, 여성(String), 45(Integer), 100(Integer)
+[2025-06-28 22:37:25] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - <==    Updates: 1
+[2025-06-28 22:37:25] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.getCount - ==>  Preparing: SELECT count(*) totalCnt from exercise
+[2025-06-28 22:37:25] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.getCount - ==> Parameters: 
+[2025-06-28 22:37:25] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.getCount - <==      Total: 1
+[2025-06-28 22:37:25] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - 3
+[2025-06-28 22:37:25] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doRetrieve - ==>  Preparing: SELECT * FROM ( SELECT ROWNUM AS rnum, e.* FROM ( SELECT * FROM exercise WHERE exercise_name LIKE '%' || ? || '%' ORDER BY e_code DESC ) e WHERE ROWNUM <= ? * (? - 1) + ? ) WHERE rnum >= ? * (? - 1) + 1
+[2025-06-28 22:37:25] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doRetrieve - ==> Parameters: 달리기(String), 10(Integer), 1(Integer), 10(Integer), 10(Integer), 1(Integer)
+[2025-06-28 22:37:25] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doRetrieve - <==      Total: 2
+[2025-06-28 22:37:25] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - vo: ExerciseDTO [eCode=7174, exerciseName=달리기, exerciseType=유산소, region=null, gender=여성, weight=45, calBurn=100]
+[2025-06-28 22:37:25] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - vo: ExerciseDTO [eCode=7172, exerciseName=달리기, exerciseType=유산소, region=null, gender=남성, weight=70, calBurn=150]
+[2025-06-28 22:37:25] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - 7174
+[2025-06-28 22:37:25] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSelectOne - ==>  Preparing: SELECT * FROM exercise WHERE e_code = ?
+[2025-06-28 22:37:25] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSelectOne - ==> Parameters: 7174(String)
+[2025-06-28 22:37:25] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSelectOne - <==      Total: 1
+[2025-06-28 22:37:25] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - result: ExerciseDTO [eCode=7174, exerciseName=달리기, exerciseType=유산소, region=null, gender=여성, weight=45, calBurn=100]
+[2025-06-28 22:37:25] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-28 22:37:25] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - │ tearDown()                                              │
+[2025-06-28 22:37:25] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-28 22:37:25] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+[2025-06-28 22:37:26] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+[2025-06-28 22:37:58] [INFO ] org.springframework.test.context.support.DefaultTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+[2025-06-28 22:37:58] [INFO ] org.springframework.test.context.support.DefaultTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@5c669da8, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@31920ade, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@1d483de4, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@4032d386, org.springframework.test.context.support.DirtiesContextTestExecutionListener@28d18df5, org.springframework.test.context.transaction.TransactionalTestExecutionListener@934b6cb, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@55cf0d14, org.springframework.test.context.event.EventPublishingTestExecutionListener@3b74ac8]
+[2025-06-28 22:37:59] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-28 22:37:59] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - │ setUp()                                                 │
+[2025-06-28 22:37:59] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-28 22:37:59] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - org.springframework.context.support.GenericApplicationContext@488d1cd7, started on Sat Jun 28 22:37:58 KST 2025
+[2025-06-28 22:37:59] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-28 22:37:59] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - │ tearDown()                                              │
+[2025-06-28 22:37:59] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-28 22:37:59] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-28 22:37:59] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - │ setUp()                                                 │
+[2025-06-28 22:37:59] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-28 22:37:59] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-28 22:37:59] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - │ doSelectOne()                                           │
+[2025-06-28 22:37:59] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-28 22:37:59] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+[2025-06-28 22:37:59] [WARN ] com.zaxxer.hikari.util.DriverDataSource - Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+[2025-06-28 22:38:00] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+[2025-06-28 22:38:00] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.deleteAll - ==>  Preparing: DELETE FROM exercise
+[2025-06-28 22:38:00] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.deleteAll - ==> Parameters: 
+[2025-06-28 22:38:00] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.deleteAll - <==    Updates: 3
+[2025-06-28 22:38:00] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - ==>  Preparing: INSERT INTO exercise ( e_code, exercise_name, exercise_type, region, gender, weight, cal_burn ) VALUES ( E_SEQ.NEXTVAL, ?, ?, ?, ?, ?, ? )
+[2025-06-28 22:38:00] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - ==> Parameters: 달리기(String), 유산소(String), null, 남성(String), 70(Integer), 150(Integer)
+[2025-06-28 22:38:00] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - <==    Updates: 1
+[2025-06-28 22:38:00] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - ==>  Preparing: INSERT INTO exercise ( e_code, exercise_name, exercise_type, region, gender, weight, cal_burn ) VALUES ( E_SEQ.NEXTVAL, ?, ?, ?, ?, ?, ? )
+[2025-06-28 22:38:00] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - ==> Parameters: 벤치프레스(String), 근력(String), 가슴(String), null, null, 100(Integer)
+[2025-06-28 22:38:00] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - <==    Updates: 1
+[2025-06-28 22:38:00] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - ==>  Preparing: INSERT INTO exercise ( e_code, exercise_name, exercise_type, region, gender, weight, cal_burn ) VALUES ( E_SEQ.NEXTVAL, ?, ?, ?, ?, ?, ? )
+[2025-06-28 22:38:00] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - ==> Parameters: 달리기(String), 유산소(String), null, 여성(String), 45(Integer), 100(Integer)
+[2025-06-28 22:38:00] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - <==    Updates: 1
+[2025-06-28 22:38:00] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.getCount - ==>  Preparing: SELECT count(*) totalCnt from exercise
+[2025-06-28 22:38:00] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.getCount - ==> Parameters: 
+[2025-06-28 22:38:00] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.getCount - <==      Total: 1
+[2025-06-28 22:38:00] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - 3
+[2025-06-28 22:38:00] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doRetrieve - ==>  Preparing: SELECT * FROM ( SELECT ROWNUM AS rnum, e.* FROM ( SELECT * FROM exercise WHERE exercise_name LIKE '%' || ? || '%' ORDER BY e_code DESC ) e WHERE ROWNUM <= ? * (? - 1) + ? ) WHERE rnum >= ? * (? - 1) + 1
+[2025-06-28 22:38:00] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doRetrieve - ==> Parameters: 달리기(String), 10(Integer), 1(Integer), 10(Integer), 10(Integer), 1(Integer)
+[2025-06-28 22:38:00] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doRetrieve - <==      Total: 2
+[2025-06-28 22:38:00] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - vo: ExerciseDTO [eCode=7177, exerciseName=달리기, exerciseType=유산소, region=null, gender=여성, weight=45, calBurn=100]
+[2025-06-28 22:38:00] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - vo: ExerciseDTO [eCode=7175, exerciseName=달리기, exerciseType=유산소, region=null, gender=남성, weight=70, calBurn=150]
+[2025-06-28 22:38:00] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - inVO: ExerciseDTO [eCode=7177, exerciseName=달리기, exerciseType=유산소, region=null, gender=여성, weight=45, calBurn=100]
+[2025-06-28 22:38:00] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doUpdate - ==>  Preparing: UPDATE exercise SET exercise_name = ?, exercise_type = ?, region = ?, gender = ?, weight = ?, cal_burn = ? WHERE e_code = ?
+[2025-06-28 22:38:00] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-28 22:38:00] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - │ tearDown()                                              │
+[2025-06-28 22:38:00] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-28 22:38:01] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+[2025-06-28 22:38:01] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+[2025-06-28 22:38:57] [INFO ] org.springframework.test.context.support.DefaultTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+[2025-06-28 22:38:57] [INFO ] org.springframework.test.context.support.DefaultTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@5c669da8, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@31920ade, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@1d483de4, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@4032d386, org.springframework.test.context.support.DirtiesContextTestExecutionListener@28d18df5, org.springframework.test.context.transaction.TransactionalTestExecutionListener@934b6cb, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@55cf0d14, org.springframework.test.context.event.EventPublishingTestExecutionListener@3b74ac8]
+[2025-06-28 22:38:59] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-28 22:38:59] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - │ setUp()                                                 │
+[2025-06-28 22:38:59] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-28 22:38:59] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - org.springframework.context.support.GenericApplicationContext@488d1cd7, started on Sat Jun 28 22:38:57 KST 2025
+[2025-06-28 22:38:59] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-28 22:38:59] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - │ tearDown()                                              │
+[2025-06-28 22:38:59] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-28 22:38:59] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-28 22:38:59] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - │ setUp()                                                 │
+[2025-06-28 22:38:59] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-28 22:38:59] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-28 22:38:59] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - │ doSelectOne()                                           │
+[2025-06-28 22:38:59] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-28 22:38:59] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+[2025-06-28 22:38:59] [WARN ] com.zaxxer.hikari.util.DriverDataSource - Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+[2025-06-28 22:38:59] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+[2025-06-28 22:38:59] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.deleteAll - ==>  Preparing: DELETE FROM exercise
+[2025-06-28 22:38:59] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.deleteAll - ==> Parameters: 
+[2025-06-28 22:38:59] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.deleteAll - <==    Updates: 3
+[2025-06-28 22:38:59] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - ==>  Preparing: INSERT INTO exercise ( e_code, exercise_name, exercise_type, region, gender, weight, cal_burn ) VALUES ( E_SEQ.NEXTVAL, ?, ?, ?, ?, ?, ? )
+[2025-06-28 22:38:59] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - ==> Parameters: 달리기(String), 유산소(String), null, 남성(String), 70(Integer), 150(Integer)
+[2025-06-28 22:38:59] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - <==    Updates: 1
+[2025-06-28 22:38:59] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - ==>  Preparing: INSERT INTO exercise ( e_code, exercise_name, exercise_type, region, gender, weight, cal_burn ) VALUES ( E_SEQ.NEXTVAL, ?, ?, ?, ?, ?, ? )
+[2025-06-28 22:38:59] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - ==> Parameters: 벤치프레스(String), 근력(String), 가슴(String), null, null, 100(Integer)
+[2025-06-28 22:38:59] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - <==    Updates: 1
+[2025-06-28 22:38:59] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - ==>  Preparing: INSERT INTO exercise ( e_code, exercise_name, exercise_type, region, gender, weight, cal_burn ) VALUES ( E_SEQ.NEXTVAL, ?, ?, ?, ?, ?, ? )
+[2025-06-28 22:38:59] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - ==> Parameters: 달리기(String), 유산소(String), null, 여성(String), 45(Integer), 100(Integer)
+[2025-06-28 22:38:59] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - <==    Updates: 1
+[2025-06-28 22:38:59] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.getCount - ==>  Preparing: SELECT count(*) totalCnt from exercise
+[2025-06-28 22:38:59] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.getCount - ==> Parameters: 
+[2025-06-28 22:39:00] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.getCount - <==      Total: 1
+[2025-06-28 22:39:00] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - 3
+[2025-06-28 22:39:00] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doRetrieve - ==>  Preparing: SELECT * FROM ( SELECT ROWNUM AS rnum, e.* FROM ( SELECT * FROM exercise WHERE exercise_name LIKE '%' || ? || '%' ORDER BY e_code DESC ) e WHERE ROWNUM <= ? * (? - 1) + ? ) WHERE rnum >= ? * (? - 1) + 1
+[2025-06-28 22:39:00] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doRetrieve - ==> Parameters: 달리기(String), 10(Integer), 1(Integer), 10(Integer), 10(Integer), 1(Integer)
+[2025-06-28 22:39:00] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doRetrieve - <==      Total: 2
+[2025-06-28 22:39:00] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - vo: ExerciseDTO [eCode=7180, exerciseName=달리기, exerciseType=유산소, region=null, gender=여성, weight=45, calBurn=100]
+[2025-06-28 22:39:00] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - vo: ExerciseDTO [eCode=7178, exerciseName=달리기, exerciseType=유산소, region=null, gender=남성, weight=70, calBurn=150]
+[2025-06-28 22:39:00] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - inVO: ExerciseDTO [eCode=7180, exerciseName=달리기, exerciseType=유산소, region=null, gender=여성, weight=45, calBurn=100]
+[2025-06-28 22:39:00] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-28 22:39:00] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - │ tearDown()                                              │
+[2025-06-28 22:39:00] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-28 22:39:00] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+[2025-06-28 22:39:00] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+[2025-06-28 22:40:58] [INFO ] org.springframework.test.context.support.DefaultTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+[2025-06-28 22:40:58] [INFO ] org.springframework.test.context.support.DefaultTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@5c669da8, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@31920ade, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@1d483de4, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@4032d386, org.springframework.test.context.support.DirtiesContextTestExecutionListener@28d18df5, org.springframework.test.context.transaction.TransactionalTestExecutionListener@934b6cb, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@55cf0d14, org.springframework.test.context.event.EventPublishingTestExecutionListener@3b74ac8]
+[2025-06-28 22:40:59] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-28 22:40:59] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - │ setUp()                                                 │
+[2025-06-28 22:40:59] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-28 22:40:59] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - org.springframework.context.support.GenericApplicationContext@488d1cd7, started on Sat Jun 28 22:40:58 KST 2025
+[2025-06-28 22:40:59] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-28 22:40:59] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - │ tearDown()                                              │
+[2025-06-28 22:40:59] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-28 22:40:59] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-28 22:40:59] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - │ setUp()                                                 │
+[2025-06-28 22:40:59] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-28 22:40:59] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-28 22:40:59] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - │ doSelectOne()                                           │
+[2025-06-28 22:40:59] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-28 22:40:59] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+[2025-06-28 22:40:59] [WARN ] com.zaxxer.hikari.util.DriverDataSource - Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+[2025-06-28 22:41:00] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+[2025-06-28 22:41:00] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.deleteAll - ==>  Preparing: DELETE FROM exercise
+[2025-06-28 22:41:00] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.deleteAll - ==> Parameters: 
+[2025-06-28 22:41:00] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.deleteAll - <==    Updates: 3
+[2025-06-28 22:41:00] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - ==>  Preparing: INSERT INTO exercise ( e_code, exercise_name, exercise_type, region, gender, weight, cal_burn ) VALUES ( E_SEQ.NEXTVAL, ?, ?, ?, ?, ?, ? )
+[2025-06-28 22:41:00] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - ==> Parameters: 달리기(String), 유산소(String), null, 남성(String), 70(Integer), 150(Integer)
+[2025-06-28 22:41:00] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - <==    Updates: 1
+[2025-06-28 22:41:00] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - ==>  Preparing: INSERT INTO exercise ( e_code, exercise_name, exercise_type, region, gender, weight, cal_burn ) VALUES ( E_SEQ.NEXTVAL, ?, ?, ?, ?, ?, ? )
+[2025-06-28 22:41:00] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - ==> Parameters: 벤치프레스(String), 근력(String), 가슴(String), null, null, 100(Integer)
+[2025-06-28 22:41:00] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - <==    Updates: 1
+[2025-06-28 22:41:00] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - ==>  Preparing: INSERT INTO exercise ( e_code, exercise_name, exercise_type, region, gender, weight, cal_burn ) VALUES ( E_SEQ.NEXTVAL, ?, ?, ?, ?, ?, ? )
+[2025-06-28 22:41:00] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - ==> Parameters: 달리기(String), 유산소(String), null, 여성(String), 45(Integer), 100(Integer)
+[2025-06-28 22:41:00] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - <==    Updates: 1
+[2025-06-28 22:41:00] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.getCount - ==>  Preparing: SELECT count(*) totalCnt from exercise
+[2025-06-28 22:41:00] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.getCount - ==> Parameters: 
+[2025-06-28 22:41:00] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.getCount - <==      Total: 1
+[2025-06-28 22:41:00] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - 3
+[2025-06-28 22:41:00] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doRetrieve - ==>  Preparing: SELECT * FROM ( SELECT ROWNUM AS rnum, e.* FROM ( SELECT * FROM exercise WHERE exercise_name LIKE '%' || ? || '%' ORDER BY e_code DESC ) e WHERE ROWNUM <= ? * (? - 1) + ? ) WHERE rnum >= ? * (? - 1) + 1
+[2025-06-28 22:41:00] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doRetrieve - ==> Parameters: 달리기(String), 10(Integer), 1(Integer), 10(Integer), 10(Integer), 1(Integer)
+[2025-06-28 22:41:00] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doRetrieve - <==      Total: 2
+[2025-06-28 22:41:00] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - vo: ExerciseDTO [eCode=7183, exerciseName=달리기, exerciseType=유산소, region=null, gender=여성, weight=45, calBurn=100]
+[2025-06-28 22:41:00] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - vo: ExerciseDTO [eCode=7181, exerciseName=달리기, exerciseType=유산소, region=null, gender=남성, weight=70, calBurn=150]
+[2025-06-28 22:41:00] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - inVO: ExerciseDTO [eCode=7183, exerciseName=달리기, exerciseType=유산소, region=null, gender=여성, weight=45, calBurn=100]
+[2025-06-28 22:41:00] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doUpdate - ==>  Preparing: UPDATE exercise SET exercise_name = ?, exercise_type = ?, region = ?, gender = ?, weight = ?, cal_burn = ? WHERE e_code = ?
+[2025-06-28 22:41:00] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-28 22:41:00] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - │ tearDown()                                              │
+[2025-06-28 22:41:00] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-28 22:41:00] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+[2025-06-28 22:41:01] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+[2025-06-28 22:41:56] [INFO ] org.springframework.test.context.support.DefaultTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+[2025-06-28 22:41:56] [INFO ] org.springframework.test.context.support.DefaultTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@5c669da8, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@31920ade, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@1d483de4, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@4032d386, org.springframework.test.context.support.DirtiesContextTestExecutionListener@28d18df5, org.springframework.test.context.transaction.TransactionalTestExecutionListener@934b6cb, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@55cf0d14, org.springframework.test.context.event.EventPublishingTestExecutionListener@3b74ac8]
+[2025-06-28 22:41:58] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-28 22:41:58] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - │ setUp()                                                 │
+[2025-06-28 22:41:58] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-28 22:41:58] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - org.springframework.context.support.GenericApplicationContext@488d1cd7, started on Sat Jun 28 22:41:57 KST 2025
+[2025-06-28 22:41:58] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-28 22:41:58] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - │ tearDown()                                              │
+[2025-06-28 22:41:58] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-28 22:41:58] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-28 22:41:58] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - │ setUp()                                                 │
+[2025-06-28 22:41:58] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-28 22:41:58] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-28 22:41:58] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - │ doSelectOne()                                           │
+[2025-06-28 22:41:58] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-28 22:41:58] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+[2025-06-28 22:41:58] [WARN ] com.zaxxer.hikari.util.DriverDataSource - Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+[2025-06-28 22:41:59] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+[2025-06-28 22:41:59] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.deleteAll - ==>  Preparing: DELETE FROM exercise
+[2025-06-28 22:41:59] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.deleteAll - ==> Parameters: 
+[2025-06-28 22:41:59] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.deleteAll - <==    Updates: 3
+[2025-06-28 22:41:59] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - ==>  Preparing: INSERT INTO exercise ( e_code, exercise_name, exercise_type, region, gender, weight, cal_burn ) VALUES ( E_SEQ.NEXTVAL, ?, ?, ?, ?, ?, ? )
+[2025-06-28 22:41:59] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - ==> Parameters: 달리기(String), 유산소(String), null, 남성(String), 70(Integer), 150(Integer)
+[2025-06-28 22:41:59] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - <==    Updates: 1
+[2025-06-28 22:41:59] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - ==>  Preparing: INSERT INTO exercise ( e_code, exercise_name, exercise_type, region, gender, weight, cal_burn ) VALUES ( E_SEQ.NEXTVAL, ?, ?, ?, ?, ?, ? )
+[2025-06-28 22:41:59] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - ==> Parameters: 벤치프레스(String), 근력(String), 가슴(String), null, null, 100(Integer)
+[2025-06-28 22:41:59] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - <==    Updates: 1
+[2025-06-28 22:41:59] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - ==>  Preparing: INSERT INTO exercise ( e_code, exercise_name, exercise_type, region, gender, weight, cal_burn ) VALUES ( E_SEQ.NEXTVAL, ?, ?, ?, ?, ?, ? )
+[2025-06-28 22:41:59] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - ==> Parameters: 달리기(String), 유산소(String), null, 여성(String), 45(Integer), 100(Integer)
+[2025-06-28 22:41:59] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - <==    Updates: 1
+[2025-06-28 22:41:59] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.getCount - ==>  Preparing: SELECT count(*) totalCnt from exercise
+[2025-06-28 22:41:59] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.getCount - ==> Parameters: 
+[2025-06-28 22:41:59] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.getCount - <==      Total: 1
+[2025-06-28 22:41:59] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - 3
+[2025-06-28 22:41:59] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doRetrieve - ==>  Preparing: SELECT * FROM ( SELECT ROWNUM AS rnum, e.* FROM ( SELECT * FROM exercise WHERE exercise_name LIKE '%' || ? || '%' ORDER BY e_code DESC ) e WHERE ROWNUM <= ? * (? - 1) + ? ) WHERE rnum >= ? * (? - 1) + 1
+[2025-06-28 22:41:59] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doRetrieve - ==> Parameters: 달리기(String), 10(Integer), 1(Integer), 10(Integer), 10(Integer), 1(Integer)
+[2025-06-28 22:41:59] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doRetrieve - <==      Total: 2
+[2025-06-28 22:41:59] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - vo: ExerciseDTO [eCode=7186, exerciseName=달리기, exerciseType=유산소, region=null, gender=여성, weight=45, calBurn=100]
+[2025-06-28 22:41:59] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - vo: ExerciseDTO [eCode=7184, exerciseName=달리기, exerciseType=유산소, region=null, gender=남성, weight=70, calBurn=150]
+[2025-06-28 22:41:59] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - inVO: ExerciseDTO [eCode=7186, exerciseName=달리기, exerciseType=유산소, region=null, gender=여성, weight=45, calBurn=100]
+[2025-06-28 22:41:59] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ExerciseDTO [eCode=7186, exerciseName=달리기, exerciseType=유산소, region=null, gender=여성, weight=80, calBurn=100]
+[2025-06-28 22:41:59] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-28 22:41:59] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - │ tearDown()                                              │
+[2025-06-28 22:41:59] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-28 22:41:59] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+[2025-06-28 22:41:59] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+[2025-06-28 22:44:11] [INFO ] org.springframework.test.context.support.DefaultTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+[2025-06-28 22:44:11] [INFO ] org.springframework.test.context.support.DefaultTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@5c669da8, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@31920ade, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@1d483de4, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@4032d386, org.springframework.test.context.support.DirtiesContextTestExecutionListener@28d18df5, org.springframework.test.context.transaction.TransactionalTestExecutionListener@934b6cb, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@55cf0d14, org.springframework.test.context.event.EventPublishingTestExecutionListener@3b74ac8]
+[2025-06-28 22:44:12] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-28 22:44:12] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - │ setUp()                                                 │
+[2025-06-28 22:44:12] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-28 22:44:12] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - org.springframework.context.support.GenericApplicationContext@488d1cd7, started on Sat Jun 28 22:44:11 KST 2025
+[2025-06-28 22:44:12] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-28 22:44:12] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - │ tearDown()                                              │
+[2025-06-28 22:44:12] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-28 22:44:12] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-28 22:44:12] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - │ setUp()                                                 │
+[2025-06-28 22:44:12] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-28 22:44:12] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-28 22:44:12] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - │ doSelectOne()                                           │
+[2025-06-28 22:44:12] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-28 22:44:12] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+[2025-06-28 22:44:12] [WARN ] com.zaxxer.hikari.util.DriverDataSource - Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+[2025-06-28 22:44:13] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+[2025-06-28 22:44:13] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.deleteAll - ==>  Preparing: DELETE FROM exercise
+[2025-06-28 22:44:13] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.deleteAll - ==> Parameters: 
+[2025-06-28 22:44:13] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.deleteAll - <==    Updates: 3
+[2025-06-28 22:44:13] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - ==>  Preparing: INSERT INTO exercise ( e_code, exercise_name, exercise_type, region, gender, weight, cal_burn ) VALUES ( E_SEQ.NEXTVAL, ?, ?, ?, ?, ?, ? )
+[2025-06-28 22:44:13] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - ==> Parameters: 달리기(String), 유산소(String), null, 남성(String), 70(Integer), 150(Integer)
+[2025-06-28 22:44:13] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - <==    Updates: 1
+[2025-06-28 22:44:13] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - ==>  Preparing: INSERT INTO exercise ( e_code, exercise_name, exercise_type, region, gender, weight, cal_burn ) VALUES ( E_SEQ.NEXTVAL, ?, ?, ?, ?, ?, ? )
+[2025-06-28 22:44:13] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - ==> Parameters: 벤치프레스(String), 근력(String), 가슴(String), null, null, 100(Integer)
+[2025-06-28 22:44:13] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - <==    Updates: 1
+[2025-06-28 22:44:13] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - ==>  Preparing: INSERT INTO exercise ( e_code, exercise_name, exercise_type, region, gender, weight, cal_burn ) VALUES ( E_SEQ.NEXTVAL, ?, ?, ?, ?, ?, ? )
+[2025-06-28 22:44:13] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - ==> Parameters: 달리기(String), 유산소(String), null, 여성(String), 45(Integer), 100(Integer)
+[2025-06-28 22:44:13] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - <==    Updates: 1
+[2025-06-28 22:44:13] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.getCount - ==>  Preparing: SELECT count(*) totalCnt from exercise
+[2025-06-28 22:44:13] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.getCount - ==> Parameters: 
+[2025-06-28 22:44:13] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.getCount - <==      Total: 1
+[2025-06-28 22:44:13] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - 3
+[2025-06-28 22:44:13] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doRetrieve - ==>  Preparing: SELECT * FROM ( SELECT ROWNUM AS rnum, e.* FROM ( SELECT * FROM exercise WHERE exercise_name LIKE '%' || ? || '%' ORDER BY e_code DESC ) e WHERE ROWNUM <= ? * (? - 1) + ? ) WHERE rnum >= ? * (? - 1) + 1
+[2025-06-28 22:44:13] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doRetrieve - ==> Parameters: 달리기(String), 10(Integer), 1(Integer), 10(Integer), 10(Integer), 1(Integer)
+[2025-06-28 22:44:13] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doRetrieve - <==      Total: 2
+[2025-06-28 22:44:13] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - vo: ExerciseDTO [eCode=7189, exerciseName=달리기, exerciseType=유산소, region=null, gender=여성, weight=45, calBurn=100]
+[2025-06-28 22:44:13] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - vo: ExerciseDTO [eCode=7187, exerciseName=달리기, exerciseType=유산소, region=null, gender=남성, weight=70, calBurn=150]
+[2025-06-28 22:44:13] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - inVO: ExerciseDTO [eCode=7189, exerciseName=달리기, exerciseType=유산소, region=null, gender=여성, weight=45, calBurn=100]
+[2025-06-28 22:44:13] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ExerciseDTO [eCode=7189, exerciseName=달리기, exerciseType=유산소, region=null, gender=여성, weight=80, calBurn=100]
+[2025-06-28 22:44:13] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doUpdate - ==>  Preparing: UPDATE exercise SET exercise_name = ?, exercise_type = ?, region = ?, gender = ?, weight = ?, cal_burn = ? WHERE e_code = ?
+[2025-06-28 22:44:13] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-28 22:44:13] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - │ tearDown()                                              │
+[2025-06-28 22:44:13] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-28 22:44:13] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+[2025-06-28 22:44:14] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+[2025-06-28 22:47:48] [INFO ] org.springframework.test.context.support.DefaultTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+[2025-06-28 22:47:48] [INFO ] org.springframework.test.context.support.DefaultTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@5c669da8, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@31920ade, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@1d483de4, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@4032d386, org.springframework.test.context.support.DirtiesContextTestExecutionListener@28d18df5, org.springframework.test.context.transaction.TransactionalTestExecutionListener@934b6cb, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@55cf0d14, org.springframework.test.context.event.EventPublishingTestExecutionListener@3b74ac8]
+[2025-06-28 22:47:49] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-28 22:47:49] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - │ setUp()                                                 │
+[2025-06-28 22:47:49] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-28 22:47:49] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - org.springframework.context.support.GenericApplicationContext@488d1cd7, started on Sat Jun 28 22:47:48 KST 2025
+[2025-06-28 22:47:49] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-28 22:47:49] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - │ tearDown()                                              │
+[2025-06-28 22:47:49] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-28 22:47:49] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-28 22:47:49] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - │ setUp()                                                 │
+[2025-06-28 22:47:49] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-28 22:47:49] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-28 22:47:49] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - │ doSelectOne()                                           │
+[2025-06-28 22:47:49] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-28 22:47:49] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+[2025-06-28 22:47:49] [WARN ] com.zaxxer.hikari.util.DriverDataSource - Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+[2025-06-28 22:47:50] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+[2025-06-28 22:47:50] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.deleteAll - ==>  Preparing: DELETE FROM exercise
+[2025-06-28 22:47:50] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.deleteAll - ==> Parameters: 
+[2025-06-28 22:47:50] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.deleteAll - <==    Updates: 3
+[2025-06-28 22:47:50] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - ==>  Preparing: INSERT INTO exercise ( e_code, exercise_name, exercise_type, region, gender, weight, cal_burn ) VALUES ( E_SEQ.NEXTVAL, ?, ?, ?, ?, ?, ? )
+[2025-06-28 22:47:50] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - ==> Parameters: 달리기(String), 유산소(String), null, 남성(String), 70(Integer), 150(Integer)
+[2025-06-28 22:47:50] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - <==    Updates: 1
+[2025-06-28 22:47:50] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - ==>  Preparing: INSERT INTO exercise ( e_code, exercise_name, exercise_type, region, gender, weight, cal_burn ) VALUES ( E_SEQ.NEXTVAL, ?, ?, ?, ?, ?, ? )
+[2025-06-28 22:47:50] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - ==> Parameters: 벤치프레스(String), 근력(String), 가슴(String), null, null, 100(Integer)
+[2025-06-28 22:47:50] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - <==    Updates: 1
+[2025-06-28 22:47:50] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - ==>  Preparing: INSERT INTO exercise ( e_code, exercise_name, exercise_type, region, gender, weight, cal_burn ) VALUES ( E_SEQ.NEXTVAL, ?, ?, ?, ?, ?, ? )
+[2025-06-28 22:47:50] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - ==> Parameters: 달리기(String), 유산소(String), null, 여성(String), 45(Integer), 100(Integer)
+[2025-06-28 22:47:50] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - <==    Updates: 1
+[2025-06-28 22:47:50] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.getCount - ==>  Preparing: SELECT count(*) totalCnt from exercise
+[2025-06-28 22:47:50] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.getCount - ==> Parameters: 
+[2025-06-28 22:47:50] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.getCount - <==      Total: 1
+[2025-06-28 22:47:50] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - 3
+[2025-06-28 22:47:50] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doRetrieve - ==>  Preparing: SELECT * FROM ( SELECT ROWNUM AS rnum, e.* FROM ( SELECT * FROM exercise WHERE exercise_name LIKE '%' || ? || '%' ORDER BY e_code DESC ) e WHERE ROWNUM <= ? * (? - 1) + ? ) WHERE rnum >= ? * (? - 1) + 1
+[2025-06-28 22:47:50] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doRetrieve - ==> Parameters: 달리기(String), 10(Integer), 1(Integer), 10(Integer), 10(Integer), 1(Integer)
+[2025-06-28 22:47:50] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doRetrieve - <==      Total: 2
+[2025-06-28 22:47:50] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - vo: ExerciseDTO [eCode=7192, exerciseName=달리기, exerciseType=유산소, region=null, gender=여성, weight=45, calBurn=100]
+[2025-06-28 22:47:50] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - vo: ExerciseDTO [eCode=7190, exerciseName=달리기, exerciseType=유산소, region=null, gender=남성, weight=70, calBurn=150]
+[2025-06-28 22:47:50] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - inVO: ExerciseDTO [eCode=7192, exerciseName=달리기, exerciseType=유산소, region=null, gender=여성, weight=45, calBurn=100]
+[2025-06-28 22:47:50] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ExerciseDTO [eCode=7192, exerciseName=달리기, exerciseType=유산소, region=null, gender=여성, weight=80, calBurn=100]
+[2025-06-28 22:47:50] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doUpdate - ==>  Preparing: UPDATE exercise SET exercise_name = ?, exercise_type = ?, region = ?, gender = ?, weight = ?, cal_burn = ? WHERE e_code = ?
+[2025-06-28 22:47:50] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-28 22:47:50] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - │ tearDown()                                              │
+[2025-06-28 22:47:50] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-28 22:47:50] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+[2025-06-28 22:47:50] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+[2025-06-28 22:50:05] [INFO ] org.springframework.test.context.support.DefaultTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+[2025-06-28 22:50:05] [INFO ] org.springframework.test.context.support.DefaultTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@5c669da8, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@31920ade, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@1d483de4, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@4032d386, org.springframework.test.context.support.DirtiesContextTestExecutionListener@28d18df5, org.springframework.test.context.transaction.TransactionalTestExecutionListener@934b6cb, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@55cf0d14, org.springframework.test.context.event.EventPublishingTestExecutionListener@3b74ac8]
+[2025-06-28 22:50:07] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-28 22:50:07] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - │ setUp()                                                 │
+[2025-06-28 22:50:07] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-28 22:50:07] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - org.springframework.context.support.GenericApplicationContext@488d1cd7, started on Sat Jun 28 22:50:05 KST 2025
+[2025-06-28 22:50:07] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-28 22:50:07] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - │ tearDown()                                              │
+[2025-06-28 22:50:07] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-28 22:50:07] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-28 22:50:07] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - │ setUp()                                                 │
+[2025-06-28 22:50:07] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-28 22:50:07] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-28 22:50:07] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - │ doSelectOne()                                           │
+[2025-06-28 22:50:07] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-28 22:50:07] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+[2025-06-28 22:50:07] [WARN ] com.zaxxer.hikari.util.DriverDataSource - Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+[2025-06-28 22:50:07] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+[2025-06-28 22:50:07] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.deleteAll - ==>  Preparing: DELETE FROM exercise
+[2025-06-28 22:50:08] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.deleteAll - ==> Parameters: 
+[2025-06-28 22:50:08] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.deleteAll - <==    Updates: 3
+[2025-06-28 22:50:08] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - ==>  Preparing: INSERT INTO exercise ( e_code, exercise_name, exercise_type, region, gender, weight, cal_burn ) VALUES ( E_SEQ.NEXTVAL, ?, ?, ?, ?, ?, ? )
+[2025-06-28 22:50:08] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - ==> Parameters: 달리기(String), 유산소(String), null, 남성(String), 70(Integer), 150(Integer)
+[2025-06-28 22:50:08] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - <==    Updates: 1
+[2025-06-28 22:50:08] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - ==>  Preparing: INSERT INTO exercise ( e_code, exercise_name, exercise_type, region, gender, weight, cal_burn ) VALUES ( E_SEQ.NEXTVAL, ?, ?, ?, ?, ?, ? )
+[2025-06-28 22:50:08] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - ==> Parameters: 벤치프레스(String), 근력(String), 가슴(String), null, null, 100(Integer)
+[2025-06-28 22:50:08] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - <==    Updates: 1
+[2025-06-28 22:50:08] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - ==>  Preparing: INSERT INTO exercise ( e_code, exercise_name, exercise_type, region, gender, weight, cal_burn ) VALUES ( E_SEQ.NEXTVAL, ?, ?, ?, ?, ?, ? )
+[2025-06-28 22:50:08] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - ==> Parameters: 달리기(String), 유산소(String), null, 여성(String), 45(Integer), 100(Integer)
+[2025-06-28 22:50:08] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doSave - <==    Updates: 1
+[2025-06-28 22:50:08] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.getCount - ==>  Preparing: SELECT count(*) totalCnt from exercise
+[2025-06-28 22:50:08] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.getCount - ==> Parameters: 
+[2025-06-28 22:50:08] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.getCount - <==      Total: 1
+[2025-06-28 22:50:08] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - 3
+[2025-06-28 22:50:08] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doRetrieve - ==>  Preparing: SELECT * FROM ( SELECT ROWNUM AS rnum, e.* FROM ( SELECT * FROM exercise WHERE exercise_name LIKE '%' || ? || '%' ORDER BY e_code DESC ) e WHERE ROWNUM <= ? * (? - 1) + ? ) WHERE rnum >= ? * (? - 1) + 1
+[2025-06-28 22:50:08] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doRetrieve - ==> Parameters: 달리기(String), 10(Integer), 1(Integer), 10(Integer), 10(Integer), 1(Integer)
+[2025-06-28 22:50:08] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doRetrieve - <==      Total: 2
+[2025-06-28 22:50:08] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - vo: ExerciseDTO [eCode=7195, exerciseName=달리기, exerciseType=유산소, region=null, gender=여성, weight=45, calBurn=100]
+[2025-06-28 22:50:08] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - vo: ExerciseDTO [eCode=7193, exerciseName=달리기, exerciseType=유산소, region=null, gender=남성, weight=70, calBurn=150]
+[2025-06-28 22:50:08] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - inVO: ExerciseDTO [eCode=7195, exerciseName=달리기, exerciseType=유산소, region=null, gender=여성, weight=45, calBurn=100]
+[2025-06-28 22:50:08] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ExerciseDTO [eCode=7195, exerciseName=달리기, exerciseType=유산소, region=null, gender=여성, weight=80, calBurn=100]
+[2025-06-28 22:50:08] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doUpdate - ==>  Preparing: UPDATE exercise SET exercise_name = ?, exercise_type = ?, region = ?, gender = ?, weight = ?, cal_burn = ? WHERE e_code = ?
+[2025-06-28 22:50:08] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doUpdate - ==> Parameters: 달리기(String), 유산소(String), null, 여성(String), 80(Integer), 100(Integer), 7195(String)
+[2025-06-28 22:50:08] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.doUpdate - <==    Updates: 1
+[2025-06-28 22:50:08] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - result: 1
+[2025-06-28 22:50:08] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-28 22:50:08] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - │ tearDown()                                              │
+[2025-06-28 22:50:08] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-28 22:50:08] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+[2025-06-28 22:50:08] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+[2025-06-28 22:58:27] [INFO ] org.springframework.test.context.support.DefaultTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+[2025-06-28 22:58:27] [INFO ] org.springframework.test.context.support.DefaultTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@31920ade, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@1d483de4, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@4032d386, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@28d18df5, org.springframework.test.context.support.DirtiesContextTestExecutionListener@934b6cb, org.springframework.test.context.transaction.TransactionalTestExecutionListener@55cf0d14, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@3b74ac8, org.springframework.test.context.event.EventPublishingTestExecutionListener@27adc16e]
+[2025-06-28 22:58:29] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-28 22:58:29] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - │ setUp()                                                 │
+[2025-06-28 22:58:29] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-28 22:58:29] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-28 22:58:29] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - │ doSelectOne()                                           │
+[2025-06-28 22:58:29] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-28 22:58:29] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+[2025-06-28 22:58:29] [WARN ] com.zaxxer.hikari.util.DriverDataSource - Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+[2025-06-28 22:58:30] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+[2025-06-28 22:58:30] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.deleteAll - ==>  Preparing: DELETE FROM exercise
+[2025-06-28 22:58:30] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.deleteAll - ==> Parameters: 
+[2025-06-28 22:58:30] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.deleteAll - <==    Updates: 3
+[2025-06-28 22:58:30] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.saveAll - ==>  Preparing: INSERT INTO exercise SELECT e_seq.NEXTVAL AS eCode, DECODE(MOD(LEVEL, 2), 0, '달리기', '벤치프레스') || LEVEL AS exerciseName, DECODE(MOD(LEVEL, 2), 0, '유산소', '근력') AS exerciseType, DECODE(MOD(LEVEL, 2), 0, '가슴', '하체') AS region, '남성' AS gender, 50 AS weight, 100 AS calBurn FROM dual CONNECT BY LEVEL <=502
+[2025-06-28 22:58:30] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.saveAll - ==> Parameters: 
+[2025-06-28 22:58:30] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.saveAll - <==    Updates: 502
+[2025-06-28 22:58:30] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.deleteAll - ==>  Preparing: DELETE FROM exercise
+[2025-06-28 22:58:30] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.deleteAll - ==> Parameters: 
+[2025-06-28 22:58:30] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.deleteAll - <==    Updates: 502
+[2025-06-28 22:58:30] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.getCount - ==>  Preparing: SELECT count(*) totalCnt from exercise
+[2025-06-28 22:58:30] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.getCount - ==> Parameters: 
+[2025-06-28 22:58:30] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.getCount - <==      Total: 1
+[2025-06-28 22:58:30] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - 0
+[2025-06-28 22:58:30] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-28 22:58:30] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - │ tearDown()                                              │
+[2025-06-28 22:58:30] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-28 22:58:30] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-28 22:58:30] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - │ setUp()                                                 │
+[2025-06-28 22:58:30] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-28 22:58:30] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - org.springframework.context.support.GenericApplicationContext@68dc098b, started on Sat Jun 28 22:58:27 KST 2025
+[2025-06-28 22:58:30] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-28 22:58:30] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - │ tearDown()                                              │
+[2025-06-28 22:58:30] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-28 22:58:30] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+[2025-06-28 22:58:30] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+[2025-06-28 22:58:46] [INFO ] org.springframework.test.context.support.DefaultTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+[2025-06-28 22:58:46] [INFO ] org.springframework.test.context.support.DefaultTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@31920ade, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@1d483de4, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@4032d386, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@28d18df5, org.springframework.test.context.support.DirtiesContextTestExecutionListener@934b6cb, org.springframework.test.context.transaction.TransactionalTestExecutionListener@55cf0d14, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@3b74ac8, org.springframework.test.context.event.EventPublishingTestExecutionListener@27adc16e]
+[2025-06-28 22:58:47] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-28 22:58:47] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - │ setUp()                                                 │
+[2025-06-28 22:58:47] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-28 22:58:47] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-28 22:58:47] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - │ doSelectOne()                                           │
+[2025-06-28 22:58:47] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-28 22:58:47] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+[2025-06-28 22:58:47] [WARN ] com.zaxxer.hikari.util.DriverDataSource - Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+[2025-06-28 22:58:48] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+[2025-06-28 22:58:48] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.deleteAll - ==>  Preparing: DELETE FROM exercise
+[2025-06-28 22:58:48] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.deleteAll - ==> Parameters: 
+[2025-06-28 22:58:48] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.deleteAll - <==    Updates: 0
+[2025-06-28 22:58:48] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.saveAll - ==>  Preparing: INSERT INTO exercise SELECT e_seq.NEXTVAL AS eCode, DECODE(MOD(LEVEL, 2), 0, '달리기', '벤치프레스') || LEVEL AS exerciseName, DECODE(MOD(LEVEL, 2), 0, '유산소', '근력') AS exerciseType, DECODE(MOD(LEVEL, 2), 0, '가슴', '하체') AS region, '남성' AS gender, 50 AS weight, 100 AS calBurn FROM dual CONNECT BY LEVEL <=502
+[2025-06-28 22:58:48] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.saveAll - ==> Parameters: 
+[2025-06-28 22:58:48] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.saveAll - <==    Updates: 502
+[2025-06-28 22:58:48] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.deleteAll - ==>  Preparing: DELETE FROM exercise
+[2025-06-28 22:58:48] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.deleteAll - ==> Parameters: 
+[2025-06-28 22:58:48] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.deleteAll - <==    Updates: 502
+[2025-06-28 22:58:48] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.getCount - ==>  Preparing: SELECT count(*) totalCnt from exercise
+[2025-06-28 22:58:48] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.getCount - ==> Parameters: 
+[2025-06-28 22:58:48] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.getCount - <==      Total: 1
+[2025-06-28 22:58:48] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - 0
+[2025-06-28 22:58:48] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-28 22:58:48] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - │ tearDown()                                              │
+[2025-06-28 22:58:48] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-28 22:58:48] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-28 22:58:48] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - │ setUp()                                                 │
+[2025-06-28 22:58:48] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-28 22:58:48] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - org.springframework.context.support.GenericApplicationContext@68dc098b, started on Sat Jun 28 22:58:46 KST 2025
+[2025-06-28 22:58:48] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-28 22:58:48] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - │ tearDown()                                              │
+[2025-06-28 22:58:48] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-28 22:58:48] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+[2025-06-28 22:58:48] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+[2025-06-28 22:59:01] [INFO ] org.springframework.test.context.support.DefaultTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+[2025-06-28 22:59:01] [INFO ] org.springframework.test.context.support.DefaultTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@31920ade, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@1d483de4, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@4032d386, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@28d18df5, org.springframework.test.context.support.DirtiesContextTestExecutionListener@934b6cb, org.springframework.test.context.transaction.TransactionalTestExecutionListener@55cf0d14, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@3b74ac8, org.springframework.test.context.event.EventPublishingTestExecutionListener@27adc16e]
+[2025-06-28 22:59:02] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-28 22:59:02] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - │ setUp()                                                 │
+[2025-06-28 22:59:02] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-28 22:59:02] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-28 22:59:02] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - │ doSelectOne()                                           │
+[2025-06-28 22:59:02] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-28 22:59:02] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+[2025-06-28 22:59:02] [WARN ] com.zaxxer.hikari.util.DriverDataSource - Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+[2025-06-28 22:59:03] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+[2025-06-28 22:59:03] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.deleteAll - ==>  Preparing: DELETE FROM exercise
+[2025-06-28 22:59:03] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.deleteAll - ==> Parameters: 
+[2025-06-28 22:59:03] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.deleteAll - <==    Updates: 0
+[2025-06-28 22:59:03] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.saveAll - ==>  Preparing: INSERT INTO exercise SELECT e_seq.NEXTVAL AS eCode, DECODE(MOD(LEVEL, 2), 0, '달리기', '벤치프레스') || LEVEL AS exerciseName, DECODE(MOD(LEVEL, 2), 0, '유산소', '근력') AS exerciseType, DECODE(MOD(LEVEL, 2), 0, '가슴', '하체') AS region, '남성' AS gender, 50 AS weight, 100 AS calBurn FROM dual CONNECT BY LEVEL <=502
+[2025-06-28 22:59:03] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.saveAll - ==> Parameters: 
+[2025-06-28 22:59:03] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.saveAll - <==    Updates: 502
+[2025-06-28 22:59:03] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.deleteAll - ==>  Preparing: DELETE FROM exercise
+[2025-06-28 22:59:03] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.deleteAll - ==> Parameters: 
+[2025-06-28 22:59:03] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.deleteAll - <==    Updates: 502
+[2025-06-28 22:59:03] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.getCount - ==>  Preparing: SELECT count(*) totalCnt from exercise
+[2025-06-28 22:59:03] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.getCount - ==> Parameters: 
+[2025-06-28 22:59:03] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.getCount - <==      Total: 1
+[2025-06-28 22:59:03] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - 0
+[2025-06-28 22:59:04] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-28 22:59:04] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - │ tearDown()                                              │
+[2025-06-28 22:59:04] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-28 22:59:04] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-28 22:59:04] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - │ setUp()                                                 │
+[2025-06-28 22:59:04] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-28 22:59:04] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - org.springframework.context.support.GenericApplicationContext@68dc098b, started on Sat Jun 28 22:59:01 KST 2025
+[2025-06-28 22:59:04] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-28 22:59:04] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - │ tearDown()                                              │
+[2025-06-28 22:59:04] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-28 22:59:04] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+[2025-06-28 22:59:04] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+[2025-06-28 22:59:36] [INFO ] org.springframework.test.context.support.DefaultTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+[2025-06-28 22:59:36] [INFO ] org.springframework.test.context.support.DefaultTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@31920ade, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@1d483de4, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@4032d386, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@28d18df5, org.springframework.test.context.support.DirtiesContextTestExecutionListener@934b6cb, org.springframework.test.context.transaction.TransactionalTestExecutionListener@55cf0d14, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@3b74ac8, org.springframework.test.context.event.EventPublishingTestExecutionListener@27adc16e]
+[2025-06-28 22:59:38] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-28 22:59:38] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - │ setUp()                                                 │
+[2025-06-28 22:59:38] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-28 22:59:38] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-28 22:59:38] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - │ doSelectOne()                                           │
+[2025-06-28 22:59:38] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-28 22:59:38] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+[2025-06-28 22:59:38] [WARN ] com.zaxxer.hikari.util.DriverDataSource - Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+[2025-06-28 22:59:39] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+[2025-06-28 22:59:39] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.deleteAll - ==>  Preparing: DELETE FROM exercise
+[2025-06-28 22:59:39] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.deleteAll - ==> Parameters: 
+[2025-06-28 22:59:39] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.deleteAll - <==    Updates: 0
+[2025-06-28 22:59:39] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.saveAll - ==>  Preparing: INSERT INTO exercise SELECT e_seq.NEXTVAL AS eCode, DECODE(MOD(LEVEL, 2), 0, '달리기', '벤치프레스') || LEVEL AS exerciseName, DECODE(MOD(LEVEL, 2), 0, '유산소', '근력') AS exerciseType, DECODE(MOD(LEVEL, 2), 0, '가슴', '하체') AS region, '남성' AS gender, 50 AS weight, 100 AS calBurn FROM dual CONNECT BY LEVEL <=502
+[2025-06-28 22:59:39] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.saveAll - ==> Parameters: 
+[2025-06-28 22:59:39] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.saveAll - <==    Updates: 502
+[2025-06-28 22:59:39] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.deleteAll - ==>  Preparing: DELETE FROM exercise
+[2025-06-28 22:59:39] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.deleteAll - ==> Parameters: 
+[2025-06-28 22:59:39] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.deleteAll - <==    Updates: 502
+[2025-06-28 22:59:39] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.getCount - ==>  Preparing: SELECT count(*) totalCnt from exercise
+[2025-06-28 22:59:39] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.getCount - ==> Parameters: 
+[2025-06-28 22:59:39] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.getCount - <==      Total: 1
+[2025-06-28 22:59:39] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - count: 0
+[2025-06-28 22:59:39] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-28 22:59:39] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - │ tearDown()                                              │
+[2025-06-28 22:59:39] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-28 22:59:39] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-28 22:59:39] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - │ setUp()                                                 │
+[2025-06-28 22:59:39] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-28 22:59:39] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - org.springframework.context.support.GenericApplicationContext@68dc098b, started on Sat Jun 28 22:59:37 KST 2025
+[2025-06-28 22:59:39] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-28 22:59:39] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - │ tearDown()                                              │
+[2025-06-28 22:59:39] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-28 22:59:39] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+[2025-06-28 22:59:39] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+[2025-06-28 22:59:49] [INFO ] org.springframework.test.context.support.DefaultTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+[2025-06-28 22:59:49] [INFO ] org.springframework.test.context.support.DefaultTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@31920ade, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@1d483de4, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@4032d386, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@28d18df5, org.springframework.test.context.support.DirtiesContextTestExecutionListener@934b6cb, org.springframework.test.context.transaction.TransactionalTestExecutionListener@55cf0d14, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@3b74ac8, org.springframework.test.context.event.EventPublishingTestExecutionListener@27adc16e]
+[2025-06-28 22:59:50] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-28 22:59:50] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - │ setUp()                                                 │
+[2025-06-28 22:59:50] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-28 22:59:50] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-28 22:59:50] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - │ doSelectOne()                                           │
+[2025-06-28 22:59:50] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-28 22:59:50] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+[2025-06-28 22:59:50] [WARN ] com.zaxxer.hikari.util.DriverDataSource - Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+[2025-06-28 22:59:51] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+[2025-06-28 22:59:51] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.deleteAll - ==>  Preparing: DELETE FROM exercise
+[2025-06-28 22:59:51] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.deleteAll - ==> Parameters: 
+[2025-06-28 22:59:51] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.deleteAll - <==    Updates: 0
+[2025-06-28 22:59:51] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.saveAll - ==>  Preparing: INSERT INTO exercise SELECT e_seq.NEXTVAL AS eCode, DECODE(MOD(LEVEL, 2), 0, '달리기', '벤치프레스') || LEVEL AS exerciseName, DECODE(MOD(LEVEL, 2), 0, '유산소', '근력') AS exerciseType, DECODE(MOD(LEVEL, 2), 0, '가슴', '하체') AS region, '남성' AS gender, 50 AS weight, 100 AS calBurn FROM dual CONNECT BY LEVEL <=502
+[2025-06-28 22:59:51] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.saveAll - ==> Parameters: 
+[2025-06-28 22:59:51] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.saveAll - <==    Updates: 502
+[2025-06-28 22:59:51] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.deleteAll - ==>  Preparing: DELETE FROM exercise
+[2025-06-28 22:59:51] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.deleteAll - ==> Parameters: 
+[2025-06-28 22:59:51] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.deleteAll - <==    Updates: 502
+[2025-06-28 22:59:51] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.getCount - ==>  Preparing: SELECT count(*) totalCnt from exercise
+[2025-06-28 22:59:51] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.getCount - ==> Parameters: 
+[2025-06-28 22:59:51] [DEBUG] com.pcwk.ehr.mypage.mapper.ExerciseMapper.getCount - <==      Total: 1
+[2025-06-28 22:59:51] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - count:
+[2025-06-28 22:59:51] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-28 22:59:51] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - │ tearDown()                                              │
+[2025-06-28 22:59:51] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-28 22:59:51] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-28 22:59:51] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - │ setUp()                                                 │
+[2025-06-28 22:59:51] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-28 22:59:51] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - org.springframework.context.support.GenericApplicationContext@68dc098b, started on Sat Jun 28 22:59:49 KST 2025
+[2025-06-28 22:59:51] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-28 22:59:51] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - │ tearDown()                                              │
+[2025-06-28 22:59:51] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-28 22:59:52] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+[2025-06-28 22:59:52] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
