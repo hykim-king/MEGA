@@ -73,12 +73,12 @@
 	<insert id="saveAll">
 		INSERT INTO exercise
 			SELECT e_seq.NEXTVAL AS eCode,
-			DECODE(MOD(LEVEL, 2), 0, '달리기', '벤치프레스') || LEVEL AS exerciseName,
-			DECODE(MOD(LEVEL, 2), 0, '유산소', '근력') AS exerciseType,
-			DECODE(MOD(LEVEL, 2), 0, '가슴', '하체') AS region,
-			'남성' AS gender,
-			50 AS weight,
-			100 AS calBurn
+				DECODE(MOD(LEVEL, 2), 0, '달리기', '벤치프레스') || LEVEL AS exerciseName,
+				DECODE(MOD(LEVEL, 2), 0, '유산소', '근력') AS exerciseType,
+				DECODE(MOD(LEVEL, 2), 0, '가슴', '하체') AS region,
+				'남성' AS gender,
+				50 AS weight,
+				100 AS calBurn
 		FROM dual                        
      <![CDATA[ CONNECT BY LEVEL <=502  ]]>
 
@@ -89,12 +89,12 @@
 	<update id="doUpdate" parameterType="ExerciseDTO">
 		UPDATE exercise
 			SET
-			exercise_name = #{exerciseName},
-			exercise_type = #{exerciseType},
-			region = #{region, jdbcType=VARCHAR}, 
-			gender = #{gender, jdbcType=VARCHAR},
-			weight = #{weight, jdbcType=INTEGER},
-			cal_burn = #{calBurn}
+				exercise_name = #{exerciseName},
+				exercise_type = #{exerciseType},
+				region = #{region, jdbcType=VARCHAR}, 
+				gender = #{gender, jdbcType=VARCHAR},
+				weight = #{weight, jdbcType=INTEGER},
+				cal_burn = #{calBurn}
 		WHERE e_code = #{eCode}
 	</update>
 

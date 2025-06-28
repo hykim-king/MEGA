@@ -129,7 +129,7 @@
 
 <!-- 전체삭제 -->
 <delete id="deleteAll">
-        DELETE FROM food
+        DELETE FROM food_diary
 </delete>
 
 </mapper>
