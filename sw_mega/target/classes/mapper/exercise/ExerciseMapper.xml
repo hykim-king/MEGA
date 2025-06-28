@@ -22,11 +22,11 @@
 	<select id="doRetrieve" parameterType="searchDTO"
 		resultType="ExerciseDTO">
 		SELECT *
-		FROM (
-		SELECT ROWNUM AS rnum, e.*
-		FROM (
-		SELECT *
-		FROM exercise
+			FROM (
+			SELECT ROWNUM AS rnum, e.*
+			FROM (
+			SELECT *
+			FROM exercise
 		<include refid="userWhere"></include>
 
 		ORDER BY e_code DESC
@@ -72,13 +72,13 @@
 	<!-- 다건등록 -->
 	<insert id="saveAll">
 		INSERT INTO exercise
-		SELECT e_seq.NEXTVAL AS eCode,
-		DECODE(MOD(LEVEL, 2), 0, '달리기', '벤치프레스') || LEVEL AS exerciseName,
-		DECODE(MOD(LEVEL, 2), 0, '유산소', '근력') AS exerciseType,
-		DECODE(MOD(LEVEL, 2), 0, '가슴', '하체') AS region,
-		'남성' AS gender,
-		50 AS weight,
-		100 AS calBurn
+			SELECT e_seq.NEXTVAL AS eCode,
+			DECODE(MOD(LEVEL, 2), 0, '달리기', '벤치프레스') || LEVEL AS exerciseName,
+			DECODE(MOD(LEVEL, 2), 0, '유산소', '근력') AS exerciseType,
+			DECODE(MOD(LEVEL, 2), 0, '가슴', '하체') AS region,
+			'남성' AS gender,
+			50 AS weight,
+			100 AS calBurn
 		FROM dual                        
      <![CDATA[ CONNECT BY LEVEL <=502  ]]>
 
@@ -88,13 +88,13 @@
 	<!-- 수정(관리자 전용) -->
 	<update id="doUpdate" parameterType="ExerciseDTO">
 		UPDATE exercise
-		SET
-		exercise_name = #{exerciseName},
-		exercise_type = #{exerciseType},
-		region = #{region},
-		gender = #{gender},
-		weight = #{weight},
-		cal_burn = #{calBurn}
+			SET
+			exercise_name = #{exerciseName},
+			exercise_type = #{exerciseType},
+			region = #{region, jdbcType=VARCHAR}, 
+			gender = #{gender, jdbcType=VARCHAR},
+			weight = #{weight, jdbcType=INTEGER},
+			cal_burn = #{calBurn}
 		WHERE e_code = #{eCode}
 	</update>
 
