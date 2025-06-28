@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pcwk.ehr.mypage.mapper.FoodDiaryMapper">
+
+<!-- 사용자Id, 날짜 기준으로 전체 조회 -->
+<select id="doRetrieve" parameterType="FoodDiaryDTO" resultType="FoodDiaryOutDTO">
+
+    SELECT
+        fd.fd_code,
+        fd.user_id,
+        fd.food_name,
+        fd.grams,
+        fd.meal_type,
+        fd.reg_dt,
+        f.st_grams,
+        f.cal,
+        f.carb,
+        f.fat,
+        f.prot,
+        f.na
+    FROM
+        food_diary fd
+    INNER JOIN
+        food f ON fd.food.name = f.food.name
+    WHERE
+        fd.user_id = #{user_id}
+        AND TO_CHAR(fd.reg_dt, 'YYYY-MM-DD') = #{reg_dt}
+    ORDER BY
+        fd.meal_type ASC
+        
+</select>
+
+
+<!-- 단건 등록 -->
+<insert id="doSave" parameterType="FoodDiaryDTO">
+
+    INSERT INTO food_diary (
+        FD_SEQ NEXTVAL,
+        user_id,
+        food_name,
+        grams,
+        meal_type,
+        reg_dt
+    ) VALUES (
+        #{fd_code},
+        #{user_id},
+        #{food_name},
+        #{grams},
+        #{meal_type},
+        #{reg_dt}
+    )
+    
+</insert>
+
+<!-- 수정하기 -->
+<update id="doUpdate" parameterType="FoodDiaryDTO">
+
+    UPDATE food_diary
+    SET
+        grams = #{grams},
+        meal_type = #{mealType}
+    WHERE
+        fd_code = #{fdCode}
+        
+</update>
+
+<!-- 삭제하기 -->
+<delete id="doDelete" parameterType="FoodDiaryDTO">
+
+    DELETE FROM food_diary
+    WHERE fd_code = #{fdCode}
+    
+</delete>
+
+</mapper>

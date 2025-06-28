@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pcwk.ehr.findpwd.FindPwdDao">
+    <update id="updatePassword" parameterType="com.pcwk.ehr.findpwd.FindPwdDTO">
+        UPDATE MEMBERSHIP
+        SET PASSWORD = #{password}
+        WHERE USER_ID = #{userId}
+          AND EMAIL = #{email}
+    </update>
+</mapper>
