@@ -60,4 +60,15 @@ public interface WorkDiv<T> {
 	 * @return 1(성공)/0(실패)
 	 */
 	int doSave(T param);
+	
+	/**
+	 * 다건등록
+	 * @return 1(성공)/0(실패)
+	 */
+	int saveAll();
+	
+	/**
+	 * 전체삭제
+	 */
+	void deleteAll();
 }
