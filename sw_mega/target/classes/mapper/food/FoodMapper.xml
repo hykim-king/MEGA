@@ -123,7 +123,7 @@
 
 <!-- 카운트 세기 -->
 <select id="getCount" resultType="java.lang.Integer">
-        SELECT count(*) totalCnt from food
+        SELECT count(*) from food
 </select>
 
 
