@@ -1021,3 +1021,402 @@
 [2025-06-29 04:22:40] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - └─────────────────────────────────────────────────────────┘
 [2025-06-29 04:22:40] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
 [2025-06-29 04:22:40] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+[2025-06-29 13:21:37] [INFO ] org.springframework.test.context.support.DefaultTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+[2025-06-29 13:21:37] [INFO ] org.springframework.test.context.support.DefaultTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@6337c201, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@5c669da8, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@31920ade, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@1d483de4, org.springframework.test.context.support.DirtiesContextTestExecutionListener@4032d386, org.springframework.test.context.transaction.TransactionalTestExecutionListener@28d18df5, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@934b6cb, org.springframework.test.context.event.EventPublishingTestExecutionListener@55cf0d14]
+[2025-06-29 13:21:40] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-29 13:21:40] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - │ setUp()                                                 │
+[2025-06-29 13:21:40] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-29 13:21:40] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - org.springframework.context.support.GenericApplicationContext@571c5681, started on Sun Jun 29 13:21:38 KST 2025
+[2025-06-29 13:21:40] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-29 13:21:40] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - │ tearDown()                                              │
+[2025-06-29 13:21:40] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-29 13:21:40] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-29 13:21:40] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - │ setUp()                                                 │
+[2025-06-29 13:21:40] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-29 13:21:40] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-29 13:21:40] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - │ doUpdate()                                              │
+[2025-06-29 13:21:40] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-29 13:21:40] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+[2025-06-29 13:21:40] [WARN ] com.zaxxer.hikari.util.DriverDataSource - Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+[2025-06-29 13:21:41] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+[2025-06-29 13:21:41] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.deleteAll - ==>  Preparing: DELETE FROM food_diary
+[2025-06-29 13:21:41] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.deleteAll - ==> Parameters: 
+[2025-06-29 13:21:41] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.deleteAll - <==    Updates: 0
+[2025-06-29 13:21:41] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doSave - ==>  Preparing: INSERT INTO food_diary ( fd_code, user_id, food_name, grams, meal_type, reg_dt ) VALUES ( FD_SEQ.NEXTVAL, ?, ?, ?, ?, ? )
+[2025-06-29 13:21:41] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doSave - ==> Parameters: yangsh(String), 김치찌개(String), 150(Integer), 아침(String), 2025-05-26(String)
+[2025-06-29 13:21:41] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doSave - <==    Updates: 1
+[2025-06-29 13:21:41] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doSave - ==>  Preparing: INSERT INTO food_diary ( fd_code, user_id, food_name, grams, meal_type, reg_dt ) VALUES ( FD_SEQ.NEXTVAL, ?, ?, ?, ?, ? )
+[2025-06-29 13:21:41] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doSave - ==> Parameters: yangsi(String), 스크럼블(String), 50(Integer), 점심(String), 2025-05-24(String)
+[2025-06-29 13:21:41] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doSave - <==    Updates: 1
+[2025-06-29 13:21:41] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doSave - ==>  Preparing: INSERT INTO food_diary ( fd_code, user_id, food_name, grams, meal_type, reg_dt ) VALUES ( FD_SEQ.NEXTVAL, ?, ?, ?, ?, ? )
+[2025-06-29 13:21:41] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doSave - ==> Parameters: yangsr(String), 차돌박이(String), 150(Integer), 저녁(String), 2025-05-26(String)
+[2025-06-29 13:21:41] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doSave - <==    Updates: 1
+[2025-06-29 13:21:41] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.getCount - ==>  Preparing: SELECT count(*) from food_diary
+[2025-06-29 13:21:41] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.getCount - ==> Parameters: 
+[2025-06-29 13:21:41] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.getCount - <==      Total: 1
+[2025-06-29 13:21:41] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-29 13:21:41] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - │ tearDown()                                              │
+[2025-06-29 13:21:41] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-29 13:21:41] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+[2025-06-29 13:21:41] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+[2025-06-29 13:22:20] [INFO ] org.springframework.test.context.support.DefaultTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+[2025-06-29 13:22:20] [INFO ] org.springframework.test.context.support.DefaultTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@6337c201, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@5c669da8, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@31920ade, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@1d483de4, org.springframework.test.context.support.DirtiesContextTestExecutionListener@4032d386, org.springframework.test.context.transaction.TransactionalTestExecutionListener@28d18df5, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@934b6cb, org.springframework.test.context.event.EventPublishingTestExecutionListener@55cf0d14]
+[2025-06-29 13:22:22] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-29 13:22:22] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - │ setUp()                                                 │
+[2025-06-29 13:22:22] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-29 13:22:22] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - org.springframework.context.support.GenericApplicationContext@571c5681, started on Sun Jun 29 13:22:20 KST 2025
+[2025-06-29 13:22:22] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-29 13:22:22] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - │ tearDown()                                              │
+[2025-06-29 13:22:22] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-29 13:22:22] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-29 13:22:22] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - │ setUp()                                                 │
+[2025-06-29 13:22:22] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-29 13:22:22] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-29 13:22:22] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - │ doUpdate()                                              │
+[2025-06-29 13:22:22] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-29 13:22:22] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+[2025-06-29 13:22:22] [WARN ] com.zaxxer.hikari.util.DriverDataSource - Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+[2025-06-29 13:22:23] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+[2025-06-29 13:22:23] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.deleteAll - ==>  Preparing: DELETE FROM food_diary
+[2025-06-29 13:22:23] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.deleteAll - ==> Parameters: 
+[2025-06-29 13:22:23] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.deleteAll - <==    Updates: 3
+[2025-06-29 13:22:23] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doSave - ==>  Preparing: INSERT INTO food_diary ( fd_code, user_id, food_name, grams, meal_type, reg_dt ) VALUES ( FD_SEQ.NEXTVAL, ?, ?, ?, ?, ? )
+[2025-06-29 13:22:23] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doSave - ==> Parameters: yangsh(String), 김치찌개(String), 150(Integer), 아침(String), 2025-05-26(String)
+[2025-06-29 13:22:23] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doSave - <==    Updates: 1
+[2025-06-29 13:22:23] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doSave - ==>  Preparing: INSERT INTO food_diary ( fd_code, user_id, food_name, grams, meal_type, reg_dt ) VALUES ( FD_SEQ.NEXTVAL, ?, ?, ?, ?, ? )
+[2025-06-29 13:22:23] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doSave - ==> Parameters: yangsi(String), 스크럼블(String), 50(Integer), 점심(String), 2025-05-24(String)
+[2025-06-29 13:22:23] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doSave - <==    Updates: 1
+[2025-06-29 13:22:23] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doSave - ==>  Preparing: INSERT INTO food_diary ( fd_code, user_id, food_name, grams, meal_type, reg_dt ) VALUES ( FD_SEQ.NEXTVAL, ?, ?, ?, ?, ? )
+[2025-06-29 13:22:23] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doSave - ==> Parameters: yangsr(String), 차돌박이(String), 150(Integer), 저녁(String), 2025-05-26(String)
+[2025-06-29 13:22:23] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doSave - <==    Updates: 1
+[2025-06-29 13:22:23] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.getCount - ==>  Preparing: SELECT count(*) from food_diary
+[2025-06-29 13:22:23] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.getCount - ==> Parameters: 
+[2025-06-29 13:22:23] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.getCount - <==      Total: 1
+[2025-06-29 13:22:23] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - count: 3
+[2025-06-29 13:22:23] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-29 13:22:23] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - │ tearDown()                                              │
+[2025-06-29 13:22:23] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-29 13:22:23] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+[2025-06-29 13:22:23] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+[2025-06-29 13:25:28] [INFO ] org.springframework.test.context.support.DefaultTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+[2025-06-29 13:25:28] [INFO ] org.springframework.test.context.support.DefaultTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@6337c201, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@5c669da8, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@31920ade, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@1d483de4, org.springframework.test.context.support.DirtiesContextTestExecutionListener@4032d386, org.springframework.test.context.transaction.TransactionalTestExecutionListener@28d18df5, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@934b6cb, org.springframework.test.context.event.EventPublishingTestExecutionListener@55cf0d14]
+[2025-06-29 13:25:30] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-29 13:25:30] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - │ setUp()                                                 │
+[2025-06-29 13:25:30] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-29 13:25:30] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - org.springframework.context.support.GenericApplicationContext@571c5681, started on Sun Jun 29 13:25:28 KST 2025
+[2025-06-29 13:25:30] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-29 13:25:30] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - │ tearDown()                                              │
+[2025-06-29 13:25:30] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-29 13:25:30] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-29 13:25:30] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - │ setUp()                                                 │
+[2025-06-29 13:25:30] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-29 13:25:30] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-29 13:25:30] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - │ doUpdate()                                              │
+[2025-06-29 13:25:30] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-29 13:25:30] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+[2025-06-29 13:25:30] [WARN ] com.zaxxer.hikari.util.DriverDataSource - Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+[2025-06-29 13:25:31] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+[2025-06-29 13:25:31] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.deleteAll - ==>  Preparing: DELETE FROM food_diary
+[2025-06-29 13:25:31] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.deleteAll - ==> Parameters: 
+[2025-06-29 13:25:32] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.deleteAll - <==    Updates: 3
+[2025-06-29 13:25:32] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doSave - ==>  Preparing: INSERT INTO food_diary ( fd_code, user_id, food_name, grams, meal_type, reg_dt ) VALUES ( FD_SEQ.NEXTVAL, ?, ?, ?, ?, ? )
+[2025-06-29 13:25:32] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doSave - ==> Parameters: yangsh(String), 김치찌개(String), 150(Integer), 아침(String), 2025-05-26(String)
+[2025-06-29 13:25:32] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doSave - <==    Updates: 1
+[2025-06-29 13:25:32] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doSave - ==>  Preparing: INSERT INTO food_diary ( fd_code, user_id, food_name, grams, meal_type, reg_dt ) VALUES ( FD_SEQ.NEXTVAL, ?, ?, ?, ?, ? )
+[2025-06-29 13:25:32] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doSave - ==> Parameters: yangsi(String), 스크럼블(String), 50(Integer), 점심(String), 2025-05-24(String)
+[2025-06-29 13:25:32] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doSave - <==    Updates: 1
+[2025-06-29 13:25:32] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doSave - ==>  Preparing: INSERT INTO food_diary ( fd_code, user_id, food_name, grams, meal_type, reg_dt ) VALUES ( FD_SEQ.NEXTVAL, ?, ?, ?, ?, ? )
+[2025-06-29 13:25:32] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doSave - ==> Parameters: yangsr(String), 차돌박이(String), 150(Integer), 저녁(String), 2025-05-26(String)
+[2025-06-29 13:25:32] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doSave - <==    Updates: 1
+[2025-06-29 13:25:32] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.getCount - ==>  Preparing: SELECT count(*) from food_diary
+[2025-06-29 13:25:32] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.getCount - ==> Parameters: 
+[2025-06-29 13:25:32] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.getCount - <==      Total: 1
+[2025-06-29 13:25:32] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - count: 3
+[2025-06-29 13:25:32] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doRetrieve - ==>  Preparing: SELECT fd.fd_code, fd.user_id, m.user_id, f.food_name, fd.grams, fd.meal_type, fd.reg_dt, f.st_grams, f.cal, f.carb, f.fat, f.prot, f.na FROM food_diary fd INNER JOIN food f ON fd.food_name = f.food_name INNER JOIN membership m ON fd.user_id = m.user_id WHERE fd.user_id = ? AND TRUNC(fd.reg_dt) = TO_DATE(?, 'YYYY-MM-DD') ORDER BY fd.meal_type ASC
+[2025-06-29 13:25:32] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doRetrieve - ==> Parameters: yangsh(String), 2025-05-26(String)
+[2025-06-29 13:25:32] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doRetrieve - <==      Total: 1
+[2025-06-29 13:25:32] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - vo: FoodDiaryOutDTO [fdCode=10319, userId=yangsh, foodName=김치찌개, grams=150, mealType=아침, regDt=2025-05-26 00:00:00, stGrams=100, cal=300, carb=20, fat=15, prot=25, na=850]
+[2025-06-29 13:25:32] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-29 13:25:32] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - │ tearDown()                                              │
+[2025-06-29 13:25:32] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-29 13:25:32] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+[2025-06-29 13:25:32] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+[2025-06-29 13:27:51] [INFO ] org.springframework.test.context.support.DefaultTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+[2025-06-29 13:27:51] [INFO ] org.springframework.test.context.support.DefaultTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@6337c201, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@5c669da8, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@31920ade, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@1d483de4, org.springframework.test.context.support.DirtiesContextTestExecutionListener@4032d386, org.springframework.test.context.transaction.TransactionalTestExecutionListener@28d18df5, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@934b6cb, org.springframework.test.context.event.EventPublishingTestExecutionListener@55cf0d14]
+[2025-06-29 13:27:53] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-29 13:27:53] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - │ setUp()                                                 │
+[2025-06-29 13:27:53] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-29 13:27:53] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - org.springframework.context.support.GenericApplicationContext@571c5681, started on Sun Jun 29 13:27:52 KST 2025
+[2025-06-29 13:27:53] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-29 13:27:53] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - │ tearDown()                                              │
+[2025-06-29 13:27:53] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-29 13:27:53] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-29 13:27:53] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - │ setUp()                                                 │
+[2025-06-29 13:27:53] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-29 13:27:53] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-29 13:27:53] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - │ doUpdate()                                              │
+[2025-06-29 13:27:53] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-29 13:27:53] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+[2025-06-29 13:27:53] [WARN ] com.zaxxer.hikari.util.DriverDataSource - Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+[2025-06-29 13:27:54] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+[2025-06-29 13:27:54] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.deleteAll - ==>  Preparing: DELETE FROM food_diary
+[2025-06-29 13:27:54] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.deleteAll - ==> Parameters: 
+[2025-06-29 13:27:54] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.deleteAll - <==    Updates: 3
+[2025-06-29 13:27:54] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doSave - ==>  Preparing: INSERT INTO food_diary ( fd_code, user_id, food_name, grams, meal_type, reg_dt ) VALUES ( FD_SEQ.NEXTVAL, ?, ?, ?, ?, ? )
+[2025-06-29 13:27:54] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doSave - ==> Parameters: yangsh(String), 김치찌개(String), 150(Integer), 아침(String), 2025-05-26(String)
+[2025-06-29 13:27:54] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doSave - <==    Updates: 1
+[2025-06-29 13:27:54] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doSave - ==>  Preparing: INSERT INTO food_diary ( fd_code, user_id, food_name, grams, meal_type, reg_dt ) VALUES ( FD_SEQ.NEXTVAL, ?, ?, ?, ?, ? )
+[2025-06-29 13:27:54] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doSave - ==> Parameters: yangsi(String), 스크럼블(String), 50(Integer), 점심(String), 2025-05-24(String)
+[2025-06-29 13:27:54] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doSave - <==    Updates: 1
+[2025-06-29 13:27:54] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doSave - ==>  Preparing: INSERT INTO food_diary ( fd_code, user_id, food_name, grams, meal_type, reg_dt ) VALUES ( FD_SEQ.NEXTVAL, ?, ?, ?, ?, ? )
+[2025-06-29 13:27:54] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doSave - ==> Parameters: yangsr(String), 차돌박이(String), 150(Integer), 저녁(String), 2025-05-26(String)
+[2025-06-29 13:27:54] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doSave - <==    Updates: 1
+[2025-06-29 13:27:54] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.getCount - ==>  Preparing: SELECT count(*) from food_diary
+[2025-06-29 13:27:54] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.getCount - ==> Parameters: 
+[2025-06-29 13:27:54] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.getCount - <==      Total: 1
+[2025-06-29 13:27:54] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - count: 3
+[2025-06-29 13:27:54] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doRetrieve - ==>  Preparing: SELECT fd.fd_code, fd.user_id, m.user_id, f.food_name, fd.grams, fd.meal_type, fd.reg_dt, f.st_grams, f.cal, f.carb, f.fat, f.prot, f.na FROM food_diary fd INNER JOIN food f ON fd.food_name = f.food_name INNER JOIN membership m ON fd.user_id = m.user_id WHERE fd.user_id = ? AND TRUNC(fd.reg_dt) = TO_DATE(?, 'YYYY-MM-DD') ORDER BY fd.meal_type ASC
+[2025-06-29 13:27:54] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doRetrieve - ==> Parameters: yangsh(String), 2025-05-26(String)
+[2025-06-29 13:27:55] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doRetrieve - <==      Total: 1
+[2025-06-29 13:27:55] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - vo: FoodDiaryOutDTO [fdCode=10322, userId=yangsh, foodName=김치찌개, grams=150, mealType=아침, regDt=2025-05-26 00:00:00, stGrams=100, cal=300, carb=20, fat=15, prot=25, na=850]
+[2025-06-29 13:27:55] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - inVO: FoodDiaryOutDTO [fdCode=10322, userId=yangsh, foodName=김치찌개, grams=150, mealType=아침, regDt=2025-05-26 00:00:00, stGrams=100, cal=300, carb=20, fat=15, prot=25, na=850]
+[2025-06-29 13:27:55] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-29 13:27:55] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - │ tearDown()                                              │
+[2025-06-29 13:27:55] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-29 13:27:55] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+[2025-06-29 13:27:55] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+[2025-06-29 13:34:44] [INFO ] org.springframework.test.context.support.DefaultTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+[2025-06-29 13:34:44] [INFO ] org.springframework.test.context.support.DefaultTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@6337c201, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@5c669da8, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@31920ade, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@1d483de4, org.springframework.test.context.support.DirtiesContextTestExecutionListener@4032d386, org.springframework.test.context.transaction.TransactionalTestExecutionListener@28d18df5, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@934b6cb, org.springframework.test.context.event.EventPublishingTestExecutionListener@55cf0d14]
+[2025-06-29 13:34:46] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-29 13:34:46] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - │ setUp()                                                 │
+[2025-06-29 13:34:46] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-29 13:34:46] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - org.springframework.context.support.GenericApplicationContext@571c5681, started on Sun Jun 29 13:34:45 KST 2025
+[2025-06-29 13:34:46] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-29 13:34:46] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - │ tearDown()                                              │
+[2025-06-29 13:34:46] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-29 13:34:46] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-29 13:34:46] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - │ setUp()                                                 │
+[2025-06-29 13:34:46] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-29 13:34:46] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-29 13:34:46] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - │ doUpdate()                                              │
+[2025-06-29 13:34:46] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-29 13:34:46] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+[2025-06-29 13:34:46] [WARN ] com.zaxxer.hikari.util.DriverDataSource - Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+[2025-06-29 13:34:47] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+[2025-06-29 13:34:47] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.deleteAll - ==>  Preparing: DELETE FROM food_diary
+[2025-06-29 13:34:47] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.deleteAll - ==> Parameters: 
+[2025-06-29 13:34:47] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.deleteAll - <==    Updates: 3
+[2025-06-29 13:34:47] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doSave - ==>  Preparing: INSERT INTO food_diary ( fd_code, user_id, food_name, grams, meal_type, reg_dt ) VALUES ( FD_SEQ.NEXTVAL, ?, ?, ?, ?, ? )
+[2025-06-29 13:34:47] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doSave - ==> Parameters: yangsh(String), 김치찌개(String), 150(Integer), 아침(String), 2025-05-26(String)
+[2025-06-29 13:34:47] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doSave - <==    Updates: 1
+[2025-06-29 13:34:47] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doSave - ==>  Preparing: INSERT INTO food_diary ( fd_code, user_id, food_name, grams, meal_type, reg_dt ) VALUES ( FD_SEQ.NEXTVAL, ?, ?, ?, ?, ? )
+[2025-06-29 13:34:47] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doSave - ==> Parameters: yangsi(String), 스크럼블(String), 50(Integer), 점심(String), 2025-05-24(String)
+[2025-06-29 13:34:47] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doSave - <==    Updates: 1
+[2025-06-29 13:34:47] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doSave - ==>  Preparing: INSERT INTO food_diary ( fd_code, user_id, food_name, grams, meal_type, reg_dt ) VALUES ( FD_SEQ.NEXTVAL, ?, ?, ?, ?, ? )
+[2025-06-29 13:34:47] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doSave - ==> Parameters: yangsr(String), 차돌박이(String), 150(Integer), 저녁(String), 2025-05-26(String)
+[2025-06-29 13:34:47] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doSave - <==    Updates: 1
+[2025-06-29 13:34:47] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.getCount - ==>  Preparing: SELECT count(*) from food_diary
+[2025-06-29 13:34:47] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.getCount - ==> Parameters: 
+[2025-06-29 13:34:47] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.getCount - <==      Total: 1
+[2025-06-29 13:34:47] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - count: 3
+[2025-06-29 13:34:47] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doRetrieve - ==>  Preparing: SELECT fd.fd_code, fd.user_id, m.user_id, f.food_name, fd.grams, fd.meal_type, fd.reg_dt, f.st_grams, f.cal, f.carb, f.fat, f.prot, f.na FROM food_diary fd INNER JOIN food f ON fd.food_name = f.food_name INNER JOIN membership m ON fd.user_id = m.user_id WHERE fd.user_id = ? AND TRUNC(fd.reg_dt) = TO_DATE(?, 'YYYY-MM-DD') ORDER BY fd.meal_type ASC
+[2025-06-29 13:34:47] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doRetrieve - ==> Parameters: yangsh(String), 2025-05-26(String)
+[2025-06-29 13:34:47] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doRetrieve - <==      Total: 1
+[2025-06-29 13:34:47] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - vo: FoodDiaryOutDTO [fdCode=10325, userId=yangsh, foodName=김치찌개, grams=150, mealType=아침, regDt=2025-05-26 00:00:00, stGrams=100, cal=300, carb=20, fat=15, prot=25, na=850]
+[2025-06-29 13:34:47] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - inVO: FoodDiaryOutDTO [fdCode=10325, userId=yangsh, foodName=김치찌개, grams=150, mealType=아침, regDt=2025-05-26 00:00:00, stGrams=100, cal=300, carb=20, fat=15, prot=25, na=850]
+[2025-06-29 13:34:47] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doUpdate - ==>  Preparing: UPDATE food_diary SET grams = ?, meal_type = ? WHERE fd_code = ?
+[2025-06-29 13:34:47] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-29 13:34:47] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - │ tearDown()                                              │
+[2025-06-29 13:34:47] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-29 13:34:47] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+[2025-06-29 13:34:47] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+[2025-06-29 13:41:50] [INFO ] org.springframework.test.context.support.DefaultTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+[2025-06-29 13:41:50] [INFO ] org.springframework.test.context.support.DefaultTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@6337c201, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@5c669da8, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@31920ade, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@1d483de4, org.springframework.test.context.support.DirtiesContextTestExecutionListener@4032d386, org.springframework.test.context.transaction.TransactionalTestExecutionListener@28d18df5, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@934b6cb, org.springframework.test.context.event.EventPublishingTestExecutionListener@55cf0d14]
+[2025-06-29 13:41:52] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-29 13:41:52] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - │ setUp()                                                 │
+[2025-06-29 13:41:52] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-29 13:41:52] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - org.springframework.context.support.GenericApplicationContext@571c5681, started on Sun Jun 29 13:41:51 KST 2025
+[2025-06-29 13:41:52] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-29 13:41:52] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - │ tearDown()                                              │
+[2025-06-29 13:41:52] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-29 13:41:52] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-29 13:41:52] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - │ setUp()                                                 │
+[2025-06-29 13:41:52] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-29 13:41:52] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-29 13:41:52] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - │ doUpdate()                                              │
+[2025-06-29 13:41:52] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-29 13:41:52] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+[2025-06-29 13:41:52] [WARN ] com.zaxxer.hikari.util.DriverDataSource - Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+[2025-06-29 13:41:53] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+[2025-06-29 13:41:53] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.deleteAll - ==>  Preparing: DELETE FROM food_diary
+[2025-06-29 13:41:53] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.deleteAll - ==> Parameters: 
+[2025-06-29 13:41:53] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.deleteAll - <==    Updates: 3
+[2025-06-29 13:41:53] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doSave - ==>  Preparing: INSERT INTO food_diary ( fd_code, user_id, food_name, grams, meal_type, reg_dt ) VALUES ( FD_SEQ.NEXTVAL, ?, ?, ?, ?, ? )
+[2025-06-29 13:41:53] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doSave - ==> Parameters: yangsh(String), 김치찌개(String), 150(Integer), 아침(String), 2025-05-26(String)
+[2025-06-29 13:41:53] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doSave - <==    Updates: 1
+[2025-06-29 13:41:53] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doSave - ==>  Preparing: INSERT INTO food_diary ( fd_code, user_id, food_name, grams, meal_type, reg_dt ) VALUES ( FD_SEQ.NEXTVAL, ?, ?, ?, ?, ? )
+[2025-06-29 13:41:53] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doSave - ==> Parameters: yangsi(String), 스크럼블(String), 50(Integer), 점심(String), 2025-05-24(String)
+[2025-06-29 13:41:53] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doSave - <==    Updates: 1
+[2025-06-29 13:41:53] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doSave - ==>  Preparing: INSERT INTO food_diary ( fd_code, user_id, food_name, grams, meal_type, reg_dt ) VALUES ( FD_SEQ.NEXTVAL, ?, ?, ?, ?, ? )
+[2025-06-29 13:41:53] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doSave - ==> Parameters: yangsr(String), 차돌박이(String), 150(Integer), 저녁(String), 2025-05-26(String)
+[2025-06-29 13:41:53] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doSave - <==    Updates: 1
+[2025-06-29 13:41:53] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.getCount - ==>  Preparing: SELECT count(*) from food_diary
+[2025-06-29 13:41:53] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.getCount - ==> Parameters: 
+[2025-06-29 13:41:53] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.getCount - <==      Total: 1
+[2025-06-29 13:41:53] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - count: 3
+[2025-06-29 13:41:53] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doRetrieve - ==>  Preparing: SELECT fd.fd_code, fd.user_id, m.user_id, f.food_name, fd.grams, fd.meal_type, fd.reg_dt, f.st_grams, f.cal, f.carb, f.fat, f.prot, f.na FROM food_diary fd INNER JOIN food f ON fd.food_name = f.food_name INNER JOIN membership m ON fd.user_id = m.user_id WHERE fd.user_id = ? AND TRUNC(fd.reg_dt) = TO_DATE(?, 'YYYY-MM-DD') ORDER BY fd.meal_type ASC
+[2025-06-29 13:41:53] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doRetrieve - ==> Parameters: yangsh(String), 2025-05-26(String)
+[2025-06-29 13:41:53] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doRetrieve - <==      Total: 1
+[2025-06-29 13:41:53] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - vo: FoodDiaryOutDTO [fdCode=10328, userId=yangsh, foodName=김치찌개, grams=150, mealType=아침, regDt=2025-05-26 00:00:00, stGrams=100, cal=300, carb=20, fat=15, prot=25, na=850]
+[2025-06-29 13:41:53] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - inVO: FoodDiaryOutDTO [fdCode=10328, userId=yangsh, foodName=김치찌개, grams=150, mealType=아침, regDt=2025-05-26 00:00:00, stGrams=100, cal=300, carb=20, fat=15, prot=25, na=850]
+[2025-06-29 13:41:53] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doUpdate - ==>  Preparing: UPDATE food_diary SET grams = ?, meal_type = ? WHERE fd_code = ?
+[2025-06-29 13:41:53] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doUpdate - ==> Parameters: 200(Integer), 점심(String), 10328(Integer)
+[2025-06-29 13:41:53] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doUpdate - <==    Updates: 1
+[2025-06-29 13:41:53] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - result: 1
+[2025-06-29 13:41:53] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-29 13:41:53] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - │ tearDown()                                              │
+[2025-06-29 13:41:53] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-29 13:41:53] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+[2025-06-29 13:41:54] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+[2025-06-29 13:48:03] [INFO ] org.springframework.test.context.support.DefaultTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+[2025-06-29 13:48:03] [INFO ] org.springframework.test.context.support.DefaultTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@5c669da8, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@31920ade, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@1d483de4, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@4032d386, org.springframework.test.context.support.DirtiesContextTestExecutionListener@28d18df5, org.springframework.test.context.transaction.TransactionalTestExecutionListener@934b6cb, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@55cf0d14, org.springframework.test.context.event.EventPublishingTestExecutionListener@3b74ac8]
+[2025-06-29 13:48:05] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-29 13:48:05] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - │ setUp()                                                 │
+[2025-06-29 13:48:05] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-29 13:48:05] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-29 13:48:05] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - │ doDelete()                                              │
+[2025-06-29 13:48:05] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-29 13:48:05] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+[2025-06-29 13:48:05] [WARN ] com.zaxxer.hikari.util.DriverDataSource - Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+[2025-06-29 13:48:06] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+[2025-06-29 13:48:06] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.deleteAll - ==>  Preparing: DELETE FROM food_diary
+[2025-06-29 13:48:06] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.deleteAll - ==> Parameters: 
+[2025-06-29 13:48:06] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.deleteAll - <==    Updates: 3
+[2025-06-29 13:48:06] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doSave - ==>  Preparing: INSERT INTO food_diary ( fd_code, user_id, food_name, grams, meal_type, reg_dt ) VALUES ( FD_SEQ.NEXTVAL, ?, ?, ?, ?, ? )
+[2025-06-29 13:48:06] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doSave - ==> Parameters: yangsh(String), 김치찌개(String), 150(Integer), 아침(String), 2025-05-26(String)
+[2025-06-29 13:48:06] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doSave - <==    Updates: 1
+[2025-06-29 13:48:06] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doSave - ==>  Preparing: INSERT INTO food_diary ( fd_code, user_id, food_name, grams, meal_type, reg_dt ) VALUES ( FD_SEQ.NEXTVAL, ?, ?, ?, ?, ? )
+[2025-06-29 13:48:06] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doSave - ==> Parameters: yangsi(String), 스크럼블(String), 50(Integer), 점심(String), 2025-05-24(String)
+[2025-06-29 13:48:06] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doSave - <==    Updates: 1
+[2025-06-29 13:48:06] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doSave - ==>  Preparing: INSERT INTO food_diary ( fd_code, user_id, food_name, grams, meal_type, reg_dt ) VALUES ( FD_SEQ.NEXTVAL, ?, ?, ?, ?, ? )
+[2025-06-29 13:48:06] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doSave - ==> Parameters: yangsr(String), 차돌박이(String), 150(Integer), 저녁(String), 2025-05-26(String)
+[2025-06-29 13:48:06] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doSave - <==    Updates: 1
+[2025-06-29 13:48:06] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.getCount - ==>  Preparing: SELECT count(*) from food_diary
+[2025-06-29 13:48:06] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.getCount - ==> Parameters: 
+[2025-06-29 13:48:06] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.getCount - <==      Total: 1
+[2025-06-29 13:48:06] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - count: 3
+[2025-06-29 13:48:06] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doRetrieve - ==>  Preparing: SELECT fd.fd_code, fd.user_id, m.user_id, f.food_name, fd.grams, fd.meal_type, fd.reg_dt, f.st_grams, f.cal, f.carb, f.fat, f.prot, f.na FROM food_diary fd INNER JOIN food f ON fd.food_name = f.food_name INNER JOIN membership m ON fd.user_id = m.user_id WHERE fd.user_id = ? AND TRUNC(fd.reg_dt) = TO_DATE(?, 'YYYY-MM-DD') ORDER BY fd.meal_type ASC
+[2025-06-29 13:48:06] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doRetrieve - ==> Parameters: yangsh(String), 2025-05-26(String)
+[2025-06-29 13:48:06] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doRetrieve - <==      Total: 1
+[2025-06-29 13:48:06] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - vo: FoodDiaryOutDTO [fdCode=10331, userId=yangsh, foodName=김치찌개, grams=150, mealType=아침, regDt=2025-05-26 00:00:00, stGrams=100, cal=300, carb=20, fat=15, prot=25, na=850]
+[2025-06-29 13:48:06] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - inVO: FoodDiaryOutDTO [fdCode=10331, userId=yangsh, foodName=김치찌개, grams=150, mealType=아침, regDt=2025-05-26 00:00:00, stGrams=100, cal=300, carb=20, fat=15, prot=25, na=850]
+[2025-06-29 13:48:06] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doDelete - ==>  Preparing: DELETE FROM food_diary WHERE fd_code = ?
+[2025-06-29 13:48:06] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doDelete - ==> Parameters: 10331(Integer)
+[2025-06-29 13:48:06] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doDelete - <==    Updates: 1
+[2025-06-29 13:48:06] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-29 13:48:06] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - │ tearDown()                                              │
+[2025-06-29 13:48:06] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-29 13:48:06] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-29 13:48:06] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - │ setUp()                                                 │
+[2025-06-29 13:48:06] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-29 13:48:06] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - org.springframework.context.support.GenericApplicationContext@488d1cd7, started on Sun Jun 29 13:48:03 KST 2025
+[2025-06-29 13:48:06] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-29 13:48:06] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - │ tearDown()                                              │
+[2025-06-29 13:48:06] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-29 13:48:06] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+[2025-06-29 13:48:06] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+[2025-06-29 13:53:32] [INFO ] org.springframework.test.context.support.DefaultTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+[2025-06-29 13:53:32] [INFO ] org.springframework.test.context.support.DefaultTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@5c669da8, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@31920ade, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@1d483de4, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@4032d386, org.springframework.test.context.support.DirtiesContextTestExecutionListener@28d18df5, org.springframework.test.context.transaction.TransactionalTestExecutionListener@934b6cb, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@55cf0d14, org.springframework.test.context.event.EventPublishingTestExecutionListener@3b74ac8]
+[2025-06-29 13:53:33] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-29 13:53:33] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - │ setUp()                                                 │
+[2025-06-29 13:53:33] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-29 13:53:33] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-29 13:53:33] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - │ doDelete()                                              │
+[2025-06-29 13:53:33] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-29 13:53:33] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+[2025-06-29 13:53:33] [WARN ] com.zaxxer.hikari.util.DriverDataSource - Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+[2025-06-29 13:53:34] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+[2025-06-29 13:53:34] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.deleteAll - ==>  Preparing: DELETE FROM food_diary
+[2025-06-29 13:53:34] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.deleteAll - ==> Parameters: 
+[2025-06-29 13:53:34] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.deleteAll - <==    Updates: 2
+[2025-06-29 13:53:34] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doSave - ==>  Preparing: INSERT INTO food_diary ( fd_code, user_id, food_name, grams, meal_type, reg_dt ) VALUES ( FD_SEQ.NEXTVAL, ?, ?, ?, ?, ? )
+[2025-06-29 13:53:34] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doSave - ==> Parameters: yangsh(String), 김치찌개(String), 150(Integer), 아침(String), 2025-05-26(String)
+[2025-06-29 13:53:34] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doSave - <==    Updates: 1
+[2025-06-29 13:53:34] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doSave - ==>  Preparing: INSERT INTO food_diary ( fd_code, user_id, food_name, grams, meal_type, reg_dt ) VALUES ( FD_SEQ.NEXTVAL, ?, ?, ?, ?, ? )
+[2025-06-29 13:53:34] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doSave - ==> Parameters: yangsi(String), 스크럼블(String), 50(Integer), 점심(String), 2025-05-24(String)
+[2025-06-29 13:53:34] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doSave - <==    Updates: 1
+[2025-06-29 13:53:34] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doSave - ==>  Preparing: INSERT INTO food_diary ( fd_code, user_id, food_name, grams, meal_type, reg_dt ) VALUES ( FD_SEQ.NEXTVAL, ?, ?, ?, ?, ? )
+[2025-06-29 13:53:34] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doSave - ==> Parameters: yangsr(String), 차돌박이(String), 150(Integer), 저녁(String), 2025-05-26(String)
+[2025-06-29 13:53:34] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doSave - <==    Updates: 1
+[2025-06-29 13:53:34] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.getCount - ==>  Preparing: SELECT count(*) from food_diary
+[2025-06-29 13:53:34] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.getCount - ==> Parameters: 
+[2025-06-29 13:53:34] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.getCount - <==      Total: 1
+[2025-06-29 13:53:34] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - count: 3
+[2025-06-29 13:53:34] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doRetrieve - ==>  Preparing: SELECT fd.fd_code, fd.user_id, m.user_id, f.food_name, fd.grams, fd.meal_type, fd.reg_dt, f.st_grams, f.cal, f.carb, f.fat, f.prot, f.na FROM food_diary fd INNER JOIN food f ON fd.food_name = f.food_name INNER JOIN membership m ON fd.user_id = m.user_id WHERE fd.user_id = ? AND TRUNC(fd.reg_dt) = TO_DATE(?, 'YYYY-MM-DD') ORDER BY fd.meal_type ASC
+[2025-06-29 13:53:34] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doRetrieve - ==> Parameters: yangsh(String), 2025-05-26(String)
+[2025-06-29 13:53:34] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doRetrieve - <==      Total: 1
+[2025-06-29 13:53:34] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - vo: FoodDiaryOutDTO [fdCode=10334, userId=yangsh, foodName=김치찌개, grams=150, mealType=아침, regDt=2025-05-26 00:00:00, stGrams=100, cal=300, carb=20, fat=15, prot=25, na=850]
+[2025-06-29 13:53:34] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - inVO: FoodDiaryOutDTO [fdCode=10334, userId=yangsh, foodName=김치찌개, grams=150, mealType=아침, regDt=2025-05-26 00:00:00, stGrams=100, cal=300, carb=20, fat=15, prot=25, na=850]
+[2025-06-29 13:53:34] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doDelete - ==>  Preparing: DELETE FROM food_diary WHERE fd_code = ?
+[2025-06-29 13:53:34] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doDelete - ==> Parameters: 0(Integer)
+[2025-06-29 13:53:34] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doDelete - <==    Updates: 0
+[2025-06-29 13:53:34] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-29 13:53:34] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - │ tearDown()                                              │
+[2025-06-29 13:53:34] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-29 13:53:34] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-29 13:53:34] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - │ setUp()                                                 │
+[2025-06-29 13:53:34] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-29 13:53:34] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - org.springframework.context.support.GenericApplicationContext@488d1cd7, started on Sun Jun 29 13:53:32 KST 2025
+[2025-06-29 13:53:34] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-29 13:53:34] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - │ tearDown()                                              │
+[2025-06-29 13:53:34] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-29 13:53:34] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+[2025-06-29 13:53:34] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+[2025-06-29 13:54:50] [INFO ] org.springframework.test.context.support.DefaultTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+[2025-06-29 13:54:50] [INFO ] org.springframework.test.context.support.DefaultTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@5c669da8, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@31920ade, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@1d483de4, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@4032d386, org.springframework.test.context.support.DirtiesContextTestExecutionListener@28d18df5, org.springframework.test.context.transaction.TransactionalTestExecutionListener@934b6cb, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@55cf0d14, org.springframework.test.context.event.EventPublishingTestExecutionListener@3b74ac8]
+[2025-06-29 13:54:52] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-29 13:54:52] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - │ setUp()                                                 │
+[2025-06-29 13:54:52] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-29 13:54:52] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-29 13:54:52] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - │ doDelete()                                              │
+[2025-06-29 13:54:52] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-29 13:54:52] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+[2025-06-29 13:54:52] [WARN ] com.zaxxer.hikari.util.DriverDataSource - Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+[2025-06-29 13:54:53] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+[2025-06-29 13:54:53] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.deleteAll - ==>  Preparing: DELETE FROM food_diary
+[2025-06-29 13:54:53] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.deleteAll - ==> Parameters: 
+[2025-06-29 13:54:53] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.deleteAll - <==    Updates: 3
+[2025-06-29 13:54:53] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doSave - ==>  Preparing: INSERT INTO food_diary ( fd_code, user_id, food_name, grams, meal_type, reg_dt ) VALUES ( FD_SEQ.NEXTVAL, ?, ?, ?, ?, ? )
+[2025-06-29 13:54:53] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doSave - ==> Parameters: yangsh(String), 김치찌개(String), 150(Integer), 아침(String), 2025-05-26(String)
+[2025-06-29 13:54:53] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doSave - <==    Updates: 1
+[2025-06-29 13:54:53] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doSave - ==>  Preparing: INSERT INTO food_diary ( fd_code, user_id, food_name, grams, meal_type, reg_dt ) VALUES ( FD_SEQ.NEXTVAL, ?, ?, ?, ?, ? )
+[2025-06-29 13:54:53] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doSave - ==> Parameters: yangsi(String), 스크럼블(String), 50(Integer), 점심(String), 2025-05-24(String)
+[2025-06-29 13:54:53] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doSave - <==    Updates: 1
+[2025-06-29 13:54:53] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doSave - ==>  Preparing: INSERT INTO food_diary ( fd_code, user_id, food_name, grams, meal_type, reg_dt ) VALUES ( FD_SEQ.NEXTVAL, ?, ?, ?, ?, ? )
+[2025-06-29 13:54:53] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doSave - ==> Parameters: yangsr(String), 차돌박이(String), 150(Integer), 저녁(String), 2025-05-26(String)
+[2025-06-29 13:54:53] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doSave - <==    Updates: 1
+[2025-06-29 13:54:53] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.getCount - ==>  Preparing: SELECT count(*) from food_diary
+[2025-06-29 13:54:53] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.getCount - ==> Parameters: 
+[2025-06-29 13:54:53] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.getCount - <==      Total: 1
+[2025-06-29 13:54:53] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - count: 3
+[2025-06-29 13:54:53] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doRetrieve - ==>  Preparing: SELECT fd.fd_code, fd.user_id, m.user_id, f.food_name, fd.grams, fd.meal_type, fd.reg_dt, f.st_grams, f.cal, f.carb, f.fat, f.prot, f.na FROM food_diary fd INNER JOIN food f ON fd.food_name = f.food_name INNER JOIN membership m ON fd.user_id = m.user_id WHERE fd.user_id = ? AND TRUNC(fd.reg_dt) = TO_DATE(?, 'YYYY-MM-DD') ORDER BY fd.meal_type ASC
+[2025-06-29 13:54:53] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doRetrieve - ==> Parameters: yangsh(String), 2025-05-26(String)
+[2025-06-29 13:54:53] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doRetrieve - <==      Total: 1
+[2025-06-29 13:54:53] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - vo: FoodDiaryOutDTO [fdCode=10337, userId=yangsh, foodName=김치찌개, grams=150, mealType=아침, regDt=2025-05-26 00:00:00, stGrams=100, cal=300, carb=20, fat=15, prot=25, na=850]
+[2025-06-29 13:54:53] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - inVO: FoodDiaryOutDTO [fdCode=10337, userId=yangsh, foodName=김치찌개, grams=150, mealType=아침, regDt=2025-05-26 00:00:00, stGrams=100, cal=300, carb=20, fat=15, prot=25, na=850]
+[2025-06-29 13:54:53] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doDelete - ==>  Preparing: DELETE FROM food_diary WHERE fd_code = ?
+[2025-06-29 13:54:53] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doDelete - ==> Parameters: 10337(Integer)
+[2025-06-29 13:54:53] [DEBUG] com.pcwk.ehr.mypage.mapper.FoodDiaryMapper.doDelete - <==    Updates: 1
+[2025-06-29 13:54:53] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - 1
+[2025-06-29 13:54:53] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-29 13:54:53] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - │ tearDown()                                              │
+[2025-06-29 13:54:53] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-29 13:54:53] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-29 13:54:53] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - │ setUp()                                                 │
+[2025-06-29 13:54:53] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-29 13:54:53] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - org.springframework.context.support.GenericApplicationContext@488d1cd7, started on Sun Jun 29 13:54:50 KST 2025
+[2025-06-29 13:54:53] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-06-29 13:54:53] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - │ tearDown()                                              │
+[2025-06-29 13:54:53] [DEBUG] com.pcwk.ehr.mypage.FoodDiaryDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-06-29 13:54:53] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+[2025-06-29 13:54:53] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.

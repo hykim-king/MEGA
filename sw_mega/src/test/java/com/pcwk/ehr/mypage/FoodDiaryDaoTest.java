@@ -8,6 +8,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -66,6 +67,113 @@ class FoodDiaryDaoTest {
 		
 	}
 	
+	@Test
+	void doDelete() throws Exception{
+		log.debug("┌─────────────────────────────────────────────────────────┐");
+		log.debug("│ doDelete()                                              │");
+		log.debug("└─────────────────────────────────────────────────────────┘");
+		
+		//1. 전체삭제
+		//2. 단건등록
+		//3. 전체조회 및 항목선택
+		//4. 삭제
+		
+		//1. 
+		mapper.deleteAll();
+		
+		//2. 
+		mapper.doSave(dto01);
+		mapper.doSave(dto02);
+		mapper.doSave(dto03);
+		
+		int count = mapper.getCount();
+		assertEquals(3, count);
+		log.debug("count: {}", count);
+		
+		//다건조회 파라미터 설정
+		FoodDiaryDTO param = new FoodDiaryDTO();
+		param.setUserId("yangsh");
+		param.setRegDt("2025-05-26");
+		
+		//3. 
+		List<FoodDiaryOutDTO> list = (List<FoodDiaryOutDTO>) mapper.doRetrieve(param);
+		for(FoodDiaryOutDTO vo : list) {
+			log.debug("vo: {}", vo);	
+		}
+		
+		//다건조회 목록 중 삭제할 항목 선택
+		FoodDiaryOutDTO inVO = list.get(0);
+		log.debug("inVO: {}", inVO);
+		
+		//삭제 파라미터 설정
+		FoodDiaryDTO paramDe = new FoodDiaryDTO();
+		paramDe.setFdCode(inVO.getFdCode());
+		
+		//4. 
+		int result = mapper.doDelete(paramDe);
+		assertEquals(1, result);
+		log.debug(result);
+		
+		
+	}
+	
+	@Disabled
+	@Test
+	void doUpdate() throws Exception {
+		log.debug("┌─────────────────────────────────────────────────────────┐");
+		log.debug("│ doUpdate()                                              │");
+		log.debug("└─────────────────────────────────────────────────────────┘");
+		
+		//1. 전체삭제
+		//2. 단건등록
+		//3. 전체조회 및 항목선택
+		//4. 수정
+		
+		//1. 
+		mapper.deleteAll();
+		
+		//2. 
+		mapper.doSave(dto01);
+		mapper.doSave(dto02);
+		mapper.doSave(dto03);
+		
+		int count = mapper.getCount();
+		assertEquals(3, count);
+		log.debug("count: {}", count);
+		
+		//다건조회 파라미터 설정
+		FoodDiaryDTO param = new FoodDiaryDTO();
+		param.setUserId("yangsh");
+		param.setRegDt("2025-05-26");
+		
+		//3. 
+		List<FoodDiaryOutDTO> list = (List<FoodDiaryOutDTO>) mapper.doRetrieve(param);
+		for(FoodDiaryOutDTO vo : list) {
+			log.debug("vo: {}", vo);	
+		}
+		
+		//다건조회 목록 중 수정할 항목 선택
+		FoodDiaryOutDTO inVO = list.get(0);
+		log.debug("inVO: {}", inVO);
+		
+		//업데이트 파라미터 설정
+		FoodDiaryDTO paramUp = new FoodDiaryDTO();
+		paramUp.setFdCode(inVO.getFdCode());
+		paramUp.setFoodName(inVO.getFoodName());
+		paramUp.setGrams(200);
+		paramUp.setMealType("점심");
+		paramUp.setRegDt(inVO.getRegDt());
+		paramUp.setUserId(inVO.getUserId());
+		
+		//4. 
+		int result = mapper.doUpdate(paramUp);
+		
+		assertEquals(1, result);
+		log.debug("result: {}", result);
+		
+	}
+	
+	@Disabled
 	@Test
 	void doRetrieve() throws Exception {
 		log.debug("┌─────────────────────────────────────────────────────────┐");
