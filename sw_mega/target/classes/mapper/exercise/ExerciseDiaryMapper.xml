@@ -3,11 +3,8 @@
 <mapper namespace="com.pcwk.ehr.mypage.mapper.ExerciseDiaryMapper">
 
 <!-- 전체조회(사용자 아이디, 날짜 기준) -->
-<select id="doRetrieve" resultType="ExerciseDiaryDTO" parameterType= "ExerciseDiaryOutDTO">
-    SELECT *
-    FROM (
-        SELECT ROWNUM AS rnum, data.*
-        FROM (
+<select id="doRetrieve"  parameterType= "ExerciseDiaryDTO" resultType="ExerciseDiaryOutDTO">
+
             SELECT
                 ed.ed_code,
                 ed.user_id,
@@ -24,18 +21,15 @@
                 e.weight,
                 e.cal_burn
                 
-            FROM exercise_diary ED
+            FROM exercise_diary ed
             JOIN exercise E
               ON ed.e_code = e.e_code
+            JOIN membership m
+              ON ed.user_id = m.user_id
             WHERE ed.user_id = #{userId}
-              AND TO_CHAR(ed.reg_dt, 'YYYY-MM-DD') = #{regDt}
+               AND TRUNC(ed.reg_dt) = TO_DATE(#{regDt}, 'YYYY-MM-DD')
             ORDER BY e.exercise_type DESC
-        ) data
-        <![CDATA[
-        WHERE ROWNUM <= (#{pageSize} * (#{pageNo}))
-    )
-    WHERE rnum >= ((#{pageNo} - 1) * #{pageSize} + 1)
-    ]]>
+
 </select>
 
 <!-- 단건등록 -->
@@ -52,26 +46,44 @@
         reg_dt
     ) VALUES (
         ED_SEQ.NEXTVAL,
-        #{userId},
-        #{eCode},
-        #{cardioWeight},
-        #{strenthWeight},
-        #{duration},
-        #{setCount},
-        #{repsPerSet},
-        #{regDt}
+        #{userId, jdbcType=VARCHAR},
+        #{eCode, jdbcType=VARCHAR},
+        #{cardioWeight, jdbcType=INTEGER},
+        #{strenthWeight, jdbcType=INTEGER},
+        #{duration, jdbcType=INTEGER},
+        #{setCount, jdbcType=INTEGER},
+        #{repsPerSet, jdbcType=INTEGER},
+        #{regDt, jdbcType=VARCHAR}
     )
 </insert>
+
+
+<!-- 다건등록 -->
+<insert id="saveAll">
+    INSERT INTO exercise_diary
+    SELECT ED_SEQ.NEXTVAL AS ed_code,
+           'yangsh' AS userId,
+           '1001' AS eCode,
+           54 AS cardioWeight,
+           32 AS strenthWeight,
+           2 AS duration,
+           4 AS setCount,
+           10 AS repsPerSet,
+           TO_DATE(DECODE(MOD(LEVEL, 2), 0, '2025-05-26', '2025-06-22'), 'YYYY-MM-DD') AS regDt
+    FROM dual
+    <![CDATA[ CONNECT BY LEVEL <= 502 ]]>
+</insert>
+
 
 <!-- 수정하기 -->
 <update id="doUpdate" parameterType="ExerciseDiaryDTO">
     UPDATE exercise_diary
     SET
-        cardio_weight = #{cardioWeight},
-        strenth_weight = #{strenthWeight},
+        cardio_weight = #{cardioWeight, jdbcType=INTEGER},
+        strenth_weight = #{strenthWeight, jdbcType=INTEGER},
         duration = #{duration},
-        set_count = #{setCount},
-        reps_per_set = #{repsPerSet}
+        set_count = #{setCount, jdbcType=INTEGER},
+        reps_per_set = #{repsPerSet, jdbcType=INTEGER}
     WHERE
         ed_code = #{edCode}
 </update>
@@ -81,6 +93,18 @@
 <delete id="doDelete" parameterType="ExerciseDiaryDTO">
     DELETE FROM exercise_diary
     WHERE ed_code = #{edCode}
+</delete>
+
+
+<!-- 카운트 세기 -->
+<select id="getCount" resultType="java.lang.Integer">
+        SELECT count(*) from exercise_diary
+</select>
+
+
+<!-- 전체삭제 -->
+<delete id="deleteAll">
+        DELETE FROM exercise_diary
 </delete>
 
 </mapper>
