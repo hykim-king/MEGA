@@ -1,5 +1,8 @@
-package com.pcwk.ehr.findid;
+package com.pcwk.ehr.login.service;
+
+import com.pcwk.ehr.login.domain.FindIdDTO;
 
 public interface FindIdService {
-	String findUserId(FindIdDTO dto);
+
+	String findId(FindIdDTO dto);
 }

@@ -1,4 +1,4 @@
-package com.pcwk.ehr.login;
+package com.pcwk.ehr.login.domain;
 
 public class LoginDTO {
 	private String userId;

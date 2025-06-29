@@ -1,10 +1,13 @@
-package com.pcwk.ehr.findid;
+package com.pcwk.ehr.login.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import com.pcwk.ehr.login.domain.FindIdDTO;
+import com.pcwk.ehr.login.service.FindIdService;
 
 @Controller
 public class FindIdController {
@@ -13,7 +16,7 @@ public class FindIdController {
 
 	    @PostMapping("/findId")
 	    public String findId(@ModelAttribute FindIdDTO dto, Model model) {
-	        String userId = findIdService.findUserId(dto);
+	        String userId = findIdService.findId(dto);
 	        if(userId != null) {
 	            model.addAttribute("userId", userId);
 	            return "findIdResult";

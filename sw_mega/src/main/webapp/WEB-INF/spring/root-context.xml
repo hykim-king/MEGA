@@ -58,7 +58,7 @@
     </tx:advice>
 
     <aop:config>
-       <aop:pointcut expression="execution( * com.pcwk.ehr..service.*Impl.up*(..))" id="txPointCut"/>
+       <aop:pointcut expression="execution( * com.pcwk.ehr..service.*Impl.*(..))" id="txPointCut"/>
        <aop:advisor advice-ref="txAdvice" pointcut-ref="txPointCut"/>
     </aop:config>
 
@@ -111,7 +111,7 @@
         <property name="driverClassName"
             value="oracle.jdbc.driver.OracleDriver" />
         <property name="jdbcUrl"
-            value="jdbc:oracle:thin:@192.168.100.30:1522:XE" />
+            value="jdbc:oracle:thin:@218.144.130.138:1522:XE" />
         <property name="username" value="MEGA" />
         <property name="password" value="m3395"></property>
         <!-- Optional settings -->

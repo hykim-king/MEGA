@@ -1,8 +1,10 @@
-package com.pcwk.ehr.findid;
+package com.pcwk.ehr.login.dao;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.pcwk.ehr.login.domain.FindIdDTO;
 @Service
 public class FindIdDaoImpl implements FindIdDao {
 

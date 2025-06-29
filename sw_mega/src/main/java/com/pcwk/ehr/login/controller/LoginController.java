@@ -1,4 +1,4 @@
-package com.pcwk.ehr.login;
+package com.pcwk.ehr.login.controller;
 
 import javax.servlet.http.HttpSession;
 
@@ -7,6 +7,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import com.pcwk.ehr.login.domain.LoginDTO;
+import com.pcwk.ehr.login.service.LoginService;
 
 @Controller
 public class LoginController {
