@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pcwk.ehr.mypage.mapper.FoodDiaryMapper">
+
+<!-- 사용자Id, 날짜 기준으로 전체 조회 -->
+<select id="doRetrieve" parameterType="FoodDiaryDTO" resultType="FoodDiaryOutDTO">
+
+	SELECT
+	    fd.fd_code,
+	    fd.user_id,
+	    m.user_id, 
+	    f.food_name,
+	    fd.grams,
+	    fd.meal_type,
+	    fd.reg_dt,
+	    f.st_grams,
+	    f.cal,
+	    f.carb,
+	    f.fat,
+	    f.prot,
+	    f.na
+	FROM
+	    food_diary fd
+	INNER JOIN
+	    food f ON fd.food_name = f.food_name
+	INNER JOIN
+	    membership m ON fd.user_id = m.user_id
+	WHERE
+		    fd.user_id = #{userId}
+            AND TRUNC(fd.reg_dt) = TO_DATE(#{regDt}, 'YYYY-MM-DD')
+	ORDER BY
+	    fd.meal_type ASC
+        
+</select>
+
+
+<!-- 단건 등록 -->
+<insert id="doSave" parameterType="FoodDiaryDTO">
+
+    INSERT INTO food_diary (
+        fd_code,
+        user_id,
+        food_name,
+        grams,
+        meal_type,
+        reg_dt
+    ) VALUES (
+        FD_SEQ.NEXTVAL,
+        #{userId},
+        #{foodName},
+        #{grams},
+        #{mealType},
+        #{regDt}
+    )
+    
+</insert>
+
+
+<!-- 다건등록 -->
+<insert id="saveAll">
+    INSERT INTO food_diary
+    SELECT FD_SEQ.NEXTVAL AS fd_code,
+           'yangsh179' AS userId,
+           '김치찌개210' AS foodName,
+           10 AS grams,
+           DECODE(MOD(LEVEL, 3), 0, '아침', 1, '점심', '저녁') AS mealType,
+           TO_DATE(DECODE(MOD(LEVEL, 2), 0, '2025-06-25', '2025-06-22'), 'YYYY-MM-DD') AS regDt
+    FROM dual
+    <![CDATA[ CONNECT BY LEVEL <= 502 ]]>
+</insert>
+
+
+<!-- 수정하기 -->
+<update id="doUpdate" parameterType="FoodDiaryDTO">
+
+    UPDATE food_diary
+    SET
+        grams = #{grams},
+        meal_type = #{mealType}
+    WHERE
+        fd_code = #{fdCode}
+        
+</update>
+
+<!-- 삭제하기 -->
+<delete id="doDelete" parameterType="FoodDiaryDTO">
+
+    DELETE FROM food_diary
+    WHERE fd_code = #{fdCode}
+    
+</delete>
+
+<!-- 카운트 세기 -->
+<select id="getCount" resultType="java.lang.Integer">
+        SELECT count(*) from food_diary
+</select>
+
+<!-- 전체삭제 -->
+<delete id="deleteAll">
+        DELETE FROM food_diary
+</delete>
+
+</mapper>

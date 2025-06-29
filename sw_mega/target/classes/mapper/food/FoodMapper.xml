@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pcwk.ehr.mypage.mapper.FoodMapper">
+
+
+<!-- 전체조회 -->
+<select id="doRetrieve" parameterType="SearchDTO" resultType="FoodDTO">
+
+        SELECT A.*, B.*
+        FROM (
+            SELECT tt3.rnum AS no,
+                   tt3.food_name,
+                   tt3.st_grams,
+                   tt3.cal,
+                   tt3.carb,
+                   tt3.fat,
+                   tt3.prot,
+                   tt3.na
+              FROM (
+                  SELECT ROWNUM AS rnum,
+                         tt2.*
+                    FROM (
+                        SELECT *
+                          FROM food
+                         WHERE food_name LIKE '%' || #{searchWord} || '%'
+                         ORDER BY food_name ASC
+                    ) tt2
+                     <![CDATA[
+                   WHERE ROWNUM <= (#{pageSize} * (#{pageNo} - 1) + #{pageSize})
+              ) tt3
+             WHERE rnum >= (#{pageSize} * (#{pageNo} - 1) + 1)
+             ]]>
+        ) A
+        CROSS JOIN (
+            SELECT COUNT(*) AS total_cnt
+              FROM food
+             WHERE food_name LIKE '%' || #{searchWord} || '%'
+        ) B
+        
+</select>
+
+
+<!-- 단건조회 -->
+<select id="doSelectOne" resultType="FoodDTO" parameterType="FoodDTO">
+
+        SELECT
+            food_name,
+            st_grams,
+            cal,
+            carb,
+            fat,
+            prot,
+            na
+        FROM
+            food
+        WHERE food_name = #{foodName}
+         
+</select>
+
+
+<!-- 단건 등록 -->
+<insert id="doSave" parameterType="FoodDTO">
+
+        INSERT INTO food (
+            food_name,
+            st_grams,
+            cal,
+            carb,
+            fat,
+            prot,
+            na
+        ) VALUES (
+            #{foodName},
+            #{stGrams},
+            #{cal},
+            #{carb},
+            #{fat},
+            #{prot},
+            #{na}
+        )
+        
+</insert>
+
+
+<!-- 다건등록 -->
+<insert id="saveAll">
+    INSERT INTO food                                        
+     SELECT '김치볶음밥' || level AS food_name,                     
+            200 AS st_grams,                          
+            40  AS cal,                    
+            10  AS carb,                       
+            10  AS fat,                   
+            30  AS prot,   
+            4   AS na                                               
+       FROM dual                        
+     <![CDATA[ CONNECT BY LEVEL <=502  ]]>                                   
+
+</insert>
+
+
+<!-- 수정(관리자 전용) -->
+<update id="doUpdate" parameterType="FoodDTO">
+
+        UPDATE food
+        SET st_grams = #{stGrams},
+            cal      = #{cal},
+            carb     = #{carb},
+            fat      = #{fat},
+            prot     = #{prot},
+            na       = #{na}
+        WHERE food_name = #{foodName}
+        
+</update>
+
+
+<!-- 삭제(관리자 전용) -->
+<delete id="doDelete" parameterType="FoodDTO">
+
+        DELETE FROM food
+        WHERE food_name = #{foodName}
+    
+</delete>
+
+<!-- 카운트 세기 -->
+<select id="getCount" resultType="java.lang.Integer">
+        SELECT count(*) from food
+</select>
+
+
+<!-- 전체삭제 -->
+<delete id="deleteAll">
+        DELETE FROM food_diary
+</delete>
+
+</mapper>
