@@ -7,6 +7,5 @@ import com.pcwk.ehr.mypage.domain.FoodDTO;
 
 public interface FoodMapper extends WorkDiv<FoodDTO> {
 
-	int getCount() throws SQLException;
 	
 }

@@ -13,6 +13,7 @@
  */
 package com.pcwk.ehr.cmn;
 
+import java.sql.SQLException;
 import java.util.List;
 
 /**
@@ -71,4 +72,10 @@ public interface WorkDiv<T> {
 	 * 전체삭제
 	 */
 	void deleteAll();
+	
+	/**
+	 * 등록 건수 세기
+	 * @return
+	 */
+	int getCount();
 }

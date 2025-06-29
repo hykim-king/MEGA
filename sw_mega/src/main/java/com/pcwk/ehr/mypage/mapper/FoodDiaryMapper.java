@@ -10,4 +10,5 @@ public interface FoodDiaryMapper extends WorkDiv<FoodDiaryDTO> {
 
     // doRetrieve를 별도로 정의
     List<FoodDiaryOutDTO> doRetrieve(FoodDiaryDTO param);
+  
 }
