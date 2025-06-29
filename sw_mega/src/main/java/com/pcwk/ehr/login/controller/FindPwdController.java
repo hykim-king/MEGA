@@ -1,10 +1,13 @@
-package com.pcwk.ehr.findpwd;
+package com.pcwk.ehr.login.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import com.pcwk.ehr.login.domain.FindPwdDTO;
+import com.pcwk.ehr.login.service.FindPwdService;
 
 @Controller
 public class FindPwdController {

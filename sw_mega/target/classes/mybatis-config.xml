@@ -9,16 +9,15 @@
   </settings>
   
   <typeAliases>
-    <typeAlias alias="SearchDTO" type="com.pcwk.ehr.cmn.SearchDTO"/>
-    <typeAlias alias="loginDTO" type="com.pcwk.ehr.login.LoginDTO"/>
-    <typeAlias alias="findIdDTO" type="com.pcwk.ehr.findid.FindIdDTO"/>
-    <typeAlias alias="findPwdDTO" type="com.pcwk.ehr.findpwd.FindPwdDTO"/>
+    <typeAlias alias="loginDTO" type="com.pcwk.ehr.login.domain.LoginDTO"/>
+    <typeAlias alias="findPwdDTO" type="com.pcwk.ehr.login.domain.FindPwdDTO"/>
+    <typeAlias alias="findIdDTO" type="com.pcwk.ehr.login.domain.FindIdDTO"/>
     <typeAlias alias="NoticeDTO" type="com.pcwk.ehr.board.domain.NoticeDTO"/>
     <typeAlias alias="ExerciseDTO" type="com.pcwk.ehr.mypage.domain.ExerciseDTO"/>
     <typeAlias alias="ExerciseDiaryDTO" type="com.pcwk.ehr.mypage.domain.ExerciseDiaryDTO"/>
     <typeAlias alias="ExerciseDiaryOutDTO" type="com.pcwk.ehr.mypage.domain.ExerciseDiaryOutDTO"/>
     <typeAlias alias="FoodDTO" type="com.pcwk.ehr.mypage.domain.FoodDTO"/>
     <typeAlias alias="FoodDiaryDTO" type="com.pcwk.ehr.mypage.domain.FoodDiaryDTO"/>
-    <typeAlias alias="FoodDiaryOutDTO" type="com.pcwk.ehr.mypage.domain.FoodDiaryOutDTO"/>
+    <typeAlias alias="FoodDiaryOutDTO" type="com.pcwk.ehr.mypage.domain.FoodDiaryOutDTO"/
   </typeAliases>
 </configuration>

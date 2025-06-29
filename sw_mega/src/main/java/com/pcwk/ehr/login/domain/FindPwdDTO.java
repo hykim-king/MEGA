@@ -1,4 +1,4 @@
-package com.pcwk.ehr.findpwd;
+package com.pcwk.ehr.login.domain;
 
 public class FindPwdDTO {
 	private String userId;

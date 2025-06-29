@@ -1,8 +1,10 @@
-package com.pcwk.ehr.login;
+package com.pcwk.ehr.login.dao;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.pcwk.ehr.login.domain.LoginDTO;
 @Service
 public class LoginDaoImpl {
 	private final String NAMESPACE = "com.pcwk.ehr.login.LoginDao";

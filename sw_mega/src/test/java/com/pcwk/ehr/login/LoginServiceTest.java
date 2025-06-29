@@ -13,6 +13,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
+import com.pcwk.ehr.login.domain.LoginDTO;
+import com.pcwk.ehr.login.service.LoginService;
+
 
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(locations = {"file:src/main/webapp/WEB-INF/spring/root-context.xml",
@@ -39,8 +42,8 @@ class LoginServiceTest {
 
 	@Test
     public void loginTest() {
-        String userId = "testuser";
-        String password = "1234";
+        String userId = "admin1";
+        String password = "password1";
 
         LoginDTO outDTO = loginService.login(userId, password);
         assertNotNull(outDTO);
