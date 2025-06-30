@@ -29,6 +29,7 @@ public class FindIdDaoTest {
 
     @Test
     void daoNotNullTest() {
+    	
         assertNotNull(findIdDao, "FindIdDao가 정상적으로 주입되어야 합니다.");
         log.debug("context: "+context);
     }

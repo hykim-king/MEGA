@@ -24,6 +24,11 @@ import com.pcwk.ehr.login.service.FindIdService;
 class FindIdServiceTest {
 	Logger log=LogManager.getLogger(getClass());
 
+	@Autowired
+    FindIdService findIdService;
+	
+	
+	
 	@BeforeEach
 	void setUp() throws Exception {
 		log.debug("┌─────────────────────────────────────────────────────────┐");
@@ -38,8 +43,7 @@ class FindIdServiceTest {
 		log.debug("└─────────────────────────────────────────────────────────┘");
 	}
 
-	@Autowired
-    FindIdService findIdService;
+
 
     @Test
     public void findId() {

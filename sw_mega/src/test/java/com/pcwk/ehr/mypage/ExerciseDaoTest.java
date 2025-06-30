@@ -110,7 +110,7 @@ class ExerciseDaoTest {
 
 	}
 
-	@Disabled
+	//@Disabled
 	@Test
 	void doUpdate() throws SQLException {
 		log.debug("┌─────────────────────────────────────────────────────────┐");
@@ -165,7 +165,7 @@ class ExerciseDaoTest {
 
 	}
 
-	@Disabled
+	//@Disabled
 	@Test
 	void doSelectOne() throws SQLException {
 		log.debug("┌─────────────────────────────────────────────────────────┐");
@@ -220,7 +220,7 @@ class ExerciseDaoTest {
 
 	}
 
-	@Disabled
+	//@Disabled
 	@Test
 	void doRetrieve() throws SQLException {
 		log.debug("┌─────────────────────────────────────────────────────────┐");
@@ -261,8 +261,10 @@ class ExerciseDaoTest {
 	@Test
 	void beans() {
 		assertNotNull(context);
-
+		assertNotNull(mapper);
+		
 		log.debug(context);
+		log.debug("mapper:"+mapper);
 	}
 
 }
