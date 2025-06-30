@@ -16,6 +16,7 @@
 
         <property name="basePackage" value="com.pcwk.ehr"></property>
 
+
      </bean>
     
     <!-- mybatis -->
