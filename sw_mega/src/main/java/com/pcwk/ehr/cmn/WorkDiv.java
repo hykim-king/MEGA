@@ -63,15 +63,14 @@ public interface WorkDiv<T> {
 	int doSave(T param);
 	
 	/**
-<<<<<<< HEAD
 	 * 조회수 증가
 	 * 
 	 * @param param
 	 * @return 1(성공)/0(실패)
 	 */
 	int viewCount(T param);
-	
-	/*
+
+	/**
 	 * 다건등록
 	 * @return 1(성공)/0(실패)
 	 */

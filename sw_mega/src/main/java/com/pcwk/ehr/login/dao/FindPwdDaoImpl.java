@@ -13,7 +13,7 @@ public class FindPwdDaoImpl implements FindPwdDao {
     SqlSessionTemplate sqlSessionTemplate;
 
     @Override
-    public int updatePassword(FindPwdDTO dto) {
-        return sqlSessionTemplate.update(NAMESPACE + ".updatePassword", dto);
+    public String findPwd(FindPwdDTO dto) {
+    	return sqlSessionTemplate.selectOne(NAMESPACE + ".findPwd", dto);
     }
 }
