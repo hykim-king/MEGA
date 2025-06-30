@@ -71,18 +71,37 @@ class ExerciseDaoTest {
 		log.debug("└─────────────────────────────────────────────────────────┘");
 
 		// 1. 전체삭제
-		// 2. 다건등록
-		// 3. 전체삭제
-		// 4. 등록 건수 조회
+		// 2. 단건등록
+		// 3. 전체조회
+		// 4. 단건삭제
+		// 5. 등록 건수 조회
 
 		// 1.
 		mapper.deleteAll();
 
 		// 2.
-		mapper.saveAll();
+		mapper.doSave(dto01);
 
+		// paging
+		search.setPageSize(10);
+		search.setPageNo(1);
+	
+		// 검색필터
+		search.setSearchDiv("10");
+		search.setSearchWord("달리기");
+	
 		// 3.
-		mapper.deleteAll();
+		List<ExerciseDTO> list = mapper.doRetrieve(search);
+		for (ExerciseDTO vo : list) {
+			log.debug("vo: {}", vo);
+		}
+		
+		
+		// 4.
+		ExerciseDTO param = new ExerciseDTO();
+		param.seteCode(list.get(0).geteCode());
+	    mapper.doDelete(param);
+	
 
 		// 4.
 		int count = mapper.getCount();
