@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.pcwk.ehr.mapper.MembershipMapper">
+
+<!-- 0. echo-테스트용  -->
+    <select id="doHello"
+            parameterType="com.pcwk.ehr.mymapper.domain.MyMapperDTO"
+            resultType="com.pcwk.ehr.mymapper.domain.MyMapperDTO">
+        SELECT #{userId}   || ' 월요일' AS userId,
+               #{password} || ' 월요일' AS password
+        FROM   dual
+    </select>
+
+    <!-- 1. 단건 조회 -->
+    <select id="doSelectOne" parameterType="MembershipDTO" resultType="MembershipDTO">
+        SELECT user_id,
+               admin_id,
+               email,
+               password,
+               birth,
+               email_auth,
+               email_auth_token,
+               grade,
+               profile_image,
+               reg_dt
+          FROM membership
+         WHERE user_id = #{userId}
+    </select>
+
+    <!-- 2. 등록  -->
+    <insert id="doSave"
+            parameterType="com.pcwk.ehr.membership.DTO.MembershipDTO">
+        INSERT INTO MEMBERSHIP (
+            USER_ID, ADMIN_ID, EMAIL, PASSWORD, BIRTH,
+            EMAIL_AUTH, EMAIL_AUTH_TOKEN, GRADE, PROFILE_IMAGE, REG_DT
+        ) VALUES (
+            #{userId}, #{adminId}, #{email}, #{password}, #{birth},
+            #{emailAuth}, #{emailAuthToken}, #{grade}, #{profileImage}, SYSDATE
+        )
+    </insert>
+
+    <!-- 3. 수정  -->
+    <update id="doUpdate"
+            parameterType="com.pcwk.ehr.membership.DTO.MembershipDTO">
+        UPDATE MEMBERSHIP
+           SET ADMIN_ID          = #{adminId},
+               EMAIL             = #{email},
+               PASSWORD          = #{password},
+               BIRTH             = #{birth},
+               EMAIL_AUTH        = #{emailAuth},
+               EMAIL_AUTH_TOKEN  = #{emailAuthToken},
+               GRADE             = #{grade},
+               PROFILE_IMAGE     = #{profileImage},
+               REG_DT            = SYSDATE
+         WHERE USER_ID = #{userId}
+    </update>
+
+    <!-- 4. 삭제(단건) -->
+    <delete id="doDelete"
+            parameterType="com.pcwk.ehr.membership.DTO.MembershipDTO">
+        DELETE FROM MEMBERSHIP
+        WHERE  USER_ID = #{userId}
+    </delete>
+
+    <!-- 5. 전체 건수 -->
+    <select id="getCount" resultType="java.lang.Integer">
+        SELECT COUNT(*) FROM MEMBERSHIP
+    </select>
+
+    <!-- 6. 테스트용 대량 INSERT -->
+    <insert id="saveAll">
+        <![CDATA[
+        INSERT INTO MEMBERSHIP
+        SELECT 'user'  || LEVEL,
+               'admin' || LEVEL,
+               'user'  || LEVEL || '@test.com',
+               'pw'    || LEVEL,
+               SYSDATE - LEVEL,
+               'N',
+               DBMS_RANDOM.STRING('A',20),
+               DECODE(MOD(LEVEL,2),0,1,9),
+               NULL,
+               SYSDATE
+          FROM dual
+        CONNECT BY LEVEL <= 200
+        ]]>
+    </insert>
+
+    <!-- 7. 전체 삭제  -->
+    <delete id="deleteAll">
+        DELETE FROM MEMBERSHIP
+    </delete>
+    
+    <delete id="deleteAllCascade">
+        DELETE FROM EXERCISE_DIARY
+        
+        DELETE FROM MEMBERSHIP
+    </delete>
+</mapper>
+    
