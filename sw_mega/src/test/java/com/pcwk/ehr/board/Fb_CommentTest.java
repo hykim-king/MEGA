@@ -69,7 +69,7 @@ class Fb_CommentTest {
 		log.debug("└────────────────────────────┘");
 	}
 
-	@Disabled
+	//@Disabled
     @Test
     void beans() {
         assertNotNull(context);
