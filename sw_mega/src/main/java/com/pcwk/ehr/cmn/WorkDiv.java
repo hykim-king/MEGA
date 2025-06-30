@@ -71,7 +71,7 @@ public interface WorkDiv<T> {
 	 */
 	int viewCount(T param);
 	
-=======
+	/*
 	 * 다건등록
 	 * @return 1(성공)/0(실패)
 	 */
@@ -87,5 +87,5 @@ public interface WorkDiv<T> {
 	 * @return
 	 */
 	int getCount();
->>>>>>> 43a5e6f60c57b9ea7f2773c50aabc1ed466919a3
+
 }
