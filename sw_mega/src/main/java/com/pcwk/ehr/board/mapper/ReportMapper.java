@@ -1,16 +1,11 @@
 package com.pcwk.ehr.board.mapper;
 
-import java.util.List;
+import org.apache.ibatis.annotations.Mapper;
 
 import com.pcwk.ehr.board.domain.ReportDTO;
+import com.pcwk.ehr.cmn.WorkDiv;
 
-public interface ReportMapper {
+@Mapper
+public interface ReportMapper extends WorkDiv<ReportDTO> {
 
-	 int insertReport(ReportDTO report);
-
-	    List<ReportDTO> selectReportsByUserId(String userId);
-
-	    // (선택) 관리자용 전체 목록
-	    List<ReportDTO> selectAllReports();
-	
 }

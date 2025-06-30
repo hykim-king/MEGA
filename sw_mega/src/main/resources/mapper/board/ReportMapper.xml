@@ -2,20 +2,52 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.pcwk.ehr.mapper.ReportMapper">
 
- <insert id="insertReport" parameterType="com.pcwk.ehr.board.domain.ReportDTO">
+ <!-- 신고 등록 -->
+    <insert id="doSave" parameterType="com.pcwk.ehr.board.domain.ReportDTO">
         INSERT INTO REPORT (
-            REPORT_CODE, USER_ID, REASON, TARGET_TYPE, TARGET_CODE
+            REPORT_CODE,
+            USER_ID,
+            REASON,
+            TARGET_TYPE,
+            TARGET_CODE
         ) VALUES (
-            #{reportCode}, #{userId}, #{reason}, #{targetType}, #{targetCode}
+            RE_SEQ.NEXTVAL,
+            #{userId},
+            #{reason},
+            #{targetType},
+            #{targetCode}
         )
     </insert>
 
-    <select id="selectReportsByUserId" parameterType="string" resultType="com.pcwk.ehr.board.domain.ReportDTO">
-        SELECT * FROM REPORT WHERE USER_ID = #{userId}
+    <!-- 신고 전체 조회 -->
+    <select id="doRetrieve" resultType="com.pcwk.ehr.board.domain.ReportDTO">
+        SELECT
+            REPORT_CODE,
+            USER_ID,
+            REASON,
+            TARGET_TYPE,
+            TARGET_CODE
+        FROM REPORT
+        ORDER BY REPORT_CODE DESC
     </select>
 
-    <select id="selectAllReports" resultType="com.pcwk.ehr.board.domain.ReportDTO">
-        SELECT * FROM REPORT ORDER BY REPORT_CODE DESC
+    <!-- 신고 단건 조회 -->
+    <select id="doSelectOne" parameterType="int" resultType="com.pcwk.ehr.board.domain.ReportDTO">
+        SELECT
+            REPORT_CODE,
+            USER_ID,
+            REASON,
+            TARGET_TYPE,
+            TARGET_CODE
+        FROM REPORT
+        WHERE REPORT_CODE = #{reportCode}
     </select>
+
+    <!-- 신고 삭제 -->
+    <delete id="doDelete" parameterType="com.pcwk.ehr.board.domain.ReportDTO">
+        DELETE FROM REPORT
+        WHERE REPORT_CODE = #{reportCode}
+    </delete>
+
 
 </mapper>

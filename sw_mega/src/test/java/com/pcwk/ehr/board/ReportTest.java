@@ -9,38 +9,31 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-import com.pcwk.ehr.board.domain.NoticeDTO;
-import com.pcwk.ehr.board.mapper.NoticeMapper;
+import com.pcwk.ehr.board.domain.ReportDTO;
+import com.pcwk.ehr.board.mapper.ReportMapper;
 
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(locations = { "file:src/main/webapp/WEB-INF/spring/root-context.xml",
 		"file:src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml" })
-class NoticeDTOTest {
-	@Autowired
-	NoticeMapper noticeMapper;
-
-	NoticeDTO dto01;
-	NoticeDTO dto02;
-	NoticeDTO dto03;
-
-	@Autowired
-	ApplicationContext context;
-
+public class ReportTest {
 	Logger log = LogManager.getLogger(getClass());
 
+	@Autowired
+	ReportMapper reportMapper;
+
+	ReportDTO context;
+
 	@BeforeEach
-	void setup() throws Exception {
+	void setUp() throws Exception {
 		log.debug("┌────────────────────────────┐");
 		log.debug("│ setUp()                    │");
 		log.debug("└────────────────────────────┘");
-		
-		
+		context = new ReportDTO(0, "testUser", "욕설 신고", "NOTICE", 101);
 
-	} 
+	}
 
 	@AfterEach
 	void tearDown() throws Exception {
@@ -49,7 +42,6 @@ class NoticeDTOTest {
 		log.debug("└────────────────────────────┘");
 	}
 
-	// @Disabled
 	@Test
 	void beans() {
 
