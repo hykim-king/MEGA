@@ -9,51 +9,42 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-import com.pcwk.ehr.board.domain.NoticeDTO;
-import com.pcwk.ehr.board.mapper.NoticeMapper;
+import com.pcwk.ehr.board.mapper.FreeBoardMapper;
 
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(locations = { "file:src/main/webapp/WEB-INF/spring/root-context.xml",
 		"file:src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml" })
-class NoticeDTOTest {
-	@Autowired
-	NoticeMapper noticeMapper;
-
-	NoticeDTO dto01;
-	NoticeDTO dto02;
-	NoticeDTO dto03;
-
-	@Autowired
-	ApplicationContext context;
+class FreeBoardTest {
 
 	Logger log = LogManager.getLogger(getClass());
 
+	@Autowired
+	FreeBoardMapper freeBoardMapper;
+
 	@BeforeEach
-	void setup() throws Exception {
+	void setUp() {
 		log.debug("┌────────────────────────────┐");
 		log.debug("│ setUp()                    │");
 		log.debug("└────────────────────────────┘");
-		
-		
-
-	} 
+	}
 
 	@AfterEach
-	void tearDown() throws Exception {
+	void tearDown() {
 		log.debug("┌────────────────────────────┐");
 		log.debug("│ tearDown()                 │");
 		log.debug("└────────────────────────────┘");
+
 	}
 
 	// @Disabled
 	@Test
 	void beans() {
 
-		assertNotNull(context);
-		log.debug(context);
+		assertNotNull(freeBoardMapper);
+		log.debug(freeBoardMapper);
 	}
+
 }

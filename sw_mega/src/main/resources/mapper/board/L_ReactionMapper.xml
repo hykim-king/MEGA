@@ -1,27 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.pcwk.ehr.mapper.L_ReactionMapper">
+<mapper namespace="com.pcwk.ehr.board.mapper.L_ReactionMapper">
 
- <insert id="insertReaction" parameterType="com.pcwk.ehr.board.domain.L_ReactionDTO">
+ <!-- 좋아요/싫어요 등록 -->
+    <insert id="doSave" parameterType="com.pcwk.ehr.board.domain.L_ReactionDTO">
         INSERT INTO L_REACTION (
-            REACTION_CODE, USER_ID, REACTION_TYPE, TARGET_TYPE, TARGET_CODE
+            REACTION_CODE,
+            USER_ID,
+            REACTION_TYPE,
+            TARGET_TYPE,
+            TARGET_CODE
         ) VALUES (
-            #{reactionCode}, #{userId}, #{reactionType}, #{targetType}, #{targetCode}
+            L_RE_SEQ.NEXTVAL,
+            #{userId},
+            #{reactionType},
+            #{targetType},
+            #{targetCode}
         )
     </insert>
 
-    <delete id="deleteReaction" parameterType="com.pcwk.ehr.board.domain.L_ReactionDTO">
-        DELETE FROM L_REACTION
-        WHERE USER_ID = #{userId}
-          AND TARGET_TYPE = #{targetType}
-          AND TARGET_CODE = #{targetCode}
-    </delete>
-
-    <select id="countReactions" parameterType="com.pcwk.ehr.board.domain.L_ReactionDTO" resultType="int">
-        SELECT COUNT(*) FROM L_REACTION
-        WHERE TARGET_TYPE = #{targetType}
-          AND TARGET_CODE = #{targetCode}
-          AND REACTION_TYPE = #{reactionType}
+    <!-- 좋아요/싫어요 전체 조회 -->
+    <select id="doRetrieve" resultType="com.pcwk.ehr.board.domain.L_ReactionDTO">
+        SELECT
+            REACTION_CODE,
+            USER_ID,
+            REACTION_TYPE,
+            TARGET_TYPE,
+            TARGET_CODE
+        FROM L_REACTION
+        ORDER BY REACTION_CODE DESC
     </select>
+
+    <!-- 좋아요/싫어요 단건 조회 -->
+    <select id="doSelectOne" parameterType="int" resultType="com.pcwk.ehr.board.domain.L_ReactionDTO">
+        SELECT
+            REACTION_CODE,
+            USER_ID,
+            REACTION_TYPE,
+            TARGET_TYPE,
+            TARGET_CODE
+        FROM L_REACTION
+        WHERE REACTION_CODE = #{reactionCode}
+    </select>
+
+    <!-- 좋아요/싫어요 삭제 -->
+    <delete id="doDelete" parameterType="int">
+        DELETE FROM L_REACTION
+        WHERE REACTION_CODE = #{reactionCode}
+    </delete>
+ 
 
 </mapper>

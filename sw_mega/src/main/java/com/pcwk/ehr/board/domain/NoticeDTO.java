@@ -1,7 +1,6 @@
 package com.pcwk.ehr.board.domain;
 
 import java.util.Date;
-import java.util.List;
 
 import org.springframework.stereotype.Component;
 
