@@ -15,8 +15,8 @@ public class LoginServiceImpl implements LoginService {
     LoginDao loginDao;
 
     @Override
-    public LoginDTO login(String userId, String password) {
-        return loginDao.login(userId, password);
+    public LoginDTO doSelectOne(LoginDTO dto) {
+        return loginDao.doSelectOne(dto);
     }
 
 }

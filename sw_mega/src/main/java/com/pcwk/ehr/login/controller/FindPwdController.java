@@ -14,15 +14,17 @@ public class FindPwdController {
 	 @Autowired
 	    FindPwdService findPwdService;
 
-	    @PostMapping("/findPwd")
-	    public String findPwd(@ModelAttribute FindPwdDTO dto, Model model) {
-	        boolean result = findPwdService.resetPassword(dto);
-	        if(result) {
-	            model.addAttribute("msg", "임시 비밀번호가 발급되었습니다. 이메일을 확인하세요.");
-	            return "findPwdResult";
-	        } else {
-	            model.addAttribute("msg", "정보가 일치하지 않습니다.");
-	            return "findPwd";
-	        }
-	    }
+	 @PostMapping("/findPwd.do")
+	 public String findPwd(@ModelAttribute FindPwdDTO inDTO, Model model) {
+	     String password = findPwdService.findPwd(inDTO);  // 서비스 호출
+
+	     if (password != null) {
+	         model.addAttribute("message", "비밀번호는: " + password);
+	     } else {
+	         model.addAttribute("message", "입력한 정보로 등록된 비밀번호가 없습니다.");
+	     }
+
+	     return "login/findPwdResult"; // WEB-INF/views/login/findPwdResult.jsp
+	 }
+
 }
