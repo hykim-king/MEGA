@@ -42,11 +42,12 @@ class FindPwdServiceTest {
     @Test
     public void passwordTest() {
         FindPwdDTO dto = new FindPwdDTO();
-        dto.setUserId("testuser");
-        dto.setEmail("test@test.com");
-        boolean result = findPwdService.resetPassword(dto);
+        dto.setUserId("yangsi");
+        dto.setEmail("user1@test.com");
+        String result = findPwdService.findPwd(dto);
 
-        assertTrue(result);
+        assertNotNull(result);
+        log.debug("조회된 비밀번호: {}", result);
     }
 
 }

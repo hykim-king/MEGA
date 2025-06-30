@@ -18,7 +18,7 @@ public class LoginController {
 
 	    @PostMapping("/login")
 	    public String login(@ModelAttribute LoginDTO dto, HttpSession session) {
-	    	LoginDTO user = loginService.login(dto.getUserId(), dto.getPassword());
+	    	LoginDTO user = loginService.doSelectOne(dto);
 	        if(user != null) {
 	            session.setAttribute("userId", user.getUserId());
 	            return "redirect:/main";
