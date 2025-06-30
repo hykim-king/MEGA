@@ -86,4 +86,5 @@ public interface WorkDiv<T> {
 	 * @return
 	 */
 	int getCount();
+
 }
