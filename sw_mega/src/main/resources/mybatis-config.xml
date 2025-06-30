@@ -9,6 +9,7 @@
   </settings>
   
   <typeAliases>
+    <typeAlias alias="SearchDTO" type ="com.pcwk.ehr.cmn.SearchDTO"/>
     <typeAlias alias="loginDTO" type="com.pcwk.ehr.login.domain.LoginDTO"/>
     <typeAlias alias="findPwdDTO" type="com.pcwk.ehr.login.domain.FindPwdDTO"/>
     <typeAlias alias="findIdDTO" type="com.pcwk.ehr.login.domain.FindIdDTO"/>
