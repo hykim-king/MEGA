@@ -13,7 +13,10 @@
      
      <!-- Mapper 자동 scann *Impl 제거 -->
      <bean class ="org.mybatis.spring.mapper.MapperScannerConfigurer">
+
         <property name="basePackage" value="com.pcwk.ehr"></property>
+
+
      </bean>
     
     <!-- mybatis -->
@@ -58,7 +61,7 @@
     </tx:advice>
 
     <aop:config>
-       <aop:pointcut expression="execution( * com.pcwk.ehr..service.*Impl.up*(..))" id="txPointCut"/>
+       <aop:pointcut expression="execution( * com.pcwk.ehr..service.*Impl.*(..))" id="txPointCut"/>
        <aop:advisor advice-ref="txAdvice" pointcut-ref="txPointCut"/>
     </aop:config>
 

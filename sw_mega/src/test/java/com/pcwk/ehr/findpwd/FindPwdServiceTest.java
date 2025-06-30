@@ -12,6 +12,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
+import com.pcwk.ehr.login.domain.FindPwdDTO;
+import com.pcwk.ehr.login.service.FindPwdService;
+
 
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(locations = {"file:src/main/webapp/WEB-INF/spring/root-context.xml",
@@ -39,11 +42,12 @@ class FindPwdServiceTest {
     @Test
     public void passwordTest() {
         FindPwdDTO dto = new FindPwdDTO();
-        dto.setUserId("testuser");
-        dto.setEmail("test@test.com");
-        boolean result = findPwdService.resetPassword(dto);
+        dto.setUserId("yangsi");
+        dto.setEmail("user1@test.com");
+        String result = findPwdService.findPwd(dto);
 
-        assertTrue(result);
+        assertNotNull(result);
+        log.debug("조회된 비밀번호: {}", result);
     }
 
 }

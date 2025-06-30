@@ -5,11 +5,11 @@ public class ExerciseDiaryDTO {
 	private String edCode; //운동일지 코드
 	private String userId; //사용자Id
 	private String eCode; //운동 코드
-	private int cardioWeight; //체중
-	private int strenthWeight; //덤벨 무게
+	private Integer cardioWeight; //체중
+	private Integer strenthWeight; //덤벨 무게
 	private int duration; //운동시간
-	private int setCount; //세트 수
-	private int repsPerSet; //세트 당 횟수
+	private Integer setCount; //세트 수
+	private Integer repsPerSet; //세트 당 횟수
 	private String regDt; //등록일
 	
 	public ExerciseDiaryDTO() {
@@ -27,10 +27,9 @@ public class ExerciseDiaryDTO {
 	 * @param repsPerSet
 	 * @param regDt
 	 */
-	public ExerciseDiaryDTO(String edCode, String userId, String eCode, int cardioWeight, int strenthWeight,
-			int duration, int setCount, int repsPerSet, String regDt) {
+	public ExerciseDiaryDTO(String userId, String eCode, Integer cardioWeight, Integer strenthWeight,
+			int duration, Integer setCount, Integer repsPerSet, String regDt) {
 		super();
-		this.edCode = edCode;
 		this.userId = userId;
 		this.eCode = eCode;
 		this.cardioWeight = cardioWeight;
@@ -86,28 +85,28 @@ public class ExerciseDiaryDTO {
 	/**
 	 * @return the cardioWeight
 	 */
-	public int getCardioWeight() {
+	public Integer getCardioWeight() {
 		return cardioWeight;
 	}
 
 	/**
 	 * @param cardioWeight the cardioWeight to set
 	 */
-	public void setCardioWeight(int cardioWeight) {
+	public void setCardioWeight(Integer cardioWeight) {
 		this.cardioWeight = cardioWeight;
 	}
 
 	/**
 	 * @return the strenthWeight
 	 */
-	public int getStrenthWeight() {
+	public Integer getStrenthWeight() {
 		return strenthWeight;
 	}
 
 	/**
 	 * @param strenthWeight the strenthWeight to set
 	 */
-	public void setStrenthWeight(int strenthWeight) {
+	public void setStrenthWeight(Integer strenthWeight) {
 		this.strenthWeight = strenthWeight;
 	}
 
@@ -128,28 +127,28 @@ public class ExerciseDiaryDTO {
 	/**
 	 * @return the setCount
 	 */
-	public int getSetCount() {
+	public Integer getSetCount() {
 		return setCount;
 	}
 
 	/**
 	 * @param setCount the setCount to set
 	 */
-	public void setSetCount(int setCount) {
+	public void setSetCount(Integer setCount) {
 		this.setCount = setCount;
 	}
 
 	/**
 	 * @return the repsPerSet
 	 */
-	public int getRepsPerSet() {
+	public Integer getRepsPerSet() {
 		return repsPerSet;
 	}
 
 	/**
 	 * @param repsPerSet the repsPerSet to set
 	 */
-	public void setRepsPerSet(int repsPerSet) {
+	public void setRepsPerSet(Integer repsPerSet) {
 		this.repsPerSet = repsPerSet;
 	}
 

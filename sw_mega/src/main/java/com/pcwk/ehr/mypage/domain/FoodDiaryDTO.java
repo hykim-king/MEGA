@@ -13,6 +13,8 @@ public class FoodDiaryDTO {
 		// TODO Auto-generated constructor stub
 	}
 
+	
+	
 	/**
 	 * @param fdCode
 	 * @param userId
@@ -21,15 +23,16 @@ public class FoodDiaryDTO {
 	 * @param mealType
 	 * @param regDt
 	 */
-	public FoodDiaryDTO(int fdCode, String userId, String foodName, int grams, String mealType, String regDt) {
+	public FoodDiaryDTO(String userId, String foodName, int grams, String mealType, String regDt) {
 		super();
-		this.fdCode = fdCode;
 		this.userId = userId;
 		this.foodName = foodName;
 		this.grams = grams;
 		this.mealType = mealType;
 		this.regDt = regDt;
 	}
+
+
 
 	/**
 	 * @return the fdCode
@@ -114,6 +117,8 @@ public class FoodDiaryDTO {
 	public void setRegDt(String regDt) {
 		this.regDt = regDt;
 	}
+
+
 
 	@Override
 	public String toString() {

@@ -12,8 +12,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-import com.pcwk.ehr.findid.FindIdDTO;
-import com.pcwk.ehr.findid.FindIdService;
+import com.pcwk.ehr.login.domain.FindIdDTO;
+import com.pcwk.ehr.login.service.FindIdService;
+
+
 
 
 @ExtendWith(SpringExtension.class)
@@ -42,11 +44,11 @@ class FindIdServiceTest {
     @Test
     public void findId() {
         FindIdDTO dto = new FindIdDTO();
-        dto.setEmail("test@test.com");
-        dto.setBirth("2000-01-01");
-        String userId = findIdService.findUserId(dto);
+        dto.setEmail("user1@test.com");
+        String userId = findIdService.findId(dto);
 
         assertNotNull(userId);
+        log.debug("조회된 userId: {}", userId);
     }
 
 }
