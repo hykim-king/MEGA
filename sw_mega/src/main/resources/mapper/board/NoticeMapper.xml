@@ -56,7 +56,7 @@ WHERE rnum > (#{pageNo} - 1) * #{pageSize}
 </select>
 
     <!-- 공지사항 단건 조회 -->
-    <select id="doSelectOne" parameterType="int" resultType="NoticeDTO">
+    <select id="doSelectOne" parameterType="NoticeDTO" resultType="NoticeDTO">
    SELECT 
     NO_CODE,
     USER_ID,

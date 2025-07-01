@@ -49,6 +49,19 @@
         WHERE COMMENTED_CODE = #{commentedCode}
     </delete>
     
+       <sql id="userWhere">
+        <where>
+          <if test="searchDiv !='' ">
+              <choose>
+                 <when test=" searchDiv == '10'  ">
+                    no_code LIKE #{searchWord} ||'%'
+                 </when>                              
+              </choose>
+          
+          </if>
+        </where>
+   </sql>
+    
       <select id="doRetrieve" parameterType="SearchDTO" resultType="NoticeCommentDTO"  >
               
      SELECT *                                                        
@@ -65,7 +78,8 @@
                     tt2.*                                                  
                FROM(                                                       
                      SELECT t1.*                                           
-                      FROM NO_COMMENTED t1                         
+                      FROM NO_COMMENTED t1         
+                    <include refid="userWhere"></include>                                               
                      ORDER BY t1.c_dt DESC                               
              )tt2
          <![CDATA[                                                          

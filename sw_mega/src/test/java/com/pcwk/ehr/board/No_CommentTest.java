@@ -49,9 +49,9 @@ class No_CommentTest {
 		log.debug("│ setUp()                    │");
 		log.debug("└────────────────────────────┘");
 
-		dto01 = new NoticeCommentDTO(116, "user1", "내용1");
-		dto02 = new NoticeCommentDTO(116, "user2", "내용2");
-		dto03 = new NoticeCommentDTO(116, "user3", "내용3");
+		dto01 = new NoticeCommentDTO(187, "user1", "내용1");
+		dto02 = new NoticeCommentDTO(187, "user2", "내용2");
+		dto03 = new NoticeCommentDTO(187, "user3", "내용3");
 
 		search = new SearchDTO();
 	}
@@ -131,6 +131,8 @@ class No_CommentTest {
 		log.debug("count:{}", count);
 
 		// 4.
+		search.setSearchDiv("10");
+		search.setSearchWord("187");
 		search.setPageSize(10);
 		search.setPageNo(1);
 		List<NoticeCommentDTO> list = (List<NoticeCommentDTO>) mapper.doRetrieve(search);
