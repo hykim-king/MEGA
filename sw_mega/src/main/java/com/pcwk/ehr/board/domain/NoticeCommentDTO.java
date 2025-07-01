@@ -14,14 +14,12 @@ public class NoticeCommentDTO {
 	public NoticeCommentDTO() {
 	}
 
-	public NoticeCommentDTO(int commentedCode, int noCode, String userId, String content, Date cDt, Date upDt) {
+	public NoticeCommentDTO(int noCode, String userId, String content) {
 		super();
-		this.commentedCode = commentedCode;
 		this.noCode = noCode;
 		this.userId = userId;
 		this.content = content;
-		this.cDt = cDt;
-		this.upDt = upDt;
+		
 	}
 
 	public int getCommentedCode() {

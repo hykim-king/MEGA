@@ -3,7 +3,7 @@
 <mapper namespace="com.pcwk.ehr.board.mapper.NoCommentMapper">
 
      <!-- 댓글 등록 -->
-    <insert id="doSave" parameterType="com.pcwk.ehr.board.domain.NoticeCommentDTO">
+    <insert id="doSave" parameterType="NoticeCommentDTO">
         INSERT INTO NO_COMMENTED (
             COMMENTED_CODE,
             NO_CODE,
@@ -22,7 +22,7 @@
     </insert>
 
     <!-- 단건 조회 -->
-    <select id="doSelectOne" resultType="com.pcwk.ehr.board.domain.NoticeCommentDTO" parameterType="int">
+    <select id="doSelectOne" resultType="String" parameterType="NoticeCommentDTO">
     SELECT
     COMMENTED_CODE,
     NO_CODE,
@@ -30,12 +30,12 @@
     CONTENT,
     C_DT,
     UP_DT
-FROM NO_COMMENTED
-WHERE COMMENTED_CODE = #{commentedCode};
+    FROM NO_COMMENTED
+    WHERE COMMENTED_CODE = #{commentedCode};
     </select>
 
     <!-- 수정 -->
-    <update id="doUpdate" parameterType="com.pcwk.ehr.board.domain.NoticeCommentDTO">
+    <update id="doUpdate" parameterType="NoticeCommentDTO">
         UPDATE NO_COMMENTED
         SET 
         CONTENT = #{content},
@@ -44,9 +44,45 @@ WHERE COMMENTED_CODE = #{commentedCode};
     </update>
 
     <!-- 삭제 -->
-    <delete id="doDelete" parameterType="com.pcwk.ehr.board.domain.NoticeCommentDTO">
+    <delete id="doDelete" parameterType="NoticeCommentDTO">
         DELETE FROM NO_COMMENTED
         WHERE COMMENTED_CODE = #{commentedCode}
     </delete>
+    
+      <select id="doRetrieve" parameterType="SearchDTO" resultType="NoticeCommentDTO"  >
+              
+     SELECT *                                                        
+       FROM (                                                              
+         SELECT tt3.RNUM AS no,                                            
+                tt3.commented_Code,                                               
+                tt3.no_code,                                                  
+                tt3.user_id,                                              
+                tt3.content,                                                 
+                tt3.c_Dt, 
+                tt3.up_Dt                                                                                                                  
+         FROM (                                                            
+             SELECT ROWNUM as RNUM,                                        
+                    tt2.*                                                  
+               FROM(                                                       
+                     SELECT t1.*                                           
+                      FROM NO_COMMENTED t1                         
+                     ORDER BY t1.c_dt DESC                               
+             )tt2
+         <![CDATA[                                                          
+             WHERE ROWNUM <= ( #{pageSize} * (#{pageNo} - 1 ) + #{pageSize} )                                             
+         )tt3                                                              
+         WHERE RNUM >= ( #{pageSize} * (#{pageNo} - 1 ) + 1 )
+         ]]>                                                       
+)
+
+   </select>
+   
+      <delete id="deleteAll">
+        DELETE FROM NO_COMMENTED
+    </delete>
+    
+      <select id="getCount" resultType="java.lang.Integer">
+        SELECT COUNT(*) AS totalCnt FROM NO_COMMENTED
+    </select>
 
 </mapper>
