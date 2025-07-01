@@ -6,7 +6,7 @@
 <mapper namespace="com.pcwk.ehr.board.mapper.NoticeMapper">
 
      <!-- 공지사항 등록 -->
-    <insert id="doSave" parameterType="com.pcwk.ehr.board.domain.NoticeDTO">
+    <insert id="doSave" parameterType="NoticeDTO">
         INSERT INTO NOTICE (
             NO_CODE,
             USER_ID,
@@ -20,42 +20,57 @@
             #{userId},
             #{title},
             #{content},
-            0,
+            #{viewCount},
             SYSDATE,
             SYSDATE
         )
     </insert>
 
-    <!-- 공지사항 전체 조회 -->
-    <select id="doRetrieve" resultType="com.pcwk.ehr.board.domain.NoticeDTO">
-        SELECT
-            NO_CODE,
-            USER_ID,
-            TITLE,
-            CONTENT,
-            VIEW_COUNT,
-            C_DT,
-            UP_DT
-        FROM NOTICE
-        ORDER BY NO_CODE DESC
-    </select>
+
+  <!-- 공지사항 전체 조회 -->
+<select id="doRetrieve" resultType="NoticeDTO" parameterType="SearchDTO">
+<![CDATA[
+SELECT *
+FROM (
+    SELECT 
+        ROW_NUMBER() OVER (ORDER BY NO_CODE DESC) AS rnum,
+        NO_CODE,
+        USER_ID,
+        TITLE,
+        CONTENT,
+        VIEW_COUNT,
+        C_DT,
+        UP_DT
+    FROM NOTICE
+    WHERE
+        (
+            (#{searchDiv, jdbcType=VARCHAR} = '10' AND TITLE LIKE '%' || #{searchWord, jdbcType=VARCHAR} || '%')
+            OR (#{searchDiv, jdbcType=VARCHAR} = '20' AND CONTENT LIKE '%' || #{searchWord, jdbcType=VARCHAR} || '%')
+            OR (#{searchDiv, jdbcType=VARCHAR} = '30' AND USER_ID LIKE '%' || #{searchWord, jdbcType=VARCHAR} || '%')
+            OR #{searchDiv, jdbcType=VARCHAR} = ''
+        )
+)
+WHERE rnum > (#{pageNo} - 1) * #{pageSize}
+  AND rnum <= #{pageNo} * #{pageSize}
+]]>
+</select>
 
     <!-- 공지사항 단건 조회 -->
-    <select id="doSelectOne" parameterType="int" resultType="com.pcwk.ehr.board.domain.NoticeDTO">
-        SELECT
-            NO_CODE,
-            USER_ID,
-            TITLE,
-            CONTENT,
-            VIEW_COUNT,
-            C_DT,
-            UP_DT
-        FROM NOTICE
-        WHERE NO_CODE = #{noCode}
+    <select id="doSelectOne" parameterType="int" resultType="NoticeDTO">
+   SELECT 
+    NO_CODE,
+    USER_ID,
+    TITLE,
+    CONTENT,
+    VIEW_COUNT,
+    C_DT,
+    UP_DT
+FROM NOTICE
+WHERE NO_CODE = #{noCode}
+   
     </select>
-
     <!-- 공지사항 수정 -->
-    <update id="doUpdate" parameterType="com.pcwk.ehr.board.domain.NoticeDTO">
+    <update id="doUpdate" parameterType="NoticeDTO">
         UPDATE NOTICE
         SET
             TITLE = #{title},
@@ -65,16 +80,27 @@
     </update>
 
     <!-- 공지사항 삭제 -->
-    <delete id="doDelete" parameterType="com.pcwk.ehr.board.domain.NoticeDTO">
+    <delete id="doDelete" parameterType="NoticeDTO">
         DELETE FROM NOTICE
         WHERE NO_CODE = #{noCode}
     </delete>
 
     <!-- 조회수 증가 -->
-    <update id="viewCount" parameterType="com.pcwk.ehr.board.domain.NoticeDTO">
+    <update id="viewCount" parameterType="NoticeDTO">
         UPDATE NOTICE
         SET VIEW_COUNT = VIEW_COUNT + 1
         WHERE NO_CODE = #{noCode}
     </update>
+    
+         <!-- 5. 전체 건수 -->
+    <select id="getCount" resultType="java.lang.Integer">
+        SELECT COUNT(*) FROM NOTICE
+    </select>
+    
+    
+         <!-- 7. 전체 삭제  -->
+    <delete id="deleteAll">
+        DELETE FROM NOTICE
+    </delete>
 
 </mapper>

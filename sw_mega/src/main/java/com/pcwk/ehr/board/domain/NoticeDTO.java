@@ -19,9 +19,8 @@ public class NoticeDTO extends DTO {
 	// 기본 생성자
 	public NoticeDTO() {}
 
-	public NoticeDTO(int noCode, String userId, String title, String content, int viewCount, Date cDt, Date upDt) {
+	public NoticeDTO(String userId, String title, String content, int viewCount, Date cDt, Date upDt) {
 		super();
-		this.noCode = noCode;
 		this.userId = userId;
 		this.title = title;
 		this.content = content;
@@ -92,6 +91,9 @@ public class NoticeDTO extends DTO {
 				+ ", viewCount=" + viewCount + ", cDt=" + cDt + ", upDt=" + upDt + ", toString()=" + super.toString()
 				+ "]";
 	}
+
+	
+	
 
 
 }

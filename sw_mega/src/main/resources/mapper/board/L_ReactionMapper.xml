@@ -2,8 +2,24 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.pcwk.ehr.board.mapper.L_ReactionMapper">
 
+
+
+    <!-- 좋아요/싫어요 전체 조회 -->
+    <select id="doRetrieve" parameterType="SearchDTO" resultType="L_ReactionDTO">
+        SELECT
+            reaction_code,
+            reaction_type,
+            target_type,
+            target_code
+        FROM L_REACTION
+        WHERE target_code = #{searchWord}
+        ORDER BY REACTION_CODE DESC
+    </select>
+
+
+
  <!-- 좋아요/싫어요 등록 -->
-    <insert id="doSave" parameterType="com.pcwk.ehr.board.domain.L_ReactionDTO">
+    <insert id="doSave" parameterType="L_ReactionDTO">
         INSERT INTO L_REACTION (
             REACTION_CODE,
             USER_ID,
@@ -19,35 +35,20 @@
         )
     </insert>
 
-    <!-- 좋아요/싫어요 전체 조회 -->
-    <select id="doRetrieve" resultType="com.pcwk.ehr.board.domain.L_ReactionDTO">
-        SELECT
-            REACTION_CODE,
-            USER_ID,
-            REACTION_TYPE,
-            TARGET_TYPE,
-            TARGET_CODE
-        FROM L_REACTION
-        ORDER BY REACTION_CODE DESC
-    </select>
-
-    <!-- 좋아요/싫어요 단건 조회 -->
-    <select id="doSelectOne" parameterType="int" resultType="com.pcwk.ehr.board.domain.L_ReactionDTO">
-        SELECT
-            REACTION_CODE,
-            USER_ID,
-            REACTION_TYPE,
-            TARGET_TYPE,
-            TARGET_CODE
-        FROM L_REACTION
-        WHERE REACTION_CODE = #{reactionCode}
-    </select>
-
     <!-- 좋아요/싫어요 삭제 -->
-    <delete id="doDelete" parameterType="int">
+    <delete id="doDelete" parameterType="L_ReactionDTO">
         DELETE FROM L_REACTION
         WHERE REACTION_CODE = #{reactionCode}
     </delete>
  
+     <!-- 5. 전체 건수 -->
+    <select id="getCount" resultType="java.lang.Integer">
+        SELECT COUNT(*) FROM L_REACTION
+    </select>
+    
+        <!-- 7. 전체 삭제  -->
+    <delete id="deleteAll">
+        DELETE FROM L_REACTION
+    </delete>
 
 </mapper>

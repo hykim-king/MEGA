@@ -12,9 +12,8 @@ public class ReportDTO {
 	public ReportDTO() {
 	}
 
-	public ReportDTO(int reportCode, String userId, String reason, String targetType, int targetCode) {
+	public ReportDTO(String userId, String reason, String targetType, int targetCode) {
 		super();
-		this.reportCode = reportCode;
 		this.userId = userId;
 		this.reason = reason;
 		this.targetType = targetType;
