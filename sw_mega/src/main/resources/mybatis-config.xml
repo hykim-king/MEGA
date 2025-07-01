@@ -28,6 +28,6 @@
     <typeAlias alias="FoodDTO" type="com.pcwk.ehr.mypage.domain.FoodDTO"/>
     <typeAlias alias="FoodDiaryDTO" type="com.pcwk.ehr.mypage.domain.FoodDiaryDTO"/>
     <typeAlias alias="FoodDiaryOutDTO" type="com.pcwk.ehr.mypage.domain.FoodDiaryOutDTO"/>
-    <typeAlias alias="MembershipDTO" type="com.pcwk.ehr.membership.DTO.MembershipDTO"/>
+    <typeAlias alias="MembershipDTO" type="com.pcwk.ehr.membership.domain.MembershipDTO"/>
   </typeAliases>
 </configuration>
