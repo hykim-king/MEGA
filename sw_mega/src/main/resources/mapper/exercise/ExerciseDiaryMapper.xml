@@ -62,8 +62,8 @@
 <insert id="saveAll">
     INSERT INTO exercise_diary
     SELECT ED_SEQ.NEXTVAL AS ed_code,
-           'yangsh' AS userId,
-           '1001' AS eCode,
+           'user01' AS userId,
+           '1005' AS eCode,
            54 AS cardioWeight,
            32 AS strenthWeight,
            2 AS duration,

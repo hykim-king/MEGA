@@ -59,7 +59,7 @@
 			cal_burn
 		)
 		VALUES (
-			E_SEQ.NEXTVAL, 
+			#{e_code}, 
 			#{exerciseName}, 
 			#{exerciseType}, 
 			#{region, jdbcType=VARCHAR}, 
