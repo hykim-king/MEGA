@@ -12,9 +12,8 @@ public class L_ReactionDTO {
 	public L_ReactionDTO() {
 	}
 
-	public L_ReactionDTO(int reactionCode, String userId, String reactionType, String targetType, int targetCode) {
+	public L_ReactionDTO(String userId, String reactionType, String targetType, int targetCode) {
 		super();
-		this.reactionCode = reactionCode;
 		this.userId = userId;
 		this.reactionType = reactionType;
 		this.targetType = targetType;

@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.pcwk.ehr.board.mapper.NoCommentMapper">
-
+<mapper namespace="com.pcwk.ehr.board.mapper.FbCommentMapper">
      <!-- 댓글 등록 -->
-    <insert id="doSave" parameterType="com.pcwk.ehr.board.domain.NoticeCommentDTO">
+    <insert id="doSave" parameterType="com.pcwk.ehr.board.domain.FreeBoardCommentDTO">
         INSERT INTO NO_COMMENTED (
             COMMENTED_CODE,
             NO_CODE,
@@ -22,22 +21,29 @@
     </insert>
 
     <!-- 단건 조회 -->
-    <select id="doSelectOne" resultType="com.pcwk.ehr.board.domain.NoticeCommentDTO" parameterType="int">
-        SELECT *
-        FROM NO_COMMENTED
-        WHERE COMMENTED_CODE = #{commentedCode}
+    <select id="doSelectOne" resultType="com.pcwk.ehr.board.domain.FreeBoardCommentDTO" parameterType="int">
+    SELECT
+    COMMENTED_CODE,
+    NO_CODE,
+    USER_ID,
+    CONTENT,
+    C_DT,
+    UP_DT
+FROM NO_COMMENTED
+WHERE COMMENTED_CODE = #{commentedCode};
     </select>
 
     <!-- 수정 -->
-    <update id="doUpdate" parameterType="com.pcwk.ehr.board.domain.NoticeCommentDTO">
+    <update id="doUpdate" parameterType="com.pcwk.ehr.board.domain.FreeBoardCommentDTO">
         UPDATE NO_COMMENTED
-        SET CONTENT = #{content},
+        SET 
+        CONTENT = #{content},
             UP_DT = SYSDATE
         WHERE COMMENTED_CODE = #{commentedCode}
     </update>
 
     <!-- 삭제 -->
-    <delete id="doDelete" parameterType="com.pcwk.ehr.board.domain.NoticeCommentDTO">
+    <delete id="doDelete" parameterType="com.pcwk.ehr.board.domain.FreeBoardCommentDTO">
         DELETE FROM NO_COMMENTED
         WHERE COMMENTED_CODE = #{commentedCode}
     </delete>

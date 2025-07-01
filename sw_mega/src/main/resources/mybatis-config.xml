@@ -13,7 +13,15 @@
     <typeAlias alias="loginDTO" type="com.pcwk.ehr.login.domain.LoginDTO"/>
     <typeAlias alias="findPwdDTO" type="com.pcwk.ehr.login.domain.FindPwdDTO"/>
     <typeAlias alias="findIdDTO" type="com.pcwk.ehr.login.domain.FindIdDTO"/>
+    
+    <typeAlias alias="L_ReactionDTO"  type="com.pcwk.ehr.board.domain.L_ReactionDTO"/>
+    <typeAlias alias="ReportDTO" type="com.pcwk.ehr.board.domain.ReportDTO"/>
+    <typeAlias alias="FreeBoardCommentDTO" type="com.pcwk.ehr.board.domain.FreeBoardCommentDTO"/>
+    <typeAlias alias="NoticeCommentDTO" type="com.pcwk.ehr.board.domain.NoticeCommentDTO"/>
+    <typeAlias alias="FreeBoardDTO" type="com.pcwk.ehr.board.domain.FreeBoardDTO"/>
     <typeAlias alias="NoticeDTO" type="com.pcwk.ehr.board.domain.NoticeDTO"/>
+    
+    
     <typeAlias alias="ExerciseDTO" type="com.pcwk.ehr.mypage.domain.ExerciseDTO"/>
     <typeAlias alias="ExerciseDiaryDTO" type="com.pcwk.ehr.mypage.domain.ExerciseDiaryDTO"/>
     <typeAlias alias="ExerciseDiaryOutDTO" type="com.pcwk.ehr.mypage.domain.ExerciseDiaryOutDTO"/>

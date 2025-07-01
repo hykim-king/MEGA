@@ -6,7 +6,7 @@
 
    
     <!-- 자유게시판 등록 -->
-    <insert id="doSave" parameterType="com.pcwk.ehr.board.domain.FreeBoardDTO">
+    <insert id="doSave" parameterType="FreeBoardDTO">
         INSERT INTO FREE_BOARD (
             FB_CODE,
             USER_ID,
@@ -20,28 +20,45 @@
             #{userId},
             #{title},
             #{content},
-            0,
+            #{view_count},
             SYSDATE,
             SYSDATE
         )
     </insert>
 
     <!-- 자유게시판 전체 조회 -->
-    <select id="doRetrieve" resultType="com.pcwk.ehr.board.domain.FreeBoardDTO">
+    <select id="doRetrieve" resultType="FreeBoardDTO">
+ SELECT *
+FROM (
+    SELECT ROWNUM rnum, a.*
+    FROM (
         SELECT
-            FB_CODE,
+            NO_CODE,
             USER_ID,
             TITLE,
             CONTENT,
             VIEW_COUNT,
             C_DT,
             UP_DT
-        FROM FREE_BOARD
-        ORDER BY FB_CODE DESC
+        FROM NOTICE
+        WHERE
+            (
+                ('10' = '10' AND TITLE LIKE '%공지%')
+                OR ('10' = '20' AND CONTENT LIKE '%공지%')
+                OR ('10' = '30' AND USER_ID LIKE '%공지%')
+                OR '10' = ''
+            )
+        ORDER BY NO_CODE DESC
+    ) a
+    <![CDATA[
+    WHERE ROWNUM <= (1 * 10)
+) 
+WHERE rnum > ((1 - 1) * 10)
+]]>
     </select>
 
     <!-- 자유게시판 단건 조회 -->
-    <select id="doSelectOne" parameterType="int" resultType="com.pcwk.ehr.board.domain.FreeBoardDTO">
+    <select id="doSelectOne" parameterType="int" resultType="FreeBoardDTO">
         SELECT
             FB_CODE,
             USER_ID,
@@ -55,7 +72,7 @@
     </select>
 
     <!-- 자유게시판 수정 -->
-    <update id="doUpdate" parameterType="com.pcwk.ehr.board.domain.FreeBoardDTO">
+    <update id="doUpdate" parameterType="FreeBoardDTO">
         UPDATE FREE_BOARD
         SET
             TITLE = #{title},
@@ -65,13 +82,13 @@
     </update>
 
     <!-- 자유게시판 삭제 -->
-    <delete id="doDelete" parameterType="com.pcwk.ehr.board.domain.FreeBoardDTO">
+    <delete id="doDelete" parameterType="FreeBoardDTO">
         DELETE FROM FREE_BOARD
         WHERE FB_CODE = #{fbCode}
     </delete>
 
     <!-- 조회수 증가 -->
-    <update id="viewCount" parameterType="com.pcwk.ehr.board.domain.FreeBoardDTO">
+    <update id="viewCount" parameterType="FreeBoardDTO">
         UPDATE FREE_BOARD
         SET VIEW_COUNT = VIEW_COUNT + 1
         WHERE FB_CODE = #{fbCode}

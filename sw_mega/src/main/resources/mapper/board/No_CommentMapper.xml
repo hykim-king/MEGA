@@ -23,15 +23,22 @@
 
     <!-- 단건 조회 -->
     <select id="doSelectOne" resultType="com.pcwk.ehr.board.domain.NoticeCommentDTO" parameterType="int">
-        SELECT *
-        FROM NO_COMMENTED
-        WHERE COMMENTED_CODE = #{commentedCode}
+    SELECT
+    COMMENTED_CODE,
+    NO_CODE,
+    USER_ID,
+    CONTENT,
+    C_DT,
+    UP_DT
+FROM NO_COMMENTED
+WHERE COMMENTED_CODE = #{commentedCode};
     </select>
 
     <!-- 수정 -->
     <update id="doUpdate" parameterType="com.pcwk.ehr.board.domain.NoticeCommentDTO">
         UPDATE NO_COMMENTED
-        SET CONTENT = #{content},
+        SET 
+        CONTENT = #{content},
             UP_DT = SYSDATE
         WHERE COMMENTED_CODE = #{commentedCode}
     </update>
