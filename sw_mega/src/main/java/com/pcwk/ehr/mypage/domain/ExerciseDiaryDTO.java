@@ -2,9 +2,9 @@ package com.pcwk.ehr.mypage.domain;
 
 public class ExerciseDiaryDTO {
 	
-	private String edCode; //운동일지 코드
+	private int edCode; //운동일지 코드
 	private String userId; //사용자Id
-	private String eCode; //운동 코드
+	private int eCode; //운동 코드
 	private Integer cardioWeight; //체중
 	private Integer strenthWeight; //덤벨 무게
 	private int duration; //운동시간
@@ -27,7 +27,7 @@ public class ExerciseDiaryDTO {
 	 * @param repsPerSet
 	 * @param regDt
 	 */
-	public ExerciseDiaryDTO(String userId, String eCode, Integer cardioWeight, Integer strenthWeight,
+	public ExerciseDiaryDTO(String userId, int eCode, Integer cardioWeight, Integer strenthWeight,
 			int duration, Integer setCount, Integer repsPerSet, String regDt) {
 		super();
 		this.userId = userId;
@@ -43,14 +43,14 @@ public class ExerciseDiaryDTO {
 	/**
 	 * @return the edCode
 	 */
-	public String getEdCode() {
+	public int getEdCode() {
 		return edCode;
 	}
 
 	/**
 	 * @param edCode the edCode to set
 	 */
-	public void setEdCode(String edCode) {
+	public void setEdCode(int edCode) {
 		this.edCode = edCode;
 	}
 
@@ -71,14 +71,14 @@ public class ExerciseDiaryDTO {
 	/**
 	 * @return the eCode
 	 */
-	public String geteCode() {
+	public int geteCode() {
 		return eCode;
 	}
 
 	/**
 	 * @param eCode the eCode to set
 	 */
-	public void seteCode(String eCode) {
+	public void seteCode(int eCode) {
 		this.eCode = eCode;
 	}
 
@@ -172,5 +172,7 @@ public class ExerciseDiaryDTO {
 				+ cardioWeight + ", strenthWeight=" + strenthWeight + ", duration=" + duration + ", setCount="
 				+ setCount + ", repsPerSet=" + repsPerSet + ", regDt=" + regDt + "]";
 	}
+
+	
 
 }

@@ -60,8 +60,8 @@
 <insert id="saveAll">
     INSERT INTO food_diary
     SELECT FD_SEQ.NEXTVAL AS fd_code,
-           'yangsh179' AS userId,
-           '김치찌개210' AS foodName,
+           'user01' AS userId,
+           '김치볶음밥' AS foodName,
            10 AS grams,
            DECODE(MOD(LEVEL, 3), 0, '아침', 1, '점심', '저녁') AS mealType,
            TO_DATE(DECODE(MOD(LEVEL, 2), 0, '2025-06-25', '2025-06-22'), 'YYYY-MM-DD') AS regDt
