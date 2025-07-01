@@ -32,6 +32,29 @@ public class ExerciseDTO {
 		this.weight = weight;
 		this.calBurn = calBurn;
 	}
+	
+	
+
+	/**
+	 * @param eCode
+	 * @param exerciseName
+	 * @param exerciseType
+	 * @param region
+	 * @param gender
+	 * @param weight
+	 * @param calBurn
+	 */
+	public ExerciseDTO(String eCode, String exerciseName, String exerciseType, String region, String gender,
+			Integer weight, int calBurn) {
+		super();
+		this.eCode = eCode;
+		this.exerciseName = exerciseName;
+		this.exerciseType = exerciseType;
+		this.region = region;
+		this.gender = gender;
+		this.weight = weight;
+		this.calBurn = calBurn;
+	}
 
 	/**
 	 * @return the eCode
