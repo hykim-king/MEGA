@@ -3669,3 +3669,291 @@ Caused by: java.lang.ClassNotFoundException: Cannot find class: com.pcwk.ehr.mem
 [2025-07-01 15:56:22] [DEBUG] com.pcwk.ehr.mypage.ExerciseDaoTest - └─────────────────────────────────────────────────────────┘
 [2025-07-01 15:56:22] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
 [2025-07-01 15:56:22] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+[2025-07-01 17:12:49] [INFO ] org.springframework.test.context.support.DefaultTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+[2025-07-01 17:12:49] [INFO ] org.springframework.test.context.support.DefaultTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@6337c201, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@5c669da8, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@31920ade, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@1d483de4, org.springframework.test.context.support.DirtiesContextTestExecutionListener@4032d386, org.springframework.test.context.transaction.TransactionalTestExecutionListener@28d18df5, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@934b6cb, org.springframework.test.context.event.EventPublishingTestExecutionListener@55cf0d14]
+[2025-07-01 17:12:50] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 17:12:50] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - │ setUp()                                                 │
+[2025-07-01 17:12:50] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-07-01 17:12:50] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 17:12:50] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - │ doDelete()                                              │
+[2025-07-01 17:12:50] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-07-01 17:12:50] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+[2025-07-01 17:12:50] [WARN ] com.zaxxer.hikari.util.DriverDataSource - Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+[2025-07-01 17:12:50] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+[2025-07-01 17:12:50] [DEBUG] com.pcwk.ehr.membership.mapper.MembershipMapper.deleteAll - ==>  Preparing: DELETE FROM MEMBERSHIP
+[2025-07-01 17:12:50] [DEBUG] com.pcwk.ehr.membership.mapper.MembershipMapper.deleteAll - ==> Parameters: 
+[2025-07-01 17:12:50] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 17:12:50] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - │ tearDown()                                              │
+[2025-07-01 17:12:50] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-07-01 17:12:50] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 17:12:50] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - │ setUp()                                                 │
+[2025-07-01 17:12:50] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-07-01 17:12:50] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - org.springframework.context.support.GenericApplicationContext@571c5681, started on Tue Jul 01 17:12:49 KST 2025
+[2025-07-01 17:12:50] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - mapper:org.apache.ibatis.binding.MapperProxy@541179e7
+[2025-07-01 17:12:50] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 17:12:50] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - │ tearDown()                                              │
+[2025-07-01 17:12:50] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-07-01 17:12:50] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 17:12:50] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - │ setUp()                                                 │
+[2025-07-01 17:12:50] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-07-01 17:12:50] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 17:12:50] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - │ doUpdate()                                              │
+[2025-07-01 17:12:50] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-07-01 17:12:50] [DEBUG] com.pcwk.ehr.membership.mapper.MembershipMapper.deleteAll - ==>  Preparing: DELETE FROM MEMBERSHIP
+[2025-07-01 17:12:50] [DEBUG] com.pcwk.ehr.membership.mapper.MembershipMapper.deleteAll - ==> Parameters: 
+[2025-07-01 17:12:50] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 17:12:50] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - │ tearDown()                                              │
+[2025-07-01 17:12:50] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-07-01 17:12:50] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 17:12:50] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - │ setUp()                                                 │
+[2025-07-01 17:12:50] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-07-01 17:12:50] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 17:12:50] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - │ doSelectOne()                                           │
+[2025-07-01 17:12:50] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-07-01 17:12:50] [DEBUG] com.pcwk.ehr.membership.mapper.MembershipMapper.deleteAll - ==>  Preparing: DELETE FROM MEMBERSHIP
+[2025-07-01 17:12:50] [DEBUG] com.pcwk.ehr.membership.mapper.MembershipMapper.deleteAll - ==> Parameters: 
+[2025-07-01 17:12:50] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 17:12:50] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - │ tearDown()                                              │
+[2025-07-01 17:12:50] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-07-01 17:12:50] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+[2025-07-01 17:12:50] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+[2025-07-01 17:13:16] [INFO ] org.springframework.test.context.support.DefaultTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+[2025-07-01 17:13:16] [INFO ] org.springframework.test.context.support.DefaultTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@6337c201, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@5c669da8, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@31920ade, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@1d483de4, org.springframework.test.context.support.DirtiesContextTestExecutionListener@4032d386, org.springframework.test.context.transaction.TransactionalTestExecutionListener@28d18df5, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@934b6cb, org.springframework.test.context.event.EventPublishingTestExecutionListener@55cf0d14]
+[2025-07-01 17:13:17] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 17:13:17] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - │ setUp()                                                 │
+[2025-07-01 17:13:17] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-07-01 17:13:17] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 17:13:17] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - │ doDelete()                                              │
+[2025-07-01 17:13:17] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-07-01 17:13:17] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+[2025-07-01 17:13:17] [WARN ] com.zaxxer.hikari.util.DriverDataSource - Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+[2025-07-01 17:13:18] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+[2025-07-01 17:13:18] [DEBUG] com.pcwk.ehr.membership.mapper.MembershipMapper.deleteAll - ==>  Preparing: DELETE FROM MEMBERSHIP
+[2025-07-01 17:13:18] [DEBUG] com.pcwk.ehr.membership.mapper.MembershipMapper.deleteAll - ==> Parameters: 
+[2025-07-01 17:13:18] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 17:13:18] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - │ tearDown()                                              │
+[2025-07-01 17:13:18] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-07-01 17:13:18] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 17:13:18] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - │ setUp()                                                 │
+[2025-07-01 17:13:18] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-07-01 17:13:18] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - org.springframework.context.support.GenericApplicationContext@571c5681, started on Tue Jul 01 17:13:16 KST 2025
+[2025-07-01 17:13:18] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - mapper:org.apache.ibatis.binding.MapperProxy@541179e7
+[2025-07-01 17:13:18] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 17:13:18] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - │ tearDown()                                              │
+[2025-07-01 17:13:18] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-07-01 17:13:18] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 17:13:18] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - │ setUp()                                                 │
+[2025-07-01 17:13:18] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-07-01 17:13:18] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 17:13:18] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - │ doUpdate()                                              │
+[2025-07-01 17:13:18] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-07-01 17:13:18] [DEBUG] com.pcwk.ehr.membership.mapper.MembershipMapper.deleteAll - ==>  Preparing: DELETE FROM MEMBERSHIP
+[2025-07-01 17:13:18] [DEBUG] com.pcwk.ehr.membership.mapper.MembershipMapper.deleteAll - ==> Parameters: 
+[2025-07-01 17:13:18] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 17:13:18] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - │ tearDown()                                              │
+[2025-07-01 17:13:18] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-07-01 17:13:18] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 17:13:18] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - │ setUp()                                                 │
+[2025-07-01 17:13:18] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-07-01 17:13:18] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 17:13:18] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - │ doSelectOne()                                           │
+[2025-07-01 17:13:18] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-07-01 17:13:18] [DEBUG] com.pcwk.ehr.membership.mapper.MembershipMapper.deleteAll - ==>  Preparing: DELETE FROM MEMBERSHIP
+[2025-07-01 17:13:18] [DEBUG] com.pcwk.ehr.membership.mapper.MembershipMapper.deleteAll - ==> Parameters: 
+[2025-07-01 17:13:18] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 17:13:18] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - │ tearDown()                                              │
+[2025-07-01 17:13:18] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-07-01 17:13:18] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+[2025-07-01 17:13:18] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+[2025-07-01 17:14:20] [INFO ] org.springframework.test.context.support.DefaultTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+[2025-07-01 17:14:20] [INFO ] org.springframework.test.context.support.DefaultTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@6337c201, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@5c669da8, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@31920ade, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@1d483de4, org.springframework.test.context.support.DirtiesContextTestExecutionListener@4032d386, org.springframework.test.context.transaction.TransactionalTestExecutionListener@28d18df5, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@934b6cb, org.springframework.test.context.event.EventPublishingTestExecutionListener@55cf0d14]
+[2025-07-01 17:14:21] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 17:14:21] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - │ setUp()                                                 │
+[2025-07-01 17:14:21] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-07-01 17:14:21] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 17:14:21] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - │ doDelete()                                              │
+[2025-07-01 17:14:21] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-07-01 17:14:21] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+[2025-07-01 17:14:21] [WARN ] com.zaxxer.hikari.util.DriverDataSource - Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+[2025-07-01 17:14:22] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+[2025-07-01 17:14:22] [DEBUG] com.pcwk.ehr.membership.mapper.MembershipMapper.deleteAll - ==>  Preparing: DELETE FROM MEMBERSHIP
+[2025-07-01 17:14:22] [DEBUG] com.pcwk.ehr.membership.mapper.MembershipMapper.deleteAll - ==> Parameters: 
+[2025-07-01 17:14:22] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 17:14:22] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - │ tearDown()                                              │
+[2025-07-01 17:14:22] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-07-01 17:14:22] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 17:14:22] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - │ setUp()                                                 │
+[2025-07-01 17:14:22] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-07-01 17:14:22] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - org.springframework.context.support.GenericApplicationContext@571c5681, started on Tue Jul 01 17:14:20 KST 2025
+[2025-07-01 17:14:22] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - mapper:org.apache.ibatis.binding.MapperProxy@541179e7
+[2025-07-01 17:14:22] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 17:14:22] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - │ tearDown()                                              │
+[2025-07-01 17:14:22] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-07-01 17:14:22] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 17:14:22] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - │ setUp()                                                 │
+[2025-07-01 17:14:22] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-07-01 17:14:22] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 17:14:22] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - │ doUpdate()                                              │
+[2025-07-01 17:14:22] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-07-01 17:14:22] [DEBUG] com.pcwk.ehr.membership.mapper.MembershipMapper.deleteAll - ==>  Preparing: DELETE FROM MEMBERSHIP
+[2025-07-01 17:14:22] [DEBUG] com.pcwk.ehr.membership.mapper.MembershipMapper.deleteAll - ==> Parameters: 
+[2025-07-01 17:14:22] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 17:14:22] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - │ tearDown()                                              │
+[2025-07-01 17:14:22] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-07-01 17:14:22] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 17:14:22] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - │ setUp()                                                 │
+[2025-07-01 17:14:22] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-07-01 17:14:22] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 17:14:22] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - │ doSelectOne()                                           │
+[2025-07-01 17:14:22] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-07-01 17:14:22] [DEBUG] com.pcwk.ehr.membership.mapper.MembershipMapper.deleteAll - ==>  Preparing: DELETE FROM MEMBERSHIP
+[2025-07-01 17:14:22] [DEBUG] com.pcwk.ehr.membership.mapper.MembershipMapper.deleteAll - ==> Parameters: 
+[2025-07-01 17:14:22] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 17:14:22] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - │ tearDown()                                              │
+[2025-07-01 17:14:22] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-07-01 17:14:22] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+[2025-07-01 17:14:22] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+[2025-07-01 17:16:41] [INFO ] org.springframework.test.context.support.DefaultTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+[2025-07-01 17:16:41] [INFO ] org.springframework.test.context.support.DefaultTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@6337c201, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@5c669da8, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@31920ade, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@1d483de4, org.springframework.test.context.support.DirtiesContextTestExecutionListener@4032d386, org.springframework.test.context.transaction.TransactionalTestExecutionListener@28d18df5, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@934b6cb, org.springframework.test.context.event.EventPublishingTestExecutionListener@55cf0d14]
+[2025-07-01 17:16:42] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 17:16:42] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - │ setUp()                                                 │
+[2025-07-01 17:16:42] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-07-01 17:16:42] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 17:16:42] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - │ doDelete()                                              │
+[2025-07-01 17:16:42] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-07-01 17:16:42] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+[2025-07-01 17:16:42] [WARN ] com.zaxxer.hikari.util.DriverDataSource - Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+[2025-07-01 17:16:42] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+[2025-07-01 17:16:42] [DEBUG] com.pcwk.ehr.membership.mapper.MembershipMapper.deleteAll - ==>  Preparing: DELETE FROM MEMBERSHIP
+[2025-07-01 17:16:42] [DEBUG] com.pcwk.ehr.membership.mapper.MembershipMapper.deleteAll - ==> Parameters: 
+[2025-07-01 17:16:42] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 17:16:42] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - │ tearDown()                                              │
+[2025-07-01 17:16:42] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-07-01 17:16:42] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 17:16:42] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - │ setUp()                                                 │
+[2025-07-01 17:16:42] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-07-01 17:16:42] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - org.springframework.context.support.GenericApplicationContext@571c5681, started on Tue Jul 01 17:16:41 KST 2025
+[2025-07-01 17:16:42] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - mapper:org.apache.ibatis.binding.MapperProxy@541179e7
+[2025-07-01 17:16:42] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 17:16:42] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - │ tearDown()                                              │
+[2025-07-01 17:16:42] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-07-01 17:16:42] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 17:16:42] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - │ setUp()                                                 │
+[2025-07-01 17:16:42] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-07-01 17:16:42] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 17:16:42] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - │ doUpdate()                                              │
+[2025-07-01 17:16:42] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-07-01 17:16:42] [DEBUG] com.pcwk.ehr.membership.mapper.MembershipMapper.deleteAll - ==>  Preparing: DELETE FROM MEMBERSHIP
+[2025-07-01 17:16:42] [DEBUG] com.pcwk.ehr.membership.mapper.MembershipMapper.deleteAll - ==> Parameters: 
+[2025-07-01 17:16:42] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 17:16:42] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - │ tearDown()                                              │
+[2025-07-01 17:16:42] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-07-01 17:16:42] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 17:16:42] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - │ setUp()                                                 │
+[2025-07-01 17:16:42] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-07-01 17:16:42] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 17:16:42] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - │ doSelectOne()                                           │
+[2025-07-01 17:16:42] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-07-01 17:16:42] [DEBUG] com.pcwk.ehr.membership.mapper.MembershipMapper.deleteAll - ==>  Preparing: DELETE FROM MEMBERSHIP
+[2025-07-01 17:16:42] [DEBUG] com.pcwk.ehr.membership.mapper.MembershipMapper.deleteAll - ==> Parameters: 
+[2025-07-01 17:16:42] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 17:16:42] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - │ tearDown()                                              │
+[2025-07-01 17:16:42] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-07-01 17:16:42] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+[2025-07-01 17:16:42] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+[2025-07-01 17:24:55] [INFO ] org.springframework.test.context.support.DefaultTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+[2025-07-01 17:24:55] [INFO ] org.springframework.test.context.support.DefaultTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@6337c201, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@5c669da8, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@31920ade, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@1d483de4, org.springframework.test.context.support.DirtiesContextTestExecutionListener@4032d386, org.springframework.test.context.transaction.TransactionalTestExecutionListener@28d18df5, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@934b6cb, org.springframework.test.context.event.EventPublishingTestExecutionListener@55cf0d14]
+[2025-07-01 17:24:56] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 17:24:56] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - │ setUp()                                                 │
+[2025-07-01 17:24:56] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-07-01 17:24:56] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 17:24:56] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - │ doDelete()                                              │
+[2025-07-01 17:24:56] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-07-01 17:24:56] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+[2025-07-01 17:24:56] [WARN ] com.zaxxer.hikari.util.DriverDataSource - Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+[2025-07-01 17:24:57] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+[2025-07-01 17:24:57] [DEBUG] com.pcwk.ehr.membership.mapper.MembershipMapper.deleteAll - ==>  Preparing: DELETE FROM MEMBERSHIP
+[2025-07-01 17:24:57] [DEBUG] com.pcwk.ehr.membership.mapper.MembershipMapper.deleteAll - ==> Parameters: 
+[2025-07-01 17:24:57] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 17:24:57] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - │ tearDown()                                              │
+[2025-07-01 17:24:57] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-07-01 17:24:57] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 17:24:57] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - │ setUp()                                                 │
+[2025-07-01 17:24:57] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-07-01 17:24:57] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - org.springframework.context.support.GenericApplicationContext@571c5681, started on Tue Jul 01 17:24:55 KST 2025
+[2025-07-01 17:24:57] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - mapper:org.apache.ibatis.binding.MapperProxy@541179e7
+[2025-07-01 17:24:57] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 17:24:57] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - │ tearDown()                                              │
+[2025-07-01 17:24:57] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-07-01 17:24:57] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 17:24:57] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - │ setUp()                                                 │
+[2025-07-01 17:24:57] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-07-01 17:24:57] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 17:24:57] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - │ doUpdate()                                              │
+[2025-07-01 17:24:57] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-07-01 17:24:57] [DEBUG] com.pcwk.ehr.membership.mapper.MembershipMapper.deleteAll - ==>  Preparing: DELETE FROM MEMBERSHIP
+[2025-07-01 17:24:57] [DEBUG] com.pcwk.ehr.membership.mapper.MembershipMapper.deleteAll - ==> Parameters: 
+[2025-07-01 17:24:57] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 17:24:57] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - │ tearDown()                                              │
+[2025-07-01 17:24:57] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-07-01 17:24:57] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 17:24:57] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - │ setUp()                                                 │
+[2025-07-01 17:24:57] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-07-01 17:24:57] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 17:24:57] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - │ doSelectOne()                                           │
+[2025-07-01 17:24:57] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-07-01 17:24:57] [DEBUG] com.pcwk.ehr.membership.mapper.MembershipMapper.deleteAll - ==>  Preparing: DELETE FROM MEMBERSHIP
+[2025-07-01 17:24:57] [DEBUG] com.pcwk.ehr.membership.mapper.MembershipMapper.deleteAll - ==> Parameters: 
+[2025-07-01 17:24:57] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 17:24:57] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - │ tearDown()                                              │
+[2025-07-01 17:24:57] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-07-01 17:24:57] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+[2025-07-01 17:24:57] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+[2025-07-01 17:43:02] [INFO ] org.springframework.test.context.support.DefaultTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+[2025-07-01 17:43:02] [INFO ] org.springframework.test.context.support.DefaultTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@6337c201, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@5c669da8, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@31920ade, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@1d483de4, org.springframework.test.context.support.DirtiesContextTestExecutionListener@4032d386, org.springframework.test.context.transaction.TransactionalTestExecutionListener@28d18df5, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@934b6cb, org.springframework.test.context.event.EventPublishingTestExecutionListener@55cf0d14]
+[2025-07-01 17:43:03] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 17:43:03] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - │ setUp()                                                 │
+[2025-07-01 17:43:03] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-07-01 17:43:03] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 17:43:03] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - │ doDelete()                                              │
+[2025-07-01 17:43:03] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-07-01 17:43:03] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+[2025-07-01 17:43:03] [WARN ] com.zaxxer.hikari.util.DriverDataSource - Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+[2025-07-01 17:43:03] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+[2025-07-01 17:43:03] [DEBUG] com.pcwk.ehr.membership.mapper.MembershipMapper.deleteAll - ==>  Preparing: DELETE FROM MEMBERSHIP
+[2025-07-01 17:43:03] [DEBUG] com.pcwk.ehr.membership.mapper.MembershipMapper.deleteAll - ==> Parameters: 
+[2025-07-01 17:43:03] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 17:43:03] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - │ tearDown()                                              │
+[2025-07-01 17:43:03] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-07-01 17:43:03] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 17:43:03] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - │ setUp()                                                 │
+[2025-07-01 17:43:03] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-07-01 17:43:03] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - org.springframework.context.support.GenericApplicationContext@571c5681, started on Tue Jul 01 17:43:02 KST 2025
+[2025-07-01 17:43:03] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - mapper:org.apache.ibatis.binding.MapperProxy@541179e7
+[2025-07-01 17:43:03] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 17:43:03] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - │ tearDown()                                              │
+[2025-07-01 17:43:03] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-07-01 17:43:03] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 17:43:03] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - │ setUp()                                                 │
+[2025-07-01 17:43:03] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-07-01 17:43:03] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 17:43:03] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - │ doUpdate()                                              │
+[2025-07-01 17:43:03] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-07-01 17:43:03] [DEBUG] com.pcwk.ehr.membership.mapper.MembershipMapper.deleteAll - ==>  Preparing: DELETE FROM MEMBERSHIP
+[2025-07-01 17:43:03] [DEBUG] com.pcwk.ehr.membership.mapper.MembershipMapper.deleteAll - ==> Parameters: 
+[2025-07-01 17:43:03] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 17:43:03] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - │ tearDown()                                              │
+[2025-07-01 17:43:03] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-07-01 17:43:03] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 17:43:03] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - │ setUp()                                                 │
+[2025-07-01 17:43:03] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-07-01 17:43:03] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 17:43:03] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - │ doSelectOne()                                           │
+[2025-07-01 17:43:03] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-07-01 17:43:03] [DEBUG] com.pcwk.ehr.membership.mapper.MembershipMapper.deleteAll - ==>  Preparing: DELETE FROM MEMBERSHIP
+[2025-07-01 17:43:03] [DEBUG] com.pcwk.ehr.membership.mapper.MembershipMapper.deleteAll - ==> Parameters: 
+[2025-07-01 17:43:03] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 17:43:03] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - │ tearDown()                                              │
+[2025-07-01 17:43:03] [DEBUG] com.pcwk.ehr.membership.MembershipDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-07-01 17:43:04] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+[2025-07-01 17:43:04] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
