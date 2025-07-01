@@ -10,6 +10,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,20 +28,20 @@ import com.pcwk.ehr.membership.mapper.MembershipMapper;
 class MembershipDaoTest {
 
 	@Autowired
-	MembershipMapper mapper;
+	MembershipMapper mapper; // 테스트 대상 Bean
 	
-	MembershipDTO dto01;
+	MembershipDTO dto01;		//테스트 데이터 & 공용 객체
 	MembershipDTO dto02;
 	MembershipDTO dto03;
 	
 	SearchDTO search;
 
 	@Autowired
-	ApplicationContext context;
+	ApplicationContext context; // 컨테이너 확인용
 
 	Logger log = LogManager.getLogger(getClass());
 
-	@BeforeEach
+	@BeforeEach  //테스트 전 공통 준비 (@BeforeEach),각 테스트 메서드 실행 직전에 호출됨
 	void setUp() throws Exception {
 		log.debug("┌─────────────────────────────────────────────────────────┐");
 		log.debug("│ setUp()                                                 │");
@@ -54,14 +55,16 @@ class MembershipDaoTest {
 		
 	}
 
-	@AfterEach
+	@AfterEach		//테스트 후 정리 (@AfterEach)
 	void tearDown() throws Exception {
 		log.debug("┌─────────────────────────────────────────────────────────┐");
 		log.debug("│ tearDown()                                              │");
 		log.debug("└─────────────────────────────────────────────────────────┘");
+	
+		// 추가 정리 로직이 필요하면 이곳에 작성
 	}
 	
-	@Test
+	@Test			// 1. 삭제 테스트 : doDelete()
 	void doDelete() throws SQLException{
 		log.debug("┌─────────────────────────────────────────────────────────┐");
 		log.debug("│ doDelete()                                              │");
@@ -74,36 +77,36 @@ class MembershipDaoTest {
 		//4. 등록건수 조회
 
 		//1. 
-		mapper.deleteAll();
+		mapper.deleteAll();	    // 1) 모든 레코드 삭제 ↔ 빈 테이블 보장
 		
-		//2. 
+		//2. 					// 2) 샘플 3건 등록
 		mapper.doSave(dto01);
 		mapper.doSave(dto02);
 		mapper.doSave(dto03);
 		
-		//등록건수 조회 
+		//등록건수 조회 			//    ▸ 등록 건수 확인 : 3건이어야 한다.
 		int count = mapper.getCount();
 		assertEquals(3, count);
 		log.debug("count: {}", count);
 		
-		//2.1 
+		//2.1 					 // 3) dto02 삭제 테스트
 		MembershipDTO param=new MembershipDTO();
 		param.setUserId(dto02.getUserId());
 		
 		//3.
 		int result = mapper.doDelete(param);
-		assertEquals(1, result);
+		assertEquals(1, result);				// 정확히 1건 삭제됐는가?
 		log.debug("result:{}", result);
 		
 		//4. 등록건수 조회
 		count = mapper.getCount();
-		assertEquals(2, count);
+		assertEquals(2, count);				// 4) 최종 건수 = 2건
 		log.debug("count: {}", count);
 		
 	}
 	
 	//@Disabled
-	@Test
+	@Test				//2. 수정 테스트 : doUpdate()
 	void doUpdate() throws SQLException{
 		log.debug("┌─────────────────────────────────────────────────────────┐");
 		log.debug("│ doUpdate()                                              │");
@@ -116,22 +119,22 @@ class MembershipDaoTest {
 		
 		
 		//1. 
-		mapper.deleteAll();
+		mapper.deleteAll();		 // 1) 초기화
 		
 		//2. 
-		mapper.doSave(dto01);
+		mapper.doSave(dto01);	   // 2) 3건 등록 → count = 3
 		mapper.doSave(dto02);
 		mapper.doSave(dto03);
 		
 		//2.1 
-		int count = mapper.getCount();
+		int count = mapper.getCount();	
 		assertEquals(3, count);
 		log.debug("count: {}", count);
 		
-		//수정 파라미터 값 설정
+		//수정 파라미터 값 설정		// 3) dto01 비밀번호 수정 (grade / profileImage는 그대로 사용)
 		MembershipDTO param=new MembershipDTO();
 		param.setUserId(dto01.getUserId());
-		param.setPassword("46378");
+		param.setPassword("46378");		// 변경할 패스워드
 		param.setGrade(dto01.getGrade());
 		param.setProfileImage(dto01.getProfileImage());
 		
@@ -171,7 +174,8 @@ class MembershipDaoTest {
 		MembershipDTO result =  mapper.doSelectOne(param);
 		log.debug("result: {}", result);
 	}
-
+	
+	//@Disabled
 	@Test
 	void beans() {
 		assertNotNull(context);
