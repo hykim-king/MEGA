@@ -7,6 +7,9 @@
 
      <!-- 공지사항 등록 -->
     <insert id="doSave" parameterType="NoticeDTO">
+        <selectKey keyProperty="noCode" resultType="int" order="BEFORE">
+            SELECT NO_SEQ.NEXTVAL FROM dual
+        </selectKey>
         INSERT INTO NOTICE (
             NO_CODE,
             USER_ID,
@@ -16,7 +19,7 @@
             C_DT,
             UP_DT
         ) VALUES (
-            NO_SEQ.NEXTVAL,
+            #{noCode},
             #{userId},
             #{title},
             #{content},
@@ -47,7 +50,6 @@ FROM (
             (#{searchDiv, jdbcType=VARCHAR} = '10' AND TITLE LIKE '%' || #{searchWord, jdbcType=VARCHAR} || '%')
             OR (#{searchDiv, jdbcType=VARCHAR} = '20' AND CONTENT LIKE '%' || #{searchWord, jdbcType=VARCHAR} || '%')
             OR (#{searchDiv, jdbcType=VARCHAR} = '30' AND USER_ID LIKE '%' || #{searchWord, jdbcType=VARCHAR} || '%')
-            OR #{searchDiv, jdbcType=VARCHAR} = ''
         )
 )
 WHERE rnum > (#{pageNo} - 1) * #{pageSize}

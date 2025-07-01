@@ -2,9 +2,9 @@ package com.pcwk.ehr.board;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.fail;
 
 import java.sql.SQLException;
+import java.util.Date;
 import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
@@ -12,6 +12,7 @@ import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,43 +20,59 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
+import com.pcwk.ehr.board.domain.NoticeCommentDTO;
 import com.pcwk.ehr.board.domain.NoticeDTO;
+import com.pcwk.ehr.board.mapper.NoCommentMapper;
 import com.pcwk.ehr.board.mapper.NoticeMapper;
 import com.pcwk.ehr.cmn.SearchDTO;
-import com.pcwk.ehr.mypage.domain.ExerciseDTO;
-import com.pcwk.ehr.mypage.domain.FoodDiaryDTO;
 
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(locations = { "file:src/main/webapp/WEB-INF/spring/root-context.xml",
 		"file:src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml" })
 
-class NoticeDTOTest {
-	@Autowired
-	NoticeMapper mapper;
-
-	NoticeDTO dto01;
-	NoticeDTO dto02;
-	NoticeDTO dto03;
-
-	SearchDTO search;
+class NoCommentDaoTest {
+	final Logger log = LogManager.getLogger(getClass());
 
 	@Autowired
 	ApplicationContext context;
 
-	Logger log = LogManager.getLogger(getClass());
+	@Autowired
+	NoCommentMapper mapper;
+	
+	@Autowired
+	NoticeMapper nMapper;
 
+	SearchDTO search;
+
+	NoticeCommentDTO dto01;
+	NoticeCommentDTO dto02;
+	NoticeCommentDTO dto03;
+	
+	NoticeDTO nDto01;
+
+	int noCode;
+	
 	@BeforeEach
-	void setup() throws Exception {
+	void setUp() throws Exception {
 		log.debug("┌────────────────────────────┐");
 		log.debug("│ setUp()                    │");
 		log.debug("└────────────────────────────┘");
+		
+		nDto01 = new NoticeDTO("user01", "제목1", "내용1", 0, null, null);
+		
+		//!!Notice 데이터 관리 !!
+		//1. Notice 전체 삭제
+		nMapper.deleteAll();
+		//2. Notice 단건 등록
+		nMapper.doSave(nDto01);
+		noCode = nDto01.getNoCode();
+		log.debug("noCode: {}", noCode);
 
-		dto01 = new NoticeDTO("user1", "제목1", "내용1", 0, null, null);
-		dto02 = new NoticeDTO("user2", "제목2", "내용2", 1, null, null);
-		dto03 = new NoticeDTO("user3", "제목3", "내용3", 2, null, null);
+		dto01 = new NoticeCommentDTO(noCode, "user1", "내용1");
+		dto02 = new NoticeCommentDTO(noCode, "user2", "내용2");
+		dto03 = new NoticeCommentDTO(noCode, "user3", "내용3");
 
 		search = new SearchDTO();
-
 	}
 
 	@AfterEach
@@ -64,58 +81,100 @@ class NoticeDTOTest {
 		log.debug("│ tearDown()                 │");
 		log.debug("└────────────────────────────┘");
 	}
-	//@Disabled
 	@Test
-	void viewCount() {
+	void doDelete() throws SQLException {
 		log.debug("┌────────────────────────────┐");
-		log.debug("│ viewCount()                │");
+		log.debug("│ doDelete()                 │");
 		log.debug("└────────────────────────────┘");
-		// 전체삭제
-		// 단건등록
-		// 전체조회
+		
+		//1.전체삭제
+		//2.등록
+		//3.전체조회
+		//4.단건삭제
 
 		// 1.
 		mapper.deleteAll();
 
 		// 2.
 		mapper.doSave(dto01);
+		mapper.doSave(dto02);
+		mapper.doSave(dto03);
 
+		//3.
 		int count = mapper.getCount();
-		assertEquals(1, count);
+		assertEquals(3, count);
 		log.debug("count:{}", count);
-
-		// paging
-		search.setSearchWord(dto01.getTitle());
-		search.setSearchDiv("10");
+		
+		//4.
 		search.setPageSize(10);
 		search.setPageNo(1);
+		search.setSearchWord(String.valueOf(dto01.getNoCode()));
+		List<NoticeCommentDTO> list = (List<NoticeCommentDTO>) mapper.doRetrieve(search);
+		for (NoticeCommentDTO doVO : list) {
+			log.debug("doVO:{}", doVO);
+		}
+		//4.2단건삭제
+		int result = mapper.doDelete(list.get(0));
+		log.debug(result);
+		
+		//
+		count = mapper.getCount();
+		assertEquals(2, count);
+		log.debug("count:{}", count);
+	}
+	
+	
+	//@Disabled
+	@Test
+	void doUpdate() throws SQLException {
+		log.debug("┌────────────────────────────┐");
+		log.debug("│ doUpdate()                 │");
+		log.debug("└────────────────────────────┘");
+
+		// 1.전체삭제
+		// 2.등록
+		// 3.조회
+		// 4.수정파라미터 설정
+		// 5.수정
+
+		// 1.
+		mapper.deleteAll();
+
+		// 2.
+		mapper.doSave(dto01);
+		mapper.doSave(dto02);
+		mapper.doSave(dto03);
 
 		// 3.
-		List<NoticeDTO> list = mapper.doRetrieve(search);
-		for (NoticeDTO vo : list) {
-			log.debug("vo: {}", vo);
+		int count = mapper.getCount();
+		assertEquals(3, count);
+		log.debug("count:{}", count);
+
+		// 4.
+		search.setSearchWord(String.valueOf(dto01.getNoCode()));
+		search.setPageSize(10);
+		search.setPageNo(1);
+		List<NoticeCommentDTO> list = (List<NoticeCommentDTO>) mapper.doRetrieve(search);
+		for (NoticeCommentDTO doVO : list) {
+			log.debug("doVO:{}", doVO);
 		}
 
-		// 항목 선택
-		int result = mapper.viewCount(list.get(0));
+		// . 수정 파라미터 설정
+		list.get(1).setContent("어쩌구저쩌구");
+		int result = mapper.doUpdate(list.get(1));
 		log.debug(result);
-
-		// 조회
-		NoticeDTO result1 = mapper.doSelectOne(list.get(0));
-		log.debug("result1:{}" ,result);
-
 
 	}
 
 	//@Disabled
 	@Test
-	void doSelectOne() {
+	void doSelectOne() throws SQLException {
 		log.debug("┌────────────────────────────┐");
 		log.debug("│ doSelectOne()              │");
 		log.debug("└────────────────────────────┘");
 
-		// 1. 전체삭제
-		// 2. 단건등록
+		// 1.전체삭제
+		// 2.단건등록
 		// 3.등록건수 조회
 
 		// 1.
@@ -126,100 +185,24 @@ class NoticeDTOTest {
 		mapper.doSave(dto02);
 		mapper.doSave(dto03);
 
-		int count = mapper.getCount();
-		assertEquals(3, count);
-		log.debug("count:{}", count);
-
-		// paging
-		search.setSearchWord(dto01.getTitle());
-		search.setSearchDiv("10");
-		search.setPageSize(10);
-		search.setPageNo(1);
-
 		// 3.
-		List<NoticeDTO> list = mapper.doRetrieve(search);
-		for (NoticeDTO vo : list) {
-			log.debug("vo: {}", vo);
-		}
-
-		// 항목 선택
-		NoticeDTO result = mapper.doSelectOne(list.get(0));
-		log.debug(result);
-	}
-
-	//@Disabled
-	@Test
-	void doUpdate() {
-		log.debug("┌────────────────────────────┐");
-		log.debug("│ doUpdate()                 │");
-		log.debug("└────────────────────────────┘");
-		// 1. 전체삭제
-		// 2. 단건등록
-		// 3. 전체조회 및 항목선택
-		// 4. 수정
-		// 1.
-		mapper.deleteAll();
-
-		// 2.
-		mapper.doSave(dto01);
-		mapper.doSave(dto02);
-		mapper.doSave(dto03);
-
 		int count = mapper.getCount();
 		assertEquals(3, count);
-		log.debug("count: {}", count);
+		log.debug("count:{}", count);
 
-		// 3
-		search.setSearchWord(dto01.getTitle());
-		search.setSearchDiv("10");
+		// 4.
+		search.setSearchWord(String.valueOf(dto01.getNoCode()));
 		search.setPageSize(10);
 		search.setPageNo(1);
-		List<NoticeDTO> list = (List<NoticeDTO>) mapper.doRetrieve(search);
-		for (NoticeDTO noVO : list) {
-			log.debug("noVO:{}", noVO);
+		List<NoticeCommentDTO> list = (List<NoticeCommentDTO>) mapper.doRetrieve(search);
+		for (NoticeCommentDTO doVO : list) {
+			log.debug("doVO:{}", doVO);
 		}
-		list.get(0).setTitle("제목1");
-		list.get(0).setContent("내용1");
-		int result = mapper.doUpdate(list.get(0));
-		log.debug(result);
 
-	}
-
-	//@Disabled
-	@Test
-	void doDelete() throws SQLException {
-		log.debug("┌────────────────────────────┐");
-		log.debug("│ doDelete()                 │");
-		log.debug("└────────────────────────────┘");
-
-		// 매번 동일한 결과가 도출 되도록 작성
-		// 1. 전체삭제
-		// 2. 단건등록
-		// 2.1 등록건수 비교
-		// 3. 삭제
-		// 4. 등록건수 비교==0
-
-		// 1.
-		mapper.deleteAll();
-
-		// 2.
-		int flag = mapper.doSave(dto01);
-		log.debug("flag:{}", flag);
-		assertEquals(1, flag);
-
-		// 2.1
-		int count = mapper.getCount();
-		log.debug("count:{}", count);
-		assertEquals(1, count);
-
-		// 3 삭제
-		flag = mapper.doDelete(dto01);
-		assertEquals(0, flag);
-
-		// 4.건수비교
-		count = mapper.getCount();
-		log.debug("count:{}", count);
-		assertEquals(1, count);
+		// 단건 조회 파라미터 설정
+		NoticeCommentDTO param = new NoticeCommentDTO();
+		param.setCommentedCode(list.get(0).getCommentedCode());
+		log.debug("param:{}", param.getCommentedCode());
 	}
 
 	//@Disabled
@@ -229,9 +212,10 @@ class NoticeDTOTest {
 		log.debug("│ doRetrieve()               │");
 		log.debug("└────────────────────────────┘");
 
-		// 1. 전체삭제
-		// 2. 단건등록
-		// 3. 조회
+		// 1.전체삭제
+		// 2.단건등록
+		// 3.등록건수 조회
+		// 4.전체조회
 
 		// 1.
 		mapper.deleteAll();
@@ -244,27 +228,23 @@ class NoticeDTOTest {
 		// 3.
 		int count = mapper.getCount();
 		assertEquals(3, count);
-		log.debug(count);
+		log.debug("count:{}", count);
 
 		// 4.
-		NoticeDTO param = new NoticeDTO();
-		search.setSearchWord("user1");
-		List<NoticeDTO> list = mapper.doRetrieve(search);
-		for (NoticeDTO vo : list) {
-			log.debug("vo: {}", vo);
-
+		search.setSearchWord(String.valueOf(dto01.getNoCode()));
+		search.setPageSize(10);
+		search.setPageNo(1);
+		List<NoticeCommentDTO> list = (List<NoticeCommentDTO>) mapper.doRetrieve(search);
+		for (NoticeCommentDTO doVO : list) {
+			log.debug("doVO:{}", doVO);
 		}
-
 	}
 
-	//@Disabled
+	// @Disabled
 	@Test
 	void beans() {
 		assertNotNull(context);
 		assertNotNull(mapper);
-
-		log.debug(context);
-		log.debug(mapper);
-
 	}
+
 }
