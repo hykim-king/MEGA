@@ -2,6 +2,8 @@ package com.pcwk.ehr.login;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.sql.SQLException;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.AfterEach;
@@ -48,11 +50,11 @@ public class LoginDaoTest {
 	}
 	//@Disabled
 	@Test
-	void doSelectOne() {
+	void doSelectOne() throws SQLException{
 		LoginDTO dto = new LoginDTO();
-		dto.setUserId("user1");
-	    dto.setPassword("user");
-	    String login =  loginMapper.doSelectOne(dto);
+		dto.setUserId("userA02");
+	    dto.setPassword("pwA!23");
+	    LoginDTO login =  loginMapper.doSelectOne(dto);
 	    assertNotNull(login);
 	    log.debug("로그인: {}", login);
 	}

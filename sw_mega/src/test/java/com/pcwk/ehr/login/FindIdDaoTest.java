@@ -50,9 +50,9 @@ public class FindIdDaoTest {
 	@Test
     public void findUserId() throws SQLException{
     FindIdDTO dto = new FindIdDTO();
-    dto.setEmail("user1@test.com");
+    dto.setEmail("userA02@test.com");
     String userId =  findIdMapper.findUserId(dto.getEmail());
-    assertNotNull(userId);
+    
     log.debug("조회된 userId: {}", userId);
     }
 

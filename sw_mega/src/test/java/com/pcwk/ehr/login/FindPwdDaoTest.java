@@ -49,8 +49,8 @@ public class FindPwdDaoTest {
 	@Test
 	void findPwd() {
 		FindPwdDTO dto = new FindPwdDTO();
-		dto.setUserId("user1");
-	    dto.setEmail("user");
+		dto.setUserId("userA02");
+	    dto.setEmail("userA02@test.com");
 	    String password =  findPwdMapper.findPwd(dto);
 	    assertNotNull(password);
 	    log.debug("조회된 password: {}", password);

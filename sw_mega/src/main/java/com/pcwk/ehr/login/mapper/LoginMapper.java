@@ -6,5 +6,5 @@ import com.pcwk.ehr.login.domain.LoginDTO;
 
 @Mapper
 public interface LoginMapper {
-	 String doSelectOne(LoginDTO dto);
+	LoginDTO doSelectOne(LoginDTO dto);
 }

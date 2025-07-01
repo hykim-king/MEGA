@@ -1799,3 +1799,253 @@ Caused by: java.net.ConnectException: Connection timed out: connect
 [2025-07-01 04:34:47] [DEBUG] com.pcwk.ehr.login.LoginDaoTest - └─────────────────────────────────────────────────────────┘
 [2025-07-01 04:34:47] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
 [2025-07-01 04:34:47] [WARN ] com.zaxxer.hikari.util.DriverDataSource - Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+[2025-07-01 12:12:44] [INFO ] org.springframework.test.context.support.DefaultTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+[2025-07-01 12:12:44] [INFO ] org.springframework.test.context.support.DefaultTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@563e4951, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@4066c471, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@2b175c00, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@3eb81efb, org.springframework.test.context.support.DirtiesContextTestExecutionListener@1ae8bcbc, org.springframework.test.context.transaction.TransactionalTestExecutionListener@6cdba6dc, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@7d3d101b, org.springframework.test.context.event.EventPublishingTestExecutionListener@30c8681]
+[2025-07-01 12:12:45] [DEBUG] com.pcwk.ehr.cmn.PLog - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 12:12:45] [DEBUG] com.pcwk.ehr.cmn.PLog - │ MembershipController()                                   │
+[2025-07-01 12:12:45] [DEBUG] com.pcwk.ehr.cmn.PLog - └─────────────────────────────────────────────────────────┘
+[2025-07-01 12:12:46] [DEBUG] com.pcwk.ehr.login.FindIdDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 12:12:46] [DEBUG] com.pcwk.ehr.login.FindIdDaoTest - │ setUp()                                                 │
+[2025-07-01 12:12:46] [DEBUG] com.pcwk.ehr.login.FindIdDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-07-01 12:12:46] [DEBUG] com.pcwk.ehr.login.FindIdDaoTest - context:{}org.springframework.context.support.GenericApplicationContext@436c81a3, started on Tue Jul 01 12:12:45 GMT+09:00 2025
+[2025-07-01 12:12:46] [DEBUG] com.pcwk.ehr.login.FindIdDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 12:12:46] [DEBUG] com.pcwk.ehr.login.FindIdDaoTest - │ tearDown()                                              │
+[2025-07-01 12:12:46] [DEBUG] com.pcwk.ehr.login.FindIdDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-07-01 12:12:54] [INFO ] org.springframework.test.context.support.DefaultTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+[2025-07-01 12:12:54] [INFO ] org.springframework.test.context.support.DefaultTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@1fd14d74, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@563e4951, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@4066c471, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@2b175c00, org.springframework.test.context.support.DirtiesContextTestExecutionListener@3eb81efb, org.springframework.test.context.transaction.TransactionalTestExecutionListener@1ae8bcbc, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@6cdba6dc, org.springframework.test.context.event.EventPublishingTestExecutionListener@7d3d101b]
+[2025-07-01 12:12:55] [DEBUG] com.pcwk.ehr.cmn.PLog - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 12:12:55] [DEBUG] com.pcwk.ehr.cmn.PLog - │ MembershipController()                                   │
+[2025-07-01 12:12:55] [DEBUG] com.pcwk.ehr.cmn.PLog - └─────────────────────────────────────────────────────────┘
+[2025-07-01 12:12:55] [DEBUG] com.pcwk.ehr.login.FindIdDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 12:12:55] [DEBUG] com.pcwk.ehr.login.FindIdDaoTest - │ setUp()                                                 │
+[2025-07-01 12:12:55] [DEBUG] com.pcwk.ehr.login.FindIdDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-07-01 12:12:55] [DEBUG] com.pcwk.ehr.login.FindIdDaoTest - context:{}org.springframework.context.support.GenericApplicationContext@7ceb3185, started on Tue Jul 01 12:12:54 GMT+09:00 2025
+[2025-07-01 12:12:55] [DEBUG] com.pcwk.ehr.login.FindIdDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 12:12:55] [DEBUG] com.pcwk.ehr.login.FindIdDaoTest - │ tearDown()                                              │
+[2025-07-01 12:12:55] [DEBUG] com.pcwk.ehr.login.FindIdDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-07-01 12:12:55] [DEBUG] com.pcwk.ehr.login.FindIdDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 12:12:55] [DEBUG] com.pcwk.ehr.login.FindIdDaoTest - │ setUp()                                                 │
+[2025-07-01 12:12:55] [DEBUG] com.pcwk.ehr.login.FindIdDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-07-01 12:12:55] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+[2025-07-01 12:12:55] [WARN ] com.zaxxer.hikari.util.DriverDataSource - Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+[2025-07-01 12:12:56] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+[2025-07-01 12:12:56] [DEBUG] com.pcwk.ehr.login.mapper.FindIdMapper.findUserId - ==>  Preparing: SELECT USER_ID FROM MEMBERSHIP WHERE EMAIL = ?
+[2025-07-01 12:12:56] [DEBUG] com.pcwk.ehr.login.mapper.FindIdMapper.findUserId - ==> Parameters: user1@test.com(String)
+[2025-07-01 12:12:56] [DEBUG] com.pcwk.ehr.login.mapper.FindIdMapper.findUserId - <==      Total: 0
+[2025-07-01 12:12:56] [DEBUG] com.pcwk.ehr.login.FindIdDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 12:12:56] [DEBUG] com.pcwk.ehr.login.FindIdDaoTest - │ tearDown()                                              │
+[2025-07-01 12:12:56] [DEBUG] com.pcwk.ehr.login.FindIdDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-07-01 12:12:56] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+[2025-07-01 12:12:56] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+[2025-07-01 12:13:23] [INFO ] org.springframework.test.context.support.DefaultTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+[2025-07-01 12:13:23] [INFO ] org.springframework.test.context.support.DefaultTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@1fd14d74, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@563e4951, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@4066c471, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@2b175c00, org.springframework.test.context.support.DirtiesContextTestExecutionListener@3eb81efb, org.springframework.test.context.transaction.TransactionalTestExecutionListener@1ae8bcbc, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@6cdba6dc, org.springframework.test.context.event.EventPublishingTestExecutionListener@7d3d101b]
+[2025-07-01 12:13:24] [DEBUG] com.pcwk.ehr.cmn.PLog - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 12:13:24] [DEBUG] com.pcwk.ehr.cmn.PLog - │ MembershipController()                                   │
+[2025-07-01 12:13:24] [DEBUG] com.pcwk.ehr.cmn.PLog - └─────────────────────────────────────────────────────────┘
+[2025-07-01 12:13:25] [DEBUG] com.pcwk.ehr.login.FindIdDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 12:13:25] [DEBUG] com.pcwk.ehr.login.FindIdDaoTest - │ setUp()                                                 │
+[2025-07-01 12:13:25] [DEBUG] com.pcwk.ehr.login.FindIdDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-07-01 12:13:25] [DEBUG] com.pcwk.ehr.login.FindIdDaoTest - context:{}org.springframework.context.support.GenericApplicationContext@7ceb3185, started on Tue Jul 01 12:13:24 GMT+09:00 2025
+[2025-07-01 12:13:25] [DEBUG] com.pcwk.ehr.login.FindIdDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 12:13:25] [DEBUG] com.pcwk.ehr.login.FindIdDaoTest - │ tearDown()                                              │
+[2025-07-01 12:13:25] [DEBUG] com.pcwk.ehr.login.FindIdDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-07-01 12:13:25] [DEBUG] com.pcwk.ehr.login.FindIdDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 12:13:25] [DEBUG] com.pcwk.ehr.login.FindIdDaoTest - │ setUp()                                                 │
+[2025-07-01 12:13:25] [DEBUG] com.pcwk.ehr.login.FindIdDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-07-01 12:13:25] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+[2025-07-01 12:13:25] [WARN ] com.zaxxer.hikari.util.DriverDataSource - Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+[2025-07-01 12:13:25] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+[2025-07-01 12:13:25] [DEBUG] com.pcwk.ehr.login.mapper.FindIdMapper.findUserId - ==>  Preparing: SELECT USER_ID FROM MEMBERSHIP WHERE EMAIL = ?
+[2025-07-01 12:13:25] [DEBUG] com.pcwk.ehr.login.mapper.FindIdMapper.findUserId - ==> Parameters: user(String)
+[2025-07-01 12:13:25] [DEBUG] com.pcwk.ehr.login.mapper.FindIdMapper.findUserId - <==      Total: 200
+[2025-07-01 12:13:25] [DEBUG] com.pcwk.ehr.login.FindIdDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 12:13:25] [DEBUG] com.pcwk.ehr.login.FindIdDaoTest - │ tearDown()                                              │
+[2025-07-01 12:13:25] [DEBUG] com.pcwk.ehr.login.FindIdDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-07-01 12:13:26] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+[2025-07-01 12:13:26] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+[2025-07-01 12:14:00] [INFO ] org.springframework.test.context.support.DefaultTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+[2025-07-01 12:14:00] [INFO ] org.springframework.test.context.support.DefaultTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@1fd14d74, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@563e4951, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@4066c471, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@2b175c00, org.springframework.test.context.support.DirtiesContextTestExecutionListener@3eb81efb, org.springframework.test.context.transaction.TransactionalTestExecutionListener@1ae8bcbc, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@6cdba6dc, org.springframework.test.context.event.EventPublishingTestExecutionListener@7d3d101b]
+[2025-07-01 12:14:01] [DEBUG] com.pcwk.ehr.cmn.PLog - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 12:14:01] [DEBUG] com.pcwk.ehr.cmn.PLog - │ MembershipController()                                   │
+[2025-07-01 12:14:01] [DEBUG] com.pcwk.ehr.cmn.PLog - └─────────────────────────────────────────────────────────┘
+[2025-07-01 12:14:02] [DEBUG] com.pcwk.ehr.login.FindIdDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 12:14:02] [DEBUG] com.pcwk.ehr.login.FindIdDaoTest - │ setUp()                                                 │
+[2025-07-01 12:14:02] [DEBUG] com.pcwk.ehr.login.FindIdDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-07-01 12:14:02] [DEBUG] com.pcwk.ehr.login.FindIdDaoTest - context:{}org.springframework.context.support.GenericApplicationContext@7ceb3185, started on Tue Jul 01 12:14:01 GMT+09:00 2025
+[2025-07-01 12:14:02] [DEBUG] com.pcwk.ehr.login.FindIdDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 12:14:02] [DEBUG] com.pcwk.ehr.login.FindIdDaoTest - │ tearDown()                                              │
+[2025-07-01 12:14:02] [DEBUG] com.pcwk.ehr.login.FindIdDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-07-01 12:14:02] [DEBUG] com.pcwk.ehr.login.FindIdDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 12:14:02] [DEBUG] com.pcwk.ehr.login.FindIdDaoTest - │ setUp()                                                 │
+[2025-07-01 12:14:02] [DEBUG] com.pcwk.ehr.login.FindIdDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-07-01 12:14:02] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+[2025-07-01 12:14:02] [WARN ] com.zaxxer.hikari.util.DriverDataSource - Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+[2025-07-01 12:14:02] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+[2025-07-01 12:14:02] [DEBUG] com.pcwk.ehr.login.mapper.FindIdMapper.findUserId - ==>  Preparing: SELECT USER_ID FROM MEMBERSHIP WHERE EMAIL = ?
+[2025-07-01 12:14:02] [DEBUG] com.pcwk.ehr.login.mapper.FindIdMapper.findUserId - ==> Parameters: userA02@test.com(String)
+[2025-07-01 12:14:02] [DEBUG] com.pcwk.ehr.login.mapper.FindIdMapper.findUserId - <==      Total: 0
+[2025-07-01 12:14:02] [DEBUG] com.pcwk.ehr.login.FindIdDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 12:14:02] [DEBUG] com.pcwk.ehr.login.FindIdDaoTest - │ tearDown()                                              │
+[2025-07-01 12:14:02] [DEBUG] com.pcwk.ehr.login.FindIdDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-07-01 12:14:02] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+[2025-07-01 12:14:02] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+[2025-07-01 12:14:16] [INFO ] org.springframework.test.context.support.DefaultTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+[2025-07-01 12:14:16] [INFO ] org.springframework.test.context.support.DefaultTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@1fd14d74, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@563e4951, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@4066c471, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@2b175c00, org.springframework.test.context.support.DirtiesContextTestExecutionListener@3eb81efb, org.springframework.test.context.transaction.TransactionalTestExecutionListener@1ae8bcbc, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@6cdba6dc, org.springframework.test.context.event.EventPublishingTestExecutionListener@7d3d101b]
+[2025-07-01 12:14:17] [DEBUG] com.pcwk.ehr.cmn.PLog - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 12:14:17] [DEBUG] com.pcwk.ehr.cmn.PLog - │ MembershipController()                                   │
+[2025-07-01 12:14:17] [DEBUG] com.pcwk.ehr.cmn.PLog - └─────────────────────────────────────────────────────────┘
+[2025-07-01 12:14:17] [DEBUG] com.pcwk.ehr.login.FindIdDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 12:14:17] [DEBUG] com.pcwk.ehr.login.FindIdDaoTest - │ setUp()                                                 │
+[2025-07-01 12:14:17] [DEBUG] com.pcwk.ehr.login.FindIdDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-07-01 12:14:18] [DEBUG] com.pcwk.ehr.login.FindIdDaoTest - context:{}org.springframework.context.support.GenericApplicationContext@7ceb3185, started on Tue Jul 01 12:14:16 GMT+09:00 2025
+[2025-07-01 12:14:18] [DEBUG] com.pcwk.ehr.login.FindIdDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 12:14:18] [DEBUG] com.pcwk.ehr.login.FindIdDaoTest - │ tearDown()                                              │
+[2025-07-01 12:14:18] [DEBUG] com.pcwk.ehr.login.FindIdDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-07-01 12:14:18] [DEBUG] com.pcwk.ehr.login.FindIdDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 12:14:18] [DEBUG] com.pcwk.ehr.login.FindIdDaoTest - │ setUp()                                                 │
+[2025-07-01 12:14:18] [DEBUG] com.pcwk.ehr.login.FindIdDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-07-01 12:14:18] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+[2025-07-01 12:14:18] [WARN ] com.zaxxer.hikari.util.DriverDataSource - Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+[2025-07-01 12:14:18] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+[2025-07-01 12:14:18] [DEBUG] com.pcwk.ehr.login.mapper.FindIdMapper.findUserId - ==>  Preparing: SELECT USER_ID FROM MEMBERSHIP WHERE EMAIL = ?
+[2025-07-01 12:14:18] [DEBUG] com.pcwk.ehr.login.mapper.FindIdMapper.findUserId - ==> Parameters: userA02@test.com(String)
+[2025-07-01 12:14:18] [DEBUG] com.pcwk.ehr.login.mapper.FindIdMapper.findUserId - <==      Total: 0
+[2025-07-01 12:14:18] [DEBUG] com.pcwk.ehr.login.FindIdDaoTest - 조회된 userId: null
+[2025-07-01 12:14:18] [DEBUG] com.pcwk.ehr.login.FindIdDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 12:14:18] [DEBUG] com.pcwk.ehr.login.FindIdDaoTest - │ tearDown()                                              │
+[2025-07-01 12:14:18] [DEBUG] com.pcwk.ehr.login.FindIdDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-07-01 12:14:18] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+[2025-07-01 12:14:18] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+[2025-07-01 12:15:21] [INFO ] org.springframework.test.context.support.DefaultTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+[2025-07-01 12:15:21] [INFO ] org.springframework.test.context.support.DefaultTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@1fd14d74, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@563e4951, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@4066c471, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@2b175c00, org.springframework.test.context.support.DirtiesContextTestExecutionListener@3eb81efb, org.springframework.test.context.transaction.TransactionalTestExecutionListener@1ae8bcbc, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@6cdba6dc, org.springframework.test.context.event.EventPublishingTestExecutionListener@7d3d101b]
+[2025-07-01 12:15:22] [DEBUG] com.pcwk.ehr.cmn.PLog - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 12:15:22] [DEBUG] com.pcwk.ehr.cmn.PLog - │ MembershipController()                                   │
+[2025-07-01 12:15:22] [DEBUG] com.pcwk.ehr.cmn.PLog - └─────────────────────────────────────────────────────────┘
+[2025-07-01 12:15:23] [DEBUG] com.pcwk.ehr.login.FindIdDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 12:15:23] [DEBUG] com.pcwk.ehr.login.FindIdDaoTest - │ setUp()                                                 │
+[2025-07-01 12:15:23] [DEBUG] com.pcwk.ehr.login.FindIdDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-07-01 12:15:23] [DEBUG] com.pcwk.ehr.login.FindIdDaoTest - context:{}org.springframework.context.support.GenericApplicationContext@7ceb3185, started on Tue Jul 01 12:15:22 GMT+09:00 2025
+[2025-07-01 12:15:23] [DEBUG] com.pcwk.ehr.login.FindIdDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 12:15:23] [DEBUG] com.pcwk.ehr.login.FindIdDaoTest - │ tearDown()                                              │
+[2025-07-01 12:15:23] [DEBUG] com.pcwk.ehr.login.FindIdDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-07-01 12:15:23] [DEBUG] com.pcwk.ehr.login.FindIdDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 12:15:23] [DEBUG] com.pcwk.ehr.login.FindIdDaoTest - │ setUp()                                                 │
+[2025-07-01 12:15:23] [DEBUG] com.pcwk.ehr.login.FindIdDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-07-01 12:15:23] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+[2025-07-01 12:15:23] [WARN ] com.zaxxer.hikari.util.DriverDataSource - Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+[2025-07-01 12:15:23] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+[2025-07-01 12:15:23] [DEBUG] com.pcwk.ehr.login.mapper.FindIdMapper.findUserId - ==>  Preparing: SELECT USER_ID FROM MEMBERSHIP WHERE EMAIL = ?
+[2025-07-01 12:15:23] [DEBUG] com.pcwk.ehr.login.mapper.FindIdMapper.findUserId - ==> Parameters: userA02@test.com(String)
+[2025-07-01 12:15:23] [DEBUG] com.pcwk.ehr.login.mapper.FindIdMapper.findUserId - <==      Total: 1
+[2025-07-01 12:15:23] [DEBUG] com.pcwk.ehr.login.FindIdDaoTest - 조회된 userId: userA02
+[2025-07-01 12:15:23] [DEBUG] com.pcwk.ehr.login.FindIdDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 12:15:23] [DEBUG] com.pcwk.ehr.login.FindIdDaoTest - │ tearDown()                                              │
+[2025-07-01 12:15:23] [DEBUG] com.pcwk.ehr.login.FindIdDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-07-01 12:15:23] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+[2025-07-01 12:15:23] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+[2025-07-01 12:15:57] [INFO ] org.springframework.test.context.support.DefaultTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+[2025-07-01 12:15:57] [INFO ] org.springframework.test.context.support.DefaultTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@1fd14d74, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@563e4951, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@4066c471, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@2b175c00, org.springframework.test.context.support.DirtiesContextTestExecutionListener@3eb81efb, org.springframework.test.context.transaction.TransactionalTestExecutionListener@1ae8bcbc, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@6cdba6dc, org.springframework.test.context.event.EventPublishingTestExecutionListener@7d3d101b]
+[2025-07-01 12:15:58] [DEBUG] com.pcwk.ehr.cmn.PLog - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 12:15:58] [DEBUG] com.pcwk.ehr.cmn.PLog - │ MembershipController()                                   │
+[2025-07-01 12:15:58] [DEBUG] com.pcwk.ehr.cmn.PLog - └─────────────────────────────────────────────────────────┘
+[2025-07-01 12:15:59] [DEBUG] com.pcwk.ehr.login.FindPwdDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 12:15:59] [DEBUG] com.pcwk.ehr.login.FindPwdDaoTest - │ setUp()                                                 │
+[2025-07-01 12:15:59] [DEBUG] com.pcwk.ehr.login.FindPwdDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-07-01 12:15:59] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+[2025-07-01 12:15:59] [WARN ] com.zaxxer.hikari.util.DriverDataSource - Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+[2025-07-01 12:15:59] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+[2025-07-01 12:15:59] [DEBUG] com.pcwk.ehr.login.mapper.FindPwdMapper.findPwd - ==>  Preparing: SELECT PASSWORD FROM MEMBERSHIP WHERE USER_ID = ? AND EMAIL = ?
+[2025-07-01 12:15:59] [DEBUG] com.pcwk.ehr.login.mapper.FindPwdMapper.findPwd - ==> Parameters: userA02(String), userA02@test.com(String)
+[2025-07-01 12:15:59] [DEBUG] com.pcwk.ehr.login.mapper.FindPwdMapper.findPwd - <==      Total: 1
+[2025-07-01 12:15:59] [DEBUG] com.pcwk.ehr.login.FindPwdDaoTest - 조회된 password: pwA!23
+[2025-07-01 12:15:59] [DEBUG] com.pcwk.ehr.login.FindPwdDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 12:15:59] [DEBUG] com.pcwk.ehr.login.FindPwdDaoTest - │ tearDown()                                              │
+[2025-07-01 12:15:59] [DEBUG] com.pcwk.ehr.login.FindPwdDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-07-01 12:15:59] [DEBUG] com.pcwk.ehr.login.FindPwdDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 12:15:59] [DEBUG] com.pcwk.ehr.login.FindPwdDaoTest - │ setUp()                                                 │
+[2025-07-01 12:15:59] [DEBUG] com.pcwk.ehr.login.FindPwdDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-07-01 12:15:59] [DEBUG] com.pcwk.ehr.login.FindPwdDaoTest - context:{}org.springframework.context.support.GenericApplicationContext@7ceb3185, started on Tue Jul 01 12:15:58 GMT+09:00 2025
+[2025-07-01 12:15:59] [DEBUG] com.pcwk.ehr.login.FindPwdDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 12:15:59] [DEBUG] com.pcwk.ehr.login.FindPwdDaoTest - │ tearDown()                                              │
+[2025-07-01 12:15:59] [DEBUG] com.pcwk.ehr.login.FindPwdDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-07-01 12:15:59] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+[2025-07-01 12:15:59] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+[2025-07-01 12:16:23] [INFO ] org.springframework.test.context.support.DefaultTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+[2025-07-01 12:16:23] [INFO ] org.springframework.test.context.support.DefaultTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@1fd14d74, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@563e4951, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@4066c471, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@2b175c00, org.springframework.test.context.support.DirtiesContextTestExecutionListener@3eb81efb, org.springframework.test.context.transaction.TransactionalTestExecutionListener@1ae8bcbc, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@6cdba6dc, org.springframework.test.context.event.EventPublishingTestExecutionListener@7d3d101b]
+[2025-07-01 12:16:24] [DEBUG] com.pcwk.ehr.cmn.PLog - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 12:16:24] [DEBUG] com.pcwk.ehr.cmn.PLog - │ MembershipController()                                   │
+[2025-07-01 12:16:24] [DEBUG] com.pcwk.ehr.cmn.PLog - └─────────────────────────────────────────────────────────┘
+[2025-07-01 12:16:25] [DEBUG] com.pcwk.ehr.login.LoginDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 12:16:25] [DEBUG] com.pcwk.ehr.login.LoginDaoTest - │ setUp()                                                 │
+[2025-07-01 12:16:25] [DEBUG] com.pcwk.ehr.login.LoginDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-07-01 12:16:25] [DEBUG] com.pcwk.ehr.login.LoginDaoTest - context:{}org.springframework.context.support.GenericApplicationContext@7ceb3185, started on Tue Jul 01 12:16:24 GMT+09:00 2025
+[2025-07-01 12:16:25] [DEBUG] com.pcwk.ehr.login.LoginDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 12:16:25] [DEBUG] com.pcwk.ehr.login.LoginDaoTest - │ tearDown()                                              │
+[2025-07-01 12:16:25] [DEBUG] com.pcwk.ehr.login.LoginDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-07-01 12:16:25] [DEBUG] com.pcwk.ehr.login.LoginDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 12:16:25] [DEBUG] com.pcwk.ehr.login.LoginDaoTest - │ setUp()                                                 │
+[2025-07-01 12:16:25] [DEBUG] com.pcwk.ehr.login.LoginDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-07-01 12:16:25] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+[2025-07-01 12:16:25] [WARN ] com.zaxxer.hikari.util.DriverDataSource - Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+[2025-07-01 12:16:25] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+[2025-07-01 12:16:25] [DEBUG] com.pcwk.ehr.login.mapper.LoginMapper.doSelectOne - ==>  Preparing: SELECT USER_ID, PASSWORD FROM MEMBERSHIP WHERE USER_ID = ? AND PASSWORD = ?
+[2025-07-01 12:16:25] [DEBUG] com.pcwk.ehr.login.mapper.LoginMapper.doSelectOne - ==> Parameters: userA02(String), pwA!23(String)
+[2025-07-01 12:16:25] [DEBUG] com.pcwk.ehr.login.mapper.LoginMapper.doSelectOne - <==      Total: 1
+[2025-07-01 12:16:25] [DEBUG] com.pcwk.ehr.login.LoginDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 12:16:25] [DEBUG] com.pcwk.ehr.login.LoginDaoTest - │ tearDown()                                              │
+[2025-07-01 12:16:25] [DEBUG] com.pcwk.ehr.login.LoginDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-07-01 12:16:25] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+[2025-07-01 12:16:25] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+[2025-07-01 12:20:38] [INFO ] org.springframework.test.context.support.DefaultTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+[2025-07-01 12:20:38] [INFO ] org.springframework.test.context.support.DefaultTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@1fd14d74, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@563e4951, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@4066c471, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@2b175c00, org.springframework.test.context.support.DirtiesContextTestExecutionListener@3eb81efb, org.springframework.test.context.transaction.TransactionalTestExecutionListener@1ae8bcbc, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@6cdba6dc, org.springframework.test.context.event.EventPublishingTestExecutionListener@7d3d101b]
+[2025-07-01 12:20:39] [DEBUG] com.pcwk.ehr.cmn.PLog - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 12:20:39] [DEBUG] com.pcwk.ehr.cmn.PLog - │ MembershipController()                                   │
+[2025-07-01 12:20:39] [DEBUG] com.pcwk.ehr.cmn.PLog - └─────────────────────────────────────────────────────────┘
+[2025-07-01 12:20:39] [DEBUG] com.pcwk.ehr.login.LoginDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 12:20:39] [DEBUG] com.pcwk.ehr.login.LoginDaoTest - │ setUp()                                                 │
+[2025-07-01 12:20:39] [DEBUG] com.pcwk.ehr.login.LoginDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-07-01 12:20:39] [DEBUG] com.pcwk.ehr.login.LoginDaoTest - context:{}org.springframework.context.support.GenericApplicationContext@7ceb3185, started on Tue Jul 01 12:20:38 GMT+09:00 2025
+[2025-07-01 12:20:39] [DEBUG] com.pcwk.ehr.login.LoginDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 12:20:39] [DEBUG] com.pcwk.ehr.login.LoginDaoTest - │ tearDown()                                              │
+[2025-07-01 12:20:39] [DEBUG] com.pcwk.ehr.login.LoginDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-07-01 12:20:39] [DEBUG] com.pcwk.ehr.login.LoginDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 12:20:39] [DEBUG] com.pcwk.ehr.login.LoginDaoTest - │ setUp()                                                 │
+[2025-07-01 12:20:39] [DEBUG] com.pcwk.ehr.login.LoginDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-07-01 12:20:39] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+[2025-07-01 12:20:39] [WARN ] com.zaxxer.hikari.util.DriverDataSource - Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+[2025-07-01 12:20:40] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+[2025-07-01 12:20:40] [DEBUG] com.pcwk.ehr.login.mapper.LoginMapper.doSelectOne - ==>  Preparing: SELECT USER_ID, PASSWORD FROM MEMBERSHIP WHERE USER_ID = ? AND PASSWORD = ?
+[2025-07-01 12:20:40] [DEBUG] com.pcwk.ehr.login.mapper.LoginMapper.doSelectOne - ==> Parameters: userA02(String), pwA!23(String)
+[2025-07-01 12:20:40] [DEBUG] com.pcwk.ehr.login.mapper.LoginMapper.doSelectOne - <==      Total: 1
+[2025-07-01 12:20:40] [DEBUG] com.pcwk.ehr.login.LoginDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 12:20:40] [DEBUG] com.pcwk.ehr.login.LoginDaoTest - │ tearDown()                                              │
+[2025-07-01 12:20:40] [DEBUG] com.pcwk.ehr.login.LoginDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-07-01 12:20:40] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+[2025-07-01 12:20:40] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+[2025-07-01 12:21:21] [INFO ] org.springframework.test.context.support.DefaultTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+[2025-07-01 12:21:21] [INFO ] org.springframework.test.context.support.DefaultTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@1fd14d74, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@563e4951, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@4066c471, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@2b175c00, org.springframework.test.context.support.DirtiesContextTestExecutionListener@3eb81efb, org.springframework.test.context.transaction.TransactionalTestExecutionListener@1ae8bcbc, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@6cdba6dc, org.springframework.test.context.event.EventPublishingTestExecutionListener@7d3d101b]
+[2025-07-01 12:21:21] [DEBUG] com.pcwk.ehr.cmn.PLog - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 12:21:21] [DEBUG] com.pcwk.ehr.cmn.PLog - │ MembershipController()                                   │
+[2025-07-01 12:21:21] [DEBUG] com.pcwk.ehr.cmn.PLog - └─────────────────────────────────────────────────────────┘
+[2025-07-01 12:21:22] [DEBUG] com.pcwk.ehr.login.LoginDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 12:21:22] [DEBUG] com.pcwk.ehr.login.LoginDaoTest - │ setUp()                                                 │
+[2025-07-01 12:21:22] [DEBUG] com.pcwk.ehr.login.LoginDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-07-01 12:21:22] [DEBUG] com.pcwk.ehr.login.LoginDaoTest - context:{}org.springframework.context.support.GenericApplicationContext@7ceb3185, started on Tue Jul 01 12:21:21 GMT+09:00 2025
+[2025-07-01 12:21:22] [DEBUG] com.pcwk.ehr.login.LoginDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 12:21:22] [DEBUG] com.pcwk.ehr.login.LoginDaoTest - │ tearDown()                                              │
+[2025-07-01 12:21:22] [DEBUG] com.pcwk.ehr.login.LoginDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-07-01 12:21:22] [DEBUG] com.pcwk.ehr.login.LoginDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 12:21:22] [DEBUG] com.pcwk.ehr.login.LoginDaoTest - │ setUp()                                                 │
+[2025-07-01 12:21:22] [DEBUG] com.pcwk.ehr.login.LoginDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-07-01 12:21:22] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+[2025-07-01 12:21:22] [WARN ] com.zaxxer.hikari.util.DriverDataSource - Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+[2025-07-01 12:21:23] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+[2025-07-01 12:21:23] [DEBUG] com.pcwk.ehr.login.mapper.LoginMapper.doSelectOne - ==>  Preparing: SELECT USER_ID, PASSWORD FROM MEMBERSHIP WHERE USER_ID = ? AND PASSWORD = ?
+[2025-07-01 12:21:23] [DEBUG] com.pcwk.ehr.login.mapper.LoginMapper.doSelectOne - ==> Parameters: userA02(String), pwA!23(String)
+[2025-07-01 12:21:23] [DEBUG] com.pcwk.ehr.login.mapper.LoginMapper.doSelectOne - <==      Total: 1
+[2025-07-01 12:21:23] [DEBUG] com.pcwk.ehr.login.LoginDaoTest - 로그인: LoginDTO [userId=userA02, password=pwA!23]
+[2025-07-01 12:21:23] [DEBUG] com.pcwk.ehr.login.LoginDaoTest - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 12:21:23] [DEBUG] com.pcwk.ehr.login.LoginDaoTest - │ tearDown()                                              │
+[2025-07-01 12:21:23] [DEBUG] com.pcwk.ehr.login.LoginDaoTest - └─────────────────────────────────────────────────────────┘
+[2025-07-01 12:21:23] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+[2025-07-01 12:21:23] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
