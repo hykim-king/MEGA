@@ -1,4 +1,4 @@
-package com.pcwk.ehr.membership.DTO;   // 소문자 dto
+package com.pcwk.ehr.membership.domain;   // 소문자 dto
 
 import java.util.Date;
 
@@ -11,16 +11,14 @@ public class MembershipDTO {
     private Date   birth;            // 생년월일
     private String emailAuth;        // 이메일 인증 여부
     private String emailAuthToken;
-    //private int    login;            // 로그인 횟수
-    //private int    recommend;        // 추천 횟수
     private int    grade;            // 1:BASIC 2:SILVER 3:GOLD
     private String profileImage;
-    private Date   regDt;            // 가입일
+    private String   regDt;            // 가입일
 
     public MembershipDTO() {}
 
 	public MembershipDTO(String userId, String adminId, String email, String password, Date birth, String emailAuth,
-			String emailAuthToken, int grade, String profileImage, Date regDt) {
+			String emailAuthToken, int grade, String profileImage) {
 		super();
 		this.userId = userId;
 		this.adminId = adminId;
@@ -106,11 +104,11 @@ public class MembershipDTO {
 		this.profileImage = profileImage;
 	}
 
-	public Date getRegDt() {
+	public String getRegDt() {
 		return regDt;
 	}
 
-	public void setRegDt(Date regDt) {
+	public void setRegDt(String regDt) {
 		this.regDt = regDt;
 	}
 
@@ -120,16 +118,5 @@ public class MembershipDTO {
 				+ password + ", birth=" + birth + ", emailAuth=" + emailAuth + ", emailAuthToken=" + emailAuthToken
 				+ ", grade=" + grade + ", profileImage=" + profileImage + ", regDt=" + regDt + "]";
 	}
-
-	public int getLogin() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	public int getRecommend() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
     
 }
