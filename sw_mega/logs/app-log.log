@@ -2049,3 +2049,49 @@ Caused by: java.net.ConnectException: Connection timed out: connect
 [2025-07-01 12:21:23] [DEBUG] com.pcwk.ehr.login.LoginDaoTest - └─────────────────────────────────────────────────────────┘
 [2025-07-01 12:21:23] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
 [2025-07-01 12:21:23] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+[2025-07-01 14:06:15] [INFO ] org.springframework.test.context.support.DefaultTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+[2025-07-01 14:06:15] [INFO ] org.springframework.test.context.support.DefaultTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@125290e5, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@6fa34d52, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@57576994, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@616ac46a, org.springframework.test.context.support.DirtiesContextTestExecutionListener@67b9b51a, org.springframework.test.context.transaction.TransactionalTestExecutionListener@1205bd62, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@7ef27d7f, org.springframework.test.context.event.EventPublishingTestExecutionListener@490caf5f]
+[2025-07-01 14:06:16] [DEBUG] com.pcwk.ehr.cmn.PLog - ┌─────────────────────────────────────────────────────────┐
+[2025-07-01 14:06:16] [DEBUG] com.pcwk.ehr.cmn.PLog - │ MembershipController()                                   │
+[2025-07-01 14:06:16] [DEBUG] com.pcwk.ehr.cmn.PLog - └─────────────────────────────────────────────────────────┘
+[2025-07-01 14:06:16] [DEBUG] com.pcwk.ehr.board.NoticeDTOTest - ┌────────────────────────────┐
+[2025-07-01 14:06:16] [DEBUG] com.pcwk.ehr.board.NoticeDTOTest - │ setUp()                    │
+[2025-07-01 14:06:16] [DEBUG] com.pcwk.ehr.board.NoticeDTOTest - └────────────────────────────┘
+[2025-07-01 14:06:16] [DEBUG] com.pcwk.ehr.board.NoticeDTOTest - ┌────────────────────────────┐
+[2025-07-01 14:06:16] [DEBUG] com.pcwk.ehr.board.NoticeDTOTest - │ doRetrieve()               │
+[2025-07-01 14:06:16] [DEBUG] com.pcwk.ehr.board.NoticeDTOTest - └────────────────────────────┘
+[2025-07-01 14:06:16] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+[2025-07-01 14:06:16] [WARN ] com.zaxxer.hikari.util.DriverDataSource - Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+[2025-07-01 14:06:17] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+[2025-07-01 14:06:17] [DEBUG] com.pcwk.ehr.board.mapper.NoticeMapper.deleteAll - ==>  Preparing: DELETE FROM NOTICE
+[2025-07-01 14:06:17] [DEBUG] com.pcwk.ehr.board.mapper.NoticeMapper.deleteAll - ==> Parameters: 
+[2025-07-01 14:06:17] [DEBUG] com.pcwk.ehr.board.mapper.NoticeMapper.deleteAll - <==    Updates: 0
+[2025-07-01 14:06:17] [DEBUG] com.pcwk.ehr.board.mapper.NoticeMapper.doSave - ==>  Preparing: INSERT INTO NOTICE ( NO_CODE, USER_ID, TITLE, CONTENT, VIEW_COUNT, C_DT, UP_DT ) VALUES ( NO_SEQ.NEXTVAL, ?, ?, ?, ?, SYSDATE, SYSDATE )
+[2025-07-01 14:06:17] [DEBUG] com.pcwk.ehr.board.mapper.NoticeMapper.doSave - ==> Parameters: user1(String), 제목1(String), 내용1(String), 0(Integer)
+[2025-07-01 14:06:17] [DEBUG] com.pcwk.ehr.board.NoticeDTOTest - ┌────────────────────────────┐
+[2025-07-01 14:06:17] [DEBUG] com.pcwk.ehr.board.NoticeDTOTest - │ tearDown()                 │
+[2025-07-01 14:06:17] [DEBUG] com.pcwk.ehr.board.NoticeDTOTest - └────────────────────────────┘
+[2025-07-01 14:06:17] [DEBUG] com.pcwk.ehr.board.NoticeDTOTest - ┌────────────────────────────┐
+[2025-07-01 14:06:17] [DEBUG] com.pcwk.ehr.board.NoticeDTOTest - │ setUp()                    │
+[2025-07-01 14:06:17] [DEBUG] com.pcwk.ehr.board.NoticeDTOTest - └────────────────────────────┘
+[2025-07-01 14:06:17] [DEBUG] com.pcwk.ehr.board.NoticeDTOTest - ┌────────────────────────────┐
+[2025-07-01 14:06:17] [DEBUG] com.pcwk.ehr.board.NoticeDTOTest - │ doDelete()                 │
+[2025-07-01 14:06:17] [DEBUG] com.pcwk.ehr.board.NoticeDTOTest - └────────────────────────────┘
+[2025-07-01 14:06:17] [DEBUG] com.pcwk.ehr.board.mapper.NoticeMapper.deleteAll - ==>  Preparing: DELETE FROM NOTICE
+[2025-07-01 14:06:17] [DEBUG] com.pcwk.ehr.board.mapper.NoticeMapper.deleteAll - ==> Parameters: 
+[2025-07-01 14:06:17] [DEBUG] com.pcwk.ehr.board.mapper.NoticeMapper.deleteAll - <==    Updates: 0
+[2025-07-01 14:06:17] [DEBUG] com.pcwk.ehr.board.mapper.NoticeMapper.doSave - ==>  Preparing: INSERT INTO NOTICE ( NO_CODE, USER_ID, TITLE, CONTENT, VIEW_COUNT, C_DT, UP_DT ) VALUES ( NO_SEQ.NEXTVAL, ?, ?, ?, ?, SYSDATE, SYSDATE )
+[2025-07-01 14:06:17] [DEBUG] com.pcwk.ehr.board.mapper.NoticeMapper.doSave - ==> Parameters: user1(String), 공지사항입니다.(String), 삭제 테스트용 데이터입니다.(String), 0(Integer)
+[2025-07-01 14:06:17] [DEBUG] com.pcwk.ehr.board.NoticeDTOTest - ┌────────────────────────────┐
+[2025-07-01 14:06:17] [DEBUG] com.pcwk.ehr.board.NoticeDTOTest - │ tearDown()                 │
+[2025-07-01 14:06:17] [DEBUG] com.pcwk.ehr.board.NoticeDTOTest - └────────────────────────────┘
+[2025-07-01 14:06:17] [DEBUG] com.pcwk.ehr.board.NoticeDTOTest - ┌────────────────────────────┐
+[2025-07-01 14:06:17] [DEBUG] com.pcwk.ehr.board.NoticeDTOTest - │ setUp()                    │
+[2025-07-01 14:06:17] [DEBUG] com.pcwk.ehr.board.NoticeDTOTest - └────────────────────────────┘
+[2025-07-01 14:06:17] [DEBUG] com.pcwk.ehr.board.NoticeDTOTest - org.springframework.context.support.GenericApplicationContext@2141a12, started on Tue Jul 01 14:06:15 KST 2025
+[2025-07-01 14:06:17] [DEBUG] com.pcwk.ehr.board.NoticeDTOTest - org.apache.ibatis.binding.MapperProxy@7343922c
+[2025-07-01 14:06:17] [DEBUG] com.pcwk.ehr.board.NoticeDTOTest - ┌────────────────────────────┐
+[2025-07-01 14:06:17] [DEBUG] com.pcwk.ehr.board.NoticeDTOTest - │ tearDown()                 │
+[2025-07-01 14:06:17] [DEBUG] com.pcwk.ehr.board.NoticeDTOTest - └────────────────────────────┘
+[2025-07-01 14:06:17] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+[2025-07-01 14:06:17] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
