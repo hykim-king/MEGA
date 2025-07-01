@@ -13,11 +13,7 @@
      
      <!-- Mapper 자동 scann *Impl 제거 -->
      <bean class ="org.mybatis.spring.mapper.MapperScannerConfigurer">
-
-        <property name="basePackage" value="com.pcwk.ehr.login.dao,com.pcwk.ehr.board.mapper,com.pcwk.ehr.mypage.mapper,com.pcwk.ehr.board.mapper"></property>
-
         <property name="basePackage" value="com.pcwk.ehr"></property>
-
      </bean>
     
     <!-- mybatis -->
