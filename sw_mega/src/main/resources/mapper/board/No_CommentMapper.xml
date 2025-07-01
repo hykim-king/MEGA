@@ -2,66 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.pcwk.ehr.board.mapper.NoCommentMapper">
 
-     <!-- 댓글 등록 -->
-    <insert id="doSave" parameterType="NoticeCommentDTO">
-        INSERT INTO NO_COMMENTED (
-            COMMENTED_CODE,
-            NO_CODE,
-            USER_ID,
-            CONTENT,
-            C_DT,
-            UP_DT
-        ) VALUES (
-            NO_CO_SEQ.NEXTVAL,
-            #{noCode},
-            #{userId},
-            #{content},
-            SYSDATE,
-            SYSDATE
-        )
-    </insert>
-
-    <!-- 단건 조회 -->
-    <select id="doSelectOne" resultType="String" parameterType="NoticeCommentDTO">
-    SELECT
-    COMMENTED_CODE,
-    NO_CODE,
-    USER_ID,
-    CONTENT,
-    C_DT,
-    UP_DT
-    FROM NO_COMMENTED
-    WHERE COMMENTED_CODE = #{commentedCode};
-    </select>
-
-    <!-- 수정 -->
-    <update id="doUpdate" parameterType="NoticeCommentDTO">
-        UPDATE NO_COMMENTED
-        SET 
-        CONTENT = #{content},
-            UP_DT = SYSDATE
-        WHERE COMMENTED_CODE = #{commentedCode}
-    </update>
-
-    <!-- 삭제 -->
-    <delete id="doDelete" parameterType="NoticeCommentDTO">
-        DELETE FROM NO_COMMENTED
-        WHERE COMMENTED_CODE = #{commentedCode}
-    </delete>
-    
-       <sql id="userWhere">
-        <where>
-          <if test="searchDiv !='' ">
-              <choose>
-                 <when test=" searchDiv == '10'  ">
-                    no_code LIKE #{searchWord} ||'%'
-                 </when>                              
-              </choose>
-          
-          </if>
-        </where>
-   </sql>
-    
+<!-- 전체조회 -->
       <select id="doRetrieve" parameterType="SearchDTO" resultType="NoticeCommentDTO"  >
               
      SELECT *                                                        
@@ -79,7 +20,7 @@
                FROM(                                                       
                      SELECT t1.*                                           
                       FROM NO_COMMENTED t1         
-                    <include refid="userWhere"></include>                                               
+                        where no_code LIKE #{searchWord} ||'%'                                          
                      ORDER BY t1.c_dt DESC                               
              )tt2
          <![CDATA[                                                          
@@ -90,11 +31,63 @@
 )
 
    </select>
-   
+  
+
+    <!-- 단건 조회 -->
+    <select id="doSelectOne" resultType="String" parameterType="NoticeCommentDTO">
+    SELECT
+    COMMENTED_CODE,
+    NO_CODE,
+    USER_ID,
+    CONTENT,
+    C_DT,
+    UP_DT
+    FROM NO_COMMENTED
+    WHERE COMMENTED_CODE = #{commentedCode};
+    </select>
+
+    
+      <!-- 댓글 등록 -->
+    <insert id="doSave" parameterType="NoticeCommentDTO">
+        INSERT INTO NO_COMMENTED (
+            COMMENTED_CODE,
+            NO_CODE,
+            USER_ID,
+            CONTENT,
+            C_DT,
+            UP_DT
+        ) VALUES (
+            NO_CO_SEQ.NEXTVAL,
+            #{noCode},
+            #{userId},
+            #{content},
+            SYSDATE,
+            SYSDATE
+        )
+    </insert>
+    
+    <!-- 수정 -->
+    <update id="doUpdate" parameterType="NoticeCommentDTO">
+        UPDATE NO_COMMENTED
+        SET 
+        CONTENT = #{content},
+            UP_DT = SYSDATE
+        WHERE COMMENTED_CODE = #{commentedCode}
+    </update>
+
+
+    <!-- 삭제 -->
+    <delete id="doDelete" parameterType="NoticeCommentDTO">
+        DELETE FROM NO_COMMENTED
+        WHERE COMMENTED_CODE = #{commentedCode}
+    </delete>
+    
+      <!-- 전체 삭제 -->
       <delete id="deleteAll">
         DELETE FROM NO_COMMENTED
     </delete>
     
+    <!-- 등록 건수 세기 -->
       <select id="getCount" resultType="java.lang.Integer">
         SELECT COUNT(*) AS totalCnt FROM NO_COMMENTED
     </select>

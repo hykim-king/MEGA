@@ -28,6 +28,7 @@ public class NoticeDTO extends DTO {
 		this.cDt = cDt;
 		this.upDt = upDt;
 	}
+	
 
 	public int getNoCode() {
 		return noCode;
