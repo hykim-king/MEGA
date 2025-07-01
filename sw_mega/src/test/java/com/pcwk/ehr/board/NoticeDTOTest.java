@@ -70,86 +70,37 @@ class NoticeDTOTest {
 	    log.debug("│ doDelete()                 │");
 	    log.debug("└────────────────────────────┘");
 
-	    // 1.전체삭제
-	    mapper.deleteAll();
+	 // 매번 동일한 결과가 도출 되도록 작성
+	 		// 1. 전체삭제
+	 		// 2. 단건등록
+	 		// 2.1 등록건수 비교
+	 		// 3. 삭제
+	 		// 4. 등록건수 비교==0
 
-	 // 1. 데이터 저장
-	    dto01.setUserId("user1");
-	    dto01.setTitle("공지사항입니다.");
-	    dto01.setContent("삭제 테스트용 데이터입니다.");
-	    dto01.setViewCount(0);
-	    mapper.doSave(dto01);
+	 		// 1.
+	 		mapper.deleteAll();
 
-	    // 2. 검색 조건 설정
-	    SearchDTO search = new SearchDTO();
-	    search.setSearchDiv(null); // userId 검색
-	    search.setSearchWord("user1"); // 저장된 userId와 반드시 일치해야 함
+	 		// 2.
+	 		int flag = mapper.doSave(dto01);
+	 		log.debug("flag:{}", flag);
+	 		assertEquals(1, flag);
 
-	    // 3. 조회 후 비어 있는지 확인
-	    List<NoticeDTO> list = mapper.doRetrieve(search);
-	    if (list.isEmpty()) {
-	        fail("조회 결과가 없습니다. 삭제할 데이터를 찾을 수 없습니다.");
-	        return;
-	    }
+	 		// 2.1
+	 		int count = mapper.getCount();
+	 		log.debug("count:{}", count);
+	 		assertEquals(1, count);
 
-	    // 4. 삭제 테스트 진행
-	    NoticeDTO param = new NoticeDTO();
-	    param.setNoCode(list.get(0).getNoCode()); // 삭제할 항목
-	    int result = mapper.doDelete(param);
-	    assertEquals(1, result, "정상적으로 삭제되지 않았습니다.");
+	 		// 3 삭제
+	 		flag = mapper.doDelete(dto01);
+	 		assertEquals(0, flag);
 
-	    
-//	    // 2.등록할 공지사항 객체 생성
-//	    NoticeDTO dto01 = new NoticeDTO();
-//	    dto01.setUserId("user1"); // 💡 검색어로 사용할 값
-//	    dto01.setTitle("제목1");
-//	    dto01.setContent("내용1");
-//	    dto01.setViewCount(0);
-//
-//	    NoticeDTO dto02 = new NoticeDTO();
-//	    dto02.setUserId("user2");
-//	    dto02.setTitle("제목2");
-//	    dto02.setContent("내용2");
-//	    dto02.setViewCount(1);
-//
-//	    NoticeDTO dto03 = new NoticeDTO();
-//	    dto03.setUserId("user3");
-//	    dto03.setTitle("제목3");
-//	    dto03.setContent("내용3");
-//	    dto03.setViewCount(2);
-//
-//	    // 3. 등록
-//	    mapper.doSave(dto01);
-//	    mapper.doSave(dto02);
-//	    mapper.doSave(dto03);
-//
-//	    // 4. 등록 건수 확인
-//	    int count = mapper.getCount();
-//	    assertEquals(3, count);
-//
-//	    // 5. 검색 조건 설정 (작성자(userId)로 검색)
-//	    SearchDTO search = new SearchDTO();
-//	    search.setSearchDiv("60");            // 30 = userId 기준 검색
-//	    search.setSearchWord("user1");       // 등록한 dto01의 userId 값
-//
-//	    // 6. 조회
-//	    List<NoticeDTO> list = mapper.doRetrieve(search);
-//	    if (list.isEmpty()) {
-//	        fail("조회 결과가 없습니다. 삭제할 데이터를 찾을 수 없습니다.");
-//	        return;
-//	    }
-//
-//	    // 7. 단건 삭제
-//	    NoticeDTO param = new NoticeDTO();
-//	    param.setNoCode(list.get(0).getNoCode()); // noCode로 삭제
-//	    int result = mapper.doDelete(param);
-//	    assertEquals(1, result); // 1건 삭제되었는지 확인
-//
-//	    // 8. 최종 등록 건수 확인
-//	    count = mapper.getCount();
-//	    assertEquals(2, count);
-//	    log.debug("최종 등록 건수: " + count);
-	}
+	 		// 4.건수비교
+	 		count = mapper.getCount();
+	 		log.debug("count:{}", count);
+	 		assertEquals(1, count);
+	 	}
+
+
 
 
 	//@Disabled

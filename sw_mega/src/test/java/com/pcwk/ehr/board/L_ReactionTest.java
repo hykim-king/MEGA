@@ -112,7 +112,7 @@ class L_ReactionTest {
 
 	}
 
-	@Disabled
+	//@Disabled
 	@Test
 	void doRetrieve() throws SQLException {
 		log.debug("┌────────────────────────────┐");
