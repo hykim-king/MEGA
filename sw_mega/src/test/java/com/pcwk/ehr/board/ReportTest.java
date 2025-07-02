@@ -3,6 +3,7 @@ package com.pcwk.ehr.board;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
+import java.sql.Date;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -21,6 +22,8 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import com.pcwk.ehr.board.domain.ReportDTO;
 import com.pcwk.ehr.board.mapper.ReportMapper;
 import com.pcwk.ehr.cmn.SearchDTO;
+import com.pcwk.ehr.membership.domain.MembershipDTO;
+import com.pcwk.ehr.membership.mapper.MembershipMapper;
 
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(locations = { "file:src/main/webapp/WEB-INF/spring/root-context.xml",
@@ -28,14 +31,16 @@ import com.pcwk.ehr.cmn.SearchDTO;
 public class ReportTest {
 
 	@Autowired
-	ReportMapper reportMapper;
+	ReportMapper mapper;
 
 	@Autowired
-	ReportMapper mapper;
+	MembershipMapper mMapper;
 
 	ReportDTO dto01;
 	ReportDTO dto02;
 	ReportDTO dto03;
+
+	MembershipDTO mDto01;
 
 	SearchDTO search;
 
@@ -50,6 +55,19 @@ public class ReportTest {
 		log.debug("│ setUp()                    │");
 		log.debug("└────────────────────────────┘");
 
+		mDto01 = new MembershipDTO("user01", "admin01", "yangsh5972@naver.com", "4321as@", Date.valueOf("1992-05-12"),
+		"Y", "tokA1234XYZ", 2, "profileA.png", Date.valueOf("2025-05-12"));
+		// !!membership 데이터 관리 !!
+		// 1. membership 전체삭제
+		mMapper.deleteAll();
+		// 2. membership 데이터 단건 주입
+		mMapper.doSave(mDto01);
+		// 3. membership 데이터 단건 조회
+		MembershipDTO mParam = new MembershipDTO();
+		mParam.setUserId("user01");
+		MembershipDTO mResult = mMapper.doSelectOne(mParam);
+		log.debug("mResult: {}", mResult);
+		
 		dto01 = new ReportDTO("user01", "신고사유", "공지사항", 101);
 
 	}
@@ -60,19 +78,20 @@ public class ReportTest {
 		log.debug("│ tearDown()                 │");
 		log.debug("└────────────────────────────┘");
 	}
-	//@Disabled
+
+	// @Disabled
 	@Test
 	void doSaveandSelectOne() {
-		reportMapper.deleteAll(); // 1. 전체 삭제
+		mapper.deleteAll(); // 1. 전체 삭제
 
-		int saveFlag = reportMapper.doSave(dto01); // 2. 저장
+		int saveFlag = mapper.doSave(dto01); // 2. 저장
 		assertEquals(1, saveFlag, "신고 저장 실패!");
 
-		List<ReportDTO> list = reportMapper.doRetrieve(search); // 3. 전체 목록 가져오기
+		List<ReportDTO> list = mapper.doRetrieve(search); // 3. 전체 목록 가져오기
 		assertEquals(1, list.size(), "저장된 신고가 1건이 아님");
 
 		ReportDTO saved = list.get(0);
-		ReportDTO selected = reportMapper.doSelectOne(saved.getReportCode()); // 4. 단건 조회
+		ReportDTO selected = mapper.doSelectOne(saved.getReportCode()); // 4. 단건 조회
 
 		assertNotNull(selected, "단건 조회 결과 없음!");
 		assertEquals(dto01.getUserId(), selected.getUserId());
@@ -83,42 +102,42 @@ public class ReportTest {
 		log.info("▶ 저장된 신고: {}", selected);
 	}
 
-	//@Disabled
+	// @Disabled
 	@Test
 	void getCount() {
 		log.debug("┌────────────────────────────┐");
 		log.debug("│ getCount()                 │");
 		log.debug("└────────────────────────────┘");
 
-		reportMapper.deleteAll();
+		mapper.deleteAll();
 
-		reportMapper.doSave(dto01);
-		int count = reportMapper.getCount();
+		mapper.doSave(dto01);
+		int count = mapper.getCount();
 
 		assertEquals(1, count, "신고 건수 불일치");
 	}
 
-	//@Disabled
+	// @Disabled
 	@Test
 	void doDelete() {
 		log.debug("┌────────────────────────────┐");
 		log.debug("│ doDelete()                 │");
 		log.debug("└────────────────────────────┘");
 
-		reportMapper.deleteAll();
+		mapper.deleteAll();
 
-		reportMapper.doSave(dto01);
-		List<ReportDTO> list = reportMapper.doRetrieve(search);
+		mapper.doSave(dto01);
+		List<ReportDTO> list = mapper.doRetrieve(search);
 		assertEquals(1, list.size());
 
-		int deleteFlag = reportMapper.doDelete(list.get(0));
+		int deleteFlag = mapper.doDelete(list.get(0));
 		assertEquals(1, deleteFlag, "신고 삭제 실패");
 
-		int count = reportMapper.getCount();
+		int count = mapper.getCount();
 		assertEquals(0, count, "신고 삭제 후에도 데이터가 남아 있음");
 	}
 
-	//@Disabled
+	// @Disabled
 	@Test
 	void doRetrieve() throws SQLException {
 		log.debug("┌────────────────────────────┐");

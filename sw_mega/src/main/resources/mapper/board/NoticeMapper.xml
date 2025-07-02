@@ -80,6 +80,7 @@ WHERE NO_CODE = #{noCode}
             UP_DT = SYSDATE
         WHERE NO_CODE = #{noCode}
     </update>
+    
 
     <!-- 공지사항 삭제 -->
     <delete id="doDelete" parameterType="NoticeDTO">
