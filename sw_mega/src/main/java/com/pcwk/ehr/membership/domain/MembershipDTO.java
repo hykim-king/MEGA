@@ -1,4 +1,4 @@
-package com.pcwk.ehr.membership.domain;   // 소문자 dto
+package com.pcwk.ehr.membership.domain;   
 
 import java.util.Date;
 

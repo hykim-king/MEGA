@@ -49,6 +49,9 @@
 
 	<!-- 등록 -->
 	<insert id="doSave" parameterType="ExerciseDTO">
+	    <selectKey keyProperty="eCode" resultType="int" order="BEFORE">
+            SELECT E_SEQ.NEXTVAL FROM dual
+        </selectKey>
 		INSERT INTO exercise (
 			e_code,
 			exercise_name,
@@ -59,7 +62,7 @@
 			cal_burn
 		)
 		VALUES (
-			#{e_code}, 
+			#{eCode}, 
 			#{exerciseName}, 
 			#{exerciseType}, 
 			#{region, jdbcType=VARCHAR}, 

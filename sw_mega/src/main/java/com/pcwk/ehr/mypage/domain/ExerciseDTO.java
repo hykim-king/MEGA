@@ -2,7 +2,7 @@ package com.pcwk.ehr.mypage.domain;
 
 public class ExerciseDTO {
 
-	private String eCode; //운동 코드
+	private int eCode; //운동 코드
 	private String exerciseName; //운동명
 	private String exerciseType; //운동타입
 	private String region; //운동부위
@@ -15,7 +15,6 @@ public class ExerciseDTO {
 	}
 
 	/**
-	 * @param eCode
 	 * @param exerciseName
 	 * @param exerciseType
 	 * @param region
@@ -25,29 +24,7 @@ public class ExerciseDTO {
 	 */
 	public ExerciseDTO(String exerciseName, String exerciseType, String region, String gender, Integer weight,
 			int calBurn) {
-		this.exerciseName = exerciseName;
-		this.exerciseType = exerciseType;
-		this.region = region;
-		this.gender = gender;
-		this.weight = weight;
-		this.calBurn = calBurn;
-	}
-	
-	
-
-	/**
-	 * @param eCode
-	 * @param exerciseName
-	 * @param exerciseType
-	 * @param region
-	 * @param gender
-	 * @param weight
-	 * @param calBurn
-	 */
-	public ExerciseDTO(String eCode, String exerciseName, String exerciseType, String region, String gender,
-			Integer weight, int calBurn) {
 		super();
-		this.eCode = eCode;
 		this.exerciseName = exerciseName;
 		this.exerciseType = exerciseType;
 		this.region = region;
@@ -55,18 +32,19 @@ public class ExerciseDTO {
 		this.weight = weight;
 		this.calBurn = calBurn;
 	}
+	
 
 	/**
 	 * @return the eCode
 	 */
-	public String geteCode() {
+	public int geteCode() {
 		return eCode;
 	}
 
 	/**
 	 * @param eCode the eCode to set
 	 */
-	public void seteCode(String eCode) {
+	public void seteCode(int eCode) {
 		this.eCode = eCode;
 	}
 
@@ -159,5 +137,7 @@ public class ExerciseDTO {
 		return "ExerciseDTO [eCode=" + eCode + ", exerciseName=" + exerciseName + ", exerciseType=" + exerciseType
 				+ ", region=" + region + ", gender=" + gender + ", weight=" + weight + ", calBurn=" + calBurn + "]";
 	}
+
+	
 	
 }

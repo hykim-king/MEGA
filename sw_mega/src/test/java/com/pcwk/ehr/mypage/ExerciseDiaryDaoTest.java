@@ -59,7 +59,8 @@ class ExerciseDiaryDaoTest {
 	ApplicationContext context;
 	
 	Logger log = LogManager.getLogger(getClass());
-
+	
+	int eCode;
 	
 	@BeforeEach
 	void setUp() throws Exception {
@@ -67,13 +68,33 @@ class ExerciseDiaryDaoTest {
 		log.debug("│ setUp()                                                 │");
 		log.debug("└─────────────────────────────────────────────────────────┘");
 		
-		dto01 = new ExerciseDiaryDTO("user01", "1005", 70, null, 35, 5, 10, "2025-05-26");
-		dto02 = new ExerciseDiaryDTO("user01", "1005", 70, null, 35, 5, 10, "2025-05-25");
-		dto03 = new ExerciseDiaryDTO("user01", "1005", 70, null, 35, 5, 10, "2025-05-26");
-		
-		eDto01 = new ExerciseDTO("1005", "달리기", "유산소", null, "남성", 70, 100);
+		eDto01 = new ExerciseDTO("달리기", "유산소", null, "남성", 70, 100);
 		
 		mDto01 = new MembershipDTO("user01", "admin01", "yangsh5972@naver.com", "4321as@", Date.valueOf("1992-05-12"),"Y", "tokA1234XYZ", 2, "profileA.png",Date.valueOf("2025-05-12"));
+		
+		//!!membership 데이터 관리 !!
+		//1. membership 전체삭제
+		mMapper.deleteAll();
+		//2. membership 데이터 단건 주입
+		mMapper.doSave(mDto01);
+		//3. membership 데이터 단건 조회
+		MembershipDTO mParam=new MembershipDTO();
+		mParam.setUserId("user01");
+		MembershipDTO mResult = mMapper.doSelectOne(mParam);
+		log.debug("mResult: {}", mResult);
+		
+		//!!exercise 데이터 관리 !!
+		//1. exercise 전체삭제
+		eMapper.deleteAll();
+		//2. exercise 데이터 단건 주입
+		eMapper.doSave(eDto01);
+		eCode = eDto01.geteCode();
+		log.debug("eCode:{}", eCode);
+		
+		dto01 = new ExerciseDiaryDTO("user01", eCode, 70, null, 35, 5, 10, "2025-05-26");
+		dto02 = new ExerciseDiaryDTO("user01", eCode, 70, null, 35, 5, 10, "2025-05-25");
+		dto03 = new ExerciseDiaryDTO("user01", eCode, 70, null, 35, 5, 10, "2025-05-26");
+		
 	}
 
 	@AfterEach
@@ -83,7 +104,7 @@ class ExerciseDiaryDaoTest {
 		log.debug("└─────────────────────────────────────────────────────────┘");
 	}
 
-	@Disabled
+	//@Disabled
 	@Test
 	void  doDelete() throws Exception{
 		log.debug("┌─────────────────────────────────────────────────────────┐");
@@ -110,7 +131,7 @@ class ExerciseDiaryDaoTest {
 		
 		//다건조회 파라미터 설정
 		ExerciseDiaryDTO param = new ExerciseDiaryDTO();
-		param.setUserId("yangsh");
+		param.setUserId("user01");
 		param.setRegDt("2025-05-26");
 		
 		//3. 
@@ -125,7 +146,7 @@ class ExerciseDiaryDaoTest {
 		
 		//삭제 파라미터 설정
 		ExerciseDiaryDTO paramDe = new ExerciseDiaryDTO();
-		paramDe.setEdCode(inVO.getEdCode());
+		paramDe.setEdCode(Integer.parseInt(inVO.getEdCode()));
 		
 		//4. 
 		int result = edMapper.doDelete(paramDe);
@@ -139,7 +160,7 @@ class ExerciseDiaryDaoTest {
 		
 	}
 	
-	@Disabled
+	//@Disabled
 	@Test
 	void doUpdate() throws Exception{
 		log.debug("┌─────────────────────────────────────────────────────────┐");
@@ -150,6 +171,7 @@ class ExerciseDiaryDaoTest {
 		//2. 단건등록 x 3
 		//3. 전체조회
 		//4. 수정하기
+		
 		
 		//1. 
 		edMapper.deleteAll();
@@ -165,7 +187,7 @@ class ExerciseDiaryDaoTest {
 		
 		//다건조회 파라미터 설정
 		ExerciseDiaryDTO param = new ExerciseDiaryDTO();
-		param.setUserId("yangsh");
+		param.setUserId("user01");
 		param.setRegDt("2025-05-26");
 		
 		//3. 
@@ -180,7 +202,7 @@ class ExerciseDiaryDaoTest {
 		
 		//업데이트 파라미터 설정
 		ExerciseDiaryDTO paramUp = new ExerciseDiaryDTO();
-		paramUp.setEdCode(inVO.getEdCode());
+		paramUp.setEdCode(Integer.parseInt(inVO.getEdCode()));
 		paramUp.setCardioWeight(inVO.getCardioWeight());
 		paramUp.setStrenthWeight(inVO.getStrenthWeight());
 		paramUp.setDuration(45);
@@ -206,15 +228,6 @@ class ExerciseDiaryDaoTest {
 		//2. 다건등록
 		//3. 전체조회
 		
-		//1. membership 전체삭제
-		mMapper.deleteAll();
-		//2. membership 데이터 단건 주입
-		mMapper.doSave(mDto01);
-		
-		//3. exercise 전체삭제
-		eMapper.deleteAll();
-		//4. exercise 데이터 단건 주입
-		eMapper.doSave(eDto01);
 		
 		//1. 
 		edMapper.deleteAll();
@@ -239,8 +252,14 @@ class ExerciseDiaryDaoTest {
 	@Test
 	void beans() {
 		assertNotNull(context);
+		assertNotNull(edMapper);
+		assertNotNull(eMapper);
+		assertNotNull(mMapper);
 		
 		log.debug(context);
+		log.debug(edMapper);
+		log.debug(eMapper);
+		log.debug(mMapper);
 		
 	}
 

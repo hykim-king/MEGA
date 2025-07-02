@@ -67,7 +67,7 @@ class FoodDaoTest {
 		log.debug("└─────────────────────────────────────────────────────────┘");
 	}
 	
-	@Disabled
+	//@Disabled
 	@Test
 	void doDelete() throws SQLException{
 		log.debug("┌─────────────────────────────────────────────────────────┐");
@@ -131,7 +131,7 @@ class FoodDaoTest {
 		
 	}
 	
-	@Disabled
+	//@Disabled
 	@Test
 	void doSelectOne()throws SQLException{
 		log.debug("┌─────────────────────────────────────────────────────────┐");
@@ -166,7 +166,7 @@ class FoodDaoTest {
 		
 	}
 	
-	@Disabled
+	//@Disabled
 	@Test
 	void doRetrieve() throws SQLException{
 		log.debug("┌─────────────────────────────────────────────────────────┐");
