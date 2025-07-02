@@ -10,6 +10,15 @@ public class FoodDTO {
 	private int prot; //단백질
 	private int na; //나트륨
 	
+	// 사용자가 입력한 실제 섭취량
+	private int grams;
+
+	// 계산된 결과
+	private double totalCal;
+	private double totalCarb;
+	private double totalFat;
+	private double totalProt;
+	
 	public FoodDTO() {
 		// TODO Auto-generated constructor stub
 	}
@@ -32,6 +41,78 @@ public class FoodDTO {
 		this.fat = fat;
 		this.prot = prot;
 		this.na = na;
+	}
+
+	
+	
+	/**
+	 * @return the grams
+	 */
+	public int getGrams() {
+		return grams;
+	}
+
+	/**
+	 * @param grams the grams to set
+	 */
+	public void setGrams(int grams) {
+		this.grams = grams;
+	}
+
+	/**
+	 * @return the totalCal
+	 */
+	public double getTotalCal() {
+		return totalCal;
+	}
+
+	/**
+	 * @param totalCal the totalCal to set
+	 */
+	public void setTotalCal(double totalCal) {
+		this.totalCal = totalCal;
+	}
+
+	/**
+	 * @return the totalCarb
+	 */
+	public double getTotalCarb() {
+		return totalCarb;
+	}
+
+	/**
+	 * @param totalCarb the totalCarb to set
+	 */
+	public void setTotalCarb(double totalCarb) {
+		this.totalCarb = totalCarb;
+	}
+
+	/**
+	 * @return the totalFat
+	 */
+	public double getTotalFat() {
+		return totalFat;
+	}
+
+	/**
+	 * @param totalFat the totalFat to set
+	 */
+	public void setTotalFat(double totalFat) {
+		this.totalFat = totalFat;
+	}
+
+	/**
+	 * @return the totalProt
+	 */
+	public double getTotalProt() {
+		return totalProt;
+	}
+
+	/**
+	 * @param totalProt the totalProt to set
+	 */
+	public void setTotalProt(double totalProt) {
+		this.totalProt = totalProt;
 	}
 
 	/**
@@ -135,8 +216,8 @@ public class FoodDTO {
 	@Override
 	public String toString() {
 		return "FoodDTO [foodName=" + foodName + ", stGrams=" + stGrams + ", cal=" + cal + ", carb=" + carb + ", fat="
-				+ fat + ", prot=" + prot + ", na=" + na + "]";
+				+ fat + ", prot=" + prot + ", na=" + na + ", grams=" + grams + ", totalCal=" + totalCal + ", totalCarb="
+				+ totalCarb + ", totalFat=" + totalFat + ", totalProt=" + totalProt + "]";
 	}
-
 
 }
