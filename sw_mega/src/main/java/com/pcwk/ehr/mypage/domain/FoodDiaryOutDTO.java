@@ -8,12 +8,21 @@ public class FoodDiaryOutDTO {
 	private int grams; //섭취그람
 	private String mealType; //식사시간구분
 	private String regDt; //등록일
+	
+	//Food 테이블 조인해서 가져올 값
 	private int stGrams; //기준그람
 	private int cal; //칼로리
 	private int carb; //탄수화물
 	private int fat; //지방
 	private int prot; //단백질
 	private int na; //나트륨
+	
+	//service 단에서 섭취그람 적용한 영양정보 값
+	private double totalCal;   // 총 섭취 칼로리
+	private double totalCarb;  // 총 섭취 탄수화물
+	private double totalFat;   // 총 섭취 지방
+	private double totalProt;  // 총 섭취 단백질
+	private double totalNa;    // 총 섭취 나트륨
 	
 	public FoodDiaryOutDTO() {
 		// TODO Auto-generated constructor stub
@@ -48,6 +57,78 @@ public class FoodDiaryOutDTO {
 		this.fat = fat;
 		this.prot = prot;
 		this.na = na;
+	}
+	
+	
+
+	/**
+	 * @return the totalCal
+	 */
+	public double getTotalCal() {
+		return totalCal;
+	}
+
+	/**
+	 * @param totalCal the totalCal to set
+	 */
+	public void setTotalCal(double totalCal) {
+		this.totalCal = totalCal;
+	}
+
+	/**
+	 * @return the totalCarb
+	 */
+	public double getTotalCarb() {
+		return totalCarb;
+	}
+
+	/**
+	 * @param totalCarb the totalCarb to set
+	 */
+	public void setTotalCarb(double totalCarb) {
+		this.totalCarb = totalCarb;
+	}
+
+	/**
+	 * @return the totalFat
+	 */
+	public double getTotalFat() {
+		return totalFat;
+	}
+
+	/**
+	 * @param totalFat the totalFat to set
+	 */
+	public void setTotalFat(double totalFat) {
+		this.totalFat = totalFat;
+	}
+
+	/**
+	 * @return the totalProt
+	 */
+	public double getTotalProt() {
+		return totalProt;
+	}
+
+	/**
+	 * @param totalProt the totalProt to set
+	 */
+	public void setTotalProt(double totalProt) {
+		this.totalProt = totalProt;
+	}
+
+	/**
+	 * @return the totalNa
+	 */
+	public double getTotalNa() {
+		return totalNa;
+	}
+
+	/**
+	 * @param totalNa the totalNa to set
+	 */
+	public void setTotalNa(double totalNa) {
+		this.totalNa = totalNa;
 	}
 
 	/**
@@ -222,8 +303,9 @@ public class FoodDiaryOutDTO {
 	public String toString() {
 		return "FoodDiaryOutDTO [fdCode=" + fdCode + ", userId=" + userId + ", foodName=" + foodName + ", grams="
 				+ grams + ", mealType=" + mealType + ", regDt=" + regDt + ", stGrams=" + stGrams + ", cal=" + cal
-				+ ", carb=" + carb + ", fat=" + fat + ", prot=" + prot + ", na=" + na + "]";
+				+ ", carb=" + carb + ", fat=" + fat + ", prot=" + prot + ", na=" + na + ", totalCal=" + totalCal
+				+ ", totalCarb=" + totalCarb + ", totalFat=" + totalFat + ", totalProt=" + totalProt + ", totalNa="
+				+ totalNa + "]";
 	}
-	
 
 }
