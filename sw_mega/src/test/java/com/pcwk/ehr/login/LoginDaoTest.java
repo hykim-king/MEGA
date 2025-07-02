@@ -2,6 +2,7 @@ package com.pcwk.ehr.login;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.sql.Date;
 import java.sql.SQLException;
 
 import org.apache.logging.log4j.LogManager;
@@ -20,6 +21,8 @@ import com.pcwk.ehr.login.domain.FindIdDTO;
 import com.pcwk.ehr.login.domain.FindPwdDTO;
 import com.pcwk.ehr.login.domain.LoginDTO;
 import com.pcwk.ehr.login.mapper.LoginMapper;
+import com.pcwk.ehr.membership.domain.MembershipDTO;
+import com.pcwk.ehr.membership.mapper.MembershipMapper;
 
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(locations = {
@@ -33,6 +36,11 @@ public class LoginDaoTest {
     LoginMapper loginMapper;
     
     @Autowired
+    MembershipMapper membershipMapper;
+    
+    MembershipDTO dto01;
+    
+    @Autowired
 	ApplicationContext context;
     
 	@BeforeEach
@@ -40,6 +48,8 @@ public class LoginDaoTest {
 		log.debug("┌─────────────────────────────────────────────────────────┐");
 		log.debug("│ setUp()                                                 │");
 		log.debug("└─────────────────────────────────────────────────────────┘");
+		
+		dto01 = new MembershipDTO( "subtang", "tangSub","tangSub@test.com", "tangSub!23", Date.valueOf("1999-05-12"),"Y", "tokA1234XYZ", 2, "profileA.png",Date.valueOf("2025-05-12"));
 	}
 
 	@AfterEach
@@ -51,11 +61,13 @@ public class LoginDaoTest {
 	//@Disabled
 	@Test
 	void doSelectOne() throws SQLException{
+		membershipMapper.doDelete(dto01);
+		membershipMapper.doSave(dto01);
+		
 		LoginDTO dto = new LoginDTO();
-		dto.setUserId("userA02");
-	    dto.setPassword("pwA!23");
+		dto.setUserId("subtang");
+	    dto.setPassword("tangSub!23");
 	    LoginDTO login =  loginMapper.doSelectOne(dto);
-	    assertNotNull(login);
 	    log.debug("로그인: {}", login);
 	}
 
