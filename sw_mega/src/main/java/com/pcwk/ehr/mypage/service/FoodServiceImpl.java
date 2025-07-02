@@ -52,28 +52,5 @@ public class FoodServiceImpl implements FoodService {
 		return 0;
 	}
 
-	@Override
-	public int viewCount(FoodDTO param) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int saveAll() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public void deleteAll() {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public int getCount() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
 
 }
