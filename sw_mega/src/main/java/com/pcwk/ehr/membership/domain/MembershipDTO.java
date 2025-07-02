@@ -1,4 +1,4 @@
-package com.pcwk.ehr.membership.domain;   // 소문자 dto
+package com.pcwk.ehr.membership.domain;   
 
 import java.util.Date;
 
@@ -13,12 +13,12 @@ public class MembershipDTO {
     private String emailAuthToken;
     private int    grade;            // 1:BASIC 2:SILVER 3:GOLD
     private String profileImage;
-    private String   regDt;            // 가입일
+    private Date   regDt;            // 가입일 
 
     public MembershipDTO() {}
 
 	public MembershipDTO(String userId, String adminId, String email, String password, Date birth, String emailAuth,
-			String emailAuthToken, int grade, String profileImage) {
+			String emailAuthToken, int grade, String profileImage, Date regDt) {
 		super();
 		this.userId = userId;
 		this.adminId = adminId;
@@ -104,11 +104,11 @@ public class MembershipDTO {
 		this.profileImage = profileImage;
 	}
 
-	public String getRegDt() {
+	public Date getRegDt() {
 		return regDt;
 	}
 
-	public void setRegDt(String regDt) {
+	public void setRegDt(Date regDt) {
 		this.regDt = regDt;
 	}
 
@@ -118,5 +118,6 @@ public class MembershipDTO {
 				+ password + ", birth=" + birth + ", emailAuth=" + emailAuth + ", emailAuthToken=" + emailAuthToken
 				+ ", grade=" + grade + ", profileImage=" + profileImage + ", regDt=" + regDt + "]";
 	}
+
     
 }

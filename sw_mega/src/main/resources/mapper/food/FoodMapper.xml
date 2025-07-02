@@ -9,13 +9,7 @@
         SELECT A.*, B.*
         FROM (
             SELECT tt3.rnum AS no,
-                   tt3.food_name,
-                   tt3.st_grams,
-                   tt3.cal,
-                   tt3.carb,
-                   tt3.fat,
-                   tt3.prot,
-                   tt3.na
+                   tt3.food_name
               FROM (
                   SELECT ROWNUM AS rnum,
                          tt2.*
@@ -129,7 +123,7 @@
 
 <!-- 전체삭제 -->
 <delete id="deleteAll">
-        DELETE FROM food_diary
+        DELETE FROM food
 </delete>
 
 </mapper>

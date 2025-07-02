@@ -21,14 +21,16 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import com.pcwk.ehr.board.domain.NoticeCommentDTO;
+import com.pcwk.ehr.board.domain.NoticeDTO;
 import com.pcwk.ehr.board.mapper.NoCommentMapper;
+import com.pcwk.ehr.board.mapper.NoticeMapper;
 import com.pcwk.ehr.cmn.SearchDTO;
 
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(locations = { "file:src/main/webapp/WEB-INF/spring/root-context.xml",
 		"file:src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml" })
 
-class No_CommentTest {
+class NoCommentDaoTest {
 	final Logger log = LogManager.getLogger(getClass());
 
 	@Autowired
@@ -36,22 +38,39 @@ class No_CommentTest {
 
 	@Autowired
 	NoCommentMapper mapper;
+	
+	@Autowired
+	NoticeMapper nMapper;
 
 	SearchDTO search;
 
 	NoticeCommentDTO dto01;
 	NoticeCommentDTO dto02;
 	NoticeCommentDTO dto03;
+	
+	NoticeDTO nDto01;
 
+	int noCode;
+	
 	@BeforeEach
 	void setUp() throws Exception {
 		log.debug("┌────────────────────────────┐");
 		log.debug("│ setUp()                    │");
 		log.debug("└────────────────────────────┘");
+		
+		nDto01 = new NoticeDTO("user01", "제목1", "내용1", 0, null, null);
+		
+		//!!Notice 데이터 관리 !!
+		//1. Notice 전체 삭제
+		nMapper.deleteAll();
+		//2. Notice 단건 등록
+		nMapper.doSave(nDto01);
+		noCode = nDto01.getNoCode();
+		log.debug("noCode: {}", noCode);
 
-		dto01 = new NoticeCommentDTO(116, "user1", "내용1");
-		dto02 = new NoticeCommentDTO(116, "user2", "내용2");
-		dto03 = new NoticeCommentDTO(116, "user3", "내용3");
+		dto01 = new NoticeCommentDTO(noCode, "user1", "내용1");
+		dto02 = new NoticeCommentDTO(noCode, "user2", "내용2");
+		dto03 = new NoticeCommentDTO(noCode, "user3", "내용3");
 
 		search = new SearchDTO();
 	}
@@ -90,6 +109,7 @@ class No_CommentTest {
 		// 4.
 		search.setPageSize(10);
 		search.setPageNo(1);
+		search.setSearchWord(String.valueOf(dto01.getNoCode()));
 		List<NoticeCommentDTO> list = (List<NoticeCommentDTO>) mapper.doRetrieve(search);
 		for (NoticeCommentDTO doVO : list) {
 			log.debug("doVO:{}", doVO);
@@ -131,6 +151,7 @@ class No_CommentTest {
 		log.debug("count:{}", count);
 
 		// 4.
+		search.setSearchWord(String.valueOf(dto01.getNoCode()));
 		search.setPageSize(10);
 		search.setPageNo(1);
 		List<NoticeCommentDTO> list = (List<NoticeCommentDTO>) mapper.doRetrieve(search);
@@ -170,6 +191,7 @@ class No_CommentTest {
 		log.debug("count:{}", count);
 
 		// 4.
+		search.setSearchWord(String.valueOf(dto01.getNoCode()));
 		search.setPageSize(10);
 		search.setPageNo(1);
 		List<NoticeCommentDTO> list = (List<NoticeCommentDTO>) mapper.doRetrieve(search);
@@ -209,6 +231,7 @@ class No_CommentTest {
 		log.debug("count:{}", count);
 
 		// 4.
+		search.setSearchWord(String.valueOf(dto01.getNoCode()));
 		search.setPageSize(10);
 		search.setPageNo(1);
 		List<NoticeCommentDTO> list = (List<NoticeCommentDTO>) mapper.doRetrieve(search);
