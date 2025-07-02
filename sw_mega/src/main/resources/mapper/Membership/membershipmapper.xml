@@ -64,12 +64,12 @@
         WHERE  USER_ID = #{userId}
     </delete>
 
-    <!-- 5. 전체 건수 -->
+    <!-- 6. 전체 건수 -->
     <select id="getCount" resultType="java.lang.Integer">
         SELECT COUNT(*) FROM MEMBERSHIP
     </select>
 
-    <!-- 6. 테스트용 대량 INSERT -->
+    <!-- 7. 테스트용 대량 INSERT -->
     <insert id="saveAll">
         
         INSERT INTO MEMBERSHIP
@@ -89,7 +89,7 @@
         ]]>
     </insert>
 
-    <!-- 7. 전체 삭제  -->
+    <!-- 8. 전체 삭제  -->
     <delete id="deleteAll">
         DELETE FROM MEMBERSHIP
     </delete>
