@@ -25,6 +25,8 @@ import com.pcwk.ehr.board.domain.NoticeDTO;
 import com.pcwk.ehr.board.mapper.NoCommentMapper;
 import com.pcwk.ehr.board.mapper.NoticeMapper;
 import com.pcwk.ehr.cmn.SearchDTO;
+import com.pcwk.ehr.membership.domain.MembershipDTO;
+import com.pcwk.ehr.membership.mapper.MembershipMapper;
 
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(locations = { "file:src/main/webapp/WEB-INF/spring/root-context.xml",
@@ -41,8 +43,13 @@ class NoCommentDaoTest {
 	
 	@Autowired
 	NoticeMapper nMapper;
+	
+	@Autowired
+	MembershipMapper mMapper;
 
 	SearchDTO search;
+	
+	MembershipDTO mDto01;
 
 	NoticeCommentDTO dto01;
 	NoticeCommentDTO dto02;
@@ -59,6 +66,19 @@ class NoCommentDaoTest {
 		log.debug("└────────────────────────────┘");
 		
 		nDto01 = new NoticeDTO("user01", "제목1", "내용1", 0, null, null);
+		
+		mDto01 = new MembershipDTO("user01", "admin01", "yangsh5972@naver.com", "4321as@", java.sql.Date.valueOf("1992-05-12"),"Y", "tokA1234XYZ", 2, "profileA.png",java.sql.Date.valueOf("2025-05-12"));
+		
+		//!!membership 데이터 관리 !!
+		//1. membership 전체삭제
+		mMapper.deleteAll();
+		//2. membership 데이터 단건 주입
+		mMapper.doSave(mDto01);
+		//3. membership 데이터 단건 조회
+		MembershipDTO mParam=new MembershipDTO();
+		mParam.setUserId("user02");
+		MembershipDTO mResult = mMapper.doSelectOne(mParam);
+		log.debug("mResult: {}", mResult);
 		
 		//!!Notice 데이터 관리 !!
 		//1. Notice 전체 삭제
@@ -124,7 +144,7 @@ class NoCommentDaoTest {
 		log.debug("count:{}", count);
 	}
 
-	// @Disabled
+	//@Disabled
 	@Test
 	void doUpdate() throws SQLException {
 		log.debug("┌────────────────────────────┐");
@@ -166,7 +186,7 @@ class NoCommentDaoTest {
 
 	}
 
-	// @Disabled
+	//@Disabled
 	@Test
 	void doSelectOne() throws SQLException {
 		log.debug("┌────────────────────────────┐");
@@ -205,7 +225,7 @@ class NoCommentDaoTest {
 		log.debug("param:{}", param.getCommentedCode());
 	}
 
-	// @Disabled
+	//@Disabled
 	@Test
 	void doRetrieve() throws SQLException {
 		log.debug("┌────────────────────────────┐");
@@ -240,7 +260,7 @@ class NoCommentDaoTest {
 		}
 	}
 
-	// @Disabled
+	//@Disabled
 	@Test
 	void beans() {
 		assertNotNull(context);
