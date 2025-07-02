@@ -47,9 +47,9 @@ class MembershipDaoTest {
 		log.debug("│ setUp()                                                 │");
 		log.debug("└─────────────────────────────────────────────────────────┘");
 		
-		dto01 = new MembershipDTO( "userA01", "adminA01","userA01@test.com", "pwA!23", Date.valueOf("1992-05-12"),"Y", "tokA1234XYZ", 2, "profileA.png",Date.valueOf("2025-05-12"));
-		dto02 = new MembershipDTO( "userA02", "adminA01","userA01@test.com", "pwA!23", Date.valueOf("1992-05-12"),"Y", "tokA1234XYZ", 2, "profileA.png",Date.valueOf("2025-05-12"));
-		dto03 = new MembershipDTO( "userA03", "adminA01","userA01@test.com", "pwA!23", Date.valueOf("1992-05-12"),"Y", "tokA1234XYZ", 2, "profileA.png",Date.valueOf("2025-05-12"));
+		dto01 = new MembershipDTO( "userA01", "adminA01","userA01@test.com", "pwA!23", Date.valueOf("1992-05-12"),"Y", "tokA1234XYZ", 2, "profileA.png",Date.valueOf("2025-05-12"), 0);
+		dto02 = new MembershipDTO( "userA02", "adminA01","userA01@test.com", "pwA!23", Date.valueOf("1992-05-12"),"Y", "tokA1234XYZ", 2, "profileA.png",Date.valueOf("2025-05-12"), 0);
+		dto03 = new MembershipDTO( "userA03", "adminA01","userA01@test.com", "pwA!23", Date.valueOf("1992-05-12"),"Y", "tokA1234XYZ", 2, "profileA.png",Date.valueOf("2025-05-12"), 0);
 		
 		search = new SearchDTO();
 		

@@ -14,11 +14,13 @@ public class MembershipDTO {
     private int    grade;            // 1:BASIC 2:SILVER 3:GOLD
     private String profileImage;
     private Date   regDt;            // 가입일 
+    
+    private int    rnum; 
 
     public MembershipDTO() {}
 
 	public MembershipDTO(String userId, String adminId, String email, String password, Date birth, String emailAuth,
-			String emailAuthToken, int grade, String profileImage, Date regDt) {
+			String emailAuthToken, int grade, String profileImage, Date regDt, int rnum) {
 		super();
 		this.userId = userId;
 		this.adminId = adminId;
@@ -30,6 +32,7 @@ public class MembershipDTO {
 		this.grade = grade;
 		this.profileImage = profileImage;
 		this.regDt = regDt;
+		this.rnum = rnum;
 	}
 
 	public String getUserId() {
@@ -112,12 +115,20 @@ public class MembershipDTO {
 		this.regDt = regDt;
 	}
 
+	public int getRnum() {
+		return rnum;
+	}
+
+	public void setRnum(int rnum) {
+		this.rnum = rnum;
+	}
+
 	@Override
 	public String toString() {
 		return "MembershipDTO [userId=" + userId + ", adminId=" + adminId + ", email=" + email + ", password="
 				+ password + ", birth=" + birth + ", emailAuth=" + emailAuth + ", emailAuthToken=" + emailAuthToken
-				+ ", grade=" + grade + ", profileImage=" + profileImage + ", regDt=" + regDt + "]";
+				+ ", grade=" + grade + ", profileImage=" + profileImage + ", regDt=" + regDt + ", rnum=" + rnum + "]";
 	}
 
-    
+	
 }
