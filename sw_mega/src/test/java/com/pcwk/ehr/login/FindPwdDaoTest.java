@@ -2,6 +2,9 @@ package com.pcwk.ehr.login;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.sql.Date;
+import java.sql.SQLException;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.AfterEach;
@@ -17,6 +20,8 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import com.pcwk.ehr.login.domain.FindIdDTO;
 import com.pcwk.ehr.login.domain.FindPwdDTO;
 import com.pcwk.ehr.login.mapper.FindPwdMapper;
+import com.pcwk.ehr.membership.domain.MembershipDTO;
+import com.pcwk.ehr.membership.mapper.MembershipMapper;
 
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(locations = {
@@ -30,6 +35,11 @@ public class FindPwdDaoTest {
     FindPwdMapper findPwdMapper;
     
     @Autowired
+    MembershipMapper membershipMapper;
+    
+    MembershipDTO dto01;
+    
+    @Autowired
 	ApplicationContext context;
     
 	@BeforeEach
@@ -37,6 +47,8 @@ public class FindPwdDaoTest {
 		log.debug("┌─────────────────────────────────────────────────────────┐");
 		log.debug("│ setUp()                                                 │");
 		log.debug("└─────────────────────────────────────────────────────────┘");
+		
+		dto01 = new MembershipDTO( "subtang", "tangSub","tangSub@test.com", "tangSub!23", Date.valueOf("1999-05-12"),"Y", "tokA1234XYZ", 2, "profileA.png",Date.valueOf("2025-05-12"));
 	}
 
 	@AfterEach
@@ -47,13 +59,17 @@ public class FindPwdDaoTest {
 	}
 	//@Disabled
 	@Test
-	void findPwd() {
+	void findPwd() throws SQLException{
+		membershipMapper.doDelete(dto01);
+		membershipMapper.doSave(dto01);
 		FindPwdDTO dto = new FindPwdDTO();
-		dto.setUserId("userA02");
-	    dto.setEmail("userA02@test.com");
+		dto.setUserId("subtang");
+	    dto.setEmail("tangSub@test.com");
 	    String password =  findPwdMapper.findPwd(dto);
 	    assertNotNull(password);
 	    log.debug("조회된 password: {}", password);
+	    
+	    log.debug(membershipMapper.getCount());
 	}
 
     @Test
