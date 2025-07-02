@@ -1,0 +1,272 @@
+[2025-07-01 17:32:50] [INFO ] org.springframework.test.context.support.DefaultTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+[2025-07-01 17:32:50] [INFO ] org.springframework.test.context.support.DefaultTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@11f0a5a1, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@10f7f7de, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@73a8da0f, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@50dfbc58, org.springframework.test.context.support.DirtiesContextTestExecutionListener@4416d64f, org.springframework.test.context.transaction.TransactionalTestExecutionListener@6bf08014, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@5e3d57c7, org.springframework.test.context.event.EventPublishingTestExecutionListener@732d0d24]
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.FreeBoardTest - ┌────────────────────────────┐
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.FreeBoardTest - │ setUp()                    │
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.FreeBoardTest - └────────────────────────────┘
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.FreeBoardTest - org.apache.ibatis.binding.MapperProxy@27b45ea
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.FreeBoardTest - ┌────────────────────────────┐
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.FreeBoardTest - │ tearDown()                 │
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.FreeBoardTest - └────────────────────────────┘
+[2025-07-01 17:32:52] [INFO ] org.springframework.test.context.support.DefaultTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+[2025-07-01 17:32:52] [INFO ] org.springframework.test.context.support.DefaultTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@18acfe88, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@8a2a6a, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@772861aa, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@6631cb64, org.springframework.test.context.support.DirtiesContextTestExecutionListener@19962194, org.springframework.test.context.transaction.TransactionalTestExecutionListener@481e91b6, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@7c8f9c2e, org.springframework.test.context.event.EventPublishingTestExecutionListener@140d1230]
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.L_ReactionTest - ┌────────────────────────────┐
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.L_ReactionTest - │ setUp()                    │
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.L_ReactionTest - └────────────────────────────┘
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.L_ReactionTest - ┌────────────────────────────┐
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.L_ReactionTest - │ doRetrieve()               │
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.L_ReactionTest - └────────────────────────────┘
+[2025-07-01 17:32:52] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+[2025-07-01 17:32:52] [WARN ] com.zaxxer.hikari.util.DriverDataSource - Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+[2025-07-01 17:32:52] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.L_ReactionMapper.deleteAll - ==>  Preparing: DELETE FROM L_REACTION
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.L_ReactionMapper.deleteAll - ==> Parameters: 
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.L_ReactionMapper.deleteAll - <==    Updates: 2
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.L_ReactionMapper.doSave - ==>  Preparing: INSERT INTO L_REACTION ( REACTION_CODE, USER_ID, REACTION_TYPE, TARGET_TYPE, TARGET_CODE ) VALUES ( L_RE_SEQ.NEXTVAL, ?, ?, ?, ? )
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.L_ReactionMapper.doSave - ==> Parameters: user1(String), y(String), 게시판(String), 8765(Integer)
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.L_ReactionMapper.doSave - <==    Updates: 1
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.L_ReactionMapper.doSave - ==>  Preparing: INSERT INTO L_REACTION ( REACTION_CODE, USER_ID, REACTION_TYPE, TARGET_TYPE, TARGET_CODE ) VALUES ( L_RE_SEQ.NEXTVAL, ?, ?, ?, ? )
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.L_ReactionMapper.doSave - ==> Parameters: user2(String), y(String), 게시판(String), 8765(Integer)
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.L_ReactionMapper.doSave - <==    Updates: 1
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.L_ReactionMapper.doSave - ==>  Preparing: INSERT INTO L_REACTION ( REACTION_CODE, USER_ID, REACTION_TYPE, TARGET_TYPE, TARGET_CODE ) VALUES ( L_RE_SEQ.NEXTVAL, ?, ?, ?, ? )
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.L_ReactionMapper.doSave - ==> Parameters: user3(String), y(String), 게시판(String), 8765(Integer)
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.L_ReactionMapper.doSave - <==    Updates: 1
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.L_ReactionMapper.getCount - ==>  Preparing: SELECT COUNT(*) FROM L_REACTION
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.L_ReactionMapper.getCount - ==> Parameters: 
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.L_ReactionMapper.getCount - <==      Total: 1
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.L_ReactionTest - 3
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.L_ReactionMapper.doRetrieve - ==>  Preparing: SELECT reaction_code, reaction_type, target_type, target_code FROM L_REACTION WHERE target_code = ? ORDER BY REACTION_CODE DESC
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.L_ReactionMapper.doRetrieve - ==> Parameters: 8765(String)
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.L_ReactionMapper.doRetrieve - <==      Total: 3
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.L_ReactionTest - vo: L_ReactionDTO [reactionCode=61, userId=null, reactionType=y, targetType=게시판, targetCode=8765, toString()=com.pcwk.ehr.board.domain.L_ReactionDTO@6dd1f638]
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.L_ReactionTest - vo: L_ReactionDTO [reactionCode=60, userId=null, reactionType=y, targetType=게시판, targetCode=8765, toString()=com.pcwk.ehr.board.domain.L_ReactionDTO@414f13fc]
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.L_ReactionTest - vo: L_ReactionDTO [reactionCode=59, userId=null, reactionType=y, targetType=게시판, targetCode=8765, toString()=com.pcwk.ehr.board.domain.L_ReactionDTO@4b76aa5a]
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.L_ReactionTest - ┌────────────────────────────┐
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.L_ReactionTest - │ tearDown()                 │
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.L_ReactionTest - └────────────────────────────┘
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.L_ReactionTest - ┌────────────────────────────┐
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.L_ReactionTest - │ setUp()                    │
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.L_ReactionTest - └────────────────────────────┘
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.L_ReactionTest - ┌────────────────────────────┐
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.L_ReactionTest - │ doDelete()                 │
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.L_ReactionTest - └────────────────────────────┘
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.L_ReactionMapper.deleteAll - ==>  Preparing: DELETE FROM L_REACTION
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.L_ReactionMapper.deleteAll - ==> Parameters: 
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.L_ReactionMapper.deleteAll - <==    Updates: 3
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.L_ReactionMapper.doSave - ==>  Preparing: INSERT INTO L_REACTION ( REACTION_CODE, USER_ID, REACTION_TYPE, TARGET_TYPE, TARGET_CODE ) VALUES ( L_RE_SEQ.NEXTVAL, ?, ?, ?, ? )
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.L_ReactionMapper.doSave - ==> Parameters: user1(String), y(String), 게시판(String), 8765(Integer)
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.L_ReactionMapper.doSave - <==    Updates: 1
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.L_ReactionMapper.doSave - ==>  Preparing: INSERT INTO L_REACTION ( REACTION_CODE, USER_ID, REACTION_TYPE, TARGET_TYPE, TARGET_CODE ) VALUES ( L_RE_SEQ.NEXTVAL, ?, ?, ?, ? )
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.L_ReactionMapper.doSave - ==> Parameters: user2(String), y(String), 게시판(String), 8765(Integer)
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.L_ReactionMapper.doSave - <==    Updates: 1
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.L_ReactionMapper.doSave - ==>  Preparing: INSERT INTO L_REACTION ( REACTION_CODE, USER_ID, REACTION_TYPE, TARGET_TYPE, TARGET_CODE ) VALUES ( L_RE_SEQ.NEXTVAL, ?, ?, ?, ? )
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.L_ReactionMapper.doSave - ==> Parameters: user3(String), y(String), 게시판(String), 8765(Integer)
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.L_ReactionMapper.doSave - <==    Updates: 1
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.L_ReactionMapper.getCount - ==>  Preparing: SELECT COUNT(*) FROM L_REACTION
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.L_ReactionMapper.getCount - ==> Parameters: 
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.L_ReactionMapper.getCount - <==      Total: 1
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.L_ReactionTest - 3
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.L_ReactionMapper.doRetrieve - ==>  Preparing: SELECT reaction_code, reaction_type, target_type, target_code FROM L_REACTION WHERE target_code = ? ORDER BY REACTION_CODE DESC
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.L_ReactionMapper.doRetrieve - ==> Parameters: 8765(String)
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.L_ReactionMapper.doRetrieve - <==      Total: 3
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.L_ReactionTest - vo: L_ReactionDTO [reactionCode=64, userId=null, reactionType=y, targetType=게시판, targetCode=8765, toString()=com.pcwk.ehr.board.domain.L_ReactionDTO@1a8df0b3]
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.L_ReactionTest - vo: L_ReactionDTO [reactionCode=63, userId=null, reactionType=y, targetType=게시판, targetCode=8765, toString()=com.pcwk.ehr.board.domain.L_ReactionDTO@7c112f5f]
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.L_ReactionTest - vo: L_ReactionDTO [reactionCode=62, userId=null, reactionType=y, targetType=게시판, targetCode=8765, toString()=com.pcwk.ehr.board.domain.L_ReactionDTO@5961e92d]
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.L_ReactionMapper.doDelete - ==>  Preparing: DELETE FROM L_REACTION WHERE REACTION_CODE = ?
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.L_ReactionMapper.doDelete - ==> Parameters: 64(Integer)
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.L_ReactionMapper.doDelete - <==    Updates: 1
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.L_ReactionTest - result1
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.L_ReactionMapper.getCount - ==>  Preparing: SELECT COUNT(*) FROM L_REACTION
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.L_ReactionMapper.getCount - ==> Parameters: 
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.L_ReactionMapper.getCount - <==      Total: 1
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.L_ReactionTest - 2
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.L_ReactionTest - ┌────────────────────────────┐
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.L_ReactionTest - │ tearDown()                 │
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.L_ReactionTest - └────────────────────────────┘
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.L_ReactionTest - ┌────────────────────────────┐
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.L_ReactionTest - │ setUp()                    │
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.L_ReactionTest - └────────────────────────────┘
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.L_ReactionTest - org.springframework.context.support.GenericApplicationContext@7922d892, started on Tue Jul 01 17:32:51 KST 2025
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.L_ReactionTest - mapperorg.apache.ibatis.binding.MapperProxy@194d329e
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.L_ReactionTest - ┌────────────────────────────┐
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.L_ReactionTest - │ tearDown()                 │
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.L_ReactionTest - └────────────────────────────┘
+[2025-07-01 17:32:52] [INFO ] org.springframework.test.context.support.DefaultTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+[2025-07-01 17:32:52] [INFO ] org.springframework.test.context.support.DefaultTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@54d1608f, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@7e7fe6d, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@541179e7, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@24386839, org.springframework.test.context.support.DirtiesContextTestExecutionListener@7b32b129, org.springframework.test.context.transaction.TransactionalTestExecutionListener@439e3cb4, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@1c9fbb61, org.springframework.test.context.event.EventPublishingTestExecutionListener@7b81616b]
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.Fb_CommentTest - ┌────────────────────────────┐
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.Fb_CommentTest - │ setUp()                    │
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.Fb_CommentTest - └────────────────────────────┘
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.Fb_CommentTest - ┌────────────────────────────┐
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.Fb_CommentTest - │ tearDown()                 │
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.Fb_CommentTest - └────────────────────────────┘
+[2025-07-01 17:32:52] [INFO ] org.springframework.test.context.support.DefaultTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+[2025-07-01 17:32:52] [INFO ] org.springframework.test.context.support.DefaultTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@36c281ed, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@244418a, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@4b5a078a, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@4c361f63, org.springframework.test.context.support.DirtiesContextTestExecutionListener@6ed922e1, org.springframework.test.context.transaction.TransactionalTestExecutionListener@4eb166a1, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@554c4eaa, org.springframework.test.context.event.EventPublishingTestExecutionListener@29fd8e67]
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.No_CommentTest - ┌────────────────────────────┐
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.No_CommentTest - │ setUp()                    │
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.No_CommentTest - └────────────────────────────┘
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.No_CommentTest - ┌────────────────────────────┐
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.No_CommentTest - │ doRetrieve()               │
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.No_CommentTest - └────────────────────────────┘
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.NoCommentMapper.deleteAll - ==>  Preparing: DELETE FROM NO_COMMENTED
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.NoCommentMapper.deleteAll - ==> Parameters: 
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.NoCommentMapper.deleteAll - <==    Updates: 0
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.NoCommentMapper.doSave - ==>  Preparing: INSERT INTO NO_COMMENTED ( COMMENTED_CODE, NO_CODE, USER_ID, CONTENT, C_DT, UP_DT ) VALUES ( NO_CO_SEQ.NEXTVAL, ?, ?, ?, SYSDATE, SYSDATE )
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.NoCommentMapper.doSave - ==> Parameters: 116(Integer), user1(String), 내용1(String)
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.No_CommentTest - ┌────────────────────────────┐
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.No_CommentTest - │ tearDown()                 │
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.No_CommentTest - └────────────────────────────┘
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.No_CommentTest - ┌────────────────────────────┐
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.No_CommentTest - │ setUp()                    │
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.No_CommentTest - └────────────────────────────┘
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.No_CommentTest - ┌────────────────────────────┐
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.No_CommentTest - │ doDelete()                 │
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.No_CommentTest - └────────────────────────────┘
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.NoCommentMapper.deleteAll - ==>  Preparing: DELETE FROM NO_COMMENTED
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.NoCommentMapper.deleteAll - ==> Parameters: 
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.NoCommentMapper.deleteAll - <==    Updates: 0
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.NoCommentMapper.doSave - ==>  Preparing: INSERT INTO NO_COMMENTED ( COMMENTED_CODE, NO_CODE, USER_ID, CONTENT, C_DT, UP_DT ) VALUES ( NO_CO_SEQ.NEXTVAL, ?, ?, ?, SYSDATE, SYSDATE )
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.NoCommentMapper.doSave - ==> Parameters: 116(Integer), user1(String), 내용1(String)
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.No_CommentTest - ┌────────────────────────────┐
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.No_CommentTest - │ tearDown()                 │
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.No_CommentTest - └────────────────────────────┘
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.No_CommentTest - ┌────────────────────────────┐
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.No_CommentTest - │ setUp()                    │
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.No_CommentTest - └────────────────────────────┘
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.No_CommentTest - ┌────────────────────────────┐
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.No_CommentTest - │ tearDown()                 │
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.No_CommentTest - └────────────────────────────┘
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.No_CommentTest - ┌────────────────────────────┐
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.No_CommentTest - │ setUp()                    │
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.No_CommentTest - └────────────────────────────┘
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.No_CommentTest - ┌────────────────────────────┐
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.No_CommentTest - │ doUpdate()                 │
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.No_CommentTest - └────────────────────────────┘
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.NoCommentMapper.deleteAll - ==>  Preparing: DELETE FROM NO_COMMENTED
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.NoCommentMapper.deleteAll - ==> Parameters: 
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.NoCommentMapper.deleteAll - <==    Updates: 0
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.NoCommentMapper.doSave - ==>  Preparing: INSERT INTO NO_COMMENTED ( COMMENTED_CODE, NO_CODE, USER_ID, CONTENT, C_DT, UP_DT ) VALUES ( NO_CO_SEQ.NEXTVAL, ?, ?, ?, SYSDATE, SYSDATE )
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.NoCommentMapper.doSave - ==> Parameters: 116(Integer), user1(String), 내용1(String)
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.No_CommentTest - ┌────────────────────────────┐
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.No_CommentTest - │ tearDown()                 │
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.No_CommentTest - └────────────────────────────┘
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.No_CommentTest - ┌────────────────────────────┐
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.No_CommentTest - │ setUp()                    │
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.No_CommentTest - └────────────────────────────┘
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.No_CommentTest - ┌────────────────────────────┐
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.No_CommentTest - │ doSelectOne()              │
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.No_CommentTest - └────────────────────────────┘
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.NoCommentMapper.deleteAll - ==>  Preparing: DELETE FROM NO_COMMENTED
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.NoCommentMapper.deleteAll - ==> Parameters: 
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.NoCommentMapper.deleteAll - <==    Updates: 0
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.NoCommentMapper.doSave - ==>  Preparing: INSERT INTO NO_COMMENTED ( COMMENTED_CODE, NO_CODE, USER_ID, CONTENT, C_DT, UP_DT ) VALUES ( NO_CO_SEQ.NEXTVAL, ?, ?, ?, SYSDATE, SYSDATE )
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.NoCommentMapper.doSave - ==> Parameters: 116(Integer), user1(String), 내용1(String)
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.No_CommentTest - ┌────────────────────────────┐
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.No_CommentTest - │ tearDown()                 │
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.No_CommentTest - └────────────────────────────┘
+[2025-07-01 17:32:52] [INFO ] org.springframework.test.context.support.DefaultTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+[2025-07-01 17:32:52] [INFO ] org.springframework.test.context.support.DefaultTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@3a8d467e, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@141d3d43, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@6ca372ef, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@3ebe4ccc, org.springframework.test.context.support.DirtiesContextTestExecutionListener@6ed043d3, org.springframework.test.context.transaction.TransactionalTestExecutionListener@135a8c6f, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@6419a0e1, org.springframework.test.context.event.EventPublishingTestExecutionListener@280d4882]
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.ReportTest - ┌────────────────────────────┐
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.ReportTest - │ setUp()                    │
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.ReportTest - └────────────────────────────┘
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.ReportTest - ┌────────────────────────────┐
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.ReportTest - │ doRetrieve()               │
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.ReportTest - └────────────────────────────┘
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.ReportMapper.deleteAll - ==>  Preparing: DELETE FROM REPORT
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.ReportMapper.deleteAll - ==> Parameters: 
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.ReportMapper.deleteAll - <==    Updates: 3
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.ReportMapper.doSave - ==>  Preparing: INSERT INTO REPORT ( REPORT_CODE, USER_ID, REASON, TARGET_TYPE, TARGET_CODE ) VALUES ( RE_SEQ.NEXTVAL, ?, ?, ?, ? )
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.ReportMapper.doSave - ==> Parameters: user1(String), 신고사유(String), 공지사항(String), 1(Integer)
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.ReportMapper.doSave - <==    Updates: 1
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.ReportMapper.doSave - ==>  Preparing: INSERT INTO REPORT ( REPORT_CODE, USER_ID, REASON, TARGET_TYPE, TARGET_CODE ) VALUES ( RE_SEQ.NEXTVAL, ?, ?, ?, ? )
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.ReportMapper.doSave - ==> Parameters: user2(String), 신고사유(String), 자유게시판(String), 2(Integer)
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.ReportMapper.doSave - <==    Updates: 1
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.ReportMapper.doSave - ==>  Preparing: INSERT INTO REPORT ( REPORT_CODE, USER_ID, REASON, TARGET_TYPE, TARGET_CODE ) VALUES ( RE_SEQ.NEXTVAL, ?, ?, ?, ? )
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.ReportMapper.doSave - ==> Parameters: user3(String), 신고사유(String), 자유게시판(String), 3(Integer)
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.ReportMapper.doSave - <==    Updates: 1
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.ReportMapper.getCount - ==>  Preparing: SELECT COUNT(*) FROM REPORT
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.ReportMapper.getCount - ==> Parameters: 
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.ReportMapper.getCount - <==      Total: 1
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.ReportTest - 3
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.ReportMapper.doRetrieve - ==>  Preparing: SELECT REPORT_CODE, USER_ID, REASON, TARGET_TYPE, TARGET_CODE FROM REPORT ORDER BY REPORT_CODE DESC
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.ReportMapper.doRetrieve - ==> Parameters: 
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.ReportMapper.doRetrieve - <==      Total: 3
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.ReportTest - vo: ReportDTO [reportCode=18, userId=user3, reason=신고사유, targetType=자유게시판, targetCode=3, toString()=com.pcwk.ehr.board.domain.ReportDTO@28237492]
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.ReportTest - vo: ReportDTO [reportCode=17, userId=user2, reason=신고사유, targetType=자유게시판, targetCode=2, toString()=com.pcwk.ehr.board.domain.ReportDTO@5ceecfee]
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.ReportTest - vo: ReportDTO [reportCode=16, userId=user1, reason=신고사유, targetType=공지사항, targetCode=1, toString()=com.pcwk.ehr.board.domain.ReportDTO@7da31a40]
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.ReportTest - ┌────────────────────────────┐
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.ReportTest - │ tearDown()                 │
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.ReportTest - └────────────────────────────┘
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.ReportTest - ┌────────────────────────────┐
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.ReportTest - │ setUp()                    │
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.ReportTest - └────────────────────────────┘
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.ReportTest - org.springframework.context.support.GenericApplicationContext@7922d892, started on Tue Jul 01 17:32:51 KST 2025
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.ReportTest - org.apache.ibatis.binding.MapperProxy@1b5a1d85
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.ReportTest - ┌────────────────────────────┐
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.ReportTest - │ tearDown()                 │
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.ReportTest - └────────────────────────────┘
+[2025-07-01 17:32:52] [INFO ] org.springframework.test.context.support.DefaultTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+[2025-07-01 17:32:52] [INFO ] org.springframework.test.context.support.DefaultTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@31e130bf, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@54755dd9, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@f1f7db2, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@4462efe1, org.springframework.test.context.support.DirtiesContextTestExecutionListener@7c3e4b1a, org.springframework.test.context.transaction.TransactionalTestExecutionListener@2db4ad1, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@765d55d5, org.springframework.test.context.event.EventPublishingTestExecutionListener@2513a118]
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.NoticeDTOTest - ┌────────────────────────────┐
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.NoticeDTOTest - │ setUp()                    │
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.NoticeDTOTest - └────────────────────────────┘
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.NoticeDTOTest - ┌────────────────────────────┐
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.NoticeDTOTest - │ doRetrieve()               │
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.NoticeDTOTest - └────────────────────────────┘
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.NoticeMapper.deleteAll - ==>  Preparing: DELETE FROM NOTICE
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.NoticeMapper.deleteAll - ==> Parameters: 
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.NoticeMapper.deleteAll - <==    Updates: 0
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.NoticeMapper.doSave - ==>  Preparing: INSERT INTO NOTICE ( NO_CODE, USER_ID, TITLE, CONTENT, VIEW_COUNT, C_DT, UP_DT ) VALUES ( NO_SEQ.NEXTVAL, ?, ?, ?, ?, SYSDATE, SYSDATE )
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.NoticeMapper.doSave - ==> Parameters: user1(String), 제목1(String), 내용1(String), 0(Integer)
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.NoticeMapper.doSave - <==    Updates: 1
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.NoticeMapper.doSave - ==>  Preparing: INSERT INTO NOTICE ( NO_CODE, USER_ID, TITLE, CONTENT, VIEW_COUNT, C_DT, UP_DT ) VALUES ( NO_SEQ.NEXTVAL, ?, ?, ?, ?, SYSDATE, SYSDATE )
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.NoticeMapper.doSave - ==> Parameters: user2(String), 제목2(String), 내용2(String), 1(Integer)
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.NoticeMapper.doSave - <==    Updates: 1
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.NoticeMapper.doSave - ==>  Preparing: INSERT INTO NOTICE ( NO_CODE, USER_ID, TITLE, CONTENT, VIEW_COUNT, C_DT, UP_DT ) VALUES ( NO_SEQ.NEXTVAL, ?, ?, ?, ?, SYSDATE, SYSDATE )
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.NoticeMapper.doSave - ==> Parameters: user3(String), 제목3(String), 내용3(String), 2(Integer)
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.NoticeMapper.doSave - <==    Updates: 1
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.NoticeMapper.getCount - ==>  Preparing: SELECT COUNT(*) FROM NOTICE
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.NoticeMapper.getCount - ==> Parameters: 
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.NoticeMapper.getCount - <==      Total: 1
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.NoticeDTOTest - 3
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.NoticeMapper.doRetrieve - ==>  Preparing: SELECT * FROM ( SELECT ROW_NUMBER() OVER (ORDER BY NO_CODE DESC) AS rnum, NO_CODE, USER_ID, TITLE, CONTENT, VIEW_COUNT, C_DT, UP_DT FROM NOTICE WHERE ( (? = '10' AND TITLE LIKE '%' || ? || '%') OR (? = '20' AND CONTENT LIKE '%' || ? || '%') OR (? = '30' AND USER_ID LIKE '%' || ? || '%') OR ? = '' ) ) WHERE rnum > (? - 1) * ? AND rnum <= ? * ?
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.NoticeMapper.doRetrieve - ==> Parameters: null, user1(String), null, user1(String), null, user1(String), null, 0(Integer), 0(Integer), 0(Integer), 0(Integer)
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.NoticeMapper.doRetrieve - <==      Total: 0
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.NoticeDTOTest - ┌────────────────────────────┐
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.NoticeDTOTest - │ tearDown()                 │
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.NoticeDTOTest - └────────────────────────────┘
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.NoticeDTOTest - ┌────────────────────────────┐
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.NoticeDTOTest - │ setUp()                    │
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.NoticeDTOTest - └────────────────────────────┘
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.NoticeDTOTest - ┌────────────────────────────┐
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.NoticeDTOTest - │ doDelete()                 │
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.NoticeDTOTest - └────────────────────────────┘
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.NoticeMapper.deleteAll - ==>  Preparing: DELETE FROM NOTICE
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.NoticeMapper.deleteAll - ==> Parameters: 
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.NoticeMapper.deleteAll - <==    Updates: 3
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.NoticeMapper.doSave - ==>  Preparing: INSERT INTO NOTICE ( NO_CODE, USER_ID, TITLE, CONTENT, VIEW_COUNT, C_DT, UP_DT ) VALUES ( NO_SEQ.NEXTVAL, ?, ?, ?, ?, SYSDATE, SYSDATE )
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.NoticeMapper.doSave - ==> Parameters: user1(String), 제목1(String), 내용1(String), 0(Integer)
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.NoticeMapper.doSave - <==    Updates: 1
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.NoticeDTOTest - flag:1
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.NoticeMapper.getCount - ==>  Preparing: SELECT COUNT(*) FROM NOTICE
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.NoticeMapper.getCount - ==> Parameters: 
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.NoticeMapper.getCount - <==      Total: 1
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.NoticeDTOTest - count:1
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.NoticeMapper.doDelete - ==>  Preparing: DELETE FROM NOTICE WHERE NO_CODE = ?
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.NoticeMapper.doDelete - ==> Parameters: 0(Integer)
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.NoticeMapper.doDelete - <==    Updates: 0
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.NoticeMapper.getCount - ==>  Preparing: SELECT COUNT(*) FROM NOTICE
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.NoticeMapper.getCount - ==> Parameters: 
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.mapper.NoticeMapper.getCount - <==      Total: 1
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.NoticeDTOTest - count:1
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.NoticeDTOTest - ┌────────────────────────────┐
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.NoticeDTOTest - │ tearDown()                 │
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.NoticeDTOTest - └────────────────────────────┘
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.NoticeDTOTest - ┌────────────────────────────┐
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.NoticeDTOTest - │ setUp()                    │
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.NoticeDTOTest - └────────────────────────────┘
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.NoticeDTOTest - org.springframework.context.support.GenericApplicationContext@7922d892, started on Tue Jul 01 17:32:51 KST 2025
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.NoticeDTOTest - org.apache.ibatis.binding.MapperProxy@28f4f300
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.NoticeDTOTest - ┌────────────────────────────┐
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.NoticeDTOTest - │ tearDown()                 │
+[2025-07-01 17:32:52] [DEBUG] com.pcwk.ehr.board.NoticeDTOTest - └────────────────────────────┘
+[2025-07-01 17:32:52] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+[2025-07-01 17:32:52] [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
