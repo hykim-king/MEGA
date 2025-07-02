@@ -3,6 +3,7 @@ package com.pcwk.ehr.board;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
+import java.sql.Date;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -21,20 +22,27 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import com.pcwk.ehr.board.domain.L_ReactionDTO;
 import com.pcwk.ehr.board.mapper.L_ReactionMapper;
 import com.pcwk.ehr.cmn.SearchDTO;
+import com.pcwk.ehr.membership.domain.MembershipDTO;
+import com.pcwk.ehr.membership.mapper.MembershipMapper;
 import com.pcwk.ehr.mypage.domain.ExerciseDTO;
 
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(locations = { "file:src/main/webapp/WEB-INF/spring/root-context.xml",
 		"file:src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml" })
 
-class L_ReactionTest {
+class LReactionDaoTest {
 
 	@Autowired
 	L_ReactionMapper mapper;
+	
+	@Autowired
+	MembershipMapper mMapper;
 
 	L_ReactionDTO dto01;
 	L_ReactionDTO dto02;
 	L_ReactionDTO dto03;
+	
+	MembershipDTO mDto01;
 
 	SearchDTO search;
 
@@ -48,10 +56,24 @@ class L_ReactionTest {
 		log.debug("┌────────────────────────────┐");
 		log.debug("│ setUp()                    │");
 		log.debug("└────────────────────────────┘");
+		
+		mDto01 = new MembershipDTO("user01", "admin01", "yangsh5972@naver.com", "4321as@", Date.valueOf("1992-05-12"),"Y", "tokA1234XYZ", 2, "profileA.png",Date.valueOf("2025-05-12"));
+		
+		//!!membership 데이터 관리 !!
+		//1. membership 전체삭제
+		mMapper.deleteAll();
+		//2. membership 데이터 단건 주입
+		mMapper.doSave(mDto01);
+		//3. membership 데이터 단건 조회
+		MembershipDTO mParam=new MembershipDTO();
+		mParam.setUserId("user01");
+		MembershipDTO mResult = mMapper.doSelectOne(mParam);
+		log.debug("mResult: {}", mResult);
+		
 
-		dto01 = new L_ReactionDTO("user1", "y", "게시판", 8765);
-		dto02 = new L_ReactionDTO("user2", "y", "게시판", 8765);
-		dto03 = new L_ReactionDTO("user3", "y", "게시판", 8765);
+		dto01 = new L_ReactionDTO("user01", "y", "게시판", 8765);
+		dto02 = new L_ReactionDTO("user01", "y", "게시판", 8763);
+		dto03 = new L_ReactionDTO("user01", "y", "게시판", 8763);
 
 		search = new SearchDTO();
 
@@ -112,7 +134,7 @@ class L_ReactionTest {
 
 	}
 
-	@Disabled
+	//@Disabled
 	@Test
 	void doRetrieve() throws SQLException {
 		log.debug("┌────────────────────────────┐");
