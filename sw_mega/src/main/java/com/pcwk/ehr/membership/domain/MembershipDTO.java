@@ -15,12 +15,14 @@ public class MembershipDTO {
     private String profileImage;
     private Date   regDt;            // 가입일 
     
-    private int    rnum; 
+ 
 
     public MembershipDTO() {}
 
+
+
 	public MembershipDTO(String userId, String adminId, String email, String password, Date birth, String emailAuth,
-			String emailAuthToken, int grade, String profileImage, Date regDt, int rnum) {
+			String emailAuthToken, int grade, String profileImage, Date regDt) {
 		super();
 		this.userId = userId;
 		this.adminId = adminId;
@@ -32,103 +34,139 @@ public class MembershipDTO {
 		this.grade = grade;
 		this.profileImage = profileImage;
 		this.regDt = regDt;
-		this.rnum = rnum;
 	}
+
+
 
 	public String getUserId() {
 		return userId;
 	}
 
+
+
 	public void setUserId(String userId) {
 		this.userId = userId;
 	}
+
+
 
 	public String getAdminId() {
 		return adminId;
 	}
 
+
+
 	public void setAdminId(String adminId) {
 		this.adminId = adminId;
 	}
+
+
 
 	public String getEmail() {
 		return email;
 	}
 
+
+
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
+
 
 	public String getPassword() {
 		return password;
 	}
 
+
+
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
+
 
 	public Date getBirth() {
 		return birth;
 	}
 
+
+
 	public void setBirth(Date birth) {
 		this.birth = birth;
 	}
+
+
 
 	public String getEmailAuth() {
 		return emailAuth;
 	}
 
+
+
 	public void setEmailAuth(String emailAuth) {
 		this.emailAuth = emailAuth;
 	}
+
+
 
 	public String getEmailAuthToken() {
 		return emailAuthToken;
 	}
 
+
+
 	public void setEmailAuthToken(String emailAuthToken) {
 		this.emailAuthToken = emailAuthToken;
 	}
+
+
 
 	public int getGrade() {
 		return grade;
 	}
 
+
+
 	public void setGrade(int grade) {
 		this.grade = grade;
 	}
+
+
 
 	public String getProfileImage() {
 		return profileImage;
 	}
 
+
+
 	public void setProfileImage(String profileImage) {
 		this.profileImage = profileImage;
 	}
+
+
 
 	public Date getRegDt() {
 		return regDt;
 	}
 
+
+
 	public void setRegDt(Date regDt) {
 		this.regDt = regDt;
 	}
 
-	public int getRnum() {
-		return rnum;
-	}
 
-	public void setRnum(int rnum) {
-		this.rnum = rnum;
-	}
 
 	@Override
 	public String toString() {
 		return "MembershipDTO [userId=" + userId + ", adminId=" + adminId + ", email=" + email + ", password="
 				+ password + ", birth=" + birth + ", emailAuth=" + emailAuth + ", emailAuthToken=" + emailAuthToken
-				+ ", grade=" + grade + ", profileImage=" + profileImage + ", regDt=" + regDt + ", rnum=" + rnum + "]";
+				+ ", grade=" + grade + ", profileImage=" + profileImage + ", regDt=" + regDt + "]";
 	}
 
+	
+
+	
 	
 }
