@@ -81,16 +81,17 @@ class NoCommentDaoTest {
 		log.debug("│ tearDown()                 │");
 		log.debug("└────────────────────────────┘");
 	}
+
 	@Test
 	void doDelete() throws SQLException {
 		log.debug("┌────────────────────────────┐");
 		log.debug("│ doDelete()                 │");
 		log.debug("└────────────────────────────┘");
-		
-		//1.전체삭제
-		//2.등록
-		//3.전체조회
-		//4.단건삭제
+
+		// 1.전체삭제
+		// 2.등록
+		// 3.전체조회
+		// 4.단건삭제
 
 		// 1.
 		mapper.deleteAll();
@@ -100,12 +101,12 @@ class NoCommentDaoTest {
 		mapper.doSave(dto02);
 		mapper.doSave(dto03);
 
-		//3.
+		// 3.
 		int count = mapper.getCount();
 		assertEquals(3, count);
 		log.debug("count:{}", count);
-		
-		//4.
+
+		// 4.
 		search.setPageSize(10);
 		search.setPageNo(1);
 		search.setSearchWord(String.valueOf(dto01.getNoCode()));
@@ -113,18 +114,17 @@ class NoCommentDaoTest {
 		for (NoticeCommentDTO doVO : list) {
 			log.debug("doVO:{}", doVO);
 		}
-		//4.2단건삭제
+		// 4.2단건삭제
 		int result = mapper.doDelete(list.get(0));
 		log.debug(result);
-		
+
 		//
 		count = mapper.getCount();
 		assertEquals(2, count);
 		log.debug("count:{}", count);
 	}
-	
-	
-	//@Disabled
+
+	// @Disabled
 	@Test
 	void doUpdate() throws SQLException {
 		log.debug("┌────────────────────────────┐");
@@ -166,7 +166,7 @@ class NoCommentDaoTest {
 
 	}
 
-	//@Disabled
+	// @Disabled
 	@Test
 	void doSelectOne() throws SQLException {
 		log.debug("┌────────────────────────────┐");
@@ -205,7 +205,7 @@ class NoCommentDaoTest {
 		log.debug("param:{}", param.getCommentedCode());
 	}
 
-	//@Disabled
+	// @Disabled
 	@Test
 	void doRetrieve() throws SQLException {
 		log.debug("┌────────────────────────────┐");
