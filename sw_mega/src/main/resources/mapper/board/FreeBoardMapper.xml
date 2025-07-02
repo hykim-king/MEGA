@@ -7,9 +7,9 @@
    
     <!-- 자유게시판 등록 -->
     <insert id="doSave" parameterType="FreeBoardDTO">
-     <selectKey keyProperty="fbCode" resultType="int" order="BEFORE">
+        <selectKey keyProperty="fbCode" resultType="int" order="BEFORE">
             SELECT FB_SEQ.NEXTVAL FROM dual
-               </selectKey>
+        </selectKey>
         INSERT INTO FREE_BOARD (
             FB_CODE,
             USER_ID,
@@ -88,7 +88,7 @@
     
             <!-- 7. 전체 삭제  -->
     <delete id="deleteAll">
-        DELETE FROM NOTICE
+        DELETE FROM FREE_BOARD
     </delete>
     
     <!-- 자유게시판 삭제 -->

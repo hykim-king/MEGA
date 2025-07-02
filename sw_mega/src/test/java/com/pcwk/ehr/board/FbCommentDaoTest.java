@@ -29,6 +29,8 @@ import com.pcwk.ehr.board.mapper.FreeBoardMapper;
 import com.pcwk.ehr.board.mapper.NoCommentMapper;
 import com.pcwk.ehr.board.mapper.NoticeMapper;
 import com.pcwk.ehr.cmn.SearchDTO;
+import com.pcwk.ehr.membership.domain.MembershipDTO;
+import com.pcwk.ehr.membership.mapper.MembershipMapper;
 
 
 
@@ -48,7 +50,10 @@ class FbCommentDaoTest {
 	FbCommentMapper mapper;
 	
 	@Autowired
-	FreeBoardMapper nMapper;
+	FreeBoardMapper fMapper;
+	
+	@Autowired
+	MembershipMapper mMapper;
 
 	SearchDTO search;
 
@@ -56,7 +61,9 @@ class FbCommentDaoTest {
 	FreeBoardCommentDTO dto02;
 	FreeBoardCommentDTO dto03;
 	
-	FreeBoardDTO nDto01;
+	FreeBoardDTO fDto01;
+	
+	MembershipDTO mDto01;
 
 	int fbCode;
 	
@@ -66,20 +73,34 @@ class FbCommentDaoTest {
 		log.debug("│ setUp()                    │");
 		log.debug("└────────────────────────────┘");
 		
-		nDto01 = new FreeBoardDTO("user01", "제목1", "내용1", 0, null, null);
+		fDto01 = new FreeBoardDTO("user02","제목1", "내용1", 0, null, null);
 		
-		//!!Notice 데이터 관리 !!
-		//1. Notice 전체 삭제
-		nMapper.deleteAll();
-		//2. Notice 단건 등록
-		nMapper.doSave(nDto01);
-		fbCode = nDto01.getFbCode();
-		log.debug("noCode: {}", fbCode);
+		mDto01 = new MembershipDTO("user02", "admin01", "yangsh5972@naver.com", "4321as@", java.sql.Date.valueOf("1992-05-12"),"Y", "tokA1234XYZ", 2, "profileA.png",java.sql.Date.valueOf("2025-05-12"));
+		
+		
+		//!!membership 데이터 관리 !!
+		//1. membership 전체삭제
+		mMapper.deleteAll();
+		//2. membership 데이터 단건 주입
+		mMapper.doSave(mDto01);
+		//3. membership 데이터 단건 조회
+		MembershipDTO mParam=new MembershipDTO();
+		mParam.setUserId("user02");
+		MembershipDTO mResult = mMapper.doSelectOne(mParam);
+		log.debug("mResult: {}", mResult);
+		
+		//!!FreeBoard 데이터 관리 !!
+		//1. FreeBoard 전체 삭제
+		fMapper.deleteAll();
+		//2. FreeBoard 단건 등록
+		fMapper.doSave(fDto01);
+		fbCode = fDto01.getFbCode();
+		log.debug("fbCode: {}", fbCode);
 
-		dto01 = new FreeBoardCommentDTO(fbCode, "user1", "내용1");
-		dto02 = new FreeBoardCommentDTO(fbCode, "user2", "내용2");
-		dto03 = new FreeBoardCommentDTO(fbCode, "user3", "내용3");
-
+		dto01 = new FreeBoardCommentDTO(fbCode, "user02", "내용1");
+		dto02 = new FreeBoardCommentDTO(fbCode, "user02", "내용2");
+		dto03 = new FreeBoardCommentDTO(fbCode, "user02", "내용3");
+		
 		search = new SearchDTO();
 	}
 
@@ -132,7 +153,7 @@ class FbCommentDaoTest {
 		log.debug("count:{}", count);
 	}
 
-	// @Disabled
+	//@Disabled
 	@Test
 	void doUpdate() throws SQLException {
 		log.debug("┌────────────────────────────┐");
@@ -174,7 +195,7 @@ class FbCommentDaoTest {
 
 	}
 
-	// @Disabled
+	//@Disabled
 	@Test
 	void doSelectOne() throws SQLException {
 		log.debug("┌────────────────────────────┐");
@@ -213,7 +234,7 @@ class FbCommentDaoTest {
 		log.debug("param:{}", param.getCommentedCode());
 	}
 
-	// @Disabled
+	//@Disabled
 	@Test
 	void doRetrieve() throws SQLException {
 		log.debug("┌────────────────────────────┐");
@@ -248,7 +269,7 @@ class FbCommentDaoTest {
 		}
 	}
 
-	// @Disabled
+	//@Disabled
 	@Test
 	void beans() {
 		assertNotNull(context);

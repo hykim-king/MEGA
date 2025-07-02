@@ -4,7 +4,7 @@
 
       <select id="doRetrieve" parameterType="SearchDTO" resultType="FreeBoardCommentDTO"  >
               
-     SELECT *                                                        
+    SELECT *                                                       
        FROM (                                                              
          SELECT tt3.RNUM AS no,                                            
                 tt3.commented_Code,                                               
@@ -28,7 +28,6 @@
          WHERE RNUM >= ( #{pageSize} * (#{pageNo} - 1 ) + 1 )
          ]]>                                                       
 )
-
    </select>
   
 
