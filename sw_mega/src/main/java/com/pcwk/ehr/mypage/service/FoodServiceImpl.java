@@ -24,32 +24,38 @@ public class FoodServiceImpl implements FoodService {
 	
 	@Override
 	public List<FoodDTO> doRetrieve(SearchDTO param) {
-		
-		return null;
+		return mapper.doRetrieve(param);
 	}
 
 	@Override
 	public int doDelete(FoodDTO param) {
-		// TODO Auto-generated method stub
-		return 0;
+		return mapper.doDelete(param);
 	}
 
 	@Override
 	public int doUpdate(FoodDTO param) {
-		// TODO Auto-generated method stub
-		return 0;
+		return mapper.doUpdate(param);
 	}
 
 	@Override
 	public FoodDTO doSelectOne(FoodDTO param) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		FoodDTO dbData = mapper.doSelectOne(param);
+		
+		double ratio = param.getGrams() / (double) dbData.getStGrams();
+
+		dbData.setGrams(param.getGrams()); // 사용자가 입력한 g
+		dbData.setTotalCal(Math.round(dbData.getCal() * ratio * 10) / 10.0);
+		dbData.setTotalCarb(Math.round(dbData.getCarb() * ratio * 10) / 10.0);
+		dbData.setTotalFat(Math.round(dbData.getFat() * ratio * 10) / 10.0);
+		dbData.setTotalProt(Math.round(dbData.getProt() * ratio * 10) / 10.0);
+
+		return dbData;
 	}
 
 	@Override
 	public int doSave(FoodDTO param) {
-		// TODO Auto-generated method stub
-		return 0;
+		return mapper.doSave(param);
 	}
 
 
