@@ -2,6 +2,9 @@ package com.pcwk.ehr.board.domain;
 
 import java.util.Date;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class FreeBoardDTO {
 	private int fbCode;//자유게시판 코드
 	private String userId;//사용자_ID
@@ -14,9 +17,8 @@ public class FreeBoardDTO {
 	//기본 생성자
 	public FreeBoardDTO() {}
 	
-	public FreeBoardDTO(int fbCode, String userId, String title, String content, int viewCount, Date cDt, Date upDt) {
+	public FreeBoardDTO(String userId, String title, String content, int viewCount, Date cDt, Date upDt) {
 		super();
-		this.fbCode = fbCode;
 		this.userId = userId;
 		this.title = title;
 		this.content = content;

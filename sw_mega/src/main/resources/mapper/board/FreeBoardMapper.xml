@@ -7,6 +7,9 @@
    
     <!-- 자유게시판 등록 -->
     <insert id="doSave" parameterType="FreeBoardDTO">
+     <selectKey keyProperty="fbCode" resultType="int" order="BEFORE">
+            SELECT FB_SEQ.NEXTVAL FROM dual
+               </selectKey>
         INSERT INTO FREE_BOARD (
             FB_CODE,
             USER_ID,
@@ -16,49 +19,45 @@
             C_DT,
             UP_DT
         ) VALUES (
-            FB_SEQ.NEXTVAL,
+            #{fbCode},
             #{userId},
             #{title},
             #{content},
-            #{view_count},
+            #{viewCount},
             SYSDATE,
             SYSDATE
         )
     </insert>
 
     <!-- 자유게시판 전체 조회 -->
-    <select id="doRetrieve" resultType="FreeBoardDTO">
- SELECT *
-FROM (
-    SELECT ROWNUM rnum, a.*
-    FROM (
-        SELECT
-            NO_CODE,
-            USER_ID,
-            TITLE,
-            CONTENT,
-            VIEW_COUNT,
-            C_DT,
-            UP_DT
-        FROM NOTICE
-        WHERE
-            (
-                ('10' = '10' AND TITLE LIKE '%공지%')
-                OR ('10' = '20' AND CONTENT LIKE '%공지%')
-                OR ('10' = '30' AND USER_ID LIKE '%공지%')
-                OR '10' = ''
-            )
-        ORDER BY NO_CODE DESC
-    ) a
-    <![CDATA[
-    WHERE ROWNUM <= (1 * 10)
-) 
-WHERE rnum > ((1 - 1) * 10)
+    <select id="doRetrieve" resultType="FreeBoardDTO" parameterType="SearchDTO">
+<![CDATA[
+			SELECT *
+			FROM (
+			    SELECT 
+			        ROW_NUMBER() OVER (ORDER BY FB_CODE DESC) AS rnum,
+			        FB_CODE,
+			        USER_ID,
+			        TITLE,
+			        CONTENT,
+			        VIEW_COUNT,
+			        C_DT,
+			        UP_DT
+			    FROM FREE_BOARD
+			    WHERE
+			        (
+			            (#{searchDiv, jdbcType=VARCHAR} = '10' AND TITLE LIKE '%' || #{searchWord, jdbcType=VARCHAR} || '%')
+			            OR (#{searchDiv, jdbcType=VARCHAR} = '20' AND CONTENT LIKE '%' || #{searchWord, jdbcType=VARCHAR} || '%')
+			            OR (#{searchDiv, jdbcType=VARCHAR} = '30' AND USER_ID LIKE '%' || #{searchWord, jdbcType=VARCHAR} || '%')
+			        )
+			)
+			WHERE rnum > (#{pageNo} - 1) * #{pageSize}
+			  AND rnum <= #{pageNo} * #{pageSize}
 ]]>
     </select>
 
     <!-- 자유게시판 단건 조회 -->
-    <select id="doSelectOne" parameterType="int" resultType="FreeBoardDTO">
+    <select id="doSelectOne" parameterType="FreeBoardDTO" resultType="FreeBoardDTO">
         SELECT
             FB_CODE,
             USER_ID,
@@ -70,6 +69,7 @@ WHERE rnum > ((1 - 1) * 10)
         FROM FREE_BOARD
         WHERE FB_CODE = #{fbCode}
     </select>
+    
 
     <!-- 자유게시판 수정 -->
     <update id="doUpdate" parameterType="FreeBoardDTO">
@@ -80,7 +80,17 @@ WHERE rnum > ((1 - 1) * 10)
             UP_DT = SYSDATE
         WHERE FB_CODE = #{fbCode}
     </update>
-
+    
+         <!-- 5. 전체 건수 -->
+    <select id="getCount" resultType="java.lang.Integer">
+        SELECT COUNT(*) FROM FREE_BOARD
+    </select>
+    
+            <!-- 7. 전체 삭제  -->
+    <delete id="deleteAll">
+        DELETE FROM NOTICE
+    </delete>
+    
     <!-- 자유게시판 삭제 -->
     <delete id="doDelete" parameterType="FreeBoardDTO">
         DELETE FROM FREE_BOARD

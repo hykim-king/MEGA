@@ -15,5 +15,16 @@ public interface ReportMapper extends WorkDiv<ReportDTO> {
 
 	ReportDTO doSelectOne(int reportCode);
 
+	/**
+	 * 전체삭제
+	 */
+	void deleteAll();
+	
+	/**
+	 * 등록 건수 세기
+	 * @return
+	 */
+	int getCount();
 
+	
 }
