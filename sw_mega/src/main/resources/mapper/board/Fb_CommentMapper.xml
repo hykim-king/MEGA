@@ -1,51 +1,93 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.pcwk.ehr.board.mapper.FbCommentMapper">
-     <!-- 댓글 등록 -->
-    <insert id="doSave" parameterType="com.pcwk.ehr.board.domain.FreeBoardCommentDTO">
-        INSERT INTO NO_COMMENTED (
+
+      <select id="doRetrieve" parameterType="SearchDTO" resultType="FreeBoardCommentDTO"  >
+              
+     SELECT *                                                        
+       FROM (                                                              
+         SELECT tt3.RNUM AS no,                                            
+                tt3.commented_Code,                                               
+                tt3.fb_code,                                                  
+                tt3.user_id,                                              
+                tt3.content,                                                 
+                tt3.c_Dt, 
+                tt3.up_Dt                                                                                                                  
+         FROM (                                                            
+             SELECT ROWNUM as RNUM,                                        
+                    tt2.*                                                  
+               FROM(                                                       
+                     SELECT t1.*                                           
+                      FROM FB_COMMENTED t1         
+                        where fb_code LIKE #{searchWord} ||'%'                                          
+                     ORDER BY t1.c_dt DESC                               
+             )tt2
+         <![CDATA[                                                          
+             WHERE ROWNUM <= ( #{pageSize} * (#{pageNo} - 1 ) + #{pageSize} )                                             
+         )tt3                                                              
+         WHERE RNUM >= ( #{pageSize} * (#{pageNo} - 1 ) + 1 )
+         ]]>                                                       
+)
+
+   </select>
+  
+
+    <!-- 단건 조회 -->
+    <select id="doSelectOne" resultType="String" parameterType="FreeBoardCommentDTO">
+    SELECT
+    COMMENTED_CODE,
+    FB_CODE,
+    USER_ID,
+    CONTENT,
+    C_DT,
+    UP_DT
+    FROM FB_COMMENTED
+    WHERE COMMENTED_CODE = #{commentedCode};
+    </select>
+
+    
+      <!-- 댓글 등록 -->
+    <insert id="doSave" parameterType="FreeBoardCommentDTO">
+        INSERT INTO FB_COMMENTED (
             COMMENTED_CODE,
-            NO_CODE,
+            FB_CODE,
             USER_ID,
             CONTENT,
             C_DT,
             UP_DT
         ) VALUES (
-            NO_CO_SEQ.NEXTVAL,
-            #{noCode},
+            FB_CO_SEQ.NEXTVAL,
+            #{fbCode},
             #{userId},
             #{content},
             SYSDATE,
             SYSDATE
         )
     </insert>
-
-    <!-- 단건 조회 -->
-    <select id="doSelectOne" resultType="com.pcwk.ehr.board.domain.FreeBoardCommentDTO" parameterType="int">
-    SELECT
-    COMMENTED_CODE,
-    NO_CODE,
-    USER_ID,
-    CONTENT,
-    C_DT,
-    UP_DT
-FROM NO_COMMENTED
-WHERE COMMENTED_CODE = #{commentedCode};
-    </select>
-
+    
     <!-- 수정 -->
-    <update id="doUpdate" parameterType="com.pcwk.ehr.board.domain.FreeBoardCommentDTO">
-        UPDATE NO_COMMENTED
+    <update id="doUpdate" parameterType="FreeBoardCommentDTO">
+        UPDATE FB_COMMENTED
         SET 
         CONTENT = #{content},
             UP_DT = SYSDATE
         WHERE COMMENTED_CODE = #{commentedCode}
     </update>
 
+
     <!-- 삭제 -->
-    <delete id="doDelete" parameterType="com.pcwk.ehr.board.domain.FreeBoardCommentDTO">
-        DELETE FROM NO_COMMENTED
+    <delete id="doDelete" parameterType="FreeBoardCommentDTO">
+        DELETE FROM FB_COMMENTED
         WHERE COMMENTED_CODE = #{commentedCode}
     </delete>
-
+    
+      <!-- 전체 삭제 -->
+      <delete id="deleteAll">
+        DELETE FROM FB_COMMENTED
+    </delete>
+    
+    <!-- 등록 건수 세기 -->
+      <select id="getCount" resultType="java.lang.Integer">
+        SELECT COUNT(*) AS totalCnt FROM FB_COMMENTED
+    </select>
 </mapper>

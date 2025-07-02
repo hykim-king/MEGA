@@ -14,14 +14,11 @@ public class FreeBoardCommentDTO {
 	public FreeBoardCommentDTO() {
 	}
 
-	public FreeBoardCommentDTO(int commentedCode, int fbCode, String userId, String content, Date cDt, Date upDt) {
+	public FreeBoardCommentDTO(int fbCode, String userId, String content) {
 		super();
-		this.commentedCode = commentedCode;
 		this.fbCode = fbCode;
 		this.userId = userId;
 		this.content = content;
-		this.cDt = cDt;
-		this.upDt = upDt;
 	}
 
 	public int getCommentedCode() {
