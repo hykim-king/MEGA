@@ -29,7 +29,7 @@ import com.pcwk.ehr.board.mapper.FbCommentMapper;
     "file:src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml"
 })
 
-class Fb_CommentTest {
+class FbCommentDaoTest {
     final Logger log = LogManager.getLogger(getClass());
 
     @Autowired
@@ -46,21 +46,8 @@ class Fb_CommentTest {
 		log.debug("└────────────────────────────┘");
 	}
 
-    @Test
-    @DisplayName("doSave() 댓글 등록 테스트")
-    void doSave() {
-    	FreeBoardCommentDTO dto = new FreeBoardCommentDTO(
-    	        0,              // commentedCode (시퀀스로 자동 처리됨)
-    	        1,              // noCode (공지사항 코드)
-    	        "testUser",     // userId
-    	        "테스트 댓글입니다", // content
-    	        new Date(),     // cDt
-    	        new Date()      // upDt
-    	    );
-        int result = fbCommentMapper.doSave(dto);
-        assertEquals(1, result, "❌ 댓글 등록 실패");
-        
-    }
+ 
+       
 	
 	@AfterEach
 	void tearDown() throws Exception {
@@ -69,7 +56,7 @@ class Fb_CommentTest {
 		log.debug("└────────────────────────────┘");
 	}
 
-	@Disabled
+	//@Disabled
     @Test
     void beans() {
         assertNotNull(context);

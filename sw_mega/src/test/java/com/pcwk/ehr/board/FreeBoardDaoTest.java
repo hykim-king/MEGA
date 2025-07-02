@@ -17,7 +17,7 @@ import com.pcwk.ehr.board.mapper.FreeBoardMapper;
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(locations = { "file:src/main/webapp/WEB-INF/spring/root-context.xml",
 		"file:src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml" })
-class FreeBoardTest {
+class FreeBoardDaoTest {
 
 	Logger log = LogManager.getLogger(getClass());
 

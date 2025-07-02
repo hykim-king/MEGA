@@ -47,7 +47,7 @@
     ) VALUES (
         ED_SEQ.NEXTVAL,
         #{userId, jdbcType=VARCHAR},
-        #{eCode, jdbcType=VARCHAR},
+        #{eCode, jdbcType=INTEGER},
         #{cardioWeight, jdbcType=INTEGER},
         #{strenthWeight, jdbcType=INTEGER},
         #{duration, jdbcType=INTEGER},
@@ -60,18 +60,22 @@
 
 <!-- 다건등록 -->
 <insert id="saveAll">
-    INSERT INTO exercise_diary
-    SELECT ED_SEQ.NEXTVAL AS ed_code,
-           'yangsh' AS userId,
-           '1001' AS eCode,
-           54 AS cardioWeight,
-           32 AS strenthWeight,
-           2 AS duration,
-           4 AS setCount,
-           10 AS repsPerSet,
-           TO_DATE(DECODE(MOD(LEVEL, 2), 0, '2025-05-26', '2025-06-22'), 'YYYY-MM-DD') AS regDt
-    FROM dual
-    <![CDATA[ CONNECT BY LEVEL <= 502 ]]>
+    INSERT INTO exercise_diary (
+        ed_code, user_id, e_code, cardio_weight, strenth_weight, duration, set_count, reps_per_set, reg_dt
+    )
+    SELECT
+        ED_SEQ.NEXTVAL,
+        'user01',
+        (SELECT e_code FROM exercise WHERE ROWNUM = 1), 
+        54,
+        32,
+        2,
+        4,
+        10,
+        TO_DATE(DECODE(MOD(LEVEL, 2), 0, '2025-05-26', '2025-06-22'), 'YYYY-MM-DD')
+    FROM dual  
+    <![CDATA[ CONNECT BY LEVEL <= 502  ]]>
+    
 </insert>
 
 

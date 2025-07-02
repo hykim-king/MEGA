@@ -207,7 +207,7 @@ class ExerciseDaoTest {
 		}
 
 		// 항목 선택
-		String selectedCode = list.get(0).geteCode();
+		int selectedCode = list.get(0).geteCode();
 		log.debug(selectedCode);
 
 		// 4.
