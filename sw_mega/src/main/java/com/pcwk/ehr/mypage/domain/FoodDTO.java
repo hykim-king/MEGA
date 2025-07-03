@@ -47,6 +47,28 @@ public class FoodDTO {
 	
 
 	/**
+	 * @param foodName
+	 * @param stGrams
+	 * @param cal
+	 * @param carb
+	 * @param fat
+	 * @param prot
+	 * @param na
+	 * @param grams
+	 */
+	public FoodDTO(String foodName, int stGrams, int cal, int carb, int fat, int prot, int na, int grams) {
+		super();
+		this.foodName = foodName;
+		this.stGrams = stGrams;
+		this.cal = cal;
+		this.carb = carb;
+		this.fat = fat;
+		this.prot = prot;
+		this.na = na;
+		this.grams = grams;
+	}
+
+	/**
 	 * @return the totalNa
 	 */
 	public int getTotalNa() {

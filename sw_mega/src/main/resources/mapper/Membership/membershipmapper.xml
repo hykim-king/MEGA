@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="mapper.Membership.membershipmapper">
+<mapper namespace="com.pcwk.ehr.mapper.MembershipMapper">
 
     <!-- 1. 단건 조회 -->
     <select id="doSelectOne" parameterType="MembershipDTO" resultType="MembershipDTO">
@@ -75,7 +75,7 @@
                NULL                    AS profileImage,
                SYSDATE
           FROM dual
-        CONNECT BY LEVEL <= 200
+         <![CDATA[CONNECT BY LEVEL <= 200]]>
     </insert>
 
     <!-- 7. 전체 삭제 -->
