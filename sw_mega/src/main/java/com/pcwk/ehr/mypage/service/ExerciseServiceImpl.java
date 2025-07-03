@@ -8,8 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.pcwk.ehr.cmn.SearchDTO;
+import com.pcwk.ehr.mapper.ExerciseMapper;
 import com.pcwk.ehr.mypage.domain.ExerciseDTO;
-import com.pcwk.ehr.mypage.mapper.ExerciseMapper;
+
 
 @Service
 public class ExerciseServiceImpl implements ExerciseService {

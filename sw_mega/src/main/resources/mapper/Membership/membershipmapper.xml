@@ -2,8 +2,12 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
+<<<<<<< HEAD
 <mapper
 	namespace="com.pcwk.ehr.membership.mapper.MembershipMapper">
+=======
+<mapper namespace="com.pcwk.ehr.mapper.MembershipMapper">
+>>>>>>> 97eace56f4f86d46a0dc66a99848f42c9326e7b8
 
 
 	<!-- 1. 단건 조회 -->

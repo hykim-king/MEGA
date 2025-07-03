@@ -1,4 +1,4 @@
-package com.pcwk.ehr.board.mapper;
+package com.pcwk.ehr.mapper;
 
 import org.apache.ibatis.annotations.Mapper;
 

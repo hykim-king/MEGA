@@ -8,8 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.pcwk.ehr.cmn.SearchDTO;
+import com.pcwk.ehr.mapper.FoodMapper;
 import com.pcwk.ehr.mypage.domain.FoodDTO;
-import com.pcwk.ehr.mypage.mapper.FoodMapper;
 
 @Service
 public class FoodServiceImpl implements FoodService {

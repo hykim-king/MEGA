@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.pcwk.ehr.mypage.mapper.FoodDiaryMapper">
+<mapper namespace="com.pcwk.ehr.mapper.FoodDiaryMapper">
 
 <!-- 사용자Id, 날짜 기준으로 전체 조회 -->
 <select id="doRetrieve" parameterType="FoodDiaryDTO" resultType="FoodDiaryOutDTO">
