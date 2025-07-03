@@ -1,13 +1,14 @@
-package com.pcwk.ehr.board.mapper;
+package com.pcwk.ehr.mapper;
 
 import org.apache.ibatis.annotations.Mapper;
 
-import com.pcwk.ehr.board.domain.FreeBoardDTO;
 import com.pcwk.ehr.board.domain.NoticeDTO;
 import com.pcwk.ehr.cmn.WorkDiv;
 
 @Mapper
-public interface FreeBoardMapper extends WorkDiv<FreeBoardDTO>{
+public interface NoticeMapper extends WorkDiv<NoticeDTO> {
+	
+	
 	/**
 	 * 전체삭제
 	 */
@@ -25,6 +26,5 @@ public interface FreeBoardMapper extends WorkDiv<FreeBoardDTO>{
 	 * @param param
 	 * @return 1(성공)/0(실패)
 	 */
-	int viewCount(FreeBoardDTO param);
-
+	int viewCount(NoticeDTO param);
 }

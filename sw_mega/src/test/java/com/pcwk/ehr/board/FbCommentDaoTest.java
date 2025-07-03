@@ -4,7 +4,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import java.sql.SQLException;
-import java.util.Date;
 import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
@@ -12,7 +11,6 @@ import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,15 +20,11 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import com.pcwk.ehr.board.domain.FreeBoardCommentDTO;
 import com.pcwk.ehr.board.domain.FreeBoardDTO;
-import com.pcwk.ehr.board.domain.FreeBoardCommentDTO;
-import com.pcwk.ehr.board.domain.NoticeDTO;
-import com.pcwk.ehr.board.mapper.FbCommentMapper;
-import com.pcwk.ehr.board.mapper.FreeBoardMapper;
-import com.pcwk.ehr.board.mapper.NoCommentMapper;
-import com.pcwk.ehr.board.mapper.NoticeMapper;
 import com.pcwk.ehr.cmn.SearchDTO;
+import com.pcwk.ehr.mapper.FbCommentMapper;
+import com.pcwk.ehr.mapper.FreeBoardMapper;
+import com.pcwk.ehr.mapper.MembershipMapper;
 import com.pcwk.ehr.membership.domain.MembershipDTO;
-import com.pcwk.ehr.membership.mapper.MembershipMapper;
 
 
 
@@ -153,7 +147,7 @@ class FbCommentDaoTest {
 		log.debug("count:{}", count);
 	}
 
-	//@Disabled
+	@Disabled
 	@Test
 	void doUpdate() throws SQLException {
 		log.debug("┌────────────────────────────┐");
@@ -195,7 +189,7 @@ class FbCommentDaoTest {
 
 	}
 
-	//@Disabled
+	@Disabled
 	@Test
 	void doSelectOne() throws SQLException {
 		log.debug("┌────────────────────────────┐");
@@ -234,7 +228,7 @@ class FbCommentDaoTest {
 		log.debug("param:{}", param.getCommentedCode());
 	}
 
-	//@Disabled
+	@Disabled
 	@Test
 	void doRetrieve() throws SQLException {
 		log.debug("┌────────────────────────────┐");
