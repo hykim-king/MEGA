@@ -75,7 +75,7 @@
                NULL                    AS profileImage,
                SYSDATE
           FROM dual
-        CONNECT BY LEVEL <= 200
+       <![CDATA[ CONNECT BY LEVEL <= 200]]>
     </insert>
 
     <!-- 7. 전체 삭제 -->
