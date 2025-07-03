@@ -7,11 +7,12 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.pcwk.ehr.cmn.SearchDTO;
+
+import com.pcwk.ehr.mapper.FoodDiaryMapper;
 import com.pcwk.ehr.mypage.domain.FoodDiaryDTO;
 import com.pcwk.ehr.mypage.domain.FoodDiaryOutDTO;
 import com.pcwk.ehr.mypage.domain.NutritionSummaryDTO;
-import com.pcwk.ehr.mypage.mapper.FoodDiaryMapper;
+
 
 @Service
 public class FoodDiaryServiceImpl implements FoodDiaryService {
