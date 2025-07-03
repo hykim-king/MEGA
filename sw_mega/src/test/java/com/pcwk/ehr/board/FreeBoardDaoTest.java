@@ -19,10 +19,10 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import com.pcwk.ehr.board.domain.FreeBoardDTO;
-import com.pcwk.ehr.board.mapper.FreeBoardMapper;
 import com.pcwk.ehr.cmn.SearchDTO;
+import com.pcwk.ehr.mapper.FreeBoardMapper;
+import com.pcwk.ehr.mapper.MembershipMapper;
 import com.pcwk.ehr.membership.domain.MembershipDTO;
-import com.pcwk.ehr.membership.mapper.MembershipMapper;
 
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(locations = { "file:src/main/webapp/WEB-INF/spring/root-context.xml",

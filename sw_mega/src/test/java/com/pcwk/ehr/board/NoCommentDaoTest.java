@@ -4,15 +4,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import java.sql.SQLException;
-import java.util.Date;
 import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,11 +19,11 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import com.pcwk.ehr.board.domain.NoticeCommentDTO;
 import com.pcwk.ehr.board.domain.NoticeDTO;
-import com.pcwk.ehr.board.mapper.NoCommentMapper;
-import com.pcwk.ehr.board.mapper.NoticeMapper;
 import com.pcwk.ehr.cmn.SearchDTO;
+import com.pcwk.ehr.mapper.MembershipMapper;
+import com.pcwk.ehr.mapper.NoCommentMapper;
+import com.pcwk.ehr.mapper.NoticeMapper;
 import com.pcwk.ehr.membership.domain.MembershipDTO;
-import com.pcwk.ehr.membership.mapper.MembershipMapper;
 
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(locations = { "file:src/main/webapp/WEB-INF/spring/root-context.xml",

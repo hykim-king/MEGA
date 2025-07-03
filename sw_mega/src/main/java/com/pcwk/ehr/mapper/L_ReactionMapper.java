@@ -1,8 +1,11 @@
-package com.pcwk.ehr.board.mapper;
+package com.pcwk.ehr.mapper;
+
+import org.apache.ibatis.annotations.Mapper;
 
 import com.pcwk.ehr.board.domain.L_ReactionDTO;
 import com.pcwk.ehr.cmn.WorkDiv;
 
+@Mapper
 public interface L_ReactionMapper extends WorkDiv<L_ReactionDTO> {
 	
 	/**

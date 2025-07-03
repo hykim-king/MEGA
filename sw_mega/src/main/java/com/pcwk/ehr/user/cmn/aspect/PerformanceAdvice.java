@@ -13,9 +13,7 @@
  */
 package com.pcwk.ehr.user.cmn.aspect;
 
-import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
-import org.aspectj.lang.Signature;
 
 import com.pcwk.ehr.cmn.PLog;
 

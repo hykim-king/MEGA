@@ -8,8 +8,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.pcwk.ehr.cmn.SearchDTO;
+import com.pcwk.ehr.mapper.MembershipMapper;
 import com.pcwk.ehr.membership.domain.MembershipDTO;
-import com.pcwk.ehr.membership.mapper.MembershipMapper;
 
 
 @Service                // ① Service 빈으로 등록

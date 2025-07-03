@@ -11,7 +11,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,11 +19,10 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import com.pcwk.ehr.board.domain.L_ReactionDTO;
-import com.pcwk.ehr.board.mapper.L_ReactionMapper;
 import com.pcwk.ehr.cmn.SearchDTO;
+import com.pcwk.ehr.mapper.L_ReactionMapper;
+import com.pcwk.ehr.mapper.MembershipMapper;
 import com.pcwk.ehr.membership.domain.MembershipDTO;
-import com.pcwk.ehr.membership.mapper.MembershipMapper;
-import com.pcwk.ehr.mypage.domain.ExerciseDTO;
 
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(locations = { "file:src/main/webapp/WEB-INF/spring/root-context.xml",
