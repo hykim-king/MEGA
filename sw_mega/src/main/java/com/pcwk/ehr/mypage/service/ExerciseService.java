@@ -5,6 +5,4 @@ import com.pcwk.ehr.mypage.domain.ExerciseDTO;
 
 public interface ExerciseService extends WorkDiv<ExerciseDTO>{
 	
-	
-
 }
