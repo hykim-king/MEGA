@@ -18,15 +18,17 @@ public class FoodDiaryOutDTO {
 	private int na; //나트륨
 	
 	//service 단에서 섭취그람 적용한 영양정보 값
-	private double totalCal;   // 총 섭취 칼로리
-	private double totalCarb;  // 총 섭취 탄수화물
-	private double totalFat;   // 총 섭취 지방
-	private double totalProt;  // 총 섭취 단백질
-	private double totalNa;    // 총 섭취 나트륨
+	private int totalCal;   // 총 섭취 칼로리
+	private int totalCarb;  // 총 섭취 탄수화물
+	private int totalFat;   // 총 섭취 지방
+	private int totalProt;  // 총 섭취 단백질
+	private int totalNa;    // 총 섭취 나트륨
 	
 	public FoodDiaryOutDTO() {
 		// TODO Auto-generated constructor stub
 	}
+	
+	
 
 	/**
 	 * @param fdCode
@@ -58,76 +60,48 @@ public class FoodDiaryOutDTO {
 		this.prot = prot;
 		this.na = na;
 	}
-	
-	
+
+
 
 	/**
-	 * @return the totalCal
+	 * @param fdCode
+	 * @param userId
+	 * @param foodName
+	 * @param grams
+	 * @param mealType
+	 * @param regDt
+	 * @param stGrams
+	 * @param cal
+	 * @param carb
+	 * @param fat
+	 * @param prot
+	 * @param na
+	 * @param totalCal
+	 * @param totalCarb
+	 * @param totalFat
+	 * @param totalProt
+	 * @param totalNa
 	 */
-	public double getTotalCal() {
-		return totalCal;
-	}
-
-	/**
-	 * @param totalCal the totalCal to set
-	 */
-	public void setTotalCal(double totalCal) {
+	public FoodDiaryOutDTO(int fdCode, String userId, String foodName, int grams, String mealType, String regDt,
+			int stGrams, int cal, int carb, int fat, int prot, int na, int totalCal, int totalCarb, int totalFat,
+			int totalProt, int totalNa) {
+		super();
+		this.fdCode = fdCode;
+		this.userId = userId;
+		this.foodName = foodName;
+		this.grams = grams;
+		this.mealType = mealType;
+		this.regDt = regDt;
+		this.stGrams = stGrams;
+		this.cal = cal;
+		this.carb = carb;
+		this.fat = fat;
+		this.prot = prot;
+		this.na = na;
 		this.totalCal = totalCal;
-	}
-
-	/**
-	 * @return the totalCarb
-	 */
-	public double getTotalCarb() {
-		return totalCarb;
-	}
-
-	/**
-	 * @param totalCarb the totalCarb to set
-	 */
-	public void setTotalCarb(double totalCarb) {
 		this.totalCarb = totalCarb;
-	}
-
-	/**
-	 * @return the totalFat
-	 */
-	public double getTotalFat() {
-		return totalFat;
-	}
-
-	/**
-	 * @param totalFat the totalFat to set
-	 */
-	public void setTotalFat(double totalFat) {
 		this.totalFat = totalFat;
-	}
-
-	/**
-	 * @return the totalProt
-	 */
-	public double getTotalProt() {
-		return totalProt;
-	}
-
-	/**
-	 * @param totalProt the totalProt to set
-	 */
-	public void setTotalProt(double totalProt) {
 		this.totalProt = totalProt;
-	}
-
-	/**
-	 * @return the totalNa
-	 */
-	public double getTotalNa() {
-		return totalNa;
-	}
-
-	/**
-	 * @param totalNa the totalNa to set
-	 */
-	public void setTotalNa(double totalNa) {
 		this.totalNa = totalNa;
 	}
 
@@ -299,6 +273,76 @@ public class FoodDiaryOutDTO {
 		this.na = na;
 	}
 
+	/**
+	 * @return the totalCal
+	 */
+	public int getTotalCal() {
+		return totalCal;
+	}
+
+	/**
+	 * @param totalCal the totalCal to set
+	 */
+	public void setTotalCal(int totalCal) {
+		this.totalCal = totalCal;
+	}
+
+	/**
+	 * @return the totalCarb
+	 */
+	public int getTotalCarb() {
+		return totalCarb;
+	}
+
+	/**
+	 * @param totalCarb the totalCarb to set
+	 */
+	public void setTotalCarb(int totalCarb) {
+		this.totalCarb = totalCarb;
+	}
+
+	/**
+	 * @return the totalFat
+	 */
+	public int getTotalFat() {
+		return totalFat;
+	}
+
+	/**
+	 * @param totalFat the totalFat to set
+	 */
+	public void setTotalFat(int totalFat) {
+		this.totalFat = totalFat;
+	}
+
+	/**
+	 * @return the totalProt
+	 */
+	public int getTotalProt() {
+		return totalProt;
+	}
+
+	/**
+	 * @param totalProt the totalProt to set
+	 */
+	public void setTotalProt(int totalProt) {
+		this.totalProt = totalProt;
+	}
+
+	/**
+	 * @return the totalNa
+	 */
+	public int getTotalNa() {
+		return totalNa;
+	}
+
+	/**
+	 * @param totalNa the totalNa to set
+	 */
+	public void setTotalNa(int totalNa) {
+		this.totalNa = totalNa;
+	}
+
 	@Override
 	public String toString() {
 		return "FoodDiaryOutDTO [fdCode=" + fdCode + ", userId=" + userId + ", foodName=" + foodName + ", grams="
@@ -307,5 +351,7 @@ public class FoodDiaryOutDTO {
 				+ ", totalCarb=" + totalCarb + ", totalFat=" + totalFat + ", totalProt=" + totalProt + ", totalNa="
 				+ totalNa + "]";
 	}
+
+
 
 }

@@ -40,17 +40,17 @@ public class FoodDiaryServiceImpl implements FoodDiaryService {
 
 	@Override
 	public List<FoodDiaryOutDTO> doRetrieve(FoodDiaryDTO param) {
-		
-	    List<FoodDiaryOutDTO> rawList = mapper.doRetrieve(param); // JOIN된 기본 데이터
+	    
+	    List<FoodDiaryOutDTO> rawList = (List<FoodDiaryOutDTO>) mapper.doRetrieve(param); // JOIN된 기본 데이터
 
 	    for (FoodDiaryOutDTO dto : rawList) {
 	        double ratio = dto.getGrams() / (double) dto.getStGrams();
 
-	        dto.setTotalCal(Math.round(dto.getCal() * ratio * 10) / 10.0);
-	        dto.setTotalCarb(Math.round(dto.getCarb() * ratio * 10) / 10.0);
-	        dto.setTotalFat(Math.round(dto.getFat() * ratio * 10) / 10.0);
-	        dto.setTotalProt(Math.round(dto.getProt() * ratio * 10) / 10.0);
-	        dto.setTotalNa(Math.round(dto.getNa() * ratio * 10) / 10.0);
+	        dto.setTotalCal((int) Math.round(dto.getCal() * ratio));
+	        dto.setTotalCarb((int) Math.round(dto.getCarb() * ratio));
+	        dto.setTotalFat((int) Math.round(dto.getFat() * ratio));
+	        dto.setTotalProt((int) Math.round(dto.getProt() * ratio));
+	        dto.setTotalNa((int) Math.round(dto.getNa() * ratio));
 	    }
 
 	    return rawList;
@@ -58,32 +58,28 @@ public class FoodDiaryServiceImpl implements FoodDiaryService {
 	
 	@Override
 	public NutritionSummaryDTO getDailySummary(FoodDiaryDTO param) {
-	    List<FoodDiaryOutDTO> list = mapper.doRetrieve(param);
+		
+		// 이미 계산된 totalXXX가 있는 리스트를 가져옴
+	    List<FoodDiaryOutDTO> list = (List<FoodDiaryOutDTO>) this.doRetrieve(param);
 
-	    double cal = 0;
-	    double carb = 0;
-	    double fat = 0;
-	    double prot = 0;
-	    double na = 0;
+	    int cal = 0, carb = 0, fat = 0, prot = 0, na = 0;
 
 	    for (FoodDiaryOutDTO dto : list) {
-	        double ratio = dto.getGrams() / (double) dto.getStGrams();
-
-	        cal += dto.getCal() * ratio;
-	        carb += dto.getCarb() * ratio;
-	        fat += dto.getFat() * ratio;
-	        prot += dto.getProt() * ratio;
-	        na += dto.getNa() * ratio;
+	        cal += dto.getTotalCal();
+	        carb += dto.getTotalCarb();
+	        fat += dto.getTotalFat();
+	        prot += dto.getTotalProt();
+	        na += dto.getTotalNa();
 	    }
 
 	    NutritionSummaryDTO summary = new NutritionSummaryDTO();
 	    summary.setUserId(param.getUserId());
 	    summary.setRegDt(param.getRegDt());
-	    summary.setTotalCal(Math.round(cal * 10) / 10.0);
-	    summary.setTotalCarb(Math.round(carb * 10) / 10.0);
-	    summary.setTotalFat(Math.round(fat * 10) / 10.0);
-	    summary.setTotalProt(Math.round(prot * 10) / 10.0);
-	    summary.setTotalNa(Math.round(na * 10) / 10.0);
+	    summary.setTotalCal(cal);
+	    summary.setTotalCarb(carb);
+	    summary.setTotalFat(fat);
+	    summary.setTotalProt(prot);
+	    summary.setTotalNa(na);
 
 	    return summary;
 	}
