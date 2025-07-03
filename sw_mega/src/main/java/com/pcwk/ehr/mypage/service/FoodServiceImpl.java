@@ -37,20 +37,25 @@ public class FoodServiceImpl implements FoodService {
 		return mapper.doUpdate(param);
 	}
 
-	@Override
+	@Override //파라미터 값  : 음식명, 섭취 그람
 	public FoodDTO doSelectOne(FoodDTO param) {
 		
 		FoodDTO dbData = mapper.doSelectOne(param);
-		
-		double ratio = param.getGrams() / (double) dbData.getStGrams();
 
-		dbData.setGrams(param.getGrams()); // 사용자가 입력한 g
-		dbData.setTotalCal(Math.round(dbData.getCal() * ratio * 10) / 10.0);
-		dbData.setTotalCarb(Math.round(dbData.getCarb() * ratio * 10) / 10.0);
-		dbData.setTotalFat(Math.round(dbData.getFat() * ratio * 10) / 10.0);
-		dbData.setTotalProt(Math.round(dbData.getProt() * ratio * 10) / 10.0);
+	    // 소수점 허용하여 정확한 비율 계산
+	    double ratio = param.getGrams() / (double) dbData.getStGrams();
 
-		return dbData;
+	    // 입력한 그람 수 반영
+	    dbData.setGrams(param.getGrams());
+
+	    // 각 영양소를 정수형으로 계산 (소수점 반올림 후 int로 저장)
+	    dbData.setTotalCal((int) Math.round(dbData.getCal() * ratio));
+	    dbData.setTotalCarb((int) Math.round(dbData.getCarb() * ratio));
+	    dbData.setTotalFat((int) Math.round(dbData.getFat() * ratio));
+	    dbData.setTotalProt((int) Math.round(dbData.getProt() * ratio));
+	    dbData.setTotalNa((int) Math.round(dbData.getNa() * ratio)); 
+
+	    return dbData;
 	}
 
 	@Override
