@@ -17,6 +17,8 @@ public class ExerciseDiaryOutDTO {
 	private int weight; //기준체중
 	private int calBurn; //소모칼로리
 	
+	private int totalCalories; // 계산된 값
+	
 	public ExerciseDiaryOutDTO() {
 		// TODO Auto-generated constructor stub
 	}
@@ -55,6 +57,22 @@ public class ExerciseDiaryOutDTO {
 		this.region = region;
 		this.weight = weight;
 		this.calBurn = calBurn;
+	}
+
+	
+	
+	/**
+	 * @return the totalCalories
+	 */
+	public double getTotalCalories() {
+		return totalCalories;
+	}
+
+	/**
+	 * @param totalCalories the totalCalories to set
+	 */
+	public void setTotalCalories(int totalCalories) {
+		this.totalCalories = totalCalories;
 	}
 
 	/**
@@ -259,7 +277,9 @@ public class ExerciseDiaryOutDTO {
 				+ cardioWeight + ", strenthWeight=" + strenthWeight + ", duration=" + duration + ", setCount="
 				+ setCount + ", repsPerSet=" + repsPerSet + ", regDt=" + regDt + ", exerciseName=" + exerciseName
 				+ ", exerciseType=" + exerciseType + ", region=" + region + ", weight=" + weight + ", calBurn="
-				+ calBurn + "]";
+				+ calBurn + ", totalCalories=" + totalCalories + "]";
 	}
+
+	
 	
 }
