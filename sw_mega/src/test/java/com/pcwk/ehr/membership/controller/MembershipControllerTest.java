@@ -91,7 +91,7 @@ class MembershipControllerTest {
         String expectedMsg = java.net.URLEncoder.encode("회원가입 성공", "UTF-8");
         String expectedUrl = "/membership/doSaveView.do?success=true&msg=" + expectedMsg;
 
-        //
+        
         
         mockMvc.perform(post("/membership/doSave.do")
                 .contentType(MediaType.APPLICATION_FORM_URLENCODED)
