@@ -4,6 +4,7 @@
 
 <mapper namespace="com.pcwk.ehr.mapper.MembershipMapper">
 
+
     <!-- 1. 단건 조회 -->
     <select id="doSelectOne" parameterType="MembershipDTO" resultType="MembershipDTO">
         SELECT user_id,

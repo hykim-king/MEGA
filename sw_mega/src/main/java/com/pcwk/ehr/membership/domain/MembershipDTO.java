@@ -1,6 +1,8 @@
 package com.pcwk.ehr.membership.domain;   // 소문자 dto
 
 import java.util.Date;
+
+
 import org.springframework.format.annotation.DateTimeFormat; 
 
 public class MembershipDTO {
@@ -79,6 +81,7 @@ public class MembershipDTO {
 	}
 
 	public void setEmailAuth(String emailAuth) {
+	
 		this.emailAuth = emailAuth;
 	}
 

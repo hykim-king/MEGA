@@ -2,6 +2,7 @@ package com.pcwk.ehr.membership.service;
 
 import java.sql.SQLException;
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.pcwk.ehr.cmn.SearchDTO;
 import com.pcwk.ehr.mapper.MembershipMapper;
 import com.pcwk.ehr.membership.domain.MembershipDTO;
+
 
 
 @Service                // ① Service 빈으로 등록
@@ -76,6 +78,8 @@ public class MembershipServiceImpl implements MembershipService {
     }
     
 
+    
+    
     
 //    /*───────────────────────────────────────────*/
 //    /* 8. 등급 업그레이드                                                           */
