@@ -20,12 +20,28 @@ public class ExerciseDiaryServiceImpl implements ExerciseDiaryService {
 	
 	@Autowired
 	ExerciseDiaryMapper mapper;
+	
+	@Override
+	public int doDelete(ExerciseDiaryDTO param) {
+		return mapper.doDelete(param);
+	}
+	
+	@Override
+	public int doUpdate(ExerciseDiaryDTO param) {
+		return mapper.doUpdate(param);
+	}
+	
+	@Override
+	public int doSave(ExerciseDiaryDTO param) {
+		return mapper.doSave(param);
+	}
 
 	/**
 	 * 사용자가 입력한 값을 Exercise 테이블에서 가져온 기준에 적용하여 총 소모 칼로리 계산하여 출력
 	 */
 	@Override
 	public List<ExerciseDiaryOutDTO> doRetrieve(ExerciseDiaryDTO param) {
+		
 	    List<ExerciseDiaryOutDTO> list = (List<ExerciseDiaryOutDTO>) mapper.doRetrieve(param);
 
 	    for (ExerciseDiaryOutDTO dto : list) {
@@ -46,20 +62,6 @@ public class ExerciseDiaryServiceImpl implements ExerciseDiaryService {
 	    return list;
 	}
 
-	@Override
-	public int doDelete(ExerciseDiaryDTO param) {
-		return mapper.doDelete(param);
-	}
-
-	@Override
-	public int doUpdate(ExerciseDiaryDTO param) {
-		return mapper.doUpdate(param);
-	}
-
-	@Override
-	public int doSave(ExerciseDiaryDTO param) {
-		return mapper.doSave(param);
-	}
 	
 	/**
 	 * 목록조회된  전체 값의 총 소모 칼로리 및 운동시간 출력 
