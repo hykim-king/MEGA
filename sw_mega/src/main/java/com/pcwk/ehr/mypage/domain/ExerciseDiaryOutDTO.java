@@ -17,6 +17,7 @@ public class ExerciseDiaryOutDTO {
 	private int weight; //기준체중
 	private int calBurn; //소모칼로리
 	
+	//service 요구되는 값 
 	private int totalCalories; // 계산된 값
 	
 	public ExerciseDiaryOutDTO() {

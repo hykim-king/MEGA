@@ -35,6 +35,9 @@ public class ExerciseServiceImpl implements ExerciseService {
 		return mapper.doUpdate(param);
 	}
 
+	/**
+	 * 사용자가 입력한 값을 기준 데이터에 적용하여 소모 칼로리 계산하여 출력 
+	 */
 	@Override
 	public ExerciseDTO doSelectOne(ExerciseDTO param) {
 	    

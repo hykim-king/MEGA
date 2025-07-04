@@ -36,7 +36,11 @@ public class FoodServiceImpl implements FoodService {
 	public int doUpdate(FoodDTO param) {
 		return mapper.doUpdate(param);
 	}
-
+	
+	
+	/**
+	 * 사용자가 입력한 값을 기준 데이터에 적용하여 칼로리 및 영양정보 계산하여 출력
+	 */
 	@Override //파라미터 값  : 음식명, 섭취 그람
 	public FoodDTO doSelectOne(FoodDTO param) {
 		

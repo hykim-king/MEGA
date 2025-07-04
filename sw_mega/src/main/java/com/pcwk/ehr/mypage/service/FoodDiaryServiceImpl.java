@@ -38,6 +38,10 @@ public class FoodDiaryServiceImpl implements FoodDiaryService {
 		return mapper.doSave(param);
 	}
 
+	
+	/**
+	 * 사용자가 입력한 값을 Food 테이블에서 가져온 기준에 적용하여 총 소모 칼로리 계산하여 출력
+	 */
 	@Override
 	public List<FoodDiaryOutDTO> doRetrieve(FoodDiaryDTO param) {
 	    
@@ -56,6 +60,10 @@ public class FoodDiaryServiceImpl implements FoodDiaryService {
 	    return rawList;
 	}
 	
+	
+	/**
+	 * 목록조회된  전체 값의 총 칼로리 및 영양정보 출력 
+	 */
 	@Override
 	public NutritionSummaryDTO getDailySummary(FoodDiaryDTO param) {
 		

@@ -9,6 +9,7 @@ import com.pcwk.ehr.mypage.domain.NutritionSummaryDTO;
 
 public interface FoodDiaryService  {
 
+
 	List<FoodDiaryOutDTO> doRetrieve(FoodDiaryDTO param);
 
 	int doDelete(FoodDiaryDTO param);
