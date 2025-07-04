@@ -22,6 +22,19 @@ import com.google.common.base.Strings;
 public class PcwkString {
 	
 	/**
+	 * null 입력되면 default Value로 변경
+	 * @param value
+	 * @param defaultValue
+	 * @return String
+	 */
+	public static String nvlString(String value, String defaultValue) {
+		if(Strings.isNullOrEmpty(value) == true) {
+			return defaultValue;
+		}
+		return value;
+	}
+	
+	/**
 	 * value가 0이면 defaultValue 리턴
 	 * @param value
 	 * @param defaultValue

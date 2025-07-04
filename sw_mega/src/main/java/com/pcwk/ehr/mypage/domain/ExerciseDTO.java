@@ -17,6 +17,8 @@ public class ExerciseDTO {
 	private int repsPerSet; //세트 당 횟수 
 	private int totalCal; //총 소모 칼로리
 	
+	private int totalCnt;
+	
 	public ExerciseDTO() {
 		// TODO Auto-generated constructor stub
 	}
@@ -58,6 +60,22 @@ public class ExerciseDTO {
 		this.strenthWeight = strenthWeight;
 		this.setCount = setCount;
 		this.repsPerSet = repsPerSet;
+	}
+	
+	
+
+	/**
+	 * @return the totalCnt
+	 */
+	public int getTotalCnt() {
+		return totalCnt;
+	}
+
+	/**
+	 * @param totalCnt the totalCnt to set
+	 */
+	public void setTotalCnt(int totalCnt) {
+		this.totalCnt = totalCnt;
 	}
 
 	/**
@@ -234,8 +252,7 @@ public class ExerciseDTO {
 		return "ExerciseDTO [eCode=" + eCode + ", exerciseName=" + exerciseName + ", exerciseType=" + exerciseType
 				+ ", region=" + region + ", gender=" + gender + ", weight=" + weight + ", calBurn=" + calBurn
 				+ ", duration=" + duration + ", strenthWeight=" + strenthWeight + ", setCount=" + setCount
-				+ ", repsPerSet=" + repsPerSet + ", totalCal=" + totalCal + "]";
+				+ ", repsPerSet=" + repsPerSet + ", totalCal=" + totalCal + ", totalCnt=" + totalCnt + "]";
 	}
-
 	
 }

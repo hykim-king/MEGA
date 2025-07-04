@@ -20,10 +20,6 @@ public class ExerciseServiceImpl implements ExerciseService {
 	@Autowired
 	ExerciseMapper mapper;
 	
-	@Override
-	public List<ExerciseDTO> doRetrieve(SearchDTO param) {
-		return mapper.doRetrieve(param);
-	}
 
 	@Override
 	public int doDelete(ExerciseDTO param) {
@@ -33,6 +29,16 @@ public class ExerciseServiceImpl implements ExerciseService {
 	@Override
 	public int doUpdate(ExerciseDTO param) {
 		return mapper.doUpdate(param);
+	}
+	
+	@Override
+	public int doSave(ExerciseDTO param) {
+		return mapper.doSave(param);
+	}
+	
+	@Override
+	public List<ExerciseDTO> doRetrieve(SearchDTO param) {
+		return mapper.doRetrieve(param);
 	}
 
 	/**
@@ -70,9 +76,5 @@ public class ExerciseServiceImpl implements ExerciseService {
 	    return dbData;
 	}
 
-	@Override
-	public int doSave(ExerciseDTO param) {
-		return mapper.doSave(param);
-	}
 
 }
