@@ -5,5 +5,4 @@ import com.pcwk.ehr.cmn.WorkDiv;
 
 public interface NoticeService extends WorkDiv<NoticeDTO> {
 
-	
 }

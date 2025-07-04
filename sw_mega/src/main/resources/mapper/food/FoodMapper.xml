@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.pcwk.ehr.mypage.mapper.FoodMapper">
+<mapper namespace="com.pcwk.ehr.mapper.FoodMapper">
 
 
 <!-- 전체조회 -->
@@ -9,7 +9,13 @@
         SELECT A.*, B.*
         FROM (
             SELECT tt3.rnum AS no,
-                   tt3.food_name
+                   tt3.food_name,
+                   tt3.st_grams,
+                   tt3.cal,
+                   tt3.carb,
+                   tt3.fat,
+                   tt3.prot,
+                   tt3.na
               FROM (
                   SELECT ROWNUM AS rnum,
                          tt2.*

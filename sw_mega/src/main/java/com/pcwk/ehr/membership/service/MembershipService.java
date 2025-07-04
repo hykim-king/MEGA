@@ -60,8 +60,9 @@ public interface MembershipService {
 //    int MIN_RECOMMEND_FOR_GOLD = 30;
 //
 
-
-} 
+    
+    
+   } 
 
 
 

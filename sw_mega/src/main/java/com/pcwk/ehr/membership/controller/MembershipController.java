@@ -1,5 +1,8 @@
 package com.pcwk.ehr.membership.controller;
 
+
+import java.io.UnsupportedEncodingException;
+import java.nio.charset.StandardCharsets;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -59,17 +62,18 @@ public class MembershipController implements PLog {
     /* 2. 등록 처리                                              */
     /*───────────────────────────────────────────────────────────*/
     @PostMapping("/doSave.do")
-    public String doSave(MembershipDTO param, Model model) throws SQLException {
-        String redirect = "redirect:/membership/doRetrieve.do";
-
+    public String doSave(MembershipDTO param, String UTF_8) throws SQLException, UnsupportedEncodingException {
         log.debug("┌───────────────────────────┐");
         log.debug("│ *doSave()* param: {}      │", param);
         log.debug("└───────────────────────────┘");
 
         int flag = membershipService.save(param);
-        model.addAttribute("msg", (flag == 1) ? "등록 성공" : "등록 실패");
 
-        return redirect;
+        // 등록 성공 여부에 따라 URL에 파라미터 추가
+        String msg        = (flag == 1) ? "회원가입 성공" : "회원가입 실패";
+        String encodedMsg = java.net.URLEncoder.encode(msg, "UTF-8");
+        return "redirect:/membership/doSaveView.do?success=" + (flag == 1)
+               + "&msg=" + encodedMsg;
     }
 
     /*───────────────────────────────────────────────────────────*/
@@ -115,7 +119,7 @@ public class MembershipController implements PLog {
     /*───────────────────────────────────────────────────────────*/
     /* 5. 수정 화면                                              */
     /*───────────────────────────────────────────────────────────*/
-    /* 5. 수정 화면 */
+    
     @GetMapping("/doUpdateView.do")
     
     

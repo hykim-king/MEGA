@@ -11,7 +11,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,10 +19,10 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import com.pcwk.ehr.board.domain.ReportDTO;
-import com.pcwk.ehr.board.mapper.ReportMapper;
 import com.pcwk.ehr.cmn.SearchDTO;
+import com.pcwk.ehr.mapper.MembershipMapper;
+import com.pcwk.ehr.mapper.ReportMapper;
 import com.pcwk.ehr.membership.domain.MembershipDTO;
-import com.pcwk.ehr.membership.mapper.MembershipMapper;
 
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(locations = { "file:src/main/webapp/WEB-INF/spring/root-context.xml",
@@ -56,7 +55,7 @@ public class ReportTest {
 		log.debug("└────────────────────────────┘");
 
 		mDto01 = new MembershipDTO("user01", "admin01", "yangsh5972@naver.com", "4321as@", Date.valueOf("1992-05-12"),
-		"Y", "tokA1234XYZ", 2, "profileA.png", Date.valueOf("2025-05-12"));
+				"Y", "tokA1234XYZ", 2, "profileA.png", Date.valueOf("2025-05-12"));
 		// !!membership 데이터 관리 !!
 		// 1. membership 전체삭제
 		mMapper.deleteAll();
@@ -67,7 +66,7 @@ public class ReportTest {
 		mParam.setUserId("user01");
 		MembershipDTO mResult = mMapper.doSelectOne(mParam);
 		log.debug("mResult: {}", mResult);
-		
+
 		dto01 = new ReportDTO("user01", "신고사유", "공지사항", 101);
 
 	}

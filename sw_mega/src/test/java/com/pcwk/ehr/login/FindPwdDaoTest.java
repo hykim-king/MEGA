@@ -1,6 +1,6 @@
 package com.pcwk.ehr.login;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import java.sql.Date;
 import java.sql.SQLException;
@@ -9,7 +9,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,11 +16,12 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-import com.pcwk.ehr.login.domain.FindIdDTO;
 import com.pcwk.ehr.login.domain.FindPwdDTO;
-import com.pcwk.ehr.login.mapper.FindPwdMapper;
+import com.pcwk.ehr.login.service.FindIdService;
+import com.pcwk.ehr.login.service.FindPwdService;
+import com.pcwk.ehr.mapper.FindPwdMapper;
+import com.pcwk.ehr.mapper.MembershipMapper;
 import com.pcwk.ehr.membership.domain.MembershipDTO;
-import com.pcwk.ehr.membership.mapper.MembershipMapper;
 
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(locations = {
@@ -31,6 +31,9 @@ import com.pcwk.ehr.membership.mapper.MembershipMapper;
 public class FindPwdDaoTest {
 	Logger log=LogManager.getLogger(getClass());
 
+	@Autowired
+	FindPwdService findPwdService;
+	
     @Autowired
     FindPwdMapper findPwdMapper;
     
@@ -62,9 +65,11 @@ public class FindPwdDaoTest {
 	void findPwd() throws SQLException{
 		membershipMapper.doDelete(dto01);
 		membershipMapper.doSave(dto01);
+		
 		FindPwdDTO dto = new FindPwdDTO();
 		dto.setUserId("subtang");
 	    dto.setEmail("tangSub@test.com");
+	    
 	    String password =  findPwdMapper.findPwd(dto);
 	    assertNotNull(password);
 	    log.debug("조회된 password: {}", password);
