@@ -30,6 +30,27 @@
     </insert>
 
 
+<insert id="saveAll">
+    <![CDATA[
+        INSERT INTO NOTICE (
+            NO_CODE, TITLE, CONTENT, VIEW_COUNT, C_DT, USER_ID, UP_DT
+        )
+        SELECT 
+            NO_SEQ.NEXTVAL,
+            '제목' || LEVEL,
+            '내용' || LEVEL,
+            0,
+            SYSDATE - LEVEL,
+            DECODE(MOD(LEVEL,2), 1, 'admin01', 'user01'),
+            SYSDATE - LEVEL
+        FROM dual
+        CONNECT BY LEVEL <= 502
+    ]]>
+</insert>
+
+
+
+
   <!-- 공지사항 전체 조회 -->
 <select id="doRetrieve" resultType="NoticeDTO" parameterType="SearchDTO">
 <![CDATA[
