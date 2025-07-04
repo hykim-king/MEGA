@@ -20,6 +20,8 @@ public class FoodDTO {
 	private int totalProt;
 	private int totalNa;
 	
+	private int totalCnt; //총글수 
+	
 	public FoodDTO() {
 		// TODO Auto-generated constructor stub
 	}
@@ -66,6 +68,22 @@ public class FoodDTO {
 		this.prot = prot;
 		this.na = na;
 		this.grams = grams;
+	}
+	
+	
+
+	/**
+	 * @return the totalCnt
+	 */
+	public int getTotalCnt() {
+		return totalCnt;
+	}
+
+	/**
+	 * @param totalCnt the totalCnt to set
+	 */
+	public void setTotalCnt(int totalCnt) {
+		this.totalCnt = totalCnt;
 	}
 
 	/**
@@ -254,7 +272,7 @@ public class FoodDTO {
 	public String toString() {
 		return "FoodDTO [foodName=" + foodName + ", stGrams=" + stGrams + ", cal=" + cal + ", carb=" + carb + ", fat="
 				+ fat + ", prot=" + prot + ", na=" + na + ", grams=" + grams + ", totalCal=" + totalCal + ", totalCarb="
-				+ totalCarb + ", totalFat=" + totalFat + ", totalProt=" + totalProt + ", totalNa=" + totalNa + "]";
+				+ totalCarb + ", totalFat=" + totalFat + ", totalProt=" + totalProt + ", totalNa=" + totalNa
+				+ ", totalCnt=" + totalCnt + "]";
 	}
-	
 }

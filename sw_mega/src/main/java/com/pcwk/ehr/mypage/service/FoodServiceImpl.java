@@ -37,6 +37,10 @@ public class FoodServiceImpl implements FoodService {
 		return mapper.doUpdate(param);
 	}
 	
+	@Override
+	public int doSave(FoodDTO param) {
+		return mapper.doSave(param);
+	}
 	
 	/**
 	 * 사용자가 입력한 값을 기준 데이터에 적용하여 칼로리 및 영양정보 계산하여 출력
@@ -62,10 +66,6 @@ public class FoodServiceImpl implements FoodService {
 	    return dbData;
 	}
 
-	@Override
-	public int doSave(FoodDTO param) {
-		return mapper.doSave(param);
-	}
 
 
 }
