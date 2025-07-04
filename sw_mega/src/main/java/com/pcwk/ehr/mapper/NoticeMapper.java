@@ -32,4 +32,10 @@ public interface NoticeMapper extends WorkDiv<NoticeDTO> {
 	 * @return 등록건수
 	 */
 	int saveAll();
+
+    /**
+     * sequence조회
+     * @return
+     */
+	int getNoSeq();
 }

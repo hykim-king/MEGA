@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import java.sql.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -32,7 +33,9 @@ import com.google.gson.Gson;
 import com.pcwk.ehr.board.domain.NoticeDTO;
 import com.pcwk.ehr.cmn.MessageDTO;
 import com.pcwk.ehr.cmn.SearchDTO;
+import com.pcwk.ehr.mapper.MembershipMapper;
 import com.pcwk.ehr.mapper.NoticeMapper;
+import com.pcwk.ehr.membership.domain.MembershipDTO;
 
 @WebAppConfiguration
 @ExtendWith(SpringExtension.class)
@@ -47,10 +50,17 @@ class NoticeControllerTest {
 	@Autowired
 	NoticeMapper mapper;
 
+	@Autowired
+	MembershipMapper mMapper;
+
 	// 웹브라우저 대역 객체
 	MockMvc mockMvc;
 
 	NoticeDTO dto01;
+	NoticeDTO dto02;
+	NoticeDTO dto03;
+
+	MembershipDTO mDto01;
 
 	SearchDTO search;
 
@@ -60,8 +70,25 @@ class NoticeControllerTest {
 		log.debug("│ setUp()                    │");
 		log.debug("└────────────────────────────┘");
 
+		mDto01 = new MembershipDTO("user01", "admin01", "yangsh5972@naver.com", "4321as@", Date.valueOf("1992-05-12"),
+				"Y", "tokA1234XYZ", 2, "profileA.png", Date.valueOf("2025-05-12"));
+		
+		// !!membership 데이터 관리 !!
+		// 1. membership 전체삭제
+		mMapper.deleteAll();
+		// 2. membership 데이터 단건 주입
+		mMapper.doSave(mDto01);
+		// 3. membership 데이터 단건 조회
+		MembershipDTO mParam = new MembershipDTO();
+		mParam.setUserId("user01");
+		MembershipDTO mResult = mMapper.doSelectOne(mParam);
+		log.debug("mResult: {}", mResult);
+
 		mockMvc = MockMvcBuilders.webAppContextSetup(webApplicationContext).build();
+		
 		dto01 = new NoticeDTO("user01", "제목1", "내용1", 0, null, null);
+		dto02 = new NoticeDTO("user01", "제목2", "내용2", 1, null, null);
+		dto03 = new NoticeDTO("user01", "제목3", "내용3", 2, null, null);
 
 	}
 
@@ -72,6 +99,7 @@ class NoticeControllerTest {
 		log.debug("└────────────────────────────┘");
 	}
 
+	//@Disabled
 	@Test
 	void doRetrieve() throws Exception {
 		log.debug("┌───────────────────────────┐");
@@ -79,7 +107,7 @@ class NoticeControllerTest {
 		log.debug("└───────────────────────────┘");
 
 		// 1.전체삭제
-		// 2.다건등록(saveAll)
+		// 2.다건등록
 		// 3.목록 조회
 		// 4.비교
 
@@ -88,12 +116,17 @@ class NoticeControllerTest {
 		assertEquals(0, mapper.getCount());
 
 		// 2.
-		int count = mapper.saveAll();
-		assertEquals(502, mapper.getCount());
+	    mapper.doSave(dto01);
+	    mapper.doSave(dto02);
+	    mapper.doSave(dto03);
+
 
 		// 3.
 		MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.get("/board/doRetrieve.do")
-				.param("pageNo", "1").param("pageSize", "10").param("searchWord", "제목1");
+				.param("pageNo", "1")
+				.param("pageSize", "10")
+				.param("searchDiv", "20")
+				.param("searchWord", "내용");
 
 		// 3.1
 		ResultActions resultActions = mockMvc.perform(requestBuilder).andExpect(status().isOk());
@@ -105,13 +138,13 @@ class NoticeControllerTest {
 
 		List<NoticeDTO> list = (List<NoticeDTO>) model.get("list");
 		for (NoticeDTO vo : list) {
-			log.debug(vo);
+			log.debug("vo:{}",vo);
 		}
 
-		assertEquals(10, list.size());
+		assertEquals(3, list.size());
 	}
 
-	@Disabled
+	//@Disabled
 	@Test
 	void doUpdate() throws Exception {
 		// 1.전체삭제
@@ -158,7 +191,7 @@ class NoticeControllerTest {
 
 	}
 
-	@Disabled
+	//@Disabled
 	@Test
 	void doSelectOne() throws Exception {
 		log.debug("┌────────────────────────────┐");
@@ -170,6 +203,7 @@ class NoticeControllerTest {
 
 		// 1.
 		mapper.deleteAll();
+		assertEquals(0, mapper.getCount());
 
 		// 2.
 		log.debug("before:{}", dto01);
@@ -179,15 +213,15 @@ class NoticeControllerTest {
 
 		// 3
 		MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.get("/board/doSelectOne.do")
-				.param("noCode", String.valueOf(dto01.getNoCode()))
-				.param("userId", String.valueOf(dto01.getUserId()) + "UP");
+				.param("noCode", String.valueOf(dto01.getNoCode()));
+				//.param("userId", String.valueOf(dto01.getUserId()));
 
 		// 3.1호출
 		ResultActions resultActions = mockMvc.perform(requestBuilder).andExpect(status().isOk());
 
+		// 3.2
 		MvcResult mvcResult = resultActions.andDo(print()).andReturn();
 		Map<String, Object> model = mvcResult.getModelAndView().getModel();
-
 		NoticeDTO outVO = (NoticeDTO) model.get("vo");
 		log.debug("outVO:{}", outVO);
 
@@ -215,7 +249,7 @@ class NoticeControllerTest {
 
 	}
 
-	@Disabled
+	//@Disabled
 	@Test
 	void doDelete() throws Exception {
 		log.debug("┌────────────────────────────┐");
@@ -252,7 +286,7 @@ class NoticeControllerTest {
 		assertEquals("삭제 되었습니다.", resultMessage.getMessage());
 	}
 
-	@Disabled
+	//@Disabled
 	@Test
 	void doSave() throws Exception {
 		log.debug("┌────────────────────────────┐");

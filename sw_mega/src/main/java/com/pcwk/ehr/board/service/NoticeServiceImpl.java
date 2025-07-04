@@ -12,14 +12,13 @@ import com.pcwk.ehr.cmn.SearchDTO;
 import com.pcwk.ehr.mapper.NoticeMapper;
 
 @Service
-public class NoticeSeviceImpl implements NoticeService {
+public class NoticeServiceImpl implements NoticeService {
 	Logger log = LogManager.getLogger(getClass());
 
 	@Autowired
 	NoticeMapper mapper;
 
-	public NoticeSeviceImpl() {
-
+	public NoticeServiceImpl() {
 	}
 
 	@Override
@@ -41,19 +40,20 @@ public class NoticeSeviceImpl implements NoticeService {
 	}
 
 	@Override
-	public NoticeDTO doSelectOne(NoticeDTO param) {
-		// 단건 조회 + 조회 count증가
-		int flag = mapper.viewCount(param);
-
-		log.debug("flag:{}", flag);
-
-		return mapper.doSelectOne(param);
+	public int doSave(NoticeDTO param) {
+		return mapper.doSave(param);
 	}
 
 	@Override
-	public int doSave(NoticeDTO param) {
-		return mapper.doSave(param);
-
+	public NoticeDTO doSelectOne(NoticeDTO param) {
+		//단건 조회 + 조회 count증가
+		log.debug("param:{}",param);
+		int flag = mapper.viewCount(param);
+		
+		log.debug("flag:{}",flag);
+		
+		return mapper.doSelectOne(param);
+		
 	}
 
 }
