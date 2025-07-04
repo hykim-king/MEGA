@@ -147,7 +147,7 @@ class FoodDiaryServiceTest {
 		log.debug("└─────────────────────────────────────────────────────────┘");
 		//1. 전체삭제
 		//2. 단건등록
-		//3. doSelectone() Service 호출
+		//3. doRetrieve() Service 호출
 		
 		//1. 
 		fdMapper.deleteAll();
