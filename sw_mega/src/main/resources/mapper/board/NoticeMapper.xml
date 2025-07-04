@@ -126,5 +126,9 @@ WHERE NO_CODE = #{noCode}
     <delete id="deleteAll">
         DELETE FROM NOTICE
     </delete>
+    
+      <select id="getNoSeq" resultType="java.lang.Integer">
+        SELECT NO.NEXTVAL FROM dual
+    </select>
 
 </mapper>

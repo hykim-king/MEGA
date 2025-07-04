@@ -8,8 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.pcwk.ehr.board.domain.NoticeDTO;
-import com.pcwk.ehr.board.mapper.NoticeMapper;
 import com.pcwk.ehr.cmn.SearchDTO;
+import com.pcwk.ehr.mapper.NoticeMapper;
 
 @Service
 public class NoticeServiceImpl implements NoticeService {
@@ -47,11 +47,11 @@ public class NoticeServiceImpl implements NoticeService {
 	@Override
 	public NoticeDTO doSelectOne(NoticeDTO param) {
 		//단건 조회 + 조회 count증가
-			
-		int flag = mapper.doSave(param);
-			
+		log.debug("param:{}",param);
+		int flag = mapper.viewCount(param);
+		
 		log.debug("flag:{}",flag);
-			
+		
 		return mapper.doSelectOne(param);
 		
 	}

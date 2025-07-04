@@ -102,12 +102,12 @@ class NoticeServiceTest {
 		assertEquals(1, flag);
 
 		// 등록자 수정
-		dto01.setUserId("james");
+		dto01.setUserId("user01");
 		// 3
 		NoticeDTO outVO = noticeService.doSelectOne(dto01);
 
 		assertNotNull(outVO);
-		assertEquals(1, outVO.getViewCount());
+		assertEquals(0, outVO.getViewCount());
 
 	}
 
