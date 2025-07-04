@@ -1,7 +1,6 @@
-package com.pcwk.ehr.board;
+package com.pcwk.ehr.board.service;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 import java.sql.Date;
 import java.sql.SQLException;
@@ -18,27 +17,27 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-import com.pcwk.ehr.board.domain.ReportDTO;
+import com.pcwk.ehr.board.domain.L_ReactionDTO;
 import com.pcwk.ehr.cmn.SearchDTO;
+import com.pcwk.ehr.mapper.L_ReactionMapper;
 import com.pcwk.ehr.mapper.MembershipMapper;
-import com.pcwk.ehr.mapper.ReportMapper;
 import com.pcwk.ehr.membership.domain.MembershipDTO;
-
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(locations = { "file:src/main/webapp/WEB-INF/spring/root-context.xml",
 		"file:src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml" })
-public class ReportTest {
+
+class LReactionSeviceTest {
 
 	@Autowired
-	ReportMapper mapper;
-
+	L_ReactionMapper mapper;
+	
 	@Autowired
 	MembershipMapper mMapper;
 
-	ReportDTO dto01;
-	ReportDTO dto02;
-	ReportDTO dto03;
-
+	L_ReactionDTO dto01;
+	L_ReactionDTO dto02;
+	L_ReactionDTO dto03;
+	
 	MembershipDTO mDto01;
 
 	SearchDTO search;
@@ -47,28 +46,32 @@ public class ReportTest {
 	ApplicationContext context;
 
 	Logger log = LogManager.getLogger(getClass());
-
+	
 	@BeforeEach
 	void setUp() throws Exception {
 		log.debug("┌────────────────────────────┐");
 		log.debug("│ setUp()                    │");
 		log.debug("└────────────────────────────┘");
-
-		mDto01 = new MembershipDTO("user01", "admin01", "yangsh5972@naver.com", "4321as@", Date.valueOf("1992-05-12"),
-				"Y", "tokA1234XYZ", 2, "profileA.png", Date.valueOf("2025-05-12"));
-		// !!membership 데이터 관리 !!
-		// 1. membership 전체삭제
+		
+		mDto01 = new MembershipDTO("user01", "admin01", "yangsh5972@naver.com", "4321as@", Date.valueOf("1992-05-12"),"Y", "tokA1234XYZ", 2, "profileA.png",Date.valueOf("2025-05-12"));
+		
+		//!!membership 데이터 관리 !!
+		//1. membership 전체삭제
 		mMapper.deleteAll();
-		// 2. membership 데이터 단건 주입
+		//2. membership 데이터 단건 주입
 		mMapper.doSave(mDto01);
-		// 3. membership 데이터 단건 조회
-		MembershipDTO mParam = new MembershipDTO();
+		//3. membership 데이터 단건 조회
+		MembershipDTO mParam=new MembershipDTO();
 		mParam.setUserId("user01");
 		MembershipDTO mResult = mMapper.doSelectOne(mParam);
 		log.debug("mResult: {}", mResult);
+		
 
-		dto01 = new ReportDTO("user01", "신고사유", "공지사항", 101);
+		dto01 = new L_ReactionDTO("user01", "y", "게시판", 8765);
+		dto02 = new L_ReactionDTO("user01", "y", "게시판", 8763);
+		dto03 = new L_ReactionDTO("user01", "y", "게시판", 8763);
 
+		search = new SearchDTO();
 	}
 
 	@AfterEach
@@ -76,67 +79,56 @@ public class ReportTest {
 		log.debug("┌────────────────────────────┐");
 		log.debug("│ tearDown()                 │");
 		log.debug("└────────────────────────────┘");
+
 	}
-
-	// @Disabled
 	@Test
-	void doSaveandSelectOne() {
-		mapper.deleteAll(); // 1. 전체 삭제
-
-		int saveFlag = mapper.doSave(dto01); // 2. 저장
-		assertEquals(1, saveFlag, "신고 저장 실패!");
-
-		List<ReportDTO> list = mapper.doRetrieve(search); // 3. 전체 목록 가져오기
-		assertEquals(1, list.size(), "저장된 신고가 1건이 아님");
-
-		ReportDTO saved = list.get(0);
-		ReportDTO selected = mapper.doSelectOne(saved.getReportCode()); // 4. 단건 조회
-
-		assertNotNull(selected, "단건 조회 결과 없음!");
-		assertEquals(dto01.getUserId(), selected.getUserId());
-		assertEquals(dto01.getReason(), selected.getReason());
-		assertEquals(dto01.getTargetType(), selected.getTargetType());
-		assertEquals(dto01.getTargetCode(), selected.getTargetCode());
-
-		log.info("▶ 저장된 신고: {}", selected);
-	}
-
-	// @Disabled
-	@Test
-	void getCount() {
-		log.debug("┌────────────────────────────┐");
-		log.debug("│ getCount()                 │");
-		log.debug("└────────────────────────────┘");
-
-		mapper.deleteAll();
-
-		mapper.doSave(dto01);
-		int count = mapper.getCount();
-
-		assertEquals(1, count, "신고 건수 불일치");
-	}
-
-	// @Disabled
-	@Test
-	void doDelete() {
+	void doDelete() throws SQLException {
 		log.debug("┌────────────────────────────┐");
 		log.debug("│ doDelete()                 │");
 		log.debug("└────────────────────────────┘");
 
+		// 1.전체삭제
+		// 2.단건등록
+		// 3. 등록 건수 세기
+		// 4. 조회
+		// 5. 단건삭제 파라미터 설정 및 단건삭제
+		// 6. 등록 건수 세기
+
+		// 1.
 		mapper.deleteAll();
 
+		// 2.
 		mapper.doSave(dto01);
-		List<ReportDTO> list = mapper.doRetrieve(search);
-		assertEquals(1, list.size());
+		mapper.doSave(dto02);
+		mapper.doSave(dto03);
 
-		int deleteFlag = mapper.doDelete(list.get(0));
-		assertEquals(1, deleteFlag, "신고 삭제 실패");
-
+		// 3. 등록 건수 세기
 		int count = mapper.getCount();
-		assertEquals(0, count, "신고 삭제 후에도 데이터가 남아 있음");
+		assertEquals(3, count);
+		log.debug(count);
+
+		// 4. 조회
+		search.setSearchWord("8765");
+		List<L_ReactionDTO> list = mapper.doRetrieve(search);
+		for (L_ReactionDTO vo : list) {
+			log.debug("vo: {}", vo);
+		}
+
+		// 5. 단건삭제 파라미터 설정 및 단건삭제
+		L_ReactionDTO param = new L_ReactionDTO();
+		param.setReactionCode(list.get(0).getReactionCode());
+		int result = mapper.doDelete(param);
+		assertEquals(1, result);
+		log.debug("result" + result);
+
+		// 6. 등록 건수 세기
+		count = mapper.getCount();
+		assertEquals(2, count);
+		log.debug(count);
+
 	}
 
-	// @Disabled
+	//@Disabled
 	@Test
 	void doRetrieve() throws SQLException {
 		log.debug("┌────────────────────────────┐");
@@ -152,22 +144,24 @@ public class ReportTest {
 
 		// 2.
 		mapper.doSave(dto01);
+		mapper.doSave(dto02);
+		mapper.doSave(dto03);
 
 		// 3.
 		int count = mapper.getCount();
-		assertEquals(1, count);
+		assertEquals(3, count);
 		log.debug(count);
 
 		// 4.
-		SearchDTO search = new SearchDTO();
-		search.setSearchWord("101");
-
-		List<ReportDTO> list = mapper.doRetrieve(search);
-		for (ReportDTO vo : list) {
+		L_ReactionDTO param = new L_ReactionDTO();
+		search.setSearchWord("8765");
+		List<L_ReactionDTO> list = mapper.doRetrieve(search);
+		for (L_ReactionDTO vo : list) {
 			log.debug("vo: {}", vo);
 		}
-	}
 
+	}
+	
 	// @Disabled
 	@Test
 	void beans() {
@@ -176,7 +170,7 @@ public class ReportTest {
 		assertNotNull(mapper);
 
 		log.debug(context);
-		log.debug(mapper);
-
+		log.debug("mapper" + mapper);
 	}
+
 }

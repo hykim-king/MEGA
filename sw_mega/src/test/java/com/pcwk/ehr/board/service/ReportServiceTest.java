@@ -1,7 +1,6 @@
-package com.pcwk.ehr.board;
+package com.pcwk.ehr.board.service;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 import java.sql.Date;
 import java.sql.SQLException;
@@ -27,7 +26,7 @@ import com.pcwk.ehr.membership.domain.MembershipDTO;
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(locations = { "file:src/main/webapp/WEB-INF/spring/root-context.xml",
 		"file:src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml" })
-public class ReportTest {
+class ReportServiceTest {
 
 	@Autowired
 	ReportMapper mapper;
@@ -68,15 +67,14 @@ public class ReportTest {
 		log.debug("mResult: {}", mResult);
 
 		dto01 = new ReportDTO("user01", "신고사유", "공지사항", 101);
-
 	}
-
 	@AfterEach
 	void tearDown() throws Exception {
 		log.debug("┌────────────────────────────┐");
 		log.debug("│ tearDown()                 │");
 		log.debug("└────────────────────────────┘");
 	}
+	
 
 	// @Disabled
 	@Test
@@ -168,6 +166,8 @@ public class ReportTest {
 		}
 	}
 
+	
+
 	// @Disabled
 	@Test
 	void beans() {
@@ -177,6 +177,6 @@ public class ReportTest {
 
 		log.debug(context);
 		log.debug(mapper);
-
 	}
+
 }

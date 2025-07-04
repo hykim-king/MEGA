@@ -13,7 +13,6 @@
  */
 package com.pcwk.ehr.cmn;
 
-import java.sql.SQLException;
 import java.util.List;
 
 /**

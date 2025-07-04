@@ -27,4 +27,6 @@ public interface NoticeMapper extends WorkDiv<NoticeDTO> {
 	 * @return 1(성공)/0(실패)
 	 */
 	int viewCount(NoticeDTO param);
+
+	int saveAll();
 }
