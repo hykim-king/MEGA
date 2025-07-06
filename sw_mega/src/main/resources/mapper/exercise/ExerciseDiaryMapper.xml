@@ -34,6 +34,9 @@
 
 <!-- 단건등록 -->
 <insert id="doSave" parameterType="ExerciseDiaryDTO">
+    <selectKey keyProperty="edCode" resultType="int" order="BEFORE">
+        SELECT ED_SEQ.NEXTVAL FROM dual
+    </selectKey>   
     INSERT INTO exercise_diary (
         ed_code,
         user_id,
@@ -45,7 +48,7 @@
         reps_per_set,
         reg_dt
     ) VALUES (
-        ED_SEQ.NEXTVAL,
+        #{edCode},
         #{userId, jdbcType=VARCHAR},
         #{eCode, jdbcType=INTEGER},
         #{cardioWeight, jdbcType=INTEGER},
