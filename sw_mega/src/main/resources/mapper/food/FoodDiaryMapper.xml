@@ -36,7 +36,9 @@
 
 <!-- 단건 등록 -->
 <insert id="doSave" parameterType="FoodDiaryDTO">
-
+    <selectKey keyProperty="fdCode" resultType="int" order="BEFORE">
+        SELECT FD_SEQ.NEXTVAL FROM dual
+    </selectKey>   
     INSERT INTO food_diary (
         fd_code,
         user_id,
@@ -45,7 +47,7 @@
         meal_type,
         reg_dt
     ) VALUES (
-        FD_SEQ.NEXTVAL,
+        #{fdCode},
         #{userId},
         #{foodName},
         #{grams},
