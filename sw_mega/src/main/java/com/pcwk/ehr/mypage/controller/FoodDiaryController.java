@@ -1,5 +1,6 @@
 package com.pcwk.ehr.mypage.controller;
 
+import java.util.Arrays;
 import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
@@ -118,6 +119,8 @@ public class FoodDiaryController {
 		
 	    List<FoodDiaryOutDTO> list = (List<FoodDiaryOutDTO>) foodDiaryService.doRetrieve(param);
 	    model.addAttribute("list", list);
+	    
+	    model.addAttribute("mealList", Arrays.asList("아침", "점심", "저녁"));
 	    log.debug("2. list: {}", list);
 	    
 	    return viewName;
