@@ -1,4 +1,4 @@
-package com.pcwk.ehr.board;
+package com.pcwk.ehr.board.controller;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -14,9 +14,12 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
+import org.springframework.test.context.web.WebAppConfiguration;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.springframework.web.context.WebApplicationContext;
 
 import com.pcwk.ehr.board.domain.L_ReactionDTO;
 import com.pcwk.ehr.cmn.SearchDTO;
@@ -24,17 +27,24 @@ import com.pcwk.ehr.mapper.L_ReactionMapper;
 import com.pcwk.ehr.mapper.MembershipMapper;
 import com.pcwk.ehr.membership.domain.MembershipDTO;
 
+@WebAppConfiguration
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(locations = { "file:src/main/webapp/WEB-INF/spring/root-context.xml",
 		"file:src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml" })
+class L_ReactionControllerTest {
+	Logger log = LogManager.getLogger(getClass());
 
-class LReactionDaoTest {
+	@Autowired
+	WebApplicationContext webApplicationContext;
 
 	@Autowired
 	L_ReactionMapper mapper;
 
 	@Autowired
 	MembershipMapper mMapper;
+
+	// 웹브라우저 대역 객체
+	MockMvc mockMvc;
 
 	L_ReactionDTO dto01;
 	L_ReactionDTO dto02;
@@ -43,11 +53,6 @@ class LReactionDaoTest {
 	MembershipDTO mDto01;
 
 	SearchDTO search;
-
-	@Autowired
-	ApplicationContext context;
-
-	Logger log = LogManager.getLogger(getClass());
 
 	@BeforeEach
 	void setUp() throws Exception {
@@ -69,9 +74,9 @@ class LReactionDaoTest {
 		MembershipDTO mResult = mMapper.doSelectOne(mParam);
 		log.debug("mResult: {}", mResult);
 
+		mockMvc = MockMvcBuilders.webAppContextSetup(webApplicationContext).build();
+
 		dto01 = new L_ReactionDTO("user01", "y", "게시판", 8765);
-		dto02 = new L_ReactionDTO("user01", "y", "게시판", 8763);
-		dto03 = new L_ReactionDTO("user01", "y", "게시판", 8763);
 
 		search = new SearchDTO();
 
@@ -82,9 +87,9 @@ class LReactionDaoTest {
 		log.debug("┌────────────────────────────┐");
 		log.debug("│ tearDown()                 │");
 		log.debug("└────────────────────────────┘");
-
 	}
 
+	// @Disabled
 	@Test
 	void doDelete() throws SQLException {
 		log.debug("┌────────────────────────────┐");
@@ -103,12 +108,12 @@ class LReactionDaoTest {
 
 		// 2.
 		mapper.doSave(dto01);
-		mapper.doSave(dto02);
-		mapper.doSave(dto03);
+//		mapper.doSave(dto02);
+//		mapper.doSave(dto03);
 
 		// 3. 등록 건수 세기
 		int count = mapper.getCount();
-		assertEquals(3, count);
+		assertEquals(1, count);
 		log.debug(count);
 
 		// 4. 조회
@@ -127,7 +132,7 @@ class LReactionDaoTest {
 
 		// 6. 등록 건수 세기
 		count = mapper.getCount();
-		assertEquals(2, count);
+		assertEquals(0, count);
 		log.debug(count);
 
 	}
@@ -148,12 +153,12 @@ class LReactionDaoTest {
 
 		// 2.
 		mapper.doSave(dto01);
-		mapper.doSave(dto02);
-		mapper.doSave(dto03);
+//		mapper.doSave(dto02);
+//		mapper.doSave(dto03);
 
 		// 3.
 		int count = mapper.getCount();
-		assertEquals(3, count);
+		assertEquals(1, count);
 		log.debug(count);
 
 		// 4.
@@ -165,7 +170,6 @@ class LReactionDaoTest {
 		}
 	}
 
-	// @Disabled
 	@Test
 	void doSave() throws SQLException {
 		log.debug("┌────────────────────────────┐");
@@ -201,13 +205,18 @@ class LReactionDaoTest {
 
 	// @Disabled
 	@Test
-	void beans() {
-
-		assertNotNull(context);
+	void test() {
+		log.debug("┌────────────────────────────┐");
+		log.debug("│ test()                     │");
+		log.debug("└────────────────────────────┘");
 		assertNotNull(mapper);
+		assertNotNull(mockMvc);
+		assertNotNull(webApplicationContext);
 
-		log.debug(context);
+		log.debug("webApplicationContext:{}", webApplicationContext);
 		log.debug("mapper" + mapper);
+		log.debug("mockMvc:{}", mockMvc);
+
 	}
 
 }

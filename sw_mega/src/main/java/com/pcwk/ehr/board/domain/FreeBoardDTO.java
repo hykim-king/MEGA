@@ -4,8 +4,10 @@ import java.util.Date;
 
 import org.springframework.stereotype.Component;
 
+import com.pcwk.ehr.cmn.DTO;
+
 @Component
-public class FreeBoardDTO {
+public class FreeBoardDTO extends DTO{
 	private int fbCode;//자유게시판 코드
 	private String userId;//사용자_ID
 	private String title;//제목

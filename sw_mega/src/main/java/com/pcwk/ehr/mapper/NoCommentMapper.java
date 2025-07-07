@@ -18,4 +18,7 @@ public interface NoCommentMapper extends WorkDiv<NoticeCommentDTO> {
 	 * @return
 	 */
 	int getCount();
+
+	@Override
+	NoticeCommentDTO doSelectOne(NoticeCommentDTO dto);
 }

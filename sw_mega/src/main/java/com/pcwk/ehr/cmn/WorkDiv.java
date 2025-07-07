@@ -48,7 +48,7 @@ public interface WorkDiv<T> {
 	/**
 	 * 단건조회
 	 * 
-	 * @param param
+	 * @param commentedCode
 	 * @return T
 	 */
 	T doSelectOne(T param);

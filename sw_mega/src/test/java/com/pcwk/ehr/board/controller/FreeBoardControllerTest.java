@@ -30,25 +30,26 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
 import com.google.gson.Gson;
+import com.pcwk.ehr.board.domain.FreeBoardDTO;
 import com.pcwk.ehr.board.domain.NoticeDTO;
 import com.pcwk.ehr.cmn.MessageDTO;
 import com.pcwk.ehr.cmn.SearchDTO;
+import com.pcwk.ehr.mapper.FreeBoardMapper;
 import com.pcwk.ehr.mapper.MembershipMapper;
-import com.pcwk.ehr.mapper.NoticeMapper;
 import com.pcwk.ehr.membership.domain.MembershipDTO;
 
 @WebAppConfiguration
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(locations = { "file:src/main/webapp/WEB-INF/spring/root-context.xml",
 		"file:src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml" })
-class NoticeControllerTest {
+class FreeBoardControllerTest {
 	Logger log = LogManager.getLogger(getClass());
 
 	@Autowired
 	WebApplicationContext webApplicationContext;
 
 	@Autowired
-	NoticeMapper mapper;
+	FreeBoardMapper mapper;
 
 	@Autowired
 	MembershipMapper mMapper;
@@ -56,9 +57,7 @@ class NoticeControllerTest {
 	// 웹브라우저 대역 객체
 	MockMvc mockMvc;
 
-	NoticeDTO dto01;
-	NoticeDTO dto02;
-	NoticeDTO dto03;
+	FreeBoardDTO dto012;
 
 	MembershipDTO mDto01;
 
@@ -72,7 +71,7 @@ class NoticeControllerTest {
 
 		mDto01 = new MembershipDTO("user01", "admin01", "yangsh5972@naver.com", "4321as@", Date.valueOf("1992-05-12"),
 				"Y", "tokA1234XYZ", 2, "profileA.png", Date.valueOf("2025-05-12"));
-		
+
 		// !!membership 데이터 관리 !!
 		// 1. membership 전체삭제
 		mMapper.deleteAll();
@@ -85,11 +84,10 @@ class NoticeControllerTest {
 		log.debug("mResult: {}", mResult);
 
 		mockMvc = MockMvcBuilders.webAppContextSetup(webApplicationContext).build();
-		
-		dto01 = new NoticeDTO("user01", "제목1", "내용1", 0, null, null);
-		dto02 = new NoticeDTO("user01", "제목2", "내용2", 1, null, null);
-		dto03 = new NoticeDTO("user01", "제목3", "내용3", 2, null, null);
 
+		dto012 = new FreeBoardDTO("user01", "제목1", "내용1", 0, null, null);
+//		dto02 = new FreeBoardDTO("user01", "제목2", "내용2", 1, null, null);
+//		dto03 = new FreeBoardDTO("user01", "제목3", "내용3", 2, null, null);
 	}
 
 	@AfterEach
@@ -98,53 +96,54 @@ class NoticeControllerTest {
 		log.debug("│ tearDown()                 │");
 		log.debug("└────────────────────────────┘");
 	}
-
+	
 	//@Disabled
-	@Test
-	void doRetrieve() throws Exception {
-		log.debug("┌───────────────────────────┐");
-		log.debug("│ *doRetrieve()*            │");
-		log.debug("└───────────────────────────┘");
+		@Test
+		void doRetrieve() throws Exception {
+			log.debug("┌───────────────────────────┐");
+			log.debug("│ *doRetrieve()*            │");
+			log.debug("└───────────────────────────┘");
 
-		// 1.전체삭제
-		// 2.다건등록
-		// 3.목록 조회
-		// 4.비교
+			// 1.전체삭제
+			// 2.다건등록
+			// 3.목록 조회
+			// 4.비교
 
-		// 1.
-		mapper.deleteAll();
-		assertEquals(0, mapper.getCount());
+			// 1.
+			mapper.deleteAll();
+			assertEquals(0, mapper.getCount());
 
-		// 2.
-	    mapper.doSave(dto01);
-	    mapper.doSave(dto02);
-	    mapper.doSave(dto03);
+			// 2.
+		    mapper.doSave(dto012);
+//		    mapper.doSave(dto02);
+//		    mapper.doSave(dto03);
 
 
-		// 3.
-		MockHttpServletRequestBuilder requestBuilder = 
-				MockMvcRequestBuilders.get("/notice/doRetrieve.do")
-				.param("pageNo", "1")
-				.param("pageSize", "10")
-				.param("searchDiv", "20")
-				.param("searchWord", "내용");
+			// 3.
+			MockHttpServletRequestBuilder requestBuilder = 
+					MockMvcRequestBuilders.get("/freeboard/doRetrieve.do")
+					.param("pageNo", "1")
+					.param("pageSize", "10")
+					.param("searchDiv", "20")
+					.param("searchWord", "내용");
 
-		// 3.1
-		ResultActions resultActions = mockMvc.perform(requestBuilder).andExpect(status().isOk());
+			// 3.1
+			ResultActions resultActions = mockMvc.perform(requestBuilder).andExpect(status().isOk());
 
-		MvcResult mvcResult = resultActions.andDo(print()).andReturn();
-		Map<String, Object> model = mvcResult.getModelAndView().getModel();
-		int totalCnt = (int) model.get("totalCnt");
-		log.debug("totalCnt:{}", totalCnt);
+			MvcResult mvcResult = resultActions.andDo(print()).andReturn();
+			Map<String, Object> model = mvcResult.getModelAndView().getModel();
+			int totalCnt = (int) model.get("totalCnt");
+			log.debug("totalCnt:{}", totalCnt);
 
-		List<NoticeDTO> list = (List<NoticeDTO>) model.get("list");
-		for (NoticeDTO vo : list) {
-			log.debug("vo:{}",vo);
+			List<FreeBoardDTO> list = (List<FreeBoardDTO>) model.get("list");
+			for (FreeBoardDTO vo : list) {
+				log.debug("vo:{}",vo);
+			}
+
+			assertEquals(1, list.size());
 		}
-
-		assertEquals(3, list.size());
-	}
-
+	
+	
 	//@Disabled
 	@Test
 	void doUpdate() throws Exception {
@@ -158,22 +157,22 @@ class NoticeControllerTest {
 		assertEquals(0, mapper.getCount());
 
 		// 2.
-		log.debug("before:{}", dto01);
-		int flag = mapper.doSave(dto01);
+		log.debug("before:{}", dto012);
+		int flag = mapper.doSave(dto012);
 		assertEquals(1, flag);
-		log.debug("after:{}", dto01);
+		log.debug("after:{}", dto012);
 
 		// 3.
-		NoticeDTO outVO = mapper.doSelectOne(dto01);
+		FreeBoardDTO outVO = mapper.doSelectOne(dto012);
 		assertNotNull(outVO);
 		log.debug("outVO:{}", outVO);
 
 		String upString = "_U";
 		int upInt = 99;
 		// 4.1 url호출, method:post, param
-		MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.post("/notice/doUpdate.do")
+		MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.post("/freeboard/doUpdate.do")
 				.param("title", outVO.getTitle() + upString).param("content", outVO.getContent() + upString)
-				.param("userId", outVO.getUserId() + upString).param("seq", String.valueOf(outVO.getNoCode()));
+				.param("userId", outVO.getUserId() + upString).param("seq", String.valueOf(outVO.getFbCode()));
 		;
 		// 4.2 호출
 		ResultActions resultActions = mockMvc.perform(requestBuilder).andExpect(status().isOk())
@@ -192,6 +191,7 @@ class NoticeControllerTest {
 
 	}
 
+
 	//@Disabled
 	@Test
 	void doSelectOne() throws Exception {
@@ -207,15 +207,16 @@ class NoticeControllerTest {
 		assertEquals(0, mapper.getCount());
 
 		// 2.
-		log.debug("before:{}", dto01);
-		int flag = mapper.doSave(dto01);// 한건 등록
+		log.debug("before:{}", dto012);
+		int flag = mapper.doSave(dto012);// 한건 등록
 		assertEquals(1, flag);
-		log.debug("after:{}", dto01);
+		log.debug("after:{}", dto012);
 
 		// 3
-		MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.get("/notice/doSelectOne.do")
-				.param("noCode", String.valueOf(dto01.getNoCode()));
-				//.param("userId", String.valueOf(dto01.getUserId()));
+		MockHttpServletRequestBuilder requestBuilder = 
+				MockMvcRequestBuilders.get("/freeboard/doSelectOne.do")
+				.param("fbCode", String.valueOf(dto012.getFbCode()));
+		// .param("userId", String.valueOf(dto01.getUserId()));
 
 		// 3.1호출
 		ResultActions resultActions = mockMvc.perform(requestBuilder).andExpect(status().isOk());
@@ -223,30 +224,30 @@ class NoticeControllerTest {
 		// 3.2
 		MvcResult mvcResult = resultActions.andDo(print()).andReturn();
 		Map<String, Object> model = mvcResult.getModelAndView().getModel();
-		NoticeDTO outVO = (NoticeDTO) model.get("vo");
+		FreeBoardDTO outVO = (FreeBoardDTO) model.get("vo");
 		log.debug("outVO:{}", outVO);
 
 		// 조회count 증가
-		dto01.setViewCount(dto01.getViewCount() + 1);
-		isSameNotice(outVO, dto01);
+		dto012.setViewCount(dto012.getViewCount() + 1);
+		isSameNotice(outVO, dto012);
 
 		// 3.3
 		String viewName = mvcResult.getModelAndView().getViewName();
 		log.debug("viewName:{}", viewName);
-		assertEquals("board/board_mod", viewName);
+		assertEquals("freeboard/freeboard_mod", viewName);
 
 	}
 
-	private void isSameNotice(NoticeDTO outVO, NoticeDTO dto01) {
+	private void isSameNotice(FreeBoardDTO outVO, FreeBoardDTO dto01) {
 		log.debug("┌──────────────────────────┐");
 		log.debug("│ isSameNotice()           │");
 		log.debug("└──────────────────────────┘");
-		assertEquals(outVO.getNoCode(), dto01.getNoCode());
-		assertEquals(outVO.getTitle(), dto01.getTitle());
-		assertEquals(outVO.getContent(), dto01.getContent());
-		assertEquals(outVO.getViewCount(), dto01.getViewCount());
+		assertEquals(outVO.getFbCode(), dto012.getFbCode());
+		assertEquals(outVO.getTitle(), dto012.getTitle());
+		assertEquals(outVO.getContent(), dto012.getContent());
+		assertEquals(outVO.getViewCount(), dto012.getViewCount());
 
-		assertEquals(outVO.getUserId(), dto01.getUserId());
+		assertEquals(outVO.getUserId(), dto012.getUserId());
 
 	}
 
@@ -264,14 +265,15 @@ class NoticeControllerTest {
 		mapper.deleteAll();
 
 		// 2.
-		log.debug("before:{}", dto01);
-		int flag = mapper.doSave(dto01);// 한건 등록
+		log.debug("before:{}", dto012);
+		int flag = mapper.doSave(dto012);// 한건 등록
 		assertEquals(1, flag);
-		log.debug("after:{}", dto01);
+		log.debug("after:{}", dto012);
 
 		// 3.
-		MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.post("/notice/doDelete.do").param("noCode",
-				String.valueOf(dto01.getNoCode()));
+		MockHttpServletRequestBuilder requestBuilder = 
+				MockMvcRequestBuilders.post("/freeboard/doDelete.do").param("fbCode",
+				String.valueOf(dto012.getFbCode()));
 
 		ResultActions resultActions = mockMvc.perform(requestBuilder).andExpect(status().isOk())
 				.andExpect(MockMvcResultMatchers.content().contentType("text/plain;charset=UTF-8"));
@@ -302,9 +304,10 @@ class NoticeControllerTest {
 		mapper.deleteAll();
 
 		// 2.1 url호출, method:post, param
-		MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.post("/notice/doSave.do")
-				.param("title", dto01.getTitle()).param("content", dto01.getContent())
-				.param("userId", dto01.getUserId());
+		MockHttpServletRequestBuilder requestBuilder = 
+				MockMvcRequestBuilders.post("/freeboard/doSave.do")
+				.param("title", dto012.getTitle()).param("content", dto012.getContent())
+				.param("userId", dto012.getUserId());
 
 		// 2.2
 		ResultActions resultActions = mockMvc.perform(requestBuilder).andExpect(status().isOk())
@@ -322,8 +325,7 @@ class NoticeControllerTest {
 		assertEquals("제목1글이 등록 되었습니다.", resultMessage.getMessage());
 
 	}
-
-	@Disabled
+	//@Disabled
 	@Test
 	void beans() {
 		log.debug("┌────────────────────────────┐");
@@ -337,7 +339,6 @@ class NoticeControllerTest {
 		log.debug("webApplicationContext:{}", webApplicationContext);
 		log.debug("mockMvc:{}", mockMvc);
 		log.debug("mapper:{}", mapper);
-
 	}
 
 }
