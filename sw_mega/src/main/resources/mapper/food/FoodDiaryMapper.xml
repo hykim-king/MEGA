@@ -33,6 +33,18 @@
         
 </select>
 
+<select id="doSelectOne" parameterType="FoodDiaryDTO" resultType="FoodDiaryDTO">
+    SELECT 
+        fd_code,
+        user_id,
+        food_name,
+        grams,
+        meal_type,
+        reg_dt
+    FROM food_diary 
+    WHERE fd_code = #{fdCode}
+</select>
+
 
 <!-- 단건 등록 -->
 <insert id="doSave" parameterType="FoodDiaryDTO">

@@ -11,6 +11,8 @@ public interface FoodDiaryService  {
 
 
 	List<FoodDiaryOutDTO> doRetrieve(FoodDiaryDTO param);
+	
+	FoodDiaryDTO doSelectOne(FoodDiaryDTO param);
 
 	int doDelete(FoodDiaryDTO param);
 

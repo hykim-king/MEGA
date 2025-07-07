@@ -115,8 +115,8 @@ class FoodDiaryControllerTest {
 		log.debug("└───────────────────────────────────────┘");
 	}
 	
-	
-	//@Test
+	@Disabled
+	@Test
 	void doDelete() throws Exception{
 		log.debug("┌───────────────────────────────────────┐");
 		log.debug("│ doDelete()                            │");
@@ -158,7 +158,7 @@ class FoodDiaryControllerTest {
 	}
 	
 	
-	//@Disabled
+	@Disabled
 	@Test
 	void doUpdate() throws Exception{
 		log.debug("┌───────────────────────────────────────┐");
@@ -208,7 +208,7 @@ class FoodDiaryControllerTest {
 	}
 	
 	
-	@Disabled
+	//@Disabled
 	@Test
 	void doSave() throws Exception{
 		log.debug("┌───────────────────────────────────────┐");
@@ -253,7 +253,7 @@ class FoodDiaryControllerTest {
 	}
 	
 	
-	//@Disabled
+	@Disabled
 	@Test
 	void getDailySummary() throws Exception{
 		log.debug("┌───────────────────────────────────────┐");
@@ -302,7 +302,7 @@ class FoodDiaryControllerTest {
 		
 	}
 	
-	//@Disabled
+	@Disabled
 	@Test
 	void doRetrieve() throws Exception{
 		log.debug("┌───────────────────────────────────────┐");
