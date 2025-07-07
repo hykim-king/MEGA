@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>음식 일지</title>
+</head>
+<body>
+     <h2>🍽️ 음식 일지</h2>
+
+    <!-- ✅ 아침 -->
+    <h3>🥣 아침</h3>
+    <c:forEach var="item" items="${list}">
+        <c:if test="${item.mealType == '아침'}">
+            <p>${item.foodName} / ${item.grams}g </p>
+            <p> ${item.totalCal} kcal / ${item.totalCarb} g / ${item.totalFat} g / ${item.totalProt} g / ${item.totalNa} mg </p>
+        </c:if>
+    </c:forEach>
+
+    <!-- ✅ 점심 -->
+    <h3>🍛 점심</h3>
+    <c:forEach var="item" items="${list}">
+        <c:if test="${item.mealType == '점심'}">
+            <p>${item.foodName} / ${item.grams}g </p>
+            <p> ${item.totalCal} kcal / ${item.totalCarb} g / ${item.totalFat} g / ${item.totalProt} g / ${item.totalNa} mg </p>
+        </c:if>
+    </c:forEach>
+
+    <!-- ✅ 저녁 -->
+    <h3>🍜 저녁</h3>
+    <c:forEach var="item" items="${list}">
+        <c:if test="${item.mealType == '저녁'}">
+            <p>${item.foodName} / ${item.grams}g </p>
+            <p> ${item.totalCal} kcal / ${item.totalCarb} g / ${item.totalFat} g / ${item.totalProt} g / ${item.totalNa} mg </p>
+        </c:if>
+    </c:forEach>
+</body>
+</html>
