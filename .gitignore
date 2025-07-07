@@ -79,3 +79,4 @@ Thumbs.db
 #  기타
 *.class
 
+.vscode/
