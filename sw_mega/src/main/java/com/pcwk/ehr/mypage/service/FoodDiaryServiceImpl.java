@@ -37,6 +37,11 @@ public class FoodDiaryServiceImpl implements FoodDiaryService {
 	public int doSave(FoodDiaryDTO param) {
 		return mapper.doSave(param);
 	}
+	
+	@Override
+	public FoodDiaryDTO doSelectOne(FoodDiaryDTO param) {
+		return mapper.doSelectOne(param);
+	}
 
 	
 	/**
