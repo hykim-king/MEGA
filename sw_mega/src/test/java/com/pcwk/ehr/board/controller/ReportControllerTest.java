@@ -91,6 +91,9 @@ class ReportControllerTest {
 	// @Disabled
 	@Test
 	void doSaveandSelectOne() {
+		log.debug("┌────────────────────────────┐");
+		log.debug("│ doSaveandSelectOne()       │");
+		log.debug("└────────────────────────────┘");
 		mapper.deleteAll(); // 1. 전체 삭제
 
 		int saveFlag = mapper.doSave(dto01); // 2. 저장
