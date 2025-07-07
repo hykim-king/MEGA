@@ -26,5 +26,18 @@ public interface FreeBoardMapper extends WorkDiv<FreeBoardDTO>{
 	 * @return 1(성공)/0(실패)
 	 */
 	int viewCount(FreeBoardDTO param);
+	
+	/**
+	 * 다건 등록
+	 * @return 등록건수
+	 */
+	int saveAll();
+
+	
+	 /**
+     * sequence조회
+     * @return
+     */
+	int getFbSeq();
 
 }

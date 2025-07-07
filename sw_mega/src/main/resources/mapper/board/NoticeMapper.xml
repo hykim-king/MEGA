@@ -80,18 +80,18 @@ WHERE rnum > (#{pageNo} - 1) * #{pageSize}
 
     <!-- 공지사항 단건 조회 -->
     <select id="doSelectOne" parameterType="NoticeDTO" resultType="NoticeDTO">
-   SELECT 
-    NO_CODE,
-    USER_ID,
-    TITLE,
-    CONTENT,
-    VIEW_COUNT,
-    C_DT,
-    UP_DT
-FROM NOTICE
-WHERE NO_CODE = #{noCode}
-   
-    </select>
+		   SELECT 
+			    NO_CODE,
+			    USER_ID,
+			    TITLE,
+			    CONTENT,
+			    VIEW_COUNT,
+			    C_DT,	
+			    UP_DT
+		FROM NOTICE
+		WHERE NO_CODE = #{noCode}
+		</select>
+    
     <!-- 공지사항 수정 -->
     <update id="doUpdate" parameterType="NoticeDTO">
         UPDATE NOTICE

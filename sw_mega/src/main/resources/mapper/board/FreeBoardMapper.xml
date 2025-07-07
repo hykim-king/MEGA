@@ -28,6 +28,25 @@
             SYSDATE
         )
     </insert>
+    
+    <insert id="saveAll">
+    <![CDATA[
+        INSERT INTO FREE_BOARD (
+            FB_CODE, TITLE, CONTENT, VIEW_COUNT, C_DT, USER_ID, UP_DT
+        )
+        SELECT 
+            FB_SEQ.NEXTVAL,
+            '제목' || LEVEL,
+            '내용' || LEVEL,
+            0,
+            SYSDATE - LEVEL,
+            DECODE(MOD(LEVEL,2), 1, 'admin01', 'user01'),
+            SYSDATE - LEVEL
+        FROM dual
+        CONNECT BY LEVEL <= 502
+    ]]>
+</insert>
+    
 
     <!-- 자유게시판 전체 조회 -->
     <select id="doRetrieve" resultType="FreeBoardDTO" parameterType="SearchDTO">
@@ -103,6 +122,10 @@
         SET VIEW_COUNT = VIEW_COUNT + 1
         WHERE FB_CODE = #{fbCode}
     </update>
+    
+          <select id="getFbSeq" resultType="java.lang.Integer">
+        SELECT FB.NEXTVAL FROM dual
+    </select>
 
 
 </mapper>

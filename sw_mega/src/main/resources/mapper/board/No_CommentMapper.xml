@@ -34,8 +34,8 @@
   
 
     <!-- 단건 조회 -->
-    <select id="doSelectOne" resultType="String" parameterType="NoticeCommentDTO">
-    SELECT
+    <select id="doSelectOne" resultType="NoticeCommentDTO"  parameterType="NoticeCommentDTO">
+   <!--  SELECT
     COMMENTED_CODE,
     NO_CODE,
     USER_ID,
@@ -43,7 +43,10 @@
     C_DT,
     UP_DT
     FROM NO_COMMENTED
-    WHERE COMMENTED_CODE = #{commentedCode};
+    WHERE COMMENTED_CODE = #{commentedCode}; -->
+    SELECT * 
+    FROM NO_COMMENT
+    WHERE COMMENTED_CODE = #{commentedCode}
     </select>
 
     

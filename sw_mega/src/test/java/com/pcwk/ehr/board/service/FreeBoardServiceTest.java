@@ -1,7 +1,6 @@
 package com.pcwk.ehr.board.service;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 import java.sql.Date;
 
@@ -16,9 +15,10 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
+import com.pcwk.ehr.board.domain.FreeBoardDTO;
 import com.pcwk.ehr.board.domain.NoticeDTO;
-import com.pcwk.ehr.board.service.NoticeService;
 import com.pcwk.ehr.cmn.SearchDTO;
+import com.pcwk.ehr.mapper.FreeBoardMapper;
 import com.pcwk.ehr.mapper.MembershipMapper;
 import com.pcwk.ehr.mapper.NoticeMapper;
 import com.pcwk.ehr.membership.domain.MembershipDTO;
@@ -26,22 +26,23 @@ import com.pcwk.ehr.membership.domain.MembershipDTO;
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(locations = { "file:src/main/webapp/WEB-INF/spring/root-context.xml",
 		"file:src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml" })
-class NoticeServiceTest {
+class FreeBoardServiceTest {
 	Logger log = LogManager.getLogger(getClass());
 
+	
 	@Autowired
 	ApplicationContext context;
 
 	@Autowired
-	NoticeService noticeService;
+	FreeBoardService freeboardService;
 
 	@Autowired
 	MembershipMapper mMapper;
 
 	@Autowired
-	NoticeMapper mapper;
+	FreeBoardMapper mapper;
 
-	NoticeDTO dto01;
+	FreeBoardDTO dto01;
 
 	MembershipDTO mDto01;
 
@@ -67,7 +68,7 @@ class NoticeServiceTest {
 		MembershipDTO mResult = mMapper.doSelectOne(mParam);
 		log.debug("mResult: {}", mResult);
 
-		dto01 = new NoticeDTO("user01", "제목1", "내용1", 0, null, null);
+		dto01 = new FreeBoardDTO("user01", "제목1", "내용1", 0, null, null);
 
 		search = new SearchDTO();
 
@@ -78,9 +79,7 @@ class NoticeServiceTest {
 		log.debug("┌───────────────────────────────┐");
 		log.debug("│ tearDown()                    │");
 		log.debug("└───────────────────────────────┘");
-
 	}
-
 	@Test
 	void doSelectOne() {
 		log.debug("┌───────────────────────────────┐");
@@ -104,11 +103,10 @@ class NoticeServiceTest {
 		// 등록자 수정
 		dto01.setUserId("user01");
 		// 3
-		NoticeDTO outVO = noticeService.doSelectOne(dto01);
+		FreeBoardDTO outVO = freeboardService.doSelectOne(dto01);
 
 		assertNotNull(outVO);
 		assertEquals(1, outVO.getViewCount());
-
 	}
 
 	@Test
@@ -118,13 +116,11 @@ class NoticeServiceTest {
 		log.debug("└───────────────────────────────┘");
 
 		assertNotNull(context);
-		assertNotNull(noticeService);
+		assertNotNull(freeboardService);
 		assertNotNull(mapper);
 
 		log.debug("context:" + context);
-		log.debug("boardService:" + noticeService);
-		log.debug("mapper:" + mapper);
-
-	}
+		log.debug("freeboardService:" + freeboardService);
+		log.debug("mapper:" + mapper);	}
 
 }
