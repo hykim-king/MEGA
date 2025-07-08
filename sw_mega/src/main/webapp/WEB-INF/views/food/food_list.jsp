@@ -8,6 +8,8 @@
 <meta charset="UTF-8">
 <title>헬메이트</title>
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="${CP}/resources/assets/js/common.js"></script>
+ 
 </head>
 <body>
 <div>

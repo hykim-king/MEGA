@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.gson.Gson;
@@ -33,6 +34,22 @@ public class NoticeController {
 		log.debug("┌───────────────────────────┐");
 		log.debug("│ *NoticeController()*      │");
 		log.debug("└───────────────────────────┘");
+	}
+	
+	//등록화면조회	/board/doSaveView.do	doSaveView()	동기	GET	
+	@GetMapping("/doSaveView.do")
+	public String doSaveView(@RequestParam(name = "div", defaultValue = "10")String div, Model model) {
+		String viewNString = "notice/notice_write";
+		log.debug("┌───────────────────────────┐");
+		log.debug("│ *doSaveView()*            │");
+		log.debug("└───────────────────────────┘");	
+		log.debug("div: {}",div);
+		model.addAttribute("board_div", div);
+		
+		log.debug("viewNString: {}",viewNString);
+		
+		return viewNString;
+	
 	}
 	//수정	/board/doUpdate.do	doUpdate(BoardDTO param)	비동기	POST	JSON
 	@PostMapping(value = "/doUpdate.do",produces ="text/plain;charset=UTF-8" )
@@ -56,7 +73,7 @@ public class NoticeController {
 	//목록	/board/doRetrieve.do	doRetrieve(SearchDTO search)	동기	GET	Model
 		@GetMapping(value = "/doRetrieve.do")
 		public String doRetrieve(SearchDTO param,Model model) {
-			String viewName = "notice/notice_mod";
+			String viewName = "notice/notice_list";
 			
 			log.debug("┌───────────────────────────┐");
 			log.debug("│ *doRetrieve()*            │");
@@ -107,7 +124,7 @@ public class NoticeController {
 		log.debug("│ *doSelectOne()*           │");
 		log.debug("└───────────────────────────┘");
 		log.debug("1. param:{}", param);
-		String viewName = "board/board_mod";
+		String viewName = "notice/notice_mod";
 
 		NoticeDTO outVO = noticeService.doSelectOne(param);
 		log.debug("2. outVO:{}", outVO);
