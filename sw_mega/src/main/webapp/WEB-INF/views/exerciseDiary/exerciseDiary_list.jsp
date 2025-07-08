@@ -77,10 +77,10 @@
             
 	        <!-- 유산소 -->
 	        <c:if test="${item.exerciseType eq '유산소'}">
-	            <p>기준 체중: ${item.weight}kg</p>
+	            <p>기준 체중: ${item.weight} kg</p>
 	            <p>성별: ${item.weight}kg</p>
-	            <p>입력한 시간: ${item.duration}분</p>
-	            <p>총 소모 칼로리: ${item.totalCalories}분</p>
+	            <p>입력한 시간: ${item.duration} 분</p>
+	            <p>총 소모 칼로리: ${item.totalCalories} kcal</p>
 	        </c:if>
 	
 	        <!-- 근력 -->
@@ -88,9 +88,9 @@
 	            <p>운동 부위: ${item.region}</p>
 	            <p>세트 수: ${item.setCount}</p>
 	            <p>세트당 반복 수: ${item.repsPerSet}</p>
-	            <p>덤벨 무게: ${item.strenthWeight}kg</p>
-	            <p>입력한 시간: ${item.duration}분</p>
-	            <p>총 소모 칼로리: ${item.totalCalories}분</p>
+	            <p>덤벨 무게: ${item.strenthWeight} kg</p>
+	            <p>입력한 시간: ${item.duration} 분</p>
+	            <p>총 소모 칼로리: ${item.totalCalories} kcal</p>
 	        </c:if>
 	        
             <!-- 수정 버튼: doSelectOne.do 호출 후 수정 페이지로 이동 -->

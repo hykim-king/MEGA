@@ -104,6 +104,9 @@ public class ExerciseDiaryController {
 	        return "/common/error"; // 또는 에러 안내 페이지
 	    }
 
+	    // 🔑 파라미터를 JSP에서 사용 가능하도록 바인딩
+	    model.addAttribute("param", param);
+
 	    // 정상 진입
 	    ExerciseDiaryDTO outVO = new ExerciseDiaryDTO();
 	    outVO.setUserId(param.getUserId());

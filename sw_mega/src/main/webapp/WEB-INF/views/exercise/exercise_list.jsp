@@ -82,6 +82,8 @@
             <!-- 👇 운동 내역 입력 후 소모 칼로리 조회 -->
 	<form action="/ehr/exercise/doSelectOne.do" method="get">
 	    <input type="hidden" name="eCode" value="${item.eCode}" />
+        <input type="hidden" name="userId" value="${param.userId}" />
+        <input type="hidden" name="regDt" value="${param.regDt}" />	
 	
 	    <c:choose>
 	        <c:when test="${item.exerciseType eq '유산소'}">
