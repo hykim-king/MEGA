@@ -21,8 +21,8 @@
         console.log('DOMContentLoaded');
         
         //seq
-        const noCodeInput = document.querySelector("#noCodeInput");
-        console.log(noCodeInput);
+        const noCodeInput = document.querySelector("#noCode");
+        console.log(noCodeInput.value);
         
         //title
         const titleInput = document.querySelector("#title");
@@ -50,7 +50,7 @@
             
             if(confirm('목록으로 이동 하시겠습니까?') === false)return;
             //목록화면으로 이동
-            window.location.href = '/ehr/notice/doRetrieve.do?div='+${divValue};         
+            window.location.href = '/ehr/notice/doRetrieve.do?nocode='+${nocodeValue};         
         });
         
         
@@ -129,7 +129,7 @@
                 asyn:"true",    //비동기
                 dataType:"html",//서버에서 받을 데이터 타입
                 data:{          //파라메터
-                    "seq": seqInput.value
+                    "userId": userIdInput.value
                 },
                 success:function(response){//요청 성공
                     console.log("success:"+response)
@@ -178,8 +178,8 @@
     <!--// Button area -->
     
     <!-- form area -->
-    <form action="/ehr/user/doSave.do" method="post" >
-        <input type="hidden" name="seq" id="seq" value="<c:out value='${vo.noCode }'/>">
+    <form action="/ehr/notice/doSave.do" method="post" >
+        <input type="hidden" name="noCode" id="noCode" value="<c:out value='${vo.noCode }'/>">
         <div class="form-group">
             <label for="userId">제목</label>
             <input type="text"  maxlength="50" name="title" id="title" value="${vo.title }" >

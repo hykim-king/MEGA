@@ -104,7 +104,7 @@ class FbCommentDaoTest {
 		log.debug("│ tearDown()                 │");
 		log.debug("└────────────────────────────┘");
 	}
-
+	//@Disabled
 	@Test
 	void doDelete() throws SQLException {
 		log.debug("┌────────────────────────────┐");
@@ -147,7 +147,7 @@ class FbCommentDaoTest {
 		log.debug("count:{}", count);
 	}
 
-	@Disabled
+	//@Disabled
 	@Test
 	void doUpdate() throws SQLException {
 		log.debug("┌────────────────────────────┐");
@@ -189,7 +189,7 @@ class FbCommentDaoTest {
 
 	}
 
-	@Disabled
+	//@Disabled
 	@Test
 	void doSelectOne() throws SQLException {
 		log.debug("┌────────────────────────────┐");
@@ -228,7 +228,7 @@ class FbCommentDaoTest {
 		log.debug("param:{}", param.getCommentedCode());
 	}
 
-	@Disabled
+	//@Disabled
 	@Test
 	void doRetrieve() throws SQLException {
 		log.debug("┌────────────────────────────┐");

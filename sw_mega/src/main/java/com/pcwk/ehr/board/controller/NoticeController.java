@@ -83,6 +83,7 @@ public class NoticeController {
 			int pageSize = PcwkString.nvlZero(param.getPageSize(), 10);
 			
 			//게시구분: 공지사항(10)
+			
 			//검색구분
 			String searchDiv = PcwkString.nullToEmpty(param.getSearchDiv());
 			//검색어
@@ -129,7 +130,9 @@ public class NoticeController {
 		
 		NoticeDTO outVO = noticeService.doSelectOne(param);
 		log.debug("2. outVO:{}", outVO);
+		
 		model.addAttribute("vo", outVO);
+		model.addAttribute("divValue", req.getParameter("div"));
 
 		return viewName;
 	}

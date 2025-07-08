@@ -49,34 +49,57 @@
 </insert>
 
 
+    <sql id="noticeWhere">
+         <choose>
+             <when test=" '10' == searchDiv">
+                 AND title LIKE #{searchWord}||'%'
+             </when>
+             <when test=" '20' == searchDiv">
+                 AND content LIKE #{searchWord}||'%'
+             </when>        
+             <when test=" '30' == searchDiv">
+                 AND no_Code = #{searchWord}
+             </when>     
+             <when test=" '40' == searchDiv">
+                 AND ( title LIKE #{searchWord}||'%'
+                       OR
+                       content LIKE #{searchWord}||'%'
+                     )
+             </when>                          
+         </choose>    
+    </sql>
 
 
-  <!-- 공지사항 전체 조회 -->
-<select id="doRetrieve" resultType="NoticeDTO" parameterType="SearchDTO">
-<![CDATA[
-SELECT *
-FROM (
-    SELECT 
-        ROW_NUMBER() OVER (ORDER BY NO_CODE DESC) AS rnum,
-        NO_CODE,
-        USER_ID,
-        TITLE,
-        CONTENT,
-        VIEW_COUNT,
-        C_DT,
-        UP_DT
-    FROM NOTICE
-    WHERE
-        (
-            (#{searchDiv, jdbcType=VARCHAR} = '10' AND TITLE LIKE '%' || #{searchWord, jdbcType=VARCHAR} || '%')
-            OR (#{searchDiv, jdbcType=VARCHAR} = '20' AND CONTENT LIKE '%' || #{searchWord, jdbcType=VARCHAR} || '%')
-            OR (#{searchDiv, jdbcType=VARCHAR} = '30' AND USER_ID LIKE '%' || #{searchWord, jdbcType=VARCHAR} || '%')
-        )
-)
-WHERE rnum > (#{pageNo} - 1) * #{pageSize}
-  AND rnum <= #{pageNo} * #{pageSize}
-]]>
-</select>
+<select id="doRetrieve" parameterType="SearchDTO" resultType="NoticeDTO">
+        SELECT A.*,B.*
+        FROM (
+            SELECT TT1.rnum AS no,
+                   TT1.no_Code,
+                   TT1.title,
+                   TT1.view_Count,
+                   DECODE(TO_CHAR(SYSDATE,'YYYY/MM/DD'),TO_CHAR(TT1.up_dt,'YYYY/MM/DD')
+                     ,  TO_CHAR(TT1.up_dt,'HH24:MI')
+                     ,  TO_CHAR(TT1.up_dt,'YYYY/MM/DD')) up_dt,
+                   TT1.user_id
+              FROM (
+                SELECT ROWNUM rnum, T1.*
+                  FROM (
+                    SELECT *
+                      FROM notice
+                       <include refid="noticeWhere"></include> 
+                      ORDER BY up_dt DESC
+                )T1  
+    <![CDATA[   WHERE ROWNUM <=( #{pageSize} * (#{pageNo} - 1)+ #{pageSize}  )
+            ) TT1
+            WHERE rnum >=( #{pageSize} * (#{pageNo} - 1)+ 1  )
+            ]]>    
+        )A
+        CROSS JOIN(
+            SELECT COUNT(*) total_cnt
+              FROM notice
+             <include refid="noticeWhere"></include> 
+        )B
+    </select>
 
     <!-- 공지사항 단건 조회 -->
     <select id="doSelectOne" parameterType="NoticeDTO" resultType="NoticeDTO">
