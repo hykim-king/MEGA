@@ -8,9 +8,12 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Set;
+
+import javax.validation.ConstraintViolation;
+import javax.validation.Validation;
 
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -57,7 +60,22 @@ class MembershipServiceTest {
 		assertEquals(dto.getUserId(), result.getUserId());
 	}
 	
-	@Disabled
+	@Test
+	void dtoValidationFail() {
+	    MembershipDTO dto = new MembershipDTO();           // 필수값 비움
+
+	    Set<ConstraintViolation<MembershipDTO>> violations =
+	            Validation.buildDefaultValidatorFactory()
+	                      .getValidator()
+	                      .validate(dto);
+
+	    assertFalse(violations.isEmpty());                 // 필수값 누락 → 오류 기대
+	}
+
+	
+	
+	
+	//@Disabled
 	@Test
 	void testRetrieve() throws SQLException {
 		service.save(dto);

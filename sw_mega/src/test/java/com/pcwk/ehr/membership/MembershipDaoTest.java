@@ -10,7 +10,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -185,5 +184,25 @@ class MembershipDaoTest {
 		log.debug("mapper:"+mapper);
 	}
 	
+	@Test
+	void updateEmailAuthToken() throws SQLException {
+	    // 1. 준비: 회원 한 명 insert
+	    mapper.deleteAll();
+	    mapper.doSave(dto01);
+
+	    // 2. 액션: 토큰 업데이트 실행
+	    String token = "ABC123";
+	    mapper.updateEmailAuthToken(dto01.getEmail(), token);
+
+	    // 3. 검증: 다시 select 해서 토큰 값이 바뀌었는지 확인
+	    MembershipDTO param = new MembershipDTO();
+	    param.setUserId(dto01.getUserId());
+	    MembershipDTO result = mapper.doSelectOne(param);
+
+	    assertEquals(token, result.getEmailAuthToken());
+	    log.debug("토큰 확인: {}", result.getEmailAuthToken());
+	}
+
+
 
 }
