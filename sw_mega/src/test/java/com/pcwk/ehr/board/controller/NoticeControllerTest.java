@@ -233,7 +233,7 @@ class NoticeControllerTest {
 		// 3.3
 		String viewName = mvcResult.getModelAndView().getViewName();
 		log.debug("viewName:{}", viewName);
-		assertEquals("board/board_mod", viewName);
+		assertEquals("notice/notice_mod", viewName);
 
 	}
 
