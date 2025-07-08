@@ -20,8 +20,9 @@
       <li class="has-submenu">
         <a href="#">운동</a>
         <ul class="submenu">
-          <li><a href="#">운동 일지</a></li>
-           <li><a href="/ehr/exercise/doRetrieve.do">운동 조회</a></li>
+          <li><a href="/ehr/exerciseDiary/doRetrieve.do?userId=user01">운동 일지</a></li>
+          <li><a href="/ehr/exercise/doRetrieve.do">운동 조회</a></li>
+          <li><a href="/ehr/exercise/doForm.do?userId=user01">운동 추가</a></li>
         </ul>
       </li>
       <li class="has-submenu">
