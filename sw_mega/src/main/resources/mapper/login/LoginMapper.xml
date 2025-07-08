@@ -10,5 +10,4 @@
         WHERE USER_ID = #{userId}
           AND PASSWORD = #{password}
     </select>
-
 </mapper>
