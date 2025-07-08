@@ -189,6 +189,7 @@
             </c:when>
             <c:otherwise>    <!-- else -->
                 <tr>
+                
                    <td colspan="99"  class="table-cell text-center">조회된 데이터가 없습니다.</td> 
                 </tr>
             </c:otherwise>
