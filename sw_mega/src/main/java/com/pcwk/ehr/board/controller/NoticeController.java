@@ -39,12 +39,12 @@ public class NoticeController {
 	//등록화면조회	/board/doSaveView.do	doSaveView()	동기	GET	
 	@GetMapping("/doSaveView.do")
 	public String doSaveView(@RequestParam(name = "div", defaultValue = "10")String div, Model model) {
-		String viewNString = "notice/notice_write";
+		String viewNString = "notice/notice_reg";
 		log.debug("┌───────────────────────────┐");
 		log.debug("│ *doSaveView()*            │");
 		log.debug("└───────────────────────────┘");	
 		log.debug("div: {}",div);
-		model.addAttribute("board_div", div);
+		model.addAttribute("notice_div", div);
 		
 		log.debug("viewNString: {}",viewNString);
 		
@@ -112,7 +112,8 @@ public class NoticeController {
 			}
 			
 			model.addAttribute("totalCnt", totalCnt);
-			   
+			model.addAttribute("search", param);
+
 			
 			return viewName;
 		}
@@ -125,7 +126,7 @@ public class NoticeController {
 		log.debug("└───────────────────────────┘");
 		log.debug("1. param:{}", param);
 		String viewName = "notice/notice_mod";
-
+		
 		NoticeDTO outVO = noticeService.doSelectOne(param);
 		log.debug("2. outVO:{}", outVO);
 		model.addAttribute("vo", outVO);
