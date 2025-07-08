@@ -95,8 +95,10 @@
          dataType:"html",//서버에서 받을 데이터 타입
          data:{          //파라메터
             "title": titleInput.value,
-            "userId": regIdInput.value,
-            "content": contentsTextarea.value
+            "userId": userIdInput.value,
+            "content": contentTextarea.value
+
+            
          },
          success:function(response){//요청 성공
              console.log("success:"+response)
@@ -108,7 +110,7 @@
                 alert(message.message);
 
                 //목록화면으로 이동
-                window.location.href = '/ehr/notice/doRetrieve.do?div='+divInput.value;
+                window.location.href = '/ehr/notice/doRetrieve.do';
              }else{
                 alert(message.message);
              }
@@ -129,10 +131,9 @@
 <body>
 
    <div class="form-container">
-        <c:choose>
-            <c:when test="${'20' == notice_div }"><h2>자유 게시판 - 등록</h2></c:when>
-            <c:otherwise><h2>공지사항 - 등록</h2></c:otherwise>
-        </c:choose>                          
+            <h2>공지사항 등록</h2>
+            
+                                       
       <hr class="title-underline">
       <!--버튼 영역-->
       <div  class="button-area">

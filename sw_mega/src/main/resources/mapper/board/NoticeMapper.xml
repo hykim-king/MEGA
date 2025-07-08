@@ -109,8 +109,8 @@
 			    TITLE,
 			    CONTENT,
 			    VIEW_COUNT,
-			    C_DT,	
-			    UP_DT
+			    TO_CHAR(C_DT, 'YYYY/MM/DD HH24:MI:SS') AS C_DT,
+			    TO_CHAR(UP_DT, 'YYYY/MM/DD HH24:MI:SS') AS UP_DT
 		FROM NOTICE
 		WHERE NO_CODE = #{noCode}
 		</select>

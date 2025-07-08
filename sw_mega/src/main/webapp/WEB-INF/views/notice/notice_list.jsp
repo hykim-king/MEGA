@@ -47,7 +47,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="${CP}/resources/assets/css/notice_form.css">
+<link rel="stylesheet" href="${CP}/resources/assets/css/notice_list.css">
 <title>Insert title here</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
  <script src="${CP}/resources/assets/js/common.js"></script>
@@ -136,7 +136,7 @@
            <option value="10" <c:if test="${search.searchDiv == 10 }">selected</c:if>>제목</option> 
            <option value="20" <c:if test="${search.searchDiv == 20 }">selected</c:if>>내용</option> 
            <option value="30" <c:if test="${search.searchDiv == 30 }">selected</c:if>>사용자ID</option>  
-           <option value="40" <c:if test="${search.searchDiv == 40 }">selected</c:if>>seq</option>  
+           <option value="40" <c:if test="${search.searchDiv == 40 }">selected</c:if>>제목+내용</option>  
            
         </select>
         <input type="search" name="searchWord" id="searchWord"  size="15" value="${search.searchWord }">
@@ -168,7 +168,7 @@
             <th class="table-head">글쓴이</th>
             <th class="table-head">작성일</th>
             <th class="table-head">조회수</th>
-            <th style="display: none;">seq</th>
+            <th style="display: none;">noCode</th>
           </tr>
       </thead>
       <tbody>

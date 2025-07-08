@@ -121,7 +121,7 @@ public class NoticeController {
 	
 
 	@GetMapping(value = "/doSelectOne.do")
-	public String doSelectOne(NoticeDTO param, Model model, HttpServletRequest req) {
+	public String doSelectOne(NoticeDTO param, Model model) {
 		log.debug("┌───────────────────────────┐");
 		log.debug("│ *doSelectOne()*           │");
 		log.debug("└───────────────────────────┘");
@@ -130,9 +130,7 @@ public class NoticeController {
 		
 		NoticeDTO outVO = noticeService.doSelectOne(param);
 		log.debug("2. outVO:{}", outVO);
-		
 		model.addAttribute("vo", outVO);
-		model.addAttribute("divValue", req.getParameter("div"));
 
 		return viewName;
 	}
