@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import com.pcwk.ehr.login.domain.LoginDTO;
 import com.pcwk.ehr.mapper.LoginMapper;
 
-@Service
+@Service(value = "loginServiceImpl")
 public class LoginServiceImpl implements LoginService {
 	Logger log=LogManager.getLogger(getClass());
 	
@@ -17,6 +17,7 @@ public class LoginServiceImpl implements LoginService {
 
 	@Override
 	public LoginDTO doSelectOne(LoginDTO dto) {
+		log.debug("dto:"+dto);
 		return loginMapper.doSelectOne(dto);
 	}
 
