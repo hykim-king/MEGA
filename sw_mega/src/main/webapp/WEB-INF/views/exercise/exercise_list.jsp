@@ -6,9 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="/ehr/resources/assets/css/food_list.css">
 <title>헬메이트</title>
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 <body>
 
@@ -21,7 +19,7 @@
         <a href="#">운동</a>
         <ul class="submenu">
           <li><a href="#">운동 일지</a></li>
-           <li><a href="/ehr/exercise/doRetrieve.do">운동 조회</a></li>
+          <li><a href="/ehr/exercise/doRetrieve.do">운동 조회</a></li>
         </ul>
       </li>
       <li class="has-submenu">
@@ -45,8 +43,12 @@
 
 <!-- 🔍 검색 영역 -->
 <div>
-    <form action="/ehr/food/doRetrieve.do"  method="get">
+    <form action="/ehr/exercise/doRetrieve.do"  method="get">
         <input type="text" name="searchWord" id="searchWord"  size="15" placeholder="검색어를 입력하세요">
+        <select name="searchDiv" id="searchDiv">
+            <option value="10">운동명</option>
+            <option value="20">운동 부위</option>
+        </select>
         <select name="pageSize" id="pageSize">
             <option value="10">10개씩</option>
             <option value="20">20개씩</option>
@@ -58,8 +60,11 @@
 <div class="scroll-box">
 <c:forEach var="item" items="${list}">
   <div class="food-item">
-    <!-- 음식 이름만 보이게 -->
-    <div class="food-name" onclick="toggleDetail(this)"> ${item.foodName}</div>
+    <!-- 운동 이름만 보이게 -->
+    <div class="exercise-name" onclick="toggleDetail(this)"> 
+      <p>${item.exerciseName}</p>
+      <p>${item.gender}</p>
+      </div>
 
         <!-- 상세 정보: 기본 숨김 -->
     <div class="food-detail" style="display: none;">
@@ -72,15 +77,15 @@
         <li>기준 그람: ${item.stGrams}g</li>
       </ul>
             <!-- 👇 섭취 그람 수 입력 후 조회 -->
-	<form action="/ehr/food/doSelectOne.do" method="get">
-	    <input type="hidden" name="foodName" value="${item.foodName}" />
-	    <input type="hidden" name="userId" value="${param.userId}" />
-	    <input type="hidden" name="regDt" value="${param.regDt}" />
-	
-	    <label>섭취 그람수:</label>
-	    <input type="number" name="grams" min="1" required />
-	    <input type="submit" value="섭취 조회">
-	</form>
+    <form action="/ehr/food/doSelectOne.do" method="get">
+        <input type="hidden" name="foodName" value="${item.foodName}" />
+        <input type="hidden" name="userId" value="${param.userId}" />
+        <input type="hidden" name="regDt" value="${param.regDt}" />
+    
+        <label>섭취 그람수:</label>
+        <input type="number" name="grams" min="1" required />
+        <input type="submit" value="섭취 조회">
+    </form>
       
     </div>
   </div>

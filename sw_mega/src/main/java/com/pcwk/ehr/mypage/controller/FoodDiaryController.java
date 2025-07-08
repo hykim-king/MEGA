@@ -1,5 +1,6 @@
 package com.pcwk.ehr.mypage.controller;
 
+import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
 
@@ -86,11 +87,20 @@ public class FoodDiaryController {
 	    String viewName = "/foodDiary/foodDiary_form";
 
 	    log.debug("┌───────────────────────────────────────┐");
-	    log.debug("│ doForm() - 등록용 폼 진입                               │");
+	    log.debug("│ doForm() - 등록용 폼 진입                                         │");
 	    log.debug("└───────────────────────────────────────┘");
 	    log.debug("param: {}", param);
 
-	    // userId, regDt 등 파라미터로 전달받은 값만 사용
+	    // 🔐 로그인 여부 판단용: userId null 또는 빈 문자열
+	    if (param.getUserId() == null || param.getUserId().trim().isEmpty()) {
+	        log.warn("▶ 로그인 없이 음식 일지 등록 시도 차단됨");
+
+	        model.addAttribute("message", "로그인 후에 음식 일지를 등록할 수 있습니다.");
+	        model.addAttribute("nextUrl", "/ehr/login.do"); // 원하는 경로
+	        return "/common/error"; // 또는 에러 안내 페이지
+	    }
+
+	    // 정상 진입
 	    FoodDiaryDTO outVO = new FoodDiaryDTO();
 	    outVO.setUserId(param.getUserId());
 	    outVO.setRegDt(param.getRegDt());
@@ -100,6 +110,7 @@ public class FoodDiaryController {
 
 	    return viewName;
 	}
+	
 	
 	@PostMapping(value = "/doSave.do", produces = "text/plain;charset=UTF-8")
 	@ResponseBody
@@ -130,7 +141,7 @@ public class FoodDiaryController {
 	
 	@GetMapping("/doSelectOne.do")
 	public String doSelectOne(FoodDiaryDTO param, Model model) {
-		String viewName = "/foodDiary/foodDiary_form";
+		String viewName = "/foodDiary/foodDiary_mod";
 		log.debug("┌───────────────────────────────────────┐");
 		log.debug("│ doSelectOne()                         │");
 		log.debug("└───────────────────────────────────────┘");
@@ -139,12 +150,14 @@ public class FoodDiaryController {
 		
 	    FoodDiaryDTO outVO = foodDiaryService.doSelectOne(param);
 
-	    model.addAttribute("outVO", outVO);
-	    model.addAttribute("mode", "edit");
-	    
-	    log.debug("2. outVO: {}", outVO);
+	    if (null == outVO) {
+	        model.addAttribute("message", "해당 음식 일지를 찾을 수 없습니다.");
+	        model.addAttribute("nextUrl", "/ehr/foodDiary/doRetrieve.do");
+	        return "/common/error";
+	    }
 
-	    return viewName; 
+	    model.addAttribute("outVO", outVO);
+	    return viewName; // 👉 수정 전용 JSP로 이동!
 	}
 	
 	
@@ -155,6 +168,11 @@ public class FoodDiaryController {
 		log.debug("│ doRetrieve()                          │");
 		log.debug("└───────────────────────────────────────┘");
 		log.debug("param: {}", param);
+		
+	    // regDt가 null이거나 빈 문자열이면 오늘 날짜로 설정
+	    if (param.getRegDt() == null || param.getRegDt().trim().isEmpty()) {
+	        param.setRegDt(LocalDate.now().toString()); // yyyy-MM-dd
+	    }
 		
 		// regDt 값에 시간정보 제거
 		if (param.getRegDt() != null && param.getRegDt().contains(" ")) {

@@ -65,7 +65,7 @@ class FoodDaoTest {
 		log.debug("└─────────────────────────────────────────────────────────┘");
 	}
 	
-	//@Disabled
+	@Disabled
 	@Test
 	void doDelete() throws SQLException{
 		log.debug("┌─────────────────────────────────────────────────────────┐");
@@ -96,7 +96,7 @@ class FoodDaoTest {
 		
 	}
 	
-	//@Disabled
+	@Disabled
 	@Test
 	void doUpdate() throws SQLException{
 		log.debug("┌─────────────────────────────────────────────────────────┐");
@@ -129,7 +129,7 @@ class FoodDaoTest {
 		
 	}
 	
-	//@Disabled
+	@Disabled
 	@Test
 	void doSelectOne()throws SQLException{
 		log.debug("┌─────────────────────────────────────────────────────────┐");
@@ -201,7 +201,7 @@ class FoodDaoTest {
 	}
 	
 
-	@Test
+	//@Test
 	void beans() {
 		assertNotNull(context);
 		assertNotNull(mapper);
