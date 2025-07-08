@@ -1,25 +1,22 @@
 package com.pcwk.ehr.board.domain;
 
-import java.util.Date;
-
 import org.springframework.stereotype.Component;
-
 import com.pcwk.ehr.cmn.DTO;
 
 @Component
 public class NoticeDTO extends DTO {
-	private int noCode;//공지사항 코드
-	private String userId;//사용자_ID
-	private String title;//제목
-	private String content;//내용
-	private int viewCount;//조회수
-	private Date cDt;//작성일
-	private Date upDt;//수정일
+	private int noCode;       // 공지사항 코드
+	private String userId;    // 사용자_ID
+	private String title;     // 제목
+	private String content;   // 내용
+	private int viewCount;    // 조회수
+	private String cDt;       // 작성일 (수정)
+	private String upDt;      // 수정일 (수정)
 
 	// 기본 생성자
 	public NoticeDTO() {}
 
-	public NoticeDTO(String userId, String title, String content, int viewCount, Date cDt, Date upDt) {
+	public NoticeDTO(String userId, String title, String content, int viewCount, String cDt, String upDt) {
 		super();
 		this.userId = userId;
 		this.title = title;
@@ -28,7 +25,6 @@ public class NoticeDTO extends DTO {
 		this.cDt = cDt;
 		this.upDt = upDt;
 	}
-	
 
 	public int getNoCode() {
 		return noCode;
@@ -70,19 +66,19 @@ public class NoticeDTO extends DTO {
 		this.viewCount = viewCount;
 	}
 
-	public Date getcDt() {
+	public String getcDt() {
 		return cDt;
 	}
 
-	public void setcDt(Date cDt) {
+	public void setcDt(String cDt) {
 		this.cDt = cDt;
 	}
 
-	public Date getUpDt() {
+	public String getUpDt() {
 		return upDt;
 	}
 
-	public void setUpDt(Date upDt) {
+	public void setUpDt(String upDt) {
 		this.upDt = upDt;
 	}
 
@@ -92,9 +88,4 @@ public class NoticeDTO extends DTO {
 				+ ", viewCount=" + viewCount + ", cDt=" + cDt + ", upDt=" + upDt + ", toString()=" + super.toString()
 				+ "]";
 	}
-
-	
-	
-
-
 }
