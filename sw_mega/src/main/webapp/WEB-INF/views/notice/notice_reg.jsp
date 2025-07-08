@@ -21,15 +21,13 @@
    const titleInput = document.querySelector("#title");
    console.log(titleInput);
 
-   const regIdInput = document.querySelector("#regId");
-   console.log(regIdInput);
+   const userIdInput = document.querySelector("#userId");
+   console.log(userIdInput);
 
-   //const contentsTextarea = document.getElementById("contents");
-   const contentsTextarea = document.querySelector("#contents");
-   console.log(contentsTextarea);
+   //const contentsTextarea = document.getElementById("content");
+   const contentTextarea = document.querySelector("#content");
+   console.log(contentTextarea);
 
-   const divInput = document.querySelector("#div");
-   console.log(divInput);
 
    //id 선택자
    //document.getElementById("contents")
@@ -50,7 +48,7 @@
    moveToListButton.addEventListener("click",function(event){
        console.log('moveToListButton: click');
        if(confirm('목록으로 이동 하시겠습니까?') === false)return;
-       window.location.href = '/ehr/board/doRetrieve.do?div='+divInput.value;
+       window.location.href = '/ehr/notice/doRetrieve.do?div='+divInput.value;
        
    });
    
@@ -70,16 +68,16 @@
       }
 
       //등록자 필수 입력
-      if(isEmpty(regIdInput.value) === true){
+      if(isEmpty(userIdInput.value) === true){
          alert('등록자를 입력 하세요');
-         regIdInput.focus();
+         userIdInput.focus();
          return;
       }
 
       //내용 필수 입력
-      if(isEmpty(contentsTextarea.value) === true){
+      if(isEmpty(contentTextarea.value) === true){
          alert('내용을 입력 하세요');
-         contentsTextarea.focus();
+         contentTextarea.focus();
          return;
       }
 
@@ -89,14 +87,13 @@
       //ajax 비동기 통신
       $.ajax({
          type:"POST",    //GET/POST
-         url:"/ehr/board/doSave.do", //서버측 URL
+         url:"/ehr/notice/doSave.do", //서버측 URL
          asyn:"true",    //비동기
          dataType:"html",//서버에서 받을 데이터 타입
          data:{          //파라메터
             "title": titleInput.value,
-            "regId": regIdInput.value,
-            "contents": contentsTextarea.value,
-            "div": divInput.value
+            "userId": regIdInput.value,
+            "content": contentsTextarea.value
          },
          success:function(response){//요청 성공
              console.log("success:"+response)
@@ -108,7 +105,7 @@
                 alert(message.message);
 
                 //목록화면으로 이동
-                window.location.href = '/ehr/board/doRetrieve.do?div='+divInput.value;
+                window.location.href = '/ehr/notice/doRetrieve.do?div='+divInput.value;
              }else{
                 alert(message.message);
              }
@@ -142,19 +139,19 @@
       <!--//버튼 영역 end-->
 
       <!--form-->
-      <form action="/ehr/board/doSave.do" method="post">
+      <form action="/ehr/notice/doSave.do" method="post">
          <input type="hidden" name="div" id="div" value="${board_div}">
          <div class="form-group">
             <label for="title" >제목</label>
             <input type="text" name="title" id="title" maxlength="200" required placeholder="제목" >
          </div>
          <div class="form-group">
-            <label for="regId" >등록자</label>
-            <input type="text" name="regId" id="regId" maxlength="20" required  placeholder="등록자" value="${sessionScope.user.userId}" disabled="disabled">
+            <label for="userId" >등록자</label>
+            <input type="text" name="userId" id="userId" maxlength="20" required  placeholder="등록자" value="${sessionScope.user.userId}" disabled="disabled">
          </div>
          <div class="form-group">
-            <label for="contents" >내용</label>
-            <textarea id="contents" name="contents"  placeholder="내용" class="contents"></textarea>
+            <label for="content" >내용</label>
+            <textarea id="content" name="content"  placeholder="내용" class="content"></textarea>
          </div>         
       </form>
       <!--//form end-->
