@@ -32,14 +32,16 @@
 	<h3>🔥 총 소모 칼로리: ${vo.totalCal} kcal</h3>
     
     <form action="/ehr/exerciseDiary/doForm.do" method="get"  onsubmit="return checkUserId()">
+        <input type="hidden" name="exerciseName" value="${vo.exerciseName}" />
         <input type="hidden" name="eCode" value="${vo.eCode}" />
         <input type="hidden" name="duration" value="${param.duration}" />
+        <input type="hidden" name="cardioWeight" value="${param.cardioWeight}" />
         <input type="hidden" name="setCount" value="${param.setCount}" />
         <input type="hidden" name="repsPerSet" value="${param.repsPerSet}" />
          <input type="hidden" name="strenthWeight" value="${param.strenthWeight}" />
         <!-- userId는 세션에서 꺼내거나 이미 바인딩된 값 사용 -->
         <input type="hidden" name="userId" value="${param.userId}" />
-        <button type="submit">👉 음식 일지 추가</button>
+        <button type="submit">👉 운동 일지 추가</button>
     </form>
 
     <div class="btn-back">

@@ -86,9 +86,9 @@
 <update id="doUpdate" parameterType="ExerciseDiaryDTO">
     UPDATE exercise_diary
     SET
-        cardio_weight = #{cardioWeight, jdbcType=INTEGER},
-        strenth_weight = #{strenthWeight, jdbcType=INTEGER},
+        <!-- cardio_weight = #{cardioWeight, jdbcType=INTEGER}, -->
         duration = #{duration},
+        strenth_weight = #{strenthWeight, jdbcType=INTEGER},
         set_count = #{setCount, jdbcType=INTEGER},
         reps_per_set = #{repsPerSet, jdbcType=INTEGER}
     WHERE

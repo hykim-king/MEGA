@@ -11,7 +11,7 @@
 <body>
 <h2>🍽️ 음식 일지 수정</h2>
 
-<form id="foodForm">
+<form id="foodDiaryForm">
   <input type="hidden" name="fdCode" value="${outVO.fdCode}" />
   <input type="hidden" name="userId" value="${outVO.userId}" />
 
@@ -33,7 +33,7 @@
 
 <script>
 $('#updateBtn').click(function() {
-  const formData = $('#foodForm').serialize();
+  const formData = $('#foodDiaryForm').serialize();
   const userId = $('[name=userId]').val();
 
   $.post('/ehr/foodDiary/doUpdate.do', formData, function(response) {
