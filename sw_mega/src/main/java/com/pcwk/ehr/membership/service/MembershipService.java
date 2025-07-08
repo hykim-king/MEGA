@@ -7,6 +7,7 @@ import com.pcwk.ehr.cmn.SearchDTO;
 import com.pcwk.ehr.membership.domain.MembershipDTO;
 
 
+
 public interface MembershipService {
 
  
@@ -46,6 +47,20 @@ public interface MembershipService {
      */
     
     boolean isUserIdAvailable(String userId) throws SQLException;
+    
+
+    boolean isEmailAvailable(String email) throws SQLException;
+    
+
+    boolean sendEmailVerification(MembershipDTO dto) throws SQLException;
+   
+    
+    boolean verifyEmailToken(String token) throws SQLException;
+
+    void saveEmailToken(String email, String code) throws SQLException;
+
+    
+
 //
 //    /**
 //     * 8.회원 등급 업그레이드

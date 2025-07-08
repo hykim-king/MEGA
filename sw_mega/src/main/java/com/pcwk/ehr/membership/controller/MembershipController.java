@@ -2,22 +2,26 @@ package com.pcwk.ehr.membership.controller;
 
 
 import java.io.UnsupportedEncodingException;
-import java.nio.charset.StandardCharsets;
 import java.sql.SQLException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.pcwk.ehr.cmn.PLog;
 import com.pcwk.ehr.cmn.SearchDTO;
 import com.pcwk.ehr.membership.domain.MembershipDTO;
 import com.pcwk.ehr.membership.service.MembershipService;
+
+
 
 /**
  * 〈Membership CRUD Controller〉  
@@ -36,6 +40,9 @@ public class MembershipController implements PLog {
 
     @Autowired
     private MembershipService membershipService;
+    
+    @Autowired
+    private JavaMailSender mailSender;
 
     /*───────────────────────────────────────────────────────────*/
     /* Constructor                                               */
@@ -178,4 +185,66 @@ public class MembershipController implements PLog {
 
         return "redirect:/membership/doRetrieve.do";
     }
+
+    /*───────────────────────────────────────────────────────────*/
+    /* 8. 아이디/이메일 중복 체크 (AJAX)                            */
+    /*───────────────────────────────────────────────────────────*/
+    @ResponseBody
+    @GetMapping("/checkUserId.do")
+    public boolean checkUserId(@RequestParam String userId) throws SQLException {
+        return membershipService.isUserIdAvailable(userId);   // true → 사용 가능
+    }
+
+    @ResponseBody
+    @GetMapping("/checkEmail.do")
+    public boolean checkEmail(@RequestParam String email) throws SQLException {
+        return membershipService.isEmailAvailable(email);     // true → 사용 가능
+    }
+    
+    @GetMapping("/idCheck.do")           //아이디 중복여부 확인
+    @ResponseBody
+    public String idCheck(@RequestParam String userId) throws SQLException {
+        MembershipDTO dto = new MembershipDTO();
+        dto.setUserId(userId);
+
+        MembershipDTO result = membershipService.selectOne(dto);
+
+        return (result == null) ? "0" : "1";  // 0: 사용 가능, 1: 중복
+    }
+
+    
+    /*───────────────────────────────────────────────────────────*/
+    /* 9. 이메일 인증 링크 처리                                   */
+    /*───────────────────────────────────────────────────────────*/
+    @GetMapping("/verifyEmail.do")
+    public String verifyEmail(@RequestParam String token, Model model) throws SQLException {
+        boolean ok = membershipService.verifyEmailToken(token);
+        model.addAttribute("msg",
+                ok ? "이메일 인증이 완료되었습니다!" : "유효하지 않은 인증 링크입니다.");
+        return "membership/verify_result";   // 결과 화면 JSP
+    }
+
+    @PostMapping("/sendAuthCode.do")
+    @ResponseBody
+    public String sendAuthCode(@RequestParam String email) throws Exception {
+        // 1) 6자리 랜덤 코드 생성
+        String code = String.format("%06d", (int)(Math.random()*1_000_000));
+
+        
+       
+        
+        // 2) 메일 발송
+        SimpleMailMessage mail = new SimpleMailMessage();
+        mail.setTo(email);
+        mail.setSubject("[MEGA] 이메일 인증 코드");
+        mail.setText("인증코드: " + code);
+        mailSender.send(mail);
+
+        // 3) DB에 토큰·만료시간 저장 (updateEmailAuthToken)
+        membershipService.saveEmailToken(email, code);
+
+        return "OK";
+    }
+
+
 }

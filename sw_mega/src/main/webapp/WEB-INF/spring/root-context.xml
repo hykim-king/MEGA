@@ -56,26 +56,27 @@
     <bean id="dummyMailService"
         class="com.pcwk.ehr.user.service.DummyMailService" />
     <!-- naver mail -->
-    <bean id="mailSenderImpl"
-        class="org.springframework.mail.javamail.JavaMailSenderImpl">
-        <property name="host" value="smtp.naver.com" />
-        <property name="port" value="465" />
-        <property name="username" value="syl2549@naver.com" />
-        <property name="password" value="ss779852##" />
-        <property name="defaultEncoding" value="utf-8" />
-        <!-- SSL -->
-        <property name="javaMailProperties">
-            <props>
-                <prop key="mail.smtp.host">smtp.naver.com</prop>
-                <prop key="mail.smtp.port">465</prop>
-                <prop key="mail.smtp.auth">true</prop>
-                <prop key="mail.smtp.ssl.protocols">TLSv1.2</prop>
-                <prop key="mail.smtp.ssl.enable">true</prop>
-                <prop key="mail.smtp.ssl.trust">smtp.naver.com</prop>
-                <prop key="mail.debug">true</prop>
-            </props>
-        </property>
-    </bean>
+   <bean id="mailSenderImpl"
+      class="org.springframework.mail.javamail.JavaMailSenderImpl">
+    <property name="host" value="smtp.naver.com"/>
+    <property name="port" value="465"/>
+    <property name="username" value="com0494@naver.com"/>
+    <property name="password" value="N3LH5SEFC1U2"/>
+    <property name="defaultEncoding" value="utf-8"/>
+
+    <property name="javaMailProperties">
+        <props>
+            <prop key="mail.smtp.host">smtp.naver.com</prop>
+            <prop key="mail.smtp.port">465</prop>
+            <prop key="mail.smtp.auth">true</prop>
+            <prop key="mail.smtp.ssl.protocols">TLSv1.2</prop>
+            <prop key="mail.smtp.ssl.enable">true</prop>
+            <prop key="mail.smtp.ssl.trust">smtp.naver.com</prop>
+            <prop key="mail.debug">true</prop>
+        </props>
+    </property>
+</bean>
+    <alias name="mailSenderImpl" alias="mailSender"/>
     <bean id="transactionManager"
         class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref="dataSource" />

@@ -2,17 +2,42 @@ package com.pcwk.ehr.membership.domain;   // 소문자 dto
 
 import java.util.Date;
 
+//import org.apache.logging.log4j.core.config.plugins.validation.constraints.NotBlank;
+import javax.validation.constraints.NotBlank;     
 
-import org.springframework.format.annotation.DateTimeFormat; 
+import org.springframework.format.annotation.DateTimeFormat;
+
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 public class MembershipDTO {
 
+	
+	
+	@NotBlank(message = "아이디는 필수입니다.")
+	@Size(min = 4, max = 30, message = "아이디는 4~30자여야 합니다.")
+	@Pattern(regexp = "^[a-zA-Z0-9]+$", message = "아이디는 영문+숫자만 가능합니다.")	
     private String userId;
     private String adminId;
+    
+    @NotBlank(message = "이메일은 필수입니다.")
+    @Email(message = "이메일 형식을 확인해주세요.")
     private String email;
+    
+    @NotBlank(message = "비밀번호는 필수입니다.")
+    @Size(min = 6, max = 50, message = "비밀번호는 6~50자여야 합니다.")
     private String password;
+    
+    @NotNull(message = "생년월일은 필수입니다.")
+    @Past(message = "생년월일은 과거 날짜여야 합니다.")
     @DateTimeFormat(pattern = "yyyy-MM-dd")  
     private Date   birth;            // 생년월일
+    
+    @NotBlank(message = "이메일 인증 여부(Y/N)가 필요합니다.")
+    @Pattern(regexp = "^[YN]$", message = "이메일 인증 여부는 Y 또는 N이어야 합니다.")
     private String emailAuth;        // 이메일 인증 여부
     private String emailAuthToken;
     private int    grade;            // 1:BASIC 2:SILVER 3:GOLD

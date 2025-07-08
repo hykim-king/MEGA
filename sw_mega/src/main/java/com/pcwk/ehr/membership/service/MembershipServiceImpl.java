@@ -2,9 +2,9 @@ package com.pcwk.ehr.membership.service;
 
 import java.sql.SQLException;
 import java.util.List;
-import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -20,7 +20,14 @@ public class MembershipServiceImpl implements MembershipService {
 
     @Autowired          // ② MyBatis 매퍼 주입
    MembershipMapper membershipMapper;
+    
+    @Autowired   //메일 발송기
+    private JavaMailSender mailSender;
 
+    
+
+
+    
     /*───────────────────────────────────────────*/
     /* 1. 회원 등록                               */
     /*───────────────────────────────────────────*/
@@ -76,9 +83,31 @@ public class MembershipServiceImpl implements MembershipService {
     public boolean isUserIdAvailable(String userId) throws SQLException {                    
     	return membershipMapper.idCheck(userId) == 0;
     }
+
+	@Override
+	public boolean isEmailAvailable(String email) throws SQLException {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean sendEmailVerification(MembershipDTO dto) throws SQLException {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean verifyEmailToken(String token) throws SQLException {
+		// TODO Auto-generated method stub
+		return false;
+	}
     
 
-    
+	@Override
+	public void saveEmailToken(String email, String code) throws SQLException {
+	    membershipMapper.updateEmailAuthToken(email, code); 
+	}
+
     
     
 //    /*───────────────────────────────────────────*/
