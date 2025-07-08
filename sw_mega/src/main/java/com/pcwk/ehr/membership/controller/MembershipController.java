@@ -49,7 +49,7 @@ public class MembershipController implements PLog {
     /*───────────────────────────────────────────────────────────*/
     public MembershipController() {
         log.debug("┌─────────────────────────────────────────────────────────┐");
-        log.debug("│ MembershipController()                                   │");
+        log.debug("│ MembershipController()                                  │");
         log.debug("└─────────────────────────────────────────────────────────┘");
     }
 
@@ -235,9 +235,11 @@ public class MembershipController implements PLog {
         
         // 2) 메일 발송
         SimpleMailMessage mail = new SimpleMailMessage();
+        mail.setFrom("com0494@naver.com"); 
         mail.setTo(email);
         mail.setSubject("[MEGA] 이메일 인증 코드");
         mail.setText("인증코드: " + code);
+        //발송
         mailSender.send(mail);
 
         // 3) DB에 토큰·만료시간 저장 (updateEmailAuthToken)

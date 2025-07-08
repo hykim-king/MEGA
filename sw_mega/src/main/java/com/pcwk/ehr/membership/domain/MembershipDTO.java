@@ -2,16 +2,15 @@ package com.pcwk.ehr.membership.domain;   // 소문자 dto
 
 import java.util.Date;
 
-//import org.apache.logging.log4j.core.config.plugins.validation.constraints.NotBlank;
-import javax.validation.constraints.NotBlank;     
-
-import org.springframework.format.annotation.DateTimeFormat;
-
 import javax.validation.constraints.Email;
+//import org.apache.logging.log4j.core.config.plugins.validation.constraints.NotBlank;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 public class MembershipDTO {
 
@@ -44,6 +43,13 @@ public class MembershipDTO {
     private String profileImage;
     private Date   regDt;            // 가입일 
 
+    
+    @Pattern(regexp = "^(?=.*[A-Za-z])(?=.*\\d)(?=.*[!@#$%^&*()_+]).{8,16}$",
+            message = "비밀번호는 8~16자, 영문/숫자/특수문자를 모두 포함해야 합니다.")
+   private String password;
+    
+    
+    
     public MembershipDTO() {}
 
 	public MembershipDTO(String userId, String adminId, String email, String password, Date birth, String emailAuth,
@@ -92,6 +98,8 @@ public class MembershipDTO {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	
+	
 
 	public Date getBirth() {
 		return birth;

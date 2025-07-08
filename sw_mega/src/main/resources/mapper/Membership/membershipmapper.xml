@@ -138,6 +138,13 @@ UPDATE MEMBERSHIP
  WHERE EMAIL = #{email}
 </update>
 
+<update id="updateEmailAuthToken" parameterType="map"> 
+    UPDATE MEMBERSHIP
+    SET EMAIL_AUTH_TOKEN = #{token}
+    WHERE EMAIL = #{email}
+</update>
+
+
 <update id="confirmEmailAuthToken">
     UPDATE MEMBERSHIP
        SET EMAIL_AUTH_TOKEN = #{token},
