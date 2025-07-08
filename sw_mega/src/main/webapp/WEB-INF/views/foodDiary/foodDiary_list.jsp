@@ -1,9 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="/ehr/resources/assets/css/food_list.css">
     <title>🍽️ 음식 일지</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
@@ -17,8 +19,9 @@
       <li class="has-submenu">
         <a href="#">운동</a>
         <ul class="submenu">
-          <li><a href="#">운동 일지</a></li>
-           <li><a href="/ehr/exercise/doRetrieve.do">운동 조회</a></li>
+          <li><a href="/ehr/exerciseDiary/doRetrieve.do?userId=user01">운동 일지</a></li>
+          <li><a href="/ehr/exercise/doRetrieve.do">운동 조회</a></li>
+          <li><a href="/ehr/exercise/doForm.do?userId=user01">운동 추가</a></li>
         </ul>
       </li>
       <li class="has-submenu">

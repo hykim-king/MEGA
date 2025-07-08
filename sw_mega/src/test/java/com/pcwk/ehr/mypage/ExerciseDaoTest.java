@@ -62,7 +62,7 @@ class ExerciseDaoTest {
 		log.debug("└─────────────────────────────────────────────────────────┘");
 	}
 
-	//@Disabled
+	@Disabled
 	@Test
 	void doDelete() throws SQLException {
 		log.debug("┌─────────────────────────────────────────────────────────┐");
@@ -219,7 +219,7 @@ class ExerciseDaoTest {
 
 	}
 
-	@Disabled
+	//@Disabled
 	@Test
 	void doRetrieve() throws SQLException {
 		log.debug("┌─────────────────────────────────────────────────────────┐");

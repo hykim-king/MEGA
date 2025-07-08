@@ -18,6 +18,7 @@ public class ExerciseDTO {
 	private int totalCal; //총 소모 칼로리
 	
 	private int totalCnt;
+	private String userId;
 	
 	public ExerciseDTO() {
 		// TODO Auto-generated constructor stub
@@ -63,6 +64,20 @@ public class ExerciseDTO {
 	}
 	
 	
+
+	/**
+	 * @return the userId
+	 */
+	public String getUserId() {
+		return userId;
+	}
+
+	/**
+	 * @param userId the userId to set
+	 */
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
 
 	/**
 	 * @return the totalCnt
@@ -252,7 +267,8 @@ public class ExerciseDTO {
 		return "ExerciseDTO [eCode=" + eCode + ", exerciseName=" + exerciseName + ", exerciseType=" + exerciseType
 				+ ", region=" + region + ", gender=" + gender + ", weight=" + weight + ", calBurn=" + calBurn
 				+ ", duration=" + duration + ", strenthWeight=" + strenthWeight + ", setCount=" + setCount
-				+ ", repsPerSet=" + repsPerSet + ", totalCal=" + totalCal + ", totalCnt=" + totalCnt + "]";
+				+ ", repsPerSet=" + repsPerSet + ", totalCal=" + totalCal + ", totalCnt=" + totalCnt + ", userId="
+				+ userId + "]";
 	}
 	
 }

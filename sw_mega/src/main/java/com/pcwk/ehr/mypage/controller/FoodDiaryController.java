@@ -198,20 +198,20 @@ public class FoodDiaryController {
 	}
 	
 	
-//	@GetMapping(value = "/getDailySummary.do")
-//	public String getDailySummary(FoodDiaryDTO param, Model model) {
-//		String viewName = "/foodDiary/foodDiary_list";
-//		log.debug("┌───────────────────────────────────────┐");
-//		log.debug("│ getDailySummary()                     │");
-//		log.debug("└───────────────────────────────────────┘");
-//		log.debug("param: {}", param);
-//		
-//	    NutritionSummaryDTO vo = foodDiaryService.getDailySummary(param);
-//	    model.addAttribute("vo", vo);
-//	    log.debug("2. vo: {}", vo);
-//		
-//		return viewName;
-//	}
+	@GetMapping(value = "/getDailySummary.do")
+	public String getDailySummary(FoodDiaryDTO param, Model model) {
+		String viewName = "/foodDiary/foodDiary_list";
+		log.debug("┌───────────────────────────────────────┐");
+		log.debug("│ getDailySummary()                     │");
+		log.debug("└───────────────────────────────────────┘");
+		log.debug("param: {}", param);
+		
+	    NutritionSummaryDTO vo = foodDiaryService.getDailySummary(param);
+	    model.addAttribute("vo", vo);
+	    log.debug("2. vo: {}", vo);
+		
+		return viewName;
+	}
 	
 	
 }
