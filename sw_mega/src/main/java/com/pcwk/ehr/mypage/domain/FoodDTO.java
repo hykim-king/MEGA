@@ -21,6 +21,7 @@ public class FoodDTO {
 	private int totalNa;
 	
 	private int totalCnt; //총글수 
+	private String userId;
 	
 	public FoodDTO() {
 		// TODO Auto-generated constructor stub
@@ -71,6 +72,21 @@ public class FoodDTO {
 	}
 	
 	
+	
+
+	/**
+	 * @return the userId
+	 */
+	public String getUserId() {
+		return userId;
+	}
+
+	/**
+	 * @param userId the userId to set
+	 */
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
 
 	/**
 	 * @return the totalCnt
@@ -273,6 +289,8 @@ public class FoodDTO {
 		return "FoodDTO [foodName=" + foodName + ", stGrams=" + stGrams + ", cal=" + cal + ", carb=" + carb + ", fat="
 				+ fat + ", prot=" + prot + ", na=" + na + ", grams=" + grams + ", totalCal=" + totalCal + ", totalCarb="
 				+ totalCarb + ", totalFat=" + totalFat + ", totalProt=" + totalProt + ", totalNa=" + totalNa
-				+ ", totalCnt=" + totalCnt + "]";
+				+ ", totalCnt=" + totalCnt + ", userId=" + userId + "]";
 	}
+
+	
 }

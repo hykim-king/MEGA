@@ -9,6 +9,36 @@
 </head>
 <body>
 <h2>🍽️ 음식 일지</h2>
+<div class="navbar">
+  <div class="navbar-left">
+    <div class="logo">🏋️‍♂️ 헬메이트</div>
+    <ul class="main-menu">
+      <li><a href="#">홈</a></li>
+      <li class="has-submenu">
+        <a href="#">운동</a>
+        <ul class="submenu">
+          <li><a href="#">운동 일지</a></li>
+           <li><a href="/ehr/exercise/doRetrieve.do">운동 조회</a></li>
+        </ul>
+      </li>
+      <li class="has-submenu">
+        <a href="#">음식</a>
+        <ul class="submenu">
+          <li><a href="/ehr/foodDiary/doRetrieve.do?userId=user01">음식 일지</a></li>
+          <li><a href="/ehr/food/doRetrieve.do?userId=user01">음식 조회</a></li>
+          <li><a href="/ehr/food/doForm.do?userId=user01">음식 추가</a></li>
+        </ul>
+      </li>
+      <li><a href="#">커뮤니티</a></li>
+    </ul>
+  </div>
+
+  <div class="navbar-right">
+    <span>🔔</span>
+    <div class="circle"></div>
+    <span>로그인</span>
+  </div>
+</div>
 
 <!-- 날짜 선택 폼 시작 -->
 <form method="get" action="/ehr/foodDiary/doRetrieve.do">
@@ -21,7 +51,7 @@
 
 <!-- 음식 추가 버튼 -->
 <div style="margin-top: 10px; text-align: right;">
-    <a href="/ehr/foodDiary/doForm.do?userId=${userId}&regDt=${regDt}">➕ 음식 추가</a>
+    <a href="/ehr/foodDiary/doForm.do?userId=${param.userId}&regDt=${param.regDt}">➕ 음식 일지 추가</a>
 </div>
 <c:forEach var="meal" items="${mealList}">
     <h3>
@@ -45,7 +75,7 @@
                 ${item.totalProt} g /
                 ${item.totalNa} mg
             </p>
-            <!-- 👇 수정/삭제 버튼 추가 -->
+            <!-- 수정 버튼: doSelectOne.do 호출 후 수정 페이지로 이동 -->
             <a href="/ehr/foodDiary/doSelectOne.do?fdCode=${item.fdCode}&userId=${item.userId}&regDt=${item.regDt}">수정</a>
             <button onclick="deleteDiary('${item.fdCode}', '${item.userId}', '${item.regDt}')">삭제</button>
             
