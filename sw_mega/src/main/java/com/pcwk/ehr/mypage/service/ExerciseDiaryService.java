@@ -10,6 +10,8 @@ public interface ExerciseDiaryService {
 
 	List<ExerciseDiaryOutDTO> doRetrieve(ExerciseDiaryDTO param);
 	
+	ExerciseDiaryOutDTO selectOneWithJoin(ExerciseDiaryDTO param);
+	
 	int doDelete(ExerciseDiaryDTO param);
 	
 	int doUpdate(ExerciseDiaryDTO param);

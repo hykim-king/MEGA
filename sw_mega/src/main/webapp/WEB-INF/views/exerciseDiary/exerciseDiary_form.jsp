@@ -6,14 +6,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>헬메이트</title>
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 <body>
 <h2>운동 일지 등록</h2>
 
 <form id="exerciseDiaryForm">
-    <input type="hidden" name="userId" value="${param.userId}"/>
     
     <label for="exerciseName">운동명: </label>
     <input type="text" id="exerciseName" name="exerciseName" value="${param.exerciseName }" required readonly />
@@ -24,7 +23,7 @@
     <input type="number" id="duration" name="duration" value="${param.duration}" required readonly /><br/>
      
     <label>체중(유산소): </label>
-    <input type="number" id="cardioWeight" name="cardioWeight" value="${param.cardioWeight}" /><br/>
+    <input type="number" id="weight" name="weight" value="${param.weight}" /><br/>
     
     <label>덤벨무게(근력): </label>
     <input type="number" id="strenthWeight" name="strenthWeight" value="${param.strenthWeight}" /><br/>
@@ -44,10 +43,10 @@
 
 <script>
 function goSearchExercise() {
-    const userId = document.querySelector('[name="userId"]').value;
+	const regDt = $('#regDt').val();
     
     const url = "/ehr/exercise/doRetrieve.do?mode=select&returnUrl=exerciseDiary/doForm.do"
-        + "&userId=" + encodeURIComponent(userId);
+    	+ "&regDt=" + encodeURIComponent(regDt);
 
     window.location.href = url;
 }
@@ -59,7 +58,7 @@ $('#saveBtn').click(function() {
       const res = JSON.parse(response);
       alert(res.message);
       if (res.messageId === 1) {
-        location.href = "/ehr/exerciseDiary/doRetrieve.do?userId=" + $('[name=userId]').val() + "&regDt=" + $('#regDt').val();
+        location.href = "/ehr/exerciseDiary/doRetrieve.do?regDt=" + $('#regDt').val();
       }
     });
 });

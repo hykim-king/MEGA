@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Service;
 
 import com.pcwk.ehr.cmn.SearchDTO;
@@ -39,6 +40,12 @@ public class FoodServiceImpl implements FoodService {
 	
 	@Override
 	public int doSave(FoodDTO param) {
+	    int isExist = mapper.isExistByName(param.getFoodName());
+		
+	    if (isExist > 0) {
+	        throw new DuplicateKeyException("이미 동일한 음식명이 존재합니다.");
+	    }
+	    
 		return mapper.doSave(param);
 	}
 	

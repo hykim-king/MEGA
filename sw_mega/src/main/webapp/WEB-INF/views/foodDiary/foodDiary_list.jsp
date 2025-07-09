@@ -19,17 +19,17 @@
       <li class="has-submenu">
         <a href="#">운동</a>
         <ul class="submenu">
-          <li><a href="/ehr/exerciseDiary/doRetrieve.do?userId=user01">운동 일지</a></li>
+          <li><a href="/ehr/exerciseDiary/doRetrieve.do">운동 일지</a></li>
           <li><a href="/ehr/exercise/doRetrieve.do">운동 조회</a></li>
-          <li><a href="/ehr/exercise/doForm.do?userId=user01">운동 추가</a></li>
+          <li><a href="/ehr/exercise/doForm.do">운동 추가</a></li>
         </ul>
       </li>
       <li class="has-submenu">
         <a href="#">음식</a>
         <ul class="submenu">
-          <li><a href="/ehr/foodDiary/doRetrieve.do?userId=user01">음식 일지</a></li>
-          <li><a href="/ehr/food/doRetrieve.do?userId=user01">음식 조회</a></li>
-          <li><a href="/ehr/food/doForm.do?userId=user01">음식 추가</a></li>
+          <li><a href="/ehr/foodDiary/doRetrieve.do">음식 일지</a></li>
+          <li><a href="/ehr/food/doRetrieve.do">음식 조회</a></li>
+          <li><a href="/ehr/food/doForm.do">음식 추가</a></li>
         </ul>
       </li>
       <li><a href="#">커뮤니티</a></li>
@@ -45,7 +45,6 @@
 
 <!-- 날짜 선택 폼 시작 -->
 <form method="get" action="/ehr/foodDiary/doRetrieve.do">
-    <input type="hidden" name="userId" value="${userId}" />
     <label for="regDt">날짜 선택: </label>
     <input type="date" id="regDt" name="regDt" value="${regDt}" required />
     <button type="submit">조회</button>
@@ -54,7 +53,7 @@
 
 <!-- 음식 추가 버튼 -->
 <div style="margin-top: 10px; text-align: right;">
-    <a href="/ehr/foodDiary/doForm.do?userId=${param.userId}&regDt=${param.regDt}">➕ 음식 일지 추가</a>
+    <a href="/ehr/foodDiary/doForm.do?regDt=${param.regDt}">➕ 음식 일지 추가</a>
 </div>
 <c:forEach var="meal" items="${mealList}">
     <h3>
@@ -80,7 +79,7 @@
             </p>
             <!-- 수정 버튼: doSelectOne.do 호출 후 수정 페이지로 이동 -->
             <a href="/ehr/foodDiary/doSelectOne.do?fdCode=${item.fdCode}&userId=${item.userId}&regDt=${item.regDt}">수정</a>
-            <button onclick="deleteDiary('${item.fdCode}', '${item.userId}', '${item.regDt}')">삭제</button>
+            <button onclick="deleteDiary('${item.fdCode}', '${item.regDt}')">삭제</button>
             
         </c:if>
     </c:forEach>
@@ -113,7 +112,7 @@
         const res = JSON.parse(response);
         alert(res.message);
         if (res.messageId === 1) {
-          window.location.href = '/ehr/foodDiary/doRetrieve.do?userId=' + userId + '&regDt=' + regDt;
+        	 window.location.href = '/ehr/foodDiary/doRetrieve.do?regDt=' + regDt;
         }
       },
       error: function(xhr, status, error) {
