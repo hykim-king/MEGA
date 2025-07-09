@@ -71,6 +71,7 @@
     <c:forEach var="item" items="${list}">
         <c:if test="${item.exerciseType == meal}">
             <c:set var="hasData" value="true" />
+             <div class="exercise-card">
             <p>${item.exerciseName}</p>
             <p>운동 타입: ${item.exerciseType}</p>
             
@@ -96,7 +97,7 @@
             <!-- 수정 버튼: doSelectOne.do 호출 후 수정 페이지로 이동 -->
             <a href="/ehr/exerciseDiary/selectOneWithJoin.do?edCode=${item.edCode}&eCode=${item.eCode}&regDt=${item.regDt}">수정</a>
             <button onclick="deleteDiary('${item.edCode}', '${item.regDt}')">삭제</button>
-            
+           </div>
         </c:if>
     </c:forEach>
 
@@ -106,11 +107,13 @@
 </c:forEach>
 
 <c:if test="${not empty vo}">
+ <div class="exercise-card">
     <h3>🍽️ 총 소모 칼로리 및 시간 요약</h3>
     <p>
         ${vo.totalDuration} (분) /
         ${vo.totalCalories} kcal 
     </p>
+   </div>
 </c:if>
 
 
