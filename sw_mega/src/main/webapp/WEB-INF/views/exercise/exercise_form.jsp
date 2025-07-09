@@ -57,17 +57,17 @@
 	  <option value="유산소">유산소</option>
 	  <option value="근력">근력</option>
 	</select>
-	
+	 <br/>
 	<label for="gender">성별 (유산소만):</label>
 	<select id="gender" name="gender">
 	  <option value="">지정 안 함</option>
 	  <option value="남성">남성</option>
 	  <option value="여성">여성</option>
 	</select>
-	
+	 <br/>
 	<label for="cardioWeight">기준 체중 (kg, 유산소만):</label>
 	<input type="number" id="cardioWeight" name="cardioWeight" placeholder="유산소 운동만 입력" />
-	
+	 <br/>
 	<label for="region">운동 부위 (근력만):</label>
 	<input type="text" id="region" name="region" placeholder="ex) 하체, 가슴, 등" />
     <br/>
