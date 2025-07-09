@@ -5,9 +5,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>${vo.title}</title>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>게시글 상세</title>
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/comment.css" />
+    <meta charset="UTF-8">
+    <title>${vo.title}</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
 
@@ -29,53 +31,30 @@
 <div id="commentList">
 <c:if test="${not empty commentList}">
     <c:forEach var="comment" items="${commentList}">
-       <p>${comment.content}</p> 
-       <p>${comment.userId} / ${comment.cDt}</p>
-              <!-- 수정 버튼: doSelectOne.do 호출 후 수정 페이지로 이동 -->
-       <a href="/ehr/noComment/doSelectOne.do?commentedCode=${comment.commentedCode}">수정</a>
-       <button onclick="deleteDiary('${comment.commentedCode}')">삭제</button>
+        <div class="comment-box">
+            <p>${comment.content}</p> 
+            <p>${comment.userId} / ${comment.cDt}</p>
+            
+            <!-- 수정 버튼!! -->
+            <form action = "/ehr/noComment/doSelectOne.do" method="get" style="display: inline;">
+            	<input type="hidden" name="noCommentCode" value="${comment.commentedCode}"/>
+            	<button type="submit">수정</button>
+            </form>
+			           	
+           	<!-- 삭제 버튼!! -->
+            <button onclick="deleteDiary('${comment.commentedCode}')">삭제</button>
+        </div>
     </c:forEach>
 </c:if>
 </div>
 
-<h3>댓글 쓰기</h3>
+<h3>댓글 남겨주세요</h3>
 <textarea id="content" name="content" rows="3" cols="50" placeholder="내용을 입력하세요"></textarea><br/>
 	<input type="hidden" id="noCode" value="${param.noCode}" />
 	<input type="hidden" id="userId" value="user01" />
 <button id="btnCommentSave">댓글 달기</button>
 
 
-
-
-<!-- <!-- 댓글 수정-->
-<script>
-    $("#btnCommentUpdate").click(function() {
-        const content = $("#content").val();
-        const commentedCode = $("#commentedCode").val();
-
-        if (content.trim() === "") {
-            alert("내용을 입력하세요.");
-            return;
-        }
-
-        $.ajax({
-            type: "POST",
-            url: "/ehr/noComment/doUpdate.do",
-            contentType: "application/json; charset=UTF-8",
-            data: JSON.stringify({
-                commentedCode: commentedCode,
-                content: content
-            }),
-            success: function(result) {
-                const res = JSON.parse(result);
-                alert(res.message);
-                if (res.messageId === 1) {
-                    location.href = "/ehr/notice/doDetail.do?noCode=${vo.noCode}&pageSize=10&pageNo=1";
-                }
-            }
-        });
-    });
-</script> -->
 
 
 <!-- 댓글 삭제 -->
