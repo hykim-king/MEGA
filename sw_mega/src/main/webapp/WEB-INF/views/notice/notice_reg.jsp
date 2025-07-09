@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="/ehr/resources/assets/css/form.css">
+<link rel="stylesheet" href="/ehr/resources/assets/css/notice_form.css">
 <title>즐거운_코딩</title>
 <!--외부에 생성한 *.js-->
 <!-- <script src="/ehr/resources/assets/js/common.js"></script> -->
@@ -16,6 +16,9 @@
 
  document.addEventListener('DOMContentLoaded', function(){
    console.log('DOMContentLoaded');
+   
+   const divInput = document.querySelector("#div"); // ✅ 추가
+   console.log(divInput);
 
    //contorl
    const titleInput = document.querySelector("#title");
@@ -92,8 +95,10 @@
          dataType:"html",//서버에서 받을 데이터 타입
          data:{          //파라메터
             "title": titleInput.value,
-            "userId": regIdInput.value,
-            "content": contentsTextarea.value
+            "userId": userIdInput.value,
+            "content": contentTextarea.value
+
+            
          },
          success:function(response){//요청 성공
              console.log("success:"+response)
@@ -105,7 +110,7 @@
                 alert(message.message);
 
                 //목록화면으로 이동
-                window.location.href = '/ehr/notice/doRetrieve.do?div='+divInput.value;
+                window.location.href = '/ehr/notice/doRetrieve.do';
              }else{
                 alert(message.message);
              }
@@ -126,10 +131,9 @@
 <body>
 
    <div class="form-container">
-        <c:choose>
-            <c:when test="${'20' == board_div }"><h2>자유 게시판 - 등록</h2></c:when>
-            <c:otherwise><h2>공지사항 - 등록</h2></c:otherwise>
-        </c:choose>                          
+            <h2>공지사항 등록</h2>
+            
+                                       
       <hr class="title-underline">
       <!--버튼 영역-->
       <div  class="button-area">
@@ -140,7 +144,7 @@
 
       <!--form-->
       <form action="/ehr/notice/doSave.do" method="post">
-         <input type="hidden" name="div" id="div" value="${board_div}">
+         <input type="hidden" name="div" id="div" value="${notice_div}">
          <div class="form-group">
             <label for="title" >제목</label>
             <input type="text" name="title" id="title" maxlength="200" required placeholder="제목" >

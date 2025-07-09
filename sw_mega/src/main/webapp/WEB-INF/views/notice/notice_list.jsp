@@ -47,7 +47,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="${CP}/resources/assets/css/list.css?date=${sysDate}">
+<link rel="stylesheet" href="${CP}/resources/assets/css/notice_list.css">
 <title>Insert title here</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
  <script src="${CP}/resources/assets/js/common.js"></script>
@@ -63,7 +63,7 @@
        
        const divInput = document.querySelector("#div");
        console.log(divInput);
-       
+   
        
        //등록 버튼 이벤트 감지
        moveToRegButton.addEventListener("click",function(event){
@@ -71,7 +71,7 @@
            
            if(confirm('등록 화면으로 이동 하시겠습니까?') === false)return;
            
-           window.location.href ="/ehr/notice/doSaveView.do?div="+divInput.value;
+           window.location.href = "/ehr/notice/doSaveView.do";
            
        });
        
@@ -116,35 +116,33 @@
      userForm.submit();     
      
  }    
- 
  </script> 
-
 </head>
+
+
 <body>
 <div class="main-container">   
-    <c:choose>
-        <c:when test="${20 == divValue }"><h2>자유 게시판 - 목록</h2></c:when>
-        <c:otherwise><h2>공지사항 - 목록</h2></c:otherwise>
-    </c:choose>
-    
+   <h2>공지사항 - 목록</h2>
+
+
     <hr class="title-underline"/>
     <!--검색 영역-->
-    <form action="#" name="userForm" class="search-form"    method="get" enctype="application/x-www-form-urlencoded">
+    <form action="#" name="userForm" class="search-form"method="get" enctype="application/x-www-form-urlencoded">
       <input type="hidden" name="pageNo" id="pageNo">
-      <input type="hidden" name="div" id="div" value='<c:out value="${divValue}" />'>
       <div  class="search-group">
         <label for="searchDiv">구분</label>
         <select name="searchDiv" id="searchDiv">
            <option value="">전체</option> 
            <option value="10" <c:if test="${search.searchDiv == 10 }">selected</c:if>>제목</option> 
            <option value="20" <c:if test="${search.searchDiv == 20 }">selected</c:if>>내용</option> 
-           <option value="30" <c:if test="${search.searchDiv == 30 }">selected</c:if>>SEQ</option>  
-           <option value="40" <c:if test="${search.searchDiv == 40 }">selected</c:if>>제목+내용</option> 
+           <option value="30" <c:if test="${search.searchDiv == 30 }">selected</c:if>>사용자ID</option>  
+           <option value="40" <c:if test="${search.searchDiv == 40 }">selected</c:if>>제목+내용</option>  
+           
         </select>
         <input type="search" name="searchWord" id="searchWord"  size="15" value="${search.searchWord }">
         <select name="pageSize" id="pageSize">
             <option value="10" <c:if test="${search.pageSize == 10 }">selected</c:if> >10</option>
-            <option value="20" <c:if test="${search.pageSize == 20 }">selected</c:if>   >20</option>
+            <option value="20" <c:if test="${search.pageSize == 20 }">selected</c:if> >20</option>
             <option value="30" <c:if test="${search.pageSize == 30 }">selected</c:if> >30</option>
             <option value="50" <c:if test="${search.pageSize == 50 }">selected</c:if> >50</option>
             <option value="100" <c:if test="${search.pageSize == 100 }">selected</c:if> >100</option>
@@ -170,10 +168,12 @@
             <th class="table-head">글쓴이</th>
             <th class="table-head">작성일</th>
             <th class="table-head">조회수</th>
-            <th style="display: none;">seq</th>
+            <th style="display: none;">noCode</th>
           </tr>
       </thead>
       <tbody>
+      
+      
           <c:choose>
             <c:when test="${list.size() > 0 }"> <!-- if -->
                 <c:forEach var="vo" items="${list }"> <!-- 향상된 for -->
@@ -189,6 +189,7 @@
             </c:when>
             <c:otherwise>    <!-- else -->
                 <tr>
+                
                    <td colspan="99"  class="table-cell text-center">조회된 데이터가 없습니다.</td> 
                 </tr>
             </c:otherwise>

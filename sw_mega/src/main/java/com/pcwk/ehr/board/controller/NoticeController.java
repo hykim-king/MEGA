@@ -83,6 +83,7 @@ public class NoticeController {
 			int pageSize = PcwkString.nvlZero(param.getPageSize(), 10);
 			
 			//게시구분: 공지사항(10)
+			
 			//검색구분
 			String searchDiv = PcwkString.nullToEmpty(param.getSearchDiv());
 			//검색어
@@ -120,7 +121,7 @@ public class NoticeController {
 	
 
 	@GetMapping(value = "/doSelectOne.do")
-	public String doSelectOne(NoticeDTO param, Model model, HttpServletRequest req) {
+	public String doSelectOne(NoticeDTO param, Model model) {
 		log.debug("┌───────────────────────────┐");
 		log.debug("│ *doSelectOne()*           │");
 		log.debug("└───────────────────────────┘");
