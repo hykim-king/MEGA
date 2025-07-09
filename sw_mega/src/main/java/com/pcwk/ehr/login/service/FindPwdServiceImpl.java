@@ -1,5 +1,7 @@
 package com.pcwk.ehr.login.service;
 
+import javax.mail.MessagingException;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,5 +21,6 @@ public class FindPwdServiceImpl implements FindPwdService {
 	public String findPwd(FindPwdDTO dto) {
 		return findPwdMapper.findPwd(dto);
 	}
+	
 
 }
