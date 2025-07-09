@@ -21,4 +21,6 @@ public interface NoCommentMapper extends WorkDiv<NoticeCommentDTO> {
 
 	@Override
 	NoticeCommentDTO doSelectOne(NoticeCommentDTO dto);
+	
+	int doRetrieveByNoCode();
 }

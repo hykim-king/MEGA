@@ -2,6 +2,21 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.pcwk.ehr.mapper.NoCommentMapper">
 
+
+ <select id="doRetrieveByNoCode" parameterType="int" resultType="NoticeCommentDTO">
+        SELECT
+            commented_Code,
+            no_code,
+            content,
+            user_id,
+            c_dt
+        FROM
+            commentedCode
+        WHERE
+            no_code = #{noCode}
+        ORDER BY c_dt ASC
+    </select>
+
 <!-- 전체조회 -->
       <select id="doRetrieve" parameterType="SearchDTO" resultType="NoticeCommentDTO"  >
               
@@ -51,23 +66,21 @@
 
     
       <!-- 댓글 등록 -->
-    <insert id="doSave" parameterType="NoticeCommentDTO">
-        INSERT INTO NO_COMMENTED (
-            COMMENTED_CODE,
-            NO_CODE,
-            USER_ID,
-            CONTENT,
-            C_DT,
-            UP_DT
-        ) VALUES (
-            NO_CO_SEQ.NEXTVAL,
-            #{noCode},
-            #{userId},
-            #{content},
-            SYSDATE,
-            SYSDATE
-        )
-    </insert>
+<insert id="doSave" parameterType="NoticeCommentDTO">
+    INSERT INTO NO_COMMENTED (
+        commented_Code,
+        no_code,
+        content,
+        user_id,
+        c_dt
+    ) VALUES (
+        no_co_seq.NEXTVAL,
+        #{noCode},
+        #{content, jdbcType=VARCHAR},  <!-- ✅ 핵심 수정 -->
+        #{userId, jdbcType=VARCHAR},
+        SYSDATE
+    )
+</insert>
     
     <!-- 수정 -->
     <update id="doUpdate" parameterType="NoticeCommentDTO">

@@ -174,6 +174,8 @@
         <input type="button" id="moveToList"   value="목록">
         <input type="button" id="doUpdate"     value="수정">
         <input type="button" id="doDelete"     value="삭제">
+      <%--   <input type="hidden" name="noCode" value="${notice.noCode}" /> --%>
+        
     </div>
     <!--// Button area -->
     
@@ -181,6 +183,8 @@
     <form action="/ehr/notice/doSave.do" method="post" >
         <input type="hidden" name="noCode" id="noCode" value="<c:out value='${vo.noCode }'/>">
         
+        <label>글번호</label>
+            <input type="text" name="noCode" value="${notice.noCode}" readonly />   
         
         <div class="form-group">
             <label for="userId">제목</label>
