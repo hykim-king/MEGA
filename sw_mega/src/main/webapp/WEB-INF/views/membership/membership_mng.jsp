@@ -8,7 +8,7 @@
 <title>회원가입</title>
 <style>
 body {
-	font-family: sans-serif;
+	font-family: Noto Sans Korean;
 	background-color: #f8f8f8;
 	padding: 40px;
 }
@@ -79,9 +79,9 @@ h2 {
 }
 
 .check-btn:not(:disabled), .mail-btn:not(:disabled) {
-	background: #888;
+	background: #ADFF2F;
 	cursor: pointer;
-	color: #fff;
+	color: black;
 }
 
 .form-check input {
@@ -91,15 +91,15 @@ h2 {
 .btn {
 	width: 100%;
 	padding: 10px;
-	background: #888;
-	color: white;
+	background: #ADFF2F;
+	color: black;
 	border: none;
 	border-radius: 5px;
 	font-size: 16px;
 }
 
 .btn:hover {
-	background: #555;
+	background: #90cc27;
 	cursor: pointer;
 }
 
@@ -142,9 +142,9 @@ h2 {
 }
 
 .check-btn:not(:disabled) {
-	background: #888;
+	background: #ADFF2F;
 	cursor: pointer;
-	color: #fff;
+	color: black;
 }
 
 .email-group {
@@ -186,14 +186,18 @@ h2 {
 
 			<div class="form-group">
 				<label>비밀번호 *</label> <input type="password" name="password"
-					placeholder="영문, 숫자 조합 8~16자" required>
+					required>
 			</div>
+
 			<div class="form-group">
 				<label>비밀번호 확인 *</label> <input type="password" name="passwordCheck"
 					placeholder="비밀번호를 한 번 더 입력해주세요" required>
 			</div>
+
+
+
 			<div class="form-group">
-				<label>생년월일 *</label> <input type="text" name="birth"
+				<label>생년월일 *</label> <input type="date" name="birth"
 					placeholder="예) 19980101" required>
 			</div>
 			<div class="form-group">
@@ -222,7 +226,7 @@ h2 {
 
 	<script>
 document.addEventListener('DOMContentLoaded', function () {
-  var ctx             = '<%= request.getContextPath() %>';
+  var ctx             = '<%=request.getContextPath()%>';
   var idCheckUrl      = ctx + '/membership/idCheck.do';
   var sendAuthCodeUrl = ctx + '/membership/sendAuthCode.do';
 
@@ -266,7 +270,20 @@ document.addEventListener('DOMContentLoaded', function () {
     .then(function ()    { alert('인증 메일 발송! 5분 내 코드 입력'); })
     .catch(function (err){ alert('메일 발송 실패: ' + err);    });
   });
-});
+
+  /* ---------- 3. 비밀번호 확인 ---------- */
+const pw = document.getElementById("password").value;
+const pwPattern = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,16}$/;
+
+if (!pwPattern.test(pw)) {
+  alert("비밀번호는 영문과 숫자를 포함한 8~16자로 입력하세요.");
+  e.preventDefault(); return;
+}
+  });
+
+  
+  
+  
 </script>
 
 

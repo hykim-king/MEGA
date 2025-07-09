@@ -33,7 +33,7 @@
             #{password},
             #{birth},
             #{emailAuth},
-            #{emailAuthToken},
+            #{emailAuthToken, jdbcType=VARCHAR},
             #{grade},
             #{profileImage,jdbcType=VARCHAR},
             SYSDATE

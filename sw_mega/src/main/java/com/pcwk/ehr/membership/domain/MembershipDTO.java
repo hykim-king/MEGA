@@ -26,9 +26,9 @@ public class MembershipDTO {
     @Email(message = "이메일 형식을 확인해주세요.")
     private String email;
     
-    @NotBlank(message = "비밀번호는 필수입니다.")
-    @Size(min = 6, max = 50, message = "비밀번호는 6~50자여야 합니다.")
-    private String password;
+    //@NotBlank(message = "비밀번호는 필수입니다.")
+   // @Size(min = 6, max = 50, message = "비밀번호는 6~50자여야 합니다.")
+    //private String password;
     
     @NotNull(message = "생년월일은 필수입니다.")
     @Past(message = "생년월일은 과거 날짜여야 합니다.")
