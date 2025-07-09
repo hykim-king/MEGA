@@ -41,21 +41,20 @@ public class LoginController{
 
     // 로그인 실행(POST)
     @PostMapping("/loginView.do")
-    public String doLogin(@ModelAttribute LoginDTO dto, Model model) throws SQLException {
-    	log.debug("LoginController#doLogin param: {}", dto);
-    	log.debug("loginService: {}", loginService);
-    	
-        LoginDTO result = loginService.doSelectOne(dto);
-        log.debug("LoginController#doLogin result: {}", result);
-        boolean isLogin = (result != null);
-        log.debug("isLogin: {}", isLogin);
-    	    if(isLogin) {
-    	        // (로그인 성공 시 세션에 사용자 정보 저장 등)
-    	        model.addAttribute("loginResult", true);
-    	        return "loginSuccess";
-    	    } else {
-    	        model.addAttribute("msg", "일치하는 정보가 없습니다. 다시 입력해주세요.");
-    	        return "login";
-    	    }
-    	}
-    }
+    public String doLogin(@ModelAttribute LoginDTO dto, Model model, HttpSession session) throws SQLException {
+    	  log.debug("LoginController#doLogin param: {}", dto);
+          LoginDTO result = loginService.doSelectOne(dto);
+          boolean isLogin = (result != null);
+
+          if(isLogin) {
+              // 세션에 사용자 정보 저장
+              session.setAttribute("userId", result.getUserId());
+              // 필요하다면 사용자 전체 정보 result를 session에 저장 가능
+              model.addAttribute("loginResult", true);
+          } else {
+              model.addAttribute("msg", "일치하는 정보가 없습니다. 다시 입력해주세요.");
+          }
+          // 항상 login.jsp로 (alert 이후 이동 처리)
+          return "login";
+      }
+  }
