@@ -101,7 +101,7 @@ public class FoodController {
 	        log.warn("▶ 로그인 없이 음식 일지 등록 시도 차단됨");
 
 	        model.addAttribute("message", "로그인이 필요한 기능입니다. 먼저 로그인해 주세요.");
-	        model.addAttribute("nextUrl", "/ehr/login.do"); // 원하는 경로
+	        model.addAttribute("nextUrl", "/login/login.do"); // 원하는 경로
 	        return "/common/error"; // 또는 에러 안내 페이지
 	    }
 
