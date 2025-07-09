@@ -47,7 +47,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="${CP}/resources/assets/css/notice_list.css">
+<link rel="stylesheet" href="/ehr/resources/assets/css/notice_list.css">
 <title>Insert title here</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
  <script src="${CP}/resources/assets/js/common.js"></script>
@@ -61,9 +61,9 @@
        const moveToRegButton=document.querySelector("#moveToReg");
        console.log(moveToRegButton);
        
-       const divInput = document.querySelector("#div");
+      /*  const divInput = document.querySelector("#div");
        console.log(divInput);
-   
+    */
        
        //등록 버튼 이벤트 감지
        moveToRegButton.addEventListener("click",function(event){
@@ -129,33 +129,40 @@
     <!--검색 영역-->
     <form action="#" name="userForm" class="search-form"method="get" enctype="application/x-www-form-urlencoded">
       <input type="hidden" name="pageNo" id="pageNo">
-      <div  class="search-group">
-        <label for="searchDiv">구분</label>
-        <select name="searchDiv" id="searchDiv">
-           <option value="">전체</option> 
-           <option value="10" <c:if test="${search.searchDiv == 10 }">selected</c:if>>제목</option> 
-           <option value="20" <c:if test="${search.searchDiv == 20 }">selected</c:if>>내용</option> 
-           <option value="30" <c:if test="${search.searchDiv == 30 }">selected</c:if>>사용자ID</option>  
-           <option value="40" <c:if test="${search.searchDiv == 40 }">selected</c:if>>제목+내용</option>  
-           
-        </select>
-        <input type="search" name="searchWord" id="searchWord"  size="15" value="${search.searchWord }">
-        <select name="pageSize" id="pageSize">
-            <option value="10" <c:if test="${search.pageSize == 10 }">selected</c:if> >10</option>
-            <option value="20" <c:if test="${search.pageSize == 20 }">selected</c:if> >20</option>
-            <option value="30" <c:if test="${search.pageSize == 30 }">selected</c:if> >30</option>
-            <option value="50" <c:if test="${search.pageSize == 50 }">selected</c:if> >50</option>
-            <option value="100" <c:if test="${search.pageSize == 100 }">selected</c:if> >100</option>
-        </select>
-        <input type="button" value="조회" id="doRetrieve">
-        <input type="button" value="등록" id="moveToReg">
-      </div>   
+      
+      <div class="top-bar">
+        <div class="search-box">
+	        <select name="searchDiv" id="searchDiv" class="search-select">	        
+	           <option value="">전체</option> 
+	           <option value="10" <c:if test="${search.searchDiv == 10 }">selected</c:if>>제목</option> 
+	           <option value="20" <c:if test="${search.searchDiv == 20 }">selected</c:if>>내용</option> 
+	           <option value="30" <c:if test="${search.searchDiv == 30 }">selected</c:if>>사용자ID</option>  
+	           <option value="40" <c:if test="${search.searchDiv == 40 }">selected</c:if>>제목+내용</option>  	           
+	        </select>
+	        
+            <input type="search" name="searchWord" id="searchWord" class="search-input" value="${search.searchWord }">
+	        <select name="pageSize" id="pageSize" class="search-select">
+	            <option value="10" <c:if test="${search.pageSize == 10 }">selected</c:if> >10</option>
+	            <option value="20" <c:if test="${search.pageSize == 20 }">selected</c:if> >20</option>
+	            <option value="30" <c:if test="${search.pageSize == 30 }">selected</c:if> >30</option>
+	            <option value="50" <c:if test="${search.pageSize == 50 }">selected</c:if> >50</option>
+	            <option value="100" <c:if test="${search.pageSize == 100 }">selected</c:if> >100</option>
+		        </select>       
+	            <input type="button" value="조회🔍" id="doRetrieve" class="btn-search">
+	        </div>   
+        
+         <div class="button-box">
+             <button type="button" id="moveToReg" class="btn-new-post">+ 새 글</button>
+        </div>
+       </div>
     </form>
+    
+    
     <!--//검색 영역 end-->
     <table border="1" id="listTable"  class="table">
       <colgroup>
         <col width="10%">
-        <col width="60%">
+        <col width="40%">
         <col width="10%">
         <col width="10%">
         <col width="10%">
@@ -176,10 +183,15 @@
       
           <c:choose>
             <c:when test="${list.size() > 0 }"> <!-- if -->
-                <c:forEach var="vo" items="${list }"> <!-- 향상된 for -->
+                <c:forEach var="vo" items="${list }" varStatus="status"> <!-- 향상된 for -->
                   <tr>
-                    <td class="table-cell text-center"><c:out value="${vo.noCode}"/></td>
-                    <td class="table-cell text-left highlight"><a href="${CP}/notice/doSelectOne.do?div=${divValue}&seq=${vo.noCode}&regId=${vo.userId }"><c:out value="${vo.title }"/></a></td>
+                   <td class="table-cell text-center"><c:out value="${(search.pageNo - 1) * search.pageSize + status.index + 1}" /></td>
+                   
+                   <td class="table-cell text-left highlight">
+                    <a href="${CP}/notice/doDetail.do?noCode=${vo.noCode}&pageSize=${10}&pageNo=${1}">
+                        <c:out value="${vo.title}"/>
+                    </a>
+                   </td>                    
                     <td class="table-cell text-center"><c:out value="${vo.userId }"/></td>
                     <td class="table-cell text-center"><c:out value="${vo.upDt }"/></td>
                     <td class="table-cell text-right"><c:out value="${vo.viewCount }"/></td>

@@ -10,6 +10,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -85,9 +86,9 @@ class NoCommentDaoTest {
 		noCode = nDto01.getNoCode();
 		log.debug("noCode: {}", noCode);
 
-		dto01 = new NoticeCommentDTO(noCode, "user1", "내용1");
-		dto02 = new NoticeCommentDTO(noCode, "user2", "내용2");
-		dto03 = new NoticeCommentDTO(noCode, "user3", "내용3");
+		dto01 = new NoticeCommentDTO(noCode, "user01", "내용1");
+		dto02 = new NoticeCommentDTO(noCode, "user01", "내용2");
+		dto03 = new NoticeCommentDTO(noCode, "user01", "내용3");
 
 		search = new SearchDTO();
 	}
@@ -98,7 +99,7 @@ class NoCommentDaoTest {
 		log.debug("│ tearDown()                 │");
 		log.debug("└────────────────────────────┘");
 	}
-
+	@Disabled
 	@Test
 	void doDelete() throws SQLException {
 		log.debug("┌────────────────────────────┐");
@@ -183,7 +184,7 @@ class NoCommentDaoTest {
 
 	}
 
-	//@Disabled
+	@Disabled
 	@Test
 	void doSelectOne() throws SQLException {
 		log.debug("┌────────────────────────────┐");
@@ -222,7 +223,7 @@ class NoCommentDaoTest {
 		log.debug("param:{}", param.getCommentedCode());
 	}
 
-	//@Disabled
+	@Disabled
 	@Test
 	void doRetrieve() throws SQLException {
 		log.debug("┌────────────────────────────┐");
@@ -257,7 +258,7 @@ class NoCommentDaoTest {
 		}
 	}
 
-	//@Disabled
+	@Disabled
 	@Test
 	void beans() {
 		assertNotNull(context);

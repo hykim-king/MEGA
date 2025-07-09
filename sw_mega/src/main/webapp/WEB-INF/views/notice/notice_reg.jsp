@@ -151,7 +151,7 @@
          </div>
          <div class="form-group">
             <label for="userId" >등록자</label>
-            <input type="text" name="userId" id="userId" maxlength="20" required  placeholder="등록자" value="${sessionScope.user.userId}" disabled="disabled">
+            <input type="text" name="userId" id="userId" maxlength="20" required  placeholder="등록자" value="${sessionScope.user.userId}"> <!-- disabled="disabled" -->
          </div>
          <div class="form-group">
             <label for="content" >내용</label>
