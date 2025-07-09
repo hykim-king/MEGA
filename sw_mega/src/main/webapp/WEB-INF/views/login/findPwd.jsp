@@ -20,26 +20,26 @@
 <body>
     <div class="container">
         <h2>비밀번호 찾기</h2>
-        <form action="/login/findPwd.do" method="post">
+        <form action="/ehr/login/findPwd.do" method="post">
             <input type="text" name="userId" placeholder="아이디 입력" required><br>
             <input type="text" name="email" placeholder="이메일 입력" required><br>
             <button type="submit" class="btn">비밀번호 찾기</button>
         </form>
         <div class="btn-area">
-            <button onclick="location.href='/login/findId.do'" type="button" class="btn">아이디 찾기</button>
-            <button onclick="location.href='/login/loginView.do'" type="button" class="btn">로그인 홈</button>
+            <button onclick="location.href='/ehr/login/findId.do'" type="button" class="btn">아이디 찾기</button>
+            <button onclick="location.href='/ehr/login/login.do'" type="button" class="btn">로그인 홈</button>
         </div>
     </div>
     <c:if test="${not empty msg}">
         <script>
             alert("${msg}");
-            location.href="/login/findPwd.do";
+            location.href="/ehr/login/findPwd.do";
         </script>
     </c:if>
     <c:if test="${not empty mailSent}">
         <script>
             alert("${mailSent}");
-            location.href="/login/loginView.do";
+            location.href="/ehr/login/loginView.do";
         </script>
     </c:if>
 </body>
