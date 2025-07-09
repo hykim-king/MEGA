@@ -19,17 +19,17 @@
       <li class="has-submenu">
         <a href="#">운동</a>
         <ul class="submenu">
-          <li><a href="/ehr/exerciseDiary/doRetrieve.do?userId=user01">운동 일지</a></li>
+          <li><a href="/ehr/exerciseDiary/doRetrieve.do">운동 일지</a></li>
           <li><a href="/ehr/exercise/doRetrieve.do">운동 조회</a></li>
-          <li><a href="/ehr/exercise/doForm.do?userId=user01">운동 추가</a></li>
+          <li><a href="/ehr/exercise/doForm.do">운동 추가</a></li>
         </ul>
       </li>
       <li class="has-submenu">
         <a href="#">음식</a>
         <ul class="submenu">
-          <li><a href="/ehr/foodDiary/doRetrieve.do?userId=user01">음식 일지</a></li>
-          <li><a href="/ehr/food/doRetrieve.do?userId=user01">음식 조회</a></li>
-          <li><a href="/ehr/food/doForm.do?userId=user01">음식 추가</a></li>
+          <li><a href="/ehr/foodDiary/doRetrieve.do">음식 일지</a></li>
+          <li><a href="/ehr/food/doRetrieve.do">음식 조회</a></li>
+          <li><a href="/ehr/food/doForm.do">음식 추가</a></li>
         </ul>
       </li>
       <li><a href="#">커뮤니티</a></li>
@@ -47,7 +47,6 @@
 <br>
 <h4>세부 내용:</h4>
   <form id="foodForm">
-    <input type="hidden" name="userId" value="${param.userId}" />
     
     <label for="foodName">음식명:</label>
     <input type="text" id="foodName" name="foodName" required >
@@ -74,17 +73,17 @@
   </form>
   
   <script>
-  $('#saveBtn').click(function() {
-	  const formData = $('#foodForm').serialize();
+	  $('#saveBtn').click(function() {
+		  const formData = $('#foodForm').serialize();
 
 	  $.post('/ehr/food/doSave.do', formData, function(response) {
 	      const res = JSON.parse(response);
 	      alert(res.message);
 	      if (res.messageId === 1) {
-	        location.href = "/ehr/food/doRetrieve.do?userId=" + $('[name=userId]').val();
+	        location.href = "/ehr/food/doRetrieve.do";
 	      }
 	    });
-  });
+	  });
 	</script>
 
 </body>

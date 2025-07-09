@@ -4,6 +4,8 @@ import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,12 +41,22 @@ public class FoodDiaryController {
 	
 	@PostMapping(value = "/doDelete.do", produces = "text/plain;charset=UTF-8")
 	@ResponseBody
-	public String doDelete(FoodDiaryDTO param) {
+	public String doDelete(FoodDiaryDTO param, HttpSession session) {
 		log.debug("┌───────────────────────────────────────┐");
 		log.debug("│ doDelete()                            │");
 		log.debug("└───────────────────────────────────────┘");
 		String jsonString = "";
 	    log.debug("1. param: {}", param);
+	    
+	    String userId = (String) session.getAttribute("userId");
+	    
+	    if (userId == null || userId.trim().isEmpty()) {
+	        log.warn("▶ 로그인 없이 음식일지  삭제 시도 차단됨");
+	        MessageDTO messageDTO = new MessageDTO(-99, "로그인이 필요한 기능입니다. 먼저 로그인해 주세요.");
+	        return new Gson().toJson(messageDTO);
+	    }
+
+	    param.setUserId(userId); //세션에서 주입
 
 	    int flag = foodDiaryService.doDelete(param);
 
@@ -63,12 +75,22 @@ public class FoodDiaryController {
 	
 	@PostMapping(value = "/doUpdate.do", produces = "text/plain;charset=UTF-8")
 	@ResponseBody
-	public String doUpdate(FoodDiaryDTO param) {
+	public String doUpdate(FoodDiaryDTO param, HttpSession session) {
 		log.debug("┌───────────────────────────────────────┐");
 		log.debug("│ doUpdate()                            │");
 		log.debug("└───────────────────────────────────────┘");
 		String jsonString = "";
 		log.debug("1. param: {}", param);
+		
+	    String userId = (String) session.getAttribute("userId");
+	    
+	    if (userId == null || userId.trim().isEmpty()) {
+	        log.warn("▶ 로그인 없이 음식일지 수정 시도 차단됨");
+	        MessageDTO messageDTO = new MessageDTO(-99, "로그인이 필요한 기능입니다. 먼저 로그인해 주세요.");
+	        return new Gson().toJson(messageDTO);
+	    }
+
+	    param.setUserId(userId); //세션에서 주입
 		
 		 int flag = foodDiaryService.doUpdate(param);
 		 String message = "";
@@ -83,7 +105,7 @@ public class FoodDiaryController {
 	}
 	
 	@GetMapping("/doForm.do")
-	public String doForm(FoodDiaryDTO param, Model model) {
+	public String doForm(FoodDiaryDTO param, Model model, HttpSession session) {
 	    String viewName = "/foodDiary/foodDiary_form";
 
 	    log.debug("┌───────────────────────────────────────┐");
@@ -91,18 +113,21 @@ public class FoodDiaryController {
 	    log.debug("└───────────────────────────────────────┘");
 	    log.debug("param: {}", param);
 
+	    //세션에서 userId 꺼내기
+	    String userId = (String) session.getAttribute("userId");
+	    
 	    // 🔐 로그인 여부 판단용: userId null 또는 빈 문자열
-	    if (param.getUserId() == null || param.getUserId().trim().isEmpty()) {
+	    if (userId == null || userId.trim().isEmpty()) {
 	        log.warn("▶ 로그인 없이 음식 일지 등록 시도 차단됨");
 
-	        model.addAttribute("message", "로그인 후에 음식 일지를 등록할 수 있습니다.");
+	        model.addAttribute("message", "로그인이 필요한 기능입니다. 먼저 로그인해 주세요.");
 	        model.addAttribute("nextUrl", "/ehr/login.do"); // 원하는 경로
 	        return "/common/error"; // 또는 에러 안내 페이지
 	    }
 
 	    // 정상 진입
 	    FoodDiaryDTO outVO = new FoodDiaryDTO();
-	    outVO.setUserId(param.getUserId());
+	    outVO.setUserId(userId);
 	    outVO.setRegDt(param.getRegDt());
 
 	    model.addAttribute("outVO", outVO);
@@ -114,7 +139,7 @@ public class FoodDiaryController {
 	
 	@PostMapping(value = "/doSave.do", produces = "text/plain;charset=UTF-8")
 	@ResponseBody
-	public String doSave(FoodDiaryDTO param) {
+	public String doSave(FoodDiaryDTO param, HttpSession session) {
 		
 		log.debug("┌───────────────────────────────────────┐");
 		log.debug("│ doSave()                              │");
@@ -122,13 +147,23 @@ public class FoodDiaryController {
 		String jsonString = "";
 		log.debug("1. param:{}", param);
 		
+	    String userId = (String) session.getAttribute("userId");
+	    
+	    if (userId == null || userId.trim().isEmpty()) {
+	        log.warn("▶ 로그인 없이 음식일지 추가 시도 차단됨");
+	        MessageDTO messageDTO = new MessageDTO(-99, "로그인이 필요한 기능입니다. 먼저 로그인해 주세요.");
+	        return new Gson().toJson(messageDTO);
+	    }
+
+	    param.setUserId(userId); //세션에서 주입
+		
 		int flag = foodDiaryService.doSave(param);
 		String message = "";
 		
 		if(1 == flag) {
 			message = "음식 일지가 등록되었습니다.";
 		}else {
-			message = "음식 일지이 등록 실패했습니다.";
+			message = "음식 일지 등록 실패했습니다.";
 		    log.warn("음식 일지 등록 실패: {}", param);
 		}
 		
@@ -139,14 +174,25 @@ public class FoodDiaryController {
 		return jsonString;
 	}
 	
+	
 	@GetMapping("/doSelectOne.do")
-	public String doSelectOne(FoodDiaryDTO param, Model model) {
+	public String doSelectOne(FoodDiaryDTO param, Model model, HttpSession session) {
 		String viewName = "/foodDiary/foodDiary_mod";
 		log.debug("┌───────────────────────────────────────┐");
 		log.debug("│ doSelectOne()                         │");
 		log.debug("└───────────────────────────────────────┘");
 		log.debug("param: {}", param);
 		
+	    String userId = (String) session.getAttribute("userId");
+	    
+	    if (userId == null || userId.trim().isEmpty()) {
+	        log.warn("▶ 로그인 없이 음식 일지 단건 조회 시도 차단됨");
+	        model.addAttribute("message", "로그인이 필요한 기능입니다. 먼저 로그인해 주세요.");
+	        model.addAttribute("nextUrl", "/ehr/login.do"); // 원하는 경로로 리다이렉트 유도
+	        return "/common/error";
+	    }
+	    
+	    param.setUserId(userId); //세션에서 주입
 		
 	    FoodDiaryDTO outVO = foodDiaryService.doSelectOne(param);
 
@@ -162,12 +208,23 @@ public class FoodDiaryController {
 	
 	
 	@GetMapping(value = "/doRetrieve.do")
-	public String doRetrieve(FoodDiaryDTO param, Model model) {
+	public String doRetrieve(FoodDiaryDTO param, Model model, HttpSession session) {
 		String viewName = "/foodDiary/foodDiary_list";
 		log.debug("┌───────────────────────────────────────┐");
 		log.debug("│ doRetrieve()                          │");
 		log.debug("└───────────────────────────────────────┘");
 		log.debug("param: {}", param);
+		
+	    String userId = (String) session.getAttribute("userId");
+	    
+	    if (userId == null || userId.trim().isEmpty()) {
+	        log.warn("▶ 로그인 없이 음식 일지 조회 시도 차단됨");
+	        model.addAttribute("message", "로그인이 필요한 기능입니다. 먼저 로그인해 주세요.");
+	        model.addAttribute("nextUrl", "/ehr/login.do"); // 원하는 경로로 리다이렉트 유도
+	        return "/common/error";
+	    }
+	    
+	    param.setUserId(userId); //세션에서 주입
 		
 	    // regDt가 null이거나 빈 문자열이면 오늘 날짜로 설정
 	    if (param.getRegDt() == null || param.getRegDt().trim().isEmpty()) {
@@ -190,7 +247,6 @@ public class FoodDiaryController {
 
 	    // 🔹 날짜와 사용자 아이디도 JSP에 넘기자
 	    model.addAttribute("regDt", param.getRegDt());
-	    model.addAttribute("userId", param.getUserId());
 	    
 	    log.debug("2. list: {}", list);
 	    

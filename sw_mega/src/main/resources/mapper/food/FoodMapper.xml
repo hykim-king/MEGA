@@ -58,6 +58,13 @@
 </select>
 
 
+<select id="isExistByName" parameterType="String" resultType="int">
+    SELECT COUNT(*) 
+    FROM food 
+    WHERE food_name = #{foodName}
+</select>
+
+
 <!-- 단건 등록 -->
 <insert id="doSave" parameterType="FoodDTO">
 

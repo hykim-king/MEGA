@@ -25,11 +25,10 @@
         <li><span class="label">나트륨:</span> ${vo.totalNa} mg</li>
     </ul>
     
-    <form action="/ehr/foodDiary/doForm.do" method="get"  onsubmit="return checkUserId()">
+    <form action="/ehr/foodDiary/doForm.do" method="get" >
 	    <input type="hidden" name="foodName" value="${vo.foodName}" />
 	    <input type="hidden" name="grams" value="${param.grams}" />
 	    <!-- userId는 세션에서 꺼내거나 이미 바인딩된 값 사용 -->
-	    <input type="hidden" name="userId" value="${param.userId}" />
 	    <button type="submit">👉 음식 일지 추가</button>
     </form>
 
@@ -38,16 +37,6 @@
     </div>
 </div>
 
-<script>
-function checkUserId() {
-    const userId = document.getElementById('userId').value;
-    if (!userId || userId.trim() === "") {
-        alert('로그인이 필요합니다. 로그인 후 이용해주세요.');
-        return false; // 제출 막기
-    }
-    return true;
-}
-</script>
 
 </body>
 </html>

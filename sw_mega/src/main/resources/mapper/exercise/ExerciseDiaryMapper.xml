@@ -32,6 +32,23 @@
 
 </select>
 
+
+<select id="selectOneWithJoin" parameterType="ExerciseDiaryDTO" resultType="ExerciseDiaryOutDTO">
+    SELECT 
+        e.exercise_name,
+        ed.ed_code,
+        ed.user_id,
+        ed.duration,
+        ed.strenth_weight,
+        ed.set_count,
+        ed.reps_per_set
+    FROM exercise_diary ed
+    JOIN exercise e
+      ON ed.e_code = e.e_code
+    WHERE ed.ed_code = #{edCode}
+</select>
+
+
 <!-- 단건등록 -->
 <insert id="doSave" parameterType="ExerciseDiaryDTO">
     <selectKey keyProperty="edCode" resultType="int" order="BEFORE">
