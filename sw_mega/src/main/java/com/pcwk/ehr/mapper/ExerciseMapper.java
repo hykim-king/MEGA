@@ -24,5 +24,7 @@ public interface ExerciseMapper extends WorkDiv<ExerciseDTO>{
 	 * @return
 	 */
 	int getCount();
+	
+	int isExist(ExerciseDTO param); // ExerciseDTO에 운동명 + 체중 + 성별 포함되어 있어야 함
 
 }

@@ -28,4 +28,6 @@ public interface FoodMapper extends WorkDiv<FoodDTO> {
 	int getCount();
 
 	
+	int isExistByName(String foodName);
+	
 }

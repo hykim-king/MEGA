@@ -36,6 +36,11 @@ public class ExerciseDiaryServiceImpl implements ExerciseDiaryService {
 		return mapper.doSave(param);
 	}
 
+	@Override
+	public ExerciseDiaryOutDTO selectOneWithJoin(ExerciseDiaryDTO param) {
+		return mapper.selectOneWithJoin(param);
+	}
+
 	/**
 	 * 사용자가 입력한 값을 Exercise 테이블에서 가져온 기준에 적용하여 총 소모 칼로리 계산하여 출력
 	 */
@@ -87,5 +92,6 @@ public class ExerciseDiaryServiceImpl implements ExerciseDiaryService {
 
 	    return summary;
 	}
+
 
 }

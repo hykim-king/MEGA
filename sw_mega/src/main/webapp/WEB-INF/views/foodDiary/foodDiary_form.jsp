@@ -11,7 +11,6 @@
 <h2>🍽️ 음식 일지 등록</h2>
 
 <form id="foodDiaryForm">
-  <input type="hidden" name="userId" value="${param.userId}" />
 
   <label for="foodName">음식명: </label>
   <input type="text" id="foodName" name="foodName" value="${param.foodName}" required readonly />
@@ -34,26 +33,26 @@
 </form>
 
 <script>
-function goSearchFood() {
-	const userId = document.querySelector('[name="userId"]').value;
+	function goSearchFood() {
+		const regDt = $('#regDt').val();
+		
+		const url = "/ehr/food/doRetrieve.do?mode=select&returnUrl=foodDiary/doForm.do"
+	          + "&regDt=" + encodeURIComponent(regDt);
 	
-	const url = "/ehr/food/doRetrieve.do?mode=select&returnUrl=foodDiary/doForm.do"
-        + "&userId=" + encodeURIComponent(userId);
+	    window.location.href = url;
+	}
 
-    window.location.href = url;
-}
-
-$('#saveBtn').click(function() {
-  const formData = $('#foodDiaryForm').serialize();
-
-  $.post('/ehr/foodDiary/doSave.do', formData, function(response) {
-	  const res = JSON.parse(response);
-	  alert(res.message);
-	  if (res.messageId === 1) {
-	    location.href = "/ehr/foodDiary/doRetrieve.do?userId=" + $('[name=userId]').val() + "&regDt=" + $('#regDt').val();
-	  }
+	$('#saveBtn').click(function() {
+	  const formData = $('#foodDiaryForm').serialize();
+	
+	  $.post('/ehr/foodDiary/doSave.do', formData, function(response) {
+		  const res = JSON.parse(response);
+		  alert(res.message);
+		  if (res.messageId === 1) {
+			 location.href = "/ehr/foodDiary/doRetrieve.do?regDt=" + $('#regDt').val();
+		  }
+		});
 	});
-});
 </script>
 </body>
 </html>

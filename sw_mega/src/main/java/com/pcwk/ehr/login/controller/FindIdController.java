@@ -37,22 +37,36 @@ public class FindIdController{
 	 
 	 @GetMapping("/findId.do")
 	 public String findIdForm() {
-	     return "findId";
+		 log.debug("┌────────────────────────┐");
+		 log.debug("│ findIdForm()           │");
+		 log.debug("└────────────────────────┘");
+		 
+	     return "/login/findId";
 	 }
 	 
-	 @PostMapping(value="/findId.do", produces="text/plain;charset=UTF-8")
+	 @PostMapping("/findIdView.do")
 	 public String findId(@ModelAttribute FindIdDTO dto, Model model) throws SQLException {
 		 log.debug("┌────────────────────────┐");
 		 log.debug("│ findIdView()           │");
 		 log.debug("└────────────────────────┘");
 		 
 		 String userId = findIdService.findId(dto);
-	     if(userId != null && !userId.trim().isEmpty()) {
-	         model.addAttribute("userId", userId);
-	         return "findIdResult";
-	     } else {
-	         model.addAttribute("msg", "일치하는 정보가 없습니다.");
-	         return "findId";
-	     }
+		 if(userId != null && !userId.trim().isEmpty()) {
+		        // 첫 글자만 남기고 나머지는 *로 마스킹
+		        String maskedId;
+		        if(userId.length() == 1) {
+		            maskedId = userId;
+		        } else {
+		            StringBuilder sb = new StringBuilder();
+		            sb.append(userId.charAt(0));
+		            for (int i = 1; i < userId.length(); i++) sb.append("*");
+		            maskedId = sb.toString();
+		        }
+		        model.addAttribute("maskedId", maskedId);
+		        return "findIdResult";
+		    } else {
+		        model.addAttribute("msg", "일치하는 정보가 없습니다.");
+		        return "findId";
+		    }
 	 }
 }
