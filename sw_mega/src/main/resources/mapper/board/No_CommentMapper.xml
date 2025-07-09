@@ -60,7 +60,7 @@
     FROM NO_COMMENTED
     WHERE COMMENTED_CODE = #{commentedCode}; -->
     SELECT * 
-    FROM NO_COMMENT
+    FROM NO_COMMENTED
     WHERE COMMENTED_CODE = #{commentedCode}
     </select>
 

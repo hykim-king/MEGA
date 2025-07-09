@@ -191,7 +191,7 @@
                     <a href="${CP}/notice/doDetail.do?noCode=${vo.noCode}&pageSize=${10}&pageNo=${1}">
                         <c:out value="${vo.title}"/>
                     </a>
-                   </td>                    
+                   </td>                     
                     <td class="table-cell text-center"><c:out value="${vo.userId }"/></td>
                     <td class="table-cell text-center"><c:out value="${vo.upDt }"/></td>
                     <td class="table-cell text-right"><c:out value="${vo.viewCount }"/></td>

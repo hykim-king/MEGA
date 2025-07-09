@@ -44,14 +44,20 @@ public class NoCommentController {
 	/**
 	 * 댓글 수정
 	 */
-	@RequestMapping(value = "/noComment/doSelectOne.do", method = RequestMethod.GET)
-	public String doSelectOne(NoticeCommentDTO inVO, Model model) throws SQLException {
-	    NoticeCommentDTO outVO = noticeCommentService.doSelectOne(inVO);
+	@GetMapping("/doSelectOne.do")
+	public String doSelectOne(@RequestParam int noCommentCode, Model model) {
+		log.debug("┌───────────────────────────┐");
+		log.debug("│ *doSelectOne()*           │");
+		log.debug("└───────────────────────────┘");
+	    NoticeCommentDTO param = new NoticeCommentDTO();
+	    param.setCommentedCode(noCommentCode);
+
+	    NoticeCommentDTO outVO = mapper.doSelectOne(param);
 	    model.addAttribute("vo", outVO);
-	    return "notice/comment_update"; // comment_update.jsp로 이동
+
+	    return "notice/no_comment_update";  
 	}
 
-	
 	
 
 	/**
@@ -93,7 +99,7 @@ public class NoCommentController {
 	 */
 	@PostMapping(value = "/doUpdate.do", produces = "text/plain;charset=UTF-8")
 	@ResponseBody
-	public String doUpdate(NoticeCommentDTO dto) {
+	public String doUpdate(@RequestBody NoticeCommentDTO dto) {
 		log.debug("┌────────────────────────────┐");
 		log.debug("│ doUpdate()                 │");
 		log.debug("└────────────────────────────┘");
@@ -122,16 +128,6 @@ public class NoCommentController {
 		MessageDTO messageDTO = new MessageDTO(flag, message);
 
 		return new Gson().toJson(messageDTO);
-	}
 
-	@GetMapping("/doSelectOne.do")
-	public String doSelectOne(@RequestParam int noCommentCode, Model model) {
-	    NoticeCommentDTO param = new NoticeCommentDTO();
-	    param.setCommentedCode(noCommentCode);
-
-	    NoticeCommentDTO outVO = mapper.doSelectOne(param);
-	    model.addAttribute("vo", outVO);
-
-	    return "board/no_comment_mod";
 	}
 }
