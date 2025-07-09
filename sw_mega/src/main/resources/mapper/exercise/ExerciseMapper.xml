@@ -46,6 +46,19 @@
 		WHERE e_code = #{eCode}
 	</select>
 
+    <!-- 중복 체크 -->
+	<select id="isExist" parameterType="ExerciseDTO" resultType="int">
+	    SELECT COUNT(*)
+	    FROM exercise
+	    <where>
+	        exercise_name = #{exerciseName}
+	        <if test="exerciseType == '유산소'">
+	            AND gender = #{gender}
+	            AND weight = #{weight}
+	        </if>
+	    </where>
+	</select>
+
 
 	<!-- 등록 -->
 	<insert id="doSave" parameterType="ExerciseDTO">
@@ -118,5 +131,6 @@
 	<delete id="deleteAll">
 		DELETE FROM exercise
 	</delete>
+
 
 </mapper>

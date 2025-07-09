@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Service;
 
 import com.pcwk.ehr.cmn.SearchDTO;
@@ -33,7 +34,17 @@ public class ExerciseServiceImpl implements ExerciseService {
 	
 	@Override
 	public int doSave(ExerciseDTO param) {
-		return mapper.doSave(param);
+		
+	    if (param.getExerciseName() == null || param.getExerciseType() == null) {
+	        throw new IllegalArgumentException("운동명과 타입은 필수입니다.");
+	    }
+
+	    int isExist = mapper.isExist(param);
+	    if (isExist > 0) {
+	        throw new DuplicateKeyException("❌ 동일한 조건의 운동이 이미 존재합니다.");
+	    }
+
+	    return mapper.doSave(param);
 	}
 	
 	@Override
