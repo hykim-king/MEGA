@@ -139,14 +139,14 @@
     </div>
     <div class="login-container">
         <div class="login-title">회원 로그인</div>
-        <form class="login-form" action="/login/loginView.do" method="post">
+        <form class="login-form" action="/ehr/login/loginView.do" method="post">
             <input type="text" name="userId" placeholder="아이디 입력" required>
             <input type="password" name="password" placeholder="비밀번호 입력" required>
             <button type="submit">로그인</button>
         </form>
         <div class="login-options">
-            <a href="/login/findId.do">아이디 찾기</a>  /  
-            <a href="/login/findPwd.do">비밀번호 찾기</a>
+            <a href="/ehr/login/findId.do">아이디 찾기</a>  /  
+            <a href="/ehr/login/findPwd.do">비밀번호 찾기</a>
         </div>
     </div>
     <c:if test="${not empty loginResult || not empty msg}">
@@ -154,7 +154,7 @@
             <c:choose>
                 <c:when test="${loginResult eq true}">
                     alert("로그인에 성공하였습니다.");
-                    location.href = "/main.do";
+                    location.href = "/ehr/main.do";
                 </c:when>
                 <c:otherwise>
                     alert("${msg}");

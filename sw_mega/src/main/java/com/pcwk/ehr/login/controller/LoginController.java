@@ -36,13 +36,18 @@ public class LoginController{
     // 로그인 폼(GET)
     @GetMapping("/login.do")
     public String loginForm() {
+    	 log.debug("┌────────────────────────┐");
+		 log.debug("│ loginForm()            │");
+		 log.debug("└────────────────────────┘");
         return "/login/login";
     }
 
     // 로그인 실행(POST)
     @PostMapping("/loginView.do")
     public String doLogin(@ModelAttribute LoginDTO dto, Model model, HttpSession session) throws SQLException {
-    	  
+    	 log.debug("┌────────────────────────┐");
+		 log.debug("│ doLogin()              │");
+		 log.debug("└────────────────────────┘");
     	  log.debug("LoginController#doLogin param: {}", dto);
           LoginDTO result = loginService.doSelectOne(dto);
           boolean isLogin = (result != null);

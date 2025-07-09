@@ -37,10 +37,14 @@ public class FindIdController{
 	 
 	 @GetMapping("/findId.do")
 	 public String findIdForm() {
-	     return "findId";
+		 log.debug("┌────────────────────────┐");
+		 log.debug("│ findIdForm()           │");
+		 log.debug("└────────────────────────┘");
+		 
+	     return "/login/findId";
 	 }
 	 
-	 @PostMapping(value="/findId.do", produces="text/plain;charset=UTF-8")
+	 @PostMapping("/findIdView.do")
 	 public String findId(@ModelAttribute FindIdDTO dto, Model model) throws SQLException {
 		 log.debug("┌────────────────────────┐");
 		 log.debug("│ findIdView()           │");

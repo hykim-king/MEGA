@@ -37,12 +37,18 @@ public class FindPwdController{
     // 비밀번호 찾기 입력 폼(GET)
     @GetMapping("/findPwd.do")
     public String findPwdForm() {
-        return "findPwd";
+    	 log.debug("┌────────────────────────┐");
+		 log.debug("│ findPwdForm()          │");
+		 log.debug("└────────────────────────┘");
+        return "/login/findPwd";
     }
 
     // 비밀번호 찾기 실행(POST)
-    @PostMapping("/findPwd.do")
+    @PostMapping("/findPwdView.do")
     public String doFindPwd(@ModelAttribute FindPwdDTO dto, Model model) throws SQLException {
+    	 log.debug("┌────────────────────────┐");
+		 log.debug("│ findPwdView()          │");
+		 log.debug("└────────────────────────┘");
     	String password = findPwdService.findPwd(dto);
         if (password != null && !password.trim().isEmpty()) {
             // 메일 발송
