@@ -1,111 +1,207 @@
 @charset "UTF-8";
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Nanum+Pen+Script&display=swap');
 
- /* 기본 레이아웃 */
-    .navbar {
-    background-color: yellow;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 40px;
-    }
-
-    .navbar-left {
-    display: flex;
-    align-items: center;
-    gap: 40px;
-    }
-
-    .logo {
-    font-weight: bold;
-    font-size: 20px;
-    }
-
-    .main-menu {
-    display: flex;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    gap: 30px;
-    }
-
-    .main-menu > li > a {
-    text-decoration: none;
-    color: black;
-    font-weight: bold;
-    padding: 8px 12px;
-    display: block;
-    }
-
-    /* 하위 메뉴 - 오른쪽으로 뜨게 */
-    .has-submenu {
-    position: relative;
-    }
-
-    .submenu {
-    display: none;
-    position: absolute;
-    top: 100%; /* 상위 메뉴의 아래쪽으로 정렬 */
-    left: 0;
-    background-color: white;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    min-width: 120px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-    }
-
-    /* 메뉴 항목 여백도 넉넉히 */
-    .submenu li a {
-    padding: 10px 15px;
-    display: block;
-    text-decoration: none;
-    color: #333;
-    white-space: nowrap;
-    background-color: white;
-    }
-
-    /* 호버 시에만 나타남 */
-    .has-submenu:hover .submenu {
-    display: block;
-    }
-
-    /* 우측 사용자 영역 */
-    .navbar-right {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    }
-
-    .circle {
-    width: 20px;
-    height: 20px;
-    background-color: yellow;
-    border-radius: 50%;
+body {
+  background: url('/ehr/resources/assets/img/bg_fitness.jpg') no-repeat center center fixed;
+  background-size: cover;
+  font-family: 'Noto Sans KR', sans-serif;
+  margin: 0;
+  color: #333;
 }
 
-    /*조회 스크롤 박스*/
-    .scroll-box {
-      width: 700px;
-      height: 400px;
-      overflow-y: auto;
-      border: 1px solid #ccc;
-      padding: 10px;
-    }
+/* ========== [네비게이션 영역] ========== */
+.navbar {
+  background-color: yellow;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 40px;
+}
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+.logo {
+  font-weight: bold;
+  font-size: 20px;
+}
+.main-menu {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 30px;
+}
+.main-menu > li > a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  padding: 8px 12px;
+  display: block;
+}
+.has-submenu {
+  position: relative;
+}
+.submenu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: white;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  min-width: 120px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+.submenu li a {
+  padding: 10px 15px;
+  display: block;
+  text-decoration: none;
+  color: #333;
+  white-space: nowrap;
+}
+.has-submenu:hover .submenu {
+  display: block;
+}
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.circle {
+  width: 20px;
+  height: 20px;
+  background-color: yellow;
+  border-radius: 50%;
+}
 
-    .food-item {
-      margin-bottom: 15px;
-      border-bottom: 1px solid #eee;
-      padding-bottom: 10px;
-    }
+/* ========== [헤더 및 타이포그래피] ========== */
+h2 {
+  color: white;
+  margin-top: 30px;
+  text-align: center;
+  font-size: 28px;
+}
+h3 {
+  margin-top: 40px;
+  background-color: rgba(255,255,255,0.9);
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  font-size: 20px;
+}
+p {
+  margin: 4px 0;
+  padding: 4px;
+  font-size: 15px;
+  line-height: 1.5;
+}
 
-    .food-name {
-      font-weight: bold;
-      color: #2a2aef;
-    }
+/* ========== [공통 링크/버튼] ========== */
+a {
+  color: #2c6ed5;
+  text-decoration: none;
+  margin-right: 10px;
+}
+button {
+  background-color: #ff5f5f;
+  border: none;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+button:hover {
+  background-color: #e04848;
+}
+.save-btn {
+  background-color: #ccff00;
+  color: black;
+}
+button.save-btn:hover {
+  background-color: #e5ff66;
+}
 
-    .food-desc {
-      font-size: 14px;
-      color: #666;
-    }
+/* ========== [검색창/Form 관련] ========== */
+.form-inline-card {
+  margin: 20px 0;
+  padding: 10px;
+  background-color: rgba(255,255,255,0.85);
+  border-radius: 10px;
+  display: inline-block;
+}
+form[action*="doRetrieve.do"] {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  background-color: rgba(255,255,255,0.85);
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+input[type="text"],
+input[type="number"],
+input[type="date"],
+select {
+  width: 100%;
+  padding: 10px;
+  font-size: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+label {
+  font-weight: bold;
+  margin-top: 15px;
+  margin-bottom: 6px;
+  display: block;
+}
+
+/* ========== [운동일지 카드 스타일] ========== */
+.exercise-card {
+  background-color: rgba(255,255,255,0.85);
+  padding: 15px 20px;
+  margin: 15px auto;
+  max-width: 800px;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease;
+}
+.exercise-card:hover {
+  transform: translateY(-2px);
+}
+.exercise-card a,
+.exercise-card button {
+  display: inline-block;
+  margin-right: 10px;
+  margin-top: 8px;
+}
+
+/* ========== [스크롤 영역 (운동 조회)] ========== */
+.scroll-box {
+  width: 700px;
+  max-height: 400px;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 20px auto;
+  background-color: rgba(255,255,255,0.9);
+  border-radius: 12px;
+}
+.food-item {
+  margin-bottom: 15px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}
+.food-name {
+  font-weight: bold;
+  color: #2a2aef;
+}
+.food-desc {
+  font-size: 14px;
+  color: #666;
+}

@@ -7,6 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="/ehr/resources/assets/css/food_list.css">
+<link rel="stylesheet" href="/ehr/resources/assets/css/mypage_search.css">
 <title>헬메이트</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
@@ -45,18 +46,30 @@
 </div>
 
 <!-- 🔍 검색 영역 -->
-<div>
-    <form action="/ehr/exercise/doRetrieve.do"  method="get">
-        <input type="text" name="searchWord" id="searchWord"  size="15" placeholder="검색어를 입력하세요">
-        <select name="searchDiv" id="searchDiv">
+<div class="search-bar">
+    <form action="/ehr/exercise/doRetrieve.do"  method="get" class="search-form">
+        
+         <!-- 첫 셀렉트 + divider -->
+         <div class="select-wrapper with-divider">
+        <select name="searchDiv" id="searchDiv" class="search-select">
             <option value="10">운동명</option>
             <option value="20">운동 부위</option>
         </select>
-        <select name="pageSize" id="pageSize">
+         <span class="divider">|</span>
+         </div>
+        
+        <!-- 검색어 입력 -->
+        <input type="text" name="searchWord" id="searchWord"  placeholder="검색어를 입력하세요" class="search-input">
+        
+        <!-- 개수 셀렉트 -->
+        <div class="select-wrapper">
+        <select name="pageSize" id="pageSize" class="search-select">
             <option value="10">10개씩</option>
             <option value="20">20개씩</option>
         </select>
-        <input type="submit" value="조회">
+          <span class="select-arrow">▼</span>
+        </div>
+            <button type="submit" class="search-button">➔</button>
     </form>
 </div>
 
