@@ -50,7 +50,7 @@
   <c:when test="${not empty sessionScope.userId}">
     <!-- 로그인 상태 -->
     <span>${sessionScope.userId}님</span>
-    <a href="/ehr/logout.do">로그아웃</a>
+    <a href="/ehr/login/logout.do">로그아웃</a>
   </c:when>
   <c:otherwise>
     <!-- 비로그인 상태 -->
