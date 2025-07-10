@@ -7,6 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="/ehr/resources/assets/css/food_list.css">
+<link rel="stylesheet" href="/ehr/resources/assets/css/mypage_search.css">
 <title>헬메이트</title>
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
@@ -16,7 +17,7 @@
   <div class="navbar-left">
     <div class="logo">🏋️‍♂️ 헬메이트</div>
     <ul class="main-menu">
-      <li><a href="#">홈</a></li>
+      <li><a href="/ehr/main.do">홈</a></li>
       <li class="has-submenu">
         <a href="#">운동</a>
         <ul class="submenu">
@@ -40,19 +41,35 @@
   <div class="navbar-right">
     <span>🔔</span>
     <div class="circle"></div>
-    <span>로그인</span>
+
+  <c:choose>
+  <c:when test="${not empty sessionScope.userId}">
+    <!-- 로그인 상태 -->
+    <span>${sessionScope.userId}님</span>
+    <a href="/ehr/logout.do">로그아웃</a>
+  </c:when>
+  <c:otherwise>
+    <!-- 비로그인 상태 -->
+    <a href="/ehr/login/login.do">로그인</a>
+    <a href="/ehr/membership/doSaveView.do">회원가입</a>
+  </c:otherwise>
+</c:choose>
   </div>
 </div>
 
+
 <!-- 🔍 검색 영역 -->
-<div>
-    <form action="/ehr/food/doRetrieve.do"  method="get">
-        <input type="text" name="searchWord" id="searchWord"  size="15" placeholder="검색어를 입력하세요">
-        <select name="pageSize" id="pageSize">
+<div class="search-bar">
+    <form action="/ehr/food/doRetrieve.do"  method="get" class="search-form">
+        <div class="select-wrapper with-divider">
+        <select name="pageSize" id="pageSize" class="search-select">
             <option value="10">10개씩</option>
             <option value="20">20개씩</option>
         </select>
-        <input type="submit" value="조회">
+           <span class="divider">|</span>
+        </div>
+            <button type="submit" class="search-button">➔</button>
+        <input type="text" name="searchWord" id="searchWord"  placeholder="검색어를 입력하세요" class="search-input">
     </form>
 </div>
 

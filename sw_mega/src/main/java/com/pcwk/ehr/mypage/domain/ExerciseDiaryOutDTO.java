@@ -5,7 +5,7 @@ public class ExerciseDiaryOutDTO {
 	private String edCode; //운동일지 코드
 	private String userId; //사용자Id
 	private String eCode; //운동 코드
-	private int cardioWeight; //체중
+	private String gender; //성별
 	private int strenthWeight; //덤벨 무게
 	private int duration; //운동시간
 	private int setCount; //세트 수
@@ -28,7 +28,7 @@ public class ExerciseDiaryOutDTO {
 	 * @param edCode
 	 * @param userId
 	 * @param eCode
-	 * @param cardioWeight
+	 * @param gender
 	 * @param strenthWeight
 	 * @param duration
 	 * @param setCount
@@ -40,14 +40,14 @@ public class ExerciseDiaryOutDTO {
 	 * @param weight
 	 * @param calBurn
 	 */
-	public ExerciseDiaryOutDTO(String edCode, String userId, String eCode, int cardioWeight, int strenthWeight,
+	public ExerciseDiaryOutDTO(String edCode, String userId, String eCode, String gender, int strenthWeight,
 			int duration, int setCount, int repsPerSet, String regDt, String exerciseName, String exerciseType,
 			String region, int weight, int calBurn) {
 		super();
 		this.edCode = edCode;
 		this.userId = userId;
 		this.eCode = eCode;
-		this.cardioWeight = cardioWeight;
+		this.gender = gender;
 		this.strenthWeight = strenthWeight;
 		this.duration = duration;
 		this.setCount = setCount;
@@ -118,18 +118,20 @@ public class ExerciseDiaryOutDTO {
 		this.eCode = eCode;
 	}
 
+
+
 	/**
-	 * @return the cardioWeight
+	 * @return the gender
 	 */
-	public int getCardioWeight() {
-		return cardioWeight;
+	public String getGender() {
+		return gender;
 	}
 
 	/**
-	 * @param cardioWeight the cardioWeight to set
+	 * @param gender the gender to set
 	 */
-	public void setCardioWeight(int cardioWeight) {
-		this.cardioWeight = cardioWeight;
+	public void setGender(String gender) {
+		this.gender = gender;
 	}
 
 	/**
@@ -274,8 +276,8 @@ public class ExerciseDiaryOutDTO {
 
 	@Override
 	public String toString() {
-		return "ExerciseDiaryOutDTO [edCode=" + edCode + ", userId=" + userId + ", eCode=" + eCode + ", cardioWeight="
-				+ cardioWeight + ", strenthWeight=" + strenthWeight + ", duration=" + duration + ", setCount="
+		return "ExerciseDiaryOutDTO [edCode=" + edCode + ", userId=" + userId + ", eCode=" + eCode + ", gender="
+				+ gender + ", strenthWeight=" + strenthWeight + ", duration=" + duration + ", setCount="
 				+ setCount + ", repsPerSet=" + repsPerSet + ", regDt=" + regDt + ", exerciseName=" + exerciseName
 				+ ", exerciseType=" + exerciseType + ", region=" + region + ", weight=" + weight + ", calBurn="
 				+ calBurn + ", totalCalories=" + totalCalories + "]";
