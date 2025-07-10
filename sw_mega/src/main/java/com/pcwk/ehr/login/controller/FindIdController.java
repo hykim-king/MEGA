@@ -63,7 +63,7 @@ public class FindIdController{
 		            maskedId = sb.toString();
 		        }
 		        model.addAttribute("maskedId", maskedId);
-		        return "findIdResult";
+		        return "/login/findIdResult";
 		    } else {
 		        model.addAttribute("msg", "일치하는 정보가 없습니다.");
 		        return "findId";

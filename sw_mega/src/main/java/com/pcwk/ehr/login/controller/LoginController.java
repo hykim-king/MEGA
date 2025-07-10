@@ -55,12 +55,26 @@ public class LoginController{
           if(isLogin) {
               // 세션에 사용자 정보 저장
               session.setAttribute("userId", result.getUserId());
-              // 필요하다면 사용자 전체 정보 result를 session에 저장 가능
-              model.addAttribute("loginResult", true);
+             
+              return "redirect:/common/main.do";
+
           } else {
               model.addAttribute("msg", "일치하는 정보가 없습니다. 다시 입력해주세요.");
+              return "/login/login";
           }
-          // 항상 login.jsp로 (alert 이후 이동 처리)
-          return "login";
       }
+    
+    //로그아웃기능
+    @GetMapping("/logout.do")
+    public String logout(HttpSession session) {
+        log.debug("┌────────────────────────┐");
+        log.debug("│ logout()               │");
+        log.debug("└────────────────────────┘");
+
+        // 세션 무효화
+        session.invalidate();
+
+        // 로그인 페이지로 리다이렉트
+        return "redirect:/login/login.do";
+    }
   }

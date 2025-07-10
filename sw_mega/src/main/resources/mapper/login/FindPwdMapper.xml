@@ -7,6 +7,6 @@
         SELECT PASSWORD
         FROM MEMBERSHIP
         WHERE USER_ID = #{userId}
-          AND EMAIL = #{email}
+          AND TRIM(EMAIL) = TRIM(#{email})
     </select>
 </mapper>

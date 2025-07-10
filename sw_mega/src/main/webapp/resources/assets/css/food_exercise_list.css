@@ -4,79 +4,11 @@
 body {
   background: url('/ehr/resources/assets/img/bg_fitness.jpg') no-repeat center center fixed;
   background-size: cover;
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: 'Do Hyeon', sans-serif;
   margin: 0;
   color: #333;
 }
 
-/* ========== [네비게이션 영역] ========== */
-.navbar {
-  background-color: yellow;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 40px;
-}
-.navbar-left {
-  display: flex;
-  align-items: center;
-  gap: 40px;
-}
-.logo {
-  font-weight: bold;
-  font-size: 20px;
-}
-.main-menu {
-  display: flex;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  gap: 30px;
-}
-.main-menu > li > a {
-  text-decoration: none;
-  color: black;
-  font-weight: bold;
-  padding: 8px 12px;
-  display: block;
-}
-.has-submenu {
-  position: relative;
-}
-.submenu {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background-color: white;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  min-width: 120px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  z-index: 1000;
-}
-.submenu li a {
-  padding: 10px 15px;
-  display: block;
-  text-decoration: none;
-  color: #333;
-  white-space: nowrap;
-}
-.has-submenu:hover .submenu {
-  display: block;
-}
-.navbar-right {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-.circle {
-  width: 20px;
-  height: 20px;
-  background-color: yellow;
-  border-radius: 50%;
-}
 
 /* ========== [헤더 및 타이포그래피] ========== */
 h2 {

@@ -168,6 +168,7 @@ public class ExerciseController {
 	@GetMapping(value = "/doRetrieve.do")
 	public String doRetrieve(SearchDTO param, Model model){
 		String viewName = "/exercise/exercise_list";
+		//String viewName = "/exercise/demo_main";
 		log.debug("┌───────────────────────────────────────┐");
 		log.debug("│ doRetrieve()                          │");
 		log.debug("└───────────────────────────────────────┘");
@@ -191,6 +192,8 @@ public class ExerciseController {
 	    model.addAttribute("list", list);
 	    model.addAttribute("pageSize", pageSize);
 	    model.addAttribute("pageNo", pageNo);
+	    model.addAttribute("searchDiv", searchDiv);
+	    model.addAttribute("searchWord", searchWord);
 
 	    // 4. total count 추출 (cross join 결과에서)
 	    int totalCnt = 0;

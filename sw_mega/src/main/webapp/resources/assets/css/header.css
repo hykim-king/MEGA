@@ -1,0 +1,107 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
+
+/* ========== [헤더/네비게이션 영역] ========== */
+.navbar {
+  background-color: transparent;
+}
+
+.menu-bar {
+  position: relative;
+  background-color: yellow;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1px 30px;
+  width: 100%;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.navbar-right a {
+  font-size: 14px;          /* 글씨 크기 */
+  color: #000000;           /* 글씨 색상 */
+  text-decoration: none;    /* 밑줄 제거 */
+  font-weight: normal;      /* 굵기 조절: normal, bold, 500 등 */
+  margin-left: 10px;        /* 로그인과 회원가입 간격 */
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.main-menu {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 30px;
+}
+
+.main-menu > li > a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  padding: 8px 12px;
+  display: block;
+}
+
+.has-submenu {
+  position: relative;
+}
+
+.submenu-box { 
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100vw;
+  background-color: transparent;
+  z-index: 999;
+  justify-content: flex-start; /* ← 내용도 왼쪽 정렬 */
+  height: 40px;
+}
+
+.submenu {
+  flex-direction: row; 
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  padding: 0; /* 여기로 안쪽 여백 이동 */
+}
+
+.submenu li {
+  list-style: none;
+  margin-bottom: 0;
+}
+
+.submenu li a {
+  color: #333;
+  text-decoration: none;
+  font-size: 14px;
+  transition: all 0.2s;
+}
+
+.submenu li a:hover {
+  color: #ff3377;
+}
+
+/* 마우스 오버 시 서브메뉴 박스 나타남 */
+.has-submenu:hover .submenu-box,
+.submenu-box:hover {
+  display: block;
+}
+
+/* 오른쪽 로그인/회원가입 영역 */
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+

@@ -34,7 +34,8 @@
         <input type="hidden" name="exerciseName" value="${vo.exerciseName}" />
         <input type="hidden" name="eCode" value="${vo.eCode}" />
         <input type="hidden" name="duration" value="${param.duration}" />
-        <input type="hidden" name="weight" value="${param.weight}" />
+        <input type="hidden" name="gender" value="${vo.gender}" />
+        <input type="hidden" name="weight" value="${vo.weight}" />
         <input type="hidden" name="setCount" value="${param.setCount}" />
         <input type="hidden" name="repsPerSet" value="${param.repsPerSet}" />
          <input type="hidden" name="strenthWeight" value="${param.strenthWeight}" />
