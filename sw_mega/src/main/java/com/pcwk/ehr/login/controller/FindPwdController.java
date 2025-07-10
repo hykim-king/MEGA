@@ -49,6 +49,9 @@ public class FindPwdController{
     	 log.debug("┌────────────────────────┐");
 		 log.debug("│ findPwdView()          │");
 		 log.debug("└────────────────────────┘");
+		 
+		 log.debug("userId: " + dto.getUserId());
+		 log.debug("email: " + dto.getEmail());
     	String password = findPwdService.findPwd(dto);
         if (password != null && !password.trim().isEmpty()) {
             // 메일 발송
@@ -67,6 +70,7 @@ public class FindPwdController{
         } else {
             model.addAttribute("msg", "가입하지 않은 이메일(아이디)입니다. 다시한번 확인해주세요.");
         }
+        log.debug("==> userId: [{}], email: [{}]", dto.getUserId(), dto.getEmail());
         return "/login/findPwdView";
     }
 }
