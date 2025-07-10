@@ -38,12 +38,13 @@ public class MembershipDTO {
     
     @NotBlank(message = "이메일 인증 여부(Y/N)가 필요합니다.")
     @Pattern(regexp = "^[YN]$", message = "이메일 인증 여부는 Y 또는 N이어야 합니다.")
-    private String emailAuth;        // 이메일 인증 여부
+    private String emailAuth = "Y";
     private String emailAuthToken;
     private int    grade;            // 1:BASIC 2:SILVER 3:GOLD
     private String profileImage;
     private Date   regDt;            // 가입일 
-
+    
+    
     public MembershipDTO() {}
 
 	public MembershipDTO(String userId, String adminId, String email, String password, Date birth, String emailAuth,

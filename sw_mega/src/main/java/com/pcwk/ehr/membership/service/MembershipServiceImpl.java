@@ -33,8 +33,20 @@ public class MembershipServiceImpl implements MembershipService {
     /*───────────────────────────────────────────*/
     @Override
     public int save(MembershipDTO dto) throws SQLException {
+        // ✅ null 방지 처리
+        if (dto.getEmailAuthToken() == null) {
+            dto.setEmailAuthToken(""); // 빈 문자열 기본값
+        }
+        if (dto.getEmailAuth() == null) {
+            dto.setEmailAuth("N"); // 인증 안됨 기본값
+        }
+        if (dto.getProfileImage() == null) {
+            dto.setProfileImage(""); // 빈 문자열 기본값
+        }
+
         return membershipMapper.doSave(dto);
     }
+
 
     /*───────────────────────────────────────────*/
     /* 2. 목록 조회                               */

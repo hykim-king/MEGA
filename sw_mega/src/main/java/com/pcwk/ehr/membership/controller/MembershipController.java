@@ -69,19 +69,22 @@ public class MembershipController implements PLog {
     /* 2. 등록 처리                                              */
     /*───────────────────────────────────────────────────────────*/
     @PostMapping("/doSave.do")
-    public String doSave(MembershipDTO param, String UTF_8) throws SQLException, UnsupportedEncodingException {
+    public String doSave(MembershipDTO param) throws SQLException {
         log.debug("┌───────────────────────────┐");
         log.debug("│ *doSave()* param: {}      │", param);
         log.debug("└───────────────────────────┘");
 
         int flag = membershipService.save(param);
 
-        // 등록 성공 여부에 따라 URL에 파라미터 추가
-        String msg        = (flag == 1) ? "회원가입 성공" : "회원가입 실패";
-        String encodedMsg = java.net.URLEncoder.encode(msg, "UTF-8");
-        return "redirect:/membership/doSaveView.do?success=" + (flag == 1)
-               + "&msg=" + encodedMsg;
+        if (flag == 1) {
+            // 회원가입 성공 → 메인 페이지로 이동
+            return "redirect:/common/main.do";
+        } else {
+            // 회원가입 실패 → 다시 회원가입 페이지로
+            return "redirect:/membership/doSaveView.do?success=false";
+        }
     }
+    
 
     /*───────────────────────────────────────────────────────────*/
     /* 3. 목록 조회 (Search + Paging)                            */
@@ -238,6 +241,9 @@ public class MembershipController implements PLog {
         mail.setTo(email);
         mail.setSubject("[MEGA] 이메일 인증 코드");
         mail.setText("인증코드: " + code);
+        
+        mail.setFrom("com0494@naver.com"); // ← XML 설정의 username과 반드시 일치!
+        
         mailSender.send(mail);
 
         // 3) DB에 토큰·만료시간 저장 (updateEmailAuthToken)

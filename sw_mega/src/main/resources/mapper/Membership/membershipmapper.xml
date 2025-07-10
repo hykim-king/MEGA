@@ -32,7 +32,7 @@
             #{email},
             #{password},
             #{birth},
-            #{emailAuth},
+            #{emailAuth, jdbcType=VARCHAR},
             #{emailAuthToken},
             #{grade},
             #{profileImage,jdbcType=VARCHAR},
