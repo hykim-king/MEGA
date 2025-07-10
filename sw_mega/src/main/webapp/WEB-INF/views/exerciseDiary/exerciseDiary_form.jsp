@@ -20,10 +20,13 @@
     <button type="button" onclick="goSearchExercise()">찾기</button><br/>
     
     <label>운동시간: </label>
-    <input type="number" id="duration" name="duration" value="${param.duration}" required readonly /><br/>
+    <input type="number" id="duration" name="duration" value="${param.duration}" required /><br/>
      
-    <label>체중(유산소): </label>
-    <input type="number" id="weight" name="weight" value="${param.weight}" /><br/>
+    <label>성별(유산소): </label>
+    <input type="text" id="gender" name="gender" value="${param.gender}" readonly/><br/> 
+     
+    <label>기준 체중(유산소): </label>
+    <input type="number" id="weight" name="weight" value="${param.weight}" readonly/><br/>
     
     <label>덤벨무게(근력): </label>
     <input type="number" id="strenthWeight" name="strenthWeight" value="${param.strenthWeight}" /><br/>

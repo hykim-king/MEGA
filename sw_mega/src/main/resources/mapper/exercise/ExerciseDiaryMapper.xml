@@ -9,7 +9,6 @@
                 ed.ed_code,
                 ed.user_id,
                 ed.e_code,
-                ed.cardio_weight,
                 ed.strenth_weight,
                 ed.duration,
                 ed.set_count,
@@ -17,6 +16,7 @@
                 TO_CHAR(ed.reg_dt, 'yyyy-mm-dd') as reg_dt,
                 e.exercise_name,
                 e.exercise_type,
+                e.gender,
                 e.region,
                 e.weight,
                 e.cal_burn

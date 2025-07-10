@@ -17,7 +17,7 @@
   <div class="navbar-left">
     <div class="logo">🏋️‍♂️ 헬메이트</div>
     <ul class="main-menu">
-      <li><a href="#">홈</a></li>
+      <li><a href="/ehr/main.do">홈</a></li>
       <li class="has-submenu">
         <a href="#">운동</a>
         <ul class="submenu">
@@ -41,7 +41,19 @@
   <div class="navbar-right">
     <span>🔔</span>
     <div class="circle"></div>
-    <span>로그인</span>
+
+  <c:choose>
+  <c:when test="${not empty sessionScope.userId}">
+    <!-- 로그인 상태 -->
+    <span>${sessionScope.userId}님</span>
+    <a href="/ehr/logout.do">로그아웃</a>
+  </c:when>
+  <c:otherwise>
+    <!-- 비로그인 상태 -->
+    <a href="/ehr/login/login.do">로그인</a>
+    <a href="/ehr/membership/doSaveView.do">회원가입</a>
+  </c:otherwise>
+</c:choose>
   </div>
 </div>
 
@@ -77,10 +89,9 @@
             
 	        <!-- 유산소 -->
 	        <c:if test="${item.exerciseType eq '유산소'}">
-	            <p>기준 체중: ${item.weight} kg</p>
-	            <p>기준무게: ${item.weight}kg</p>
-	            <p>성별: ${item.region}kg</p>
-	            <p>입력한 시간: ${item.duration} 분</p>
+	            <p>기준 체중: ${item.weight}kg</p>
+	            <p>성별: ${item.gender}</p>
+	            <p>운동 시간: ${item.duration} 분</p>
 	            <p>총 소모 칼로리: ${item.totalCalories} kcal</p>
 	        </c:if>
 	
@@ -90,7 +101,7 @@
 	            <p>세트 수: ${item.setCount}</p>
 	            <p>세트당 반복 수: ${item.repsPerSet}</p>
 	            <p>덤벨 무게: ${item.strenthWeight} kg</p>
-	            <p>입력한 시간: ${item.duration} 분</p>
+	            <p>운동 시간: ${item.duration} 분</p>
 	            <p>총 소모 칼로리: ${item.totalCalories} kcal</p>
 	        </c:if>
 	        

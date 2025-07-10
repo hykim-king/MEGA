@@ -19,23 +19,27 @@
 
 
 	<!-- 전체 조회 + 페이징 -->
-	<select id="doRetrieve" parameterType="SearchDTO"
-		resultType="ExerciseDTO">
-		SELECT *
-			FROM (
-			SELECT ROWNUM AS rnum, e.*
-			FROM (
-			SELECT *
-			FROM exercise
-		<include refid="userWhere"></include>
-
-		ORDER BY e_code DESC
-		) e
-         <![CDATA[
-        WHERE ROWNUM <= #{pageSize} * (#{pageNo} - 1) + #{pageSize}
-    )
-    WHERE rnum >= #{pageSize} * (#{pageNo} - 1) + 1
-       ]]>
+	<select id="doRetrieve" parameterType="SearchDTO" resultType="ExerciseDTO">
+		  SELECT A.*, B.total_cnt
+		  FROM (
+		    SELECT *
+		    FROM (
+		      SELECT ROWNUM AS rnum, e.*
+		      FROM (
+		        SELECT *
+		        FROM exercise
+		        <include refid="userWhere"/>
+		        ORDER BY e_code DESC
+		      ) e <![CDATA[
+		      WHERE ROWNUM <= (#{pageNo} * #{pageSize})
+		    )
+		    WHERE rnum > ((#{pageNo} - 1) * #{pageSize})
+		  ) A ]]>
+		  CROSS JOIN (
+		    SELECT COUNT(*) AS total_cnt
+		    FROM exercise
+		    <include refid="userWhere"/>
+		  ) B
 	</select>
 
 

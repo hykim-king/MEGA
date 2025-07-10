@@ -15,7 +15,7 @@
   <div class="navbar-left">
     <div class="logo">🏋️‍♂️ 헬메이트</div>
     <ul class="main-menu">
-      <li><a href="#">홈</a></li>
+      <li><a href="/ehr/main.do">홈</a></li>
       <li class="has-submenu">
         <a href="#">운동</a>
         <ul class="submenu">
@@ -39,7 +39,19 @@
   <div class="navbar-right">
     <span>🔔</span>
     <div class="circle"></div>
-    <span>로그인</span>
+
+  <c:choose>
+  <c:when test="${not empty sessionScope.userId}">
+    <!-- 로그인 상태 -->
+    <span>${sessionScope.userId}님</span>
+    <a href="/ehr/logout.do">로그아웃</a>
+  </c:when>
+  <c:otherwise>
+    <!-- 비로그인 상태 -->
+    <a href="/ehr/login/login.do">로그인</a>
+    <a href="/ehr/membership/doSaveView.do">회원가입</a>
+  </c:otherwise>
+</c:choose>
   </div>
 </div>
 
@@ -65,8 +77,8 @@
 	  <option value="여성">여성</option>
 	</select>
 	 <br/>
-	<label for="cardioWeight">기준 체중 (kg, 유산소만):</label>
-	<input type="number" id="cardioWeight" name="cardioWeight" placeholder="유산소 운동만 입력" />
+	<label for="weight">기준 체중 (kg, 유산소만):</label>
+	<input type="number" id="weight" name="weight" placeholder="유산소 운동만 입력" />
 	 <br/>
 	<label for="region">운동 부위 (근력만):</label>
 	<input type="text" id="region" name="region" placeholder="ex) 하체, 가슴, 등" />
@@ -83,7 +95,7 @@
 			  $('#region').val('');
 			} else if ($('#exerciseType').val() === '근력') {
 			  $('#gender').val('');
-			  $('#cardioWeight').val('');
+			  $('#weight').val('');
 			}
 		  
 	      const formData = $('#exerciseForm').serialize();

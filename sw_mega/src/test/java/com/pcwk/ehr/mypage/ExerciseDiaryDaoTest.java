@@ -202,7 +202,6 @@ class ExerciseDiaryDaoTest {
 		//업데이트 파라미터 설정
 		ExerciseDiaryDTO paramUp = new ExerciseDiaryDTO();
 		paramUp.setEdCode(Integer.parseInt(inVO.getEdCode()));
-		paramUp.setCardioWeight(inVO.getCardioWeight());
 		paramUp.setStrenthWeight(inVO.getStrenthWeight());
 		paramUp.setDuration(45);
 		paramUp.setSetCount(inVO.getSetCount());

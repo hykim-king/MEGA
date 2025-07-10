@@ -14,34 +14,48 @@
 <div class="navbar">
   <div class="navbar-left">
     <div class="logo">🏋️‍♂️ 헬메이트</div>
-    <ul class="main-menu">
-      <li><a href="#">홈</a></li>
-      <li class="has-submenu">
-        <a href="#">운동</a>
-        <ul class="submenu">
-          <li><a href="/ehr/exerciseDiary/doRetrieve.do">운동 일지</a></li>
-          <li><a href="/ehr/exercise/doRetrieve.do">운동 조회</a></li>
-          <li><a href="/ehr/exercise/doForm.do">운동 추가</a></li>
-        </ul>
-      </li>
-      <li class="has-submenu">
-        <a href="#">음식</a>
-        <ul class="submenu">
-          <li><a href="/ehr/foodDiary/doRetrieve.do">음식 일지</a></li>
-          <li><a href="/ehr/food/doRetrieve.do">음식 조회</a></li>
-          <li><a href="/ehr/food/doForm.do">음식 추가</a></li>
-        </ul>
-      </li>
-      <li><a href="#">커뮤니티</a></li>
-    </ul>
+	<ul class="main-menu">
+	  <li><a href="/ehr/main.do">홈</a></li>
+	
+	  <li class="has-submenu">
+	    <a href="#">운동</a>
+	    <ul class="submenu">
+	      <li><a href="/ehr/exerciseDiary/doRetrieve.do">운동 일지</a></li>
+	      <li><a href="/ehr/exercise/doRetrieve.do">운동 조회</a></li>
+	      <li><a href="/ehr/exercise/doForm.do">운동 추가</a></li>
+	    </ul>
+	  </li>
+	
+	  <li class="has-submenu">
+	    <a href="#">음식</a>
+	    <ul class="submenu">
+	      <li><a href="/ehr/foodDiary/doRetrieve.do">음식 일지</a></li>
+	      <li><a href="/ehr/food/doRetrieve.do">음식 조회</a></li>
+	      <li><a href="/ehr/food/doForm.do">음식 추가</a></li>
+	    </ul>
+	  </li>
+	
+	  <li><a href="#">커뮤니티</a></li>
+</ul>
   </div>
 
   <div class="navbar-right">
     <span>🔔</span>
     <div class="circle"></div>
-    <span>로그인</span>
+
+  <c:choose>
+  <c:when test="${not empty sessionScope.userId}">
+    <!-- 로그인 상태 -->
+    <span>${sessionScope.userId}님</span>
+    <a href="/ehr/logout.do">로그아웃</a>
+  </c:when>
+  <c:otherwise>
+    <!-- 비로그인 상태 -->
+    <a href="/ehr/login/login.do">로그인</a>
+    <a href="/ehr/membership/doSaveView.do">회원가입</a>
+  </c:otherwise>
+</c:choose>
   </div>
-</div>
 
 <h2>음식 추가</h2>
 <br>
