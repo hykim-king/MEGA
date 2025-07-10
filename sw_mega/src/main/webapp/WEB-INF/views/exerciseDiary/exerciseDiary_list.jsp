@@ -12,7 +12,7 @@
 </head>
 <body>
 
-<h2>🍽️ 음식 일지</h2>
+<h2>운동 일지</h2>
 <div class="navbar">
   <div class="navbar-left">
     <div class="logo">🏋️‍♂️ 헬메이트</div>
@@ -21,17 +21,17 @@
       <li class="has-submenu">
         <a href="#">운동</a>
         <ul class="submenu">
-          <li><a href="/ehr/exerciseDiary/doRetrieve.do?userId=user01">운동 일지</a></li>
+          <li><a href="/ehr/exerciseDiary/doRetrieve.do">운동 일지</a></li>
           <li><a href="/ehr/exercise/doRetrieve.do">운동 조회</a></li>
-          <li><a href="/ehr/exercise/doForm.do?userId=user01">운동 추가</a></li>
+          <li><a href="/ehr/exercise/doForm.do">운동 추가</a></li>
         </ul>
       </li>
       <li class="has-submenu">
         <a href="#">음식</a>
         <ul class="submenu">
-          <li><a href="/ehr/foodDiary/doRetrieve.do?userId=user01">음식 일지</a></li>
-          <li><a href="/ehr/food/doRetrieve.do?userId=user01">음식 조회</a></li>
-          <li><a href="/ehr/food/doForm.do?userId=user01">음식 추가</a></li>
+          <li><a href="/ehr/foodDiary/doRetrieve.do">음식 일지</a></li>
+          <li><a href="/ehr/food/doRetrieve.do">음식 조회</a></li>
+          <li><a href="/ehr/food/doForm.do">음식 추가</a></li>
         </ul>
       </li>
       <li><a href="#">커뮤니티</a></li>
@@ -47,7 +47,6 @@
 
 <!-- 날짜 선택 폼 시작 -->
 <form method="get" action="/ehr/exerciseDiary/doRetrieve.do">
-    <input type="hidden" name="userId" value="${userId}" />
     <label for="regDt">날짜 선택: </label>
     <input type="date" id="regDt" name="regDt" value="${regDt}" required />
     <button type="submit">조회</button>
@@ -56,7 +55,7 @@
 
 <!-- 운동 일지 추가 버튼 -->
 <div style="margin-top: 10px; text-align: right;">
-    <a href="/ehr/exerciseDiary/doForm.do?userId=${param.userId}&regDt=${param.regDt}">➕ 운동 일지 추가</a>
+    <a href="/ehr/exerciseDiary/doForm.do?regDt=${regDt}">➕ 운동 일지 추가</a>
 </div>
 
 <c:forEach var="meal" items="${exerciseType}">
@@ -72,15 +71,17 @@
     <c:forEach var="item" items="${list}">
         <c:if test="${item.exerciseType == meal}">
             <c:set var="hasData" value="true" />
+             <div class="exercise-card">
             <p>${item.exerciseName}</p>
             <p>운동 타입: ${item.exerciseType}</p>
             
 	        <!-- 유산소 -->
 	        <c:if test="${item.exerciseType eq '유산소'}">
-	            <p>기준 체중: ${item.weight}kg</p>
-	            <p>성별: ${item.weight}kg</p>
-	            <p>입력한 시간: ${item.duration}분</p>
-	            <p>총 소모 칼로리: ${item.totalCalories}분</p>
+	            <p>기준 체중: ${item.weight} kg</p>
+	            <p>기준무게: ${item.weight}kg</p>
+	            <p>성별: ${item.region}kg</p>
+	            <p>입력한 시간: ${item.duration} 분</p>
+	            <p>총 소모 칼로리: ${item.totalCalories} kcal</p>
 	        </c:if>
 	
 	        <!-- 근력 -->
@@ -88,15 +89,15 @@
 	            <p>운동 부위: ${item.region}</p>
 	            <p>세트 수: ${item.setCount}</p>
 	            <p>세트당 반복 수: ${item.repsPerSet}</p>
-	            <p>덤벨 무게: ${item.strenthWeight}kg</p>
-	            <p>입력한 시간: ${item.duration}분</p>
-	            <p>총 소모 칼로리: ${item.totalCalories}분</p>
+	            <p>덤벨 무게: ${item.strenthWeight} kg</p>
+	            <p>입력한 시간: ${item.duration} 분</p>
+	            <p>총 소모 칼로리: ${item.totalCalories} kcal</p>
 	        </c:if>
 	        
             <!-- 수정 버튼: doSelectOne.do 호출 후 수정 페이지로 이동 -->
-            <a href="/ehr/exerciseDiary/doSelectOne.do?edCode=${item.edCode}&eCode=${item.eCode}&userId=${item.userId}&regDt=${item.regDt}">수정</a>
-            <button onclick="deleteDiary('${item.edCode}', '${item.userId}', '${item.regDt}')">삭제</button>
-            
+            <a href="/ehr/exerciseDiary/selectOneWithJoin.do?edCode=${item.edCode}&eCode=${item.eCode}&regDt=${item.regDt}">수정</a>
+            <button onclick="deleteDiary('${item.edCode}', '${item.regDt}')">삭제</button>
+           </div>
         </c:if>
     </c:forEach>
 
@@ -106,16 +107,18 @@
 </c:forEach>
 
 <c:if test="${not empty vo}">
+ <div class="exercise-card">
     <h3>🍽️ 총 소모 칼로리 및 시간 요약</h3>
     <p>
         ${vo.totalDuration} (분) /
         ${vo.totalCalories} kcal 
     </p>
+   </div>
 </c:if>
 
 
 <script>
-  function deleteDiary(edCode, userId, regDt) {
+  function deleteDiary(edCode, regDt) {
     if (!confirm('정말 삭제하시겠습니까?')) return;
 
     $.ajax({
@@ -126,7 +129,7 @@
         const res = JSON.parse(response);
         alert(res.message);
         if (res.messageId === 1) {
-          window.location.href = '/ehr/exerciseDiary/doRetrieve.do?userId=' + userId + '&regDt=' + regDt;
+          window.location.href = '/ehr/exerciseDiary/doRetrieve.do?regDt=' + regDt;
         }
       },
       error: function(xhr, status, error) {

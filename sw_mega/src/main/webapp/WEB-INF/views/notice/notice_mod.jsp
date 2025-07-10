@@ -11,7 +11,7 @@
 <html>  
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="/ehr/resources/assets/css/form.css">
+<link rel="stylesheet" href="${CP}/resources/assets/css/notice_list.css">
 <title>게시글 관리</title>
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
  <script src="/ehr/resources/assets/js/common.js"></script>
@@ -50,7 +50,7 @@
             
             if(confirm('목록으로 이동 하시겠습니까?') === false)return;
             //목록화면으로 이동
-            window.location.href = '/ehr/notice/doRetrieve.do?nocode='+${nocodeValue};         
+            window.location.href = '/ehr/notice/doRetrieve.do?nocode=+${nocodeValue}';         
         });
         
         
@@ -95,7 +95,7 @@
                         alert(message.message);
 
                         //목록화면으로 이동
-                        window.location.href = '/ehr/notice/doRetrieve.do?div='+${divValue};
+                        window.location.href = '/ehr/notice/doRetrieve.do?div=+${divValue}';
                     }else{
                         alert(message.message);
                     }                     
@@ -116,7 +116,7 @@
             console.log('doDeleteButton click');
             
             //seq
-            if(isEmpty(seqInput.value) === true){
+            if(isEmpty(noCodeInput.value) === true){
                 alert("SEQ를 확인 하세요.");
                 return;
             }
@@ -129,6 +129,7 @@
                 asyn:"true",    //비동기
                 dataType:"html",//서버에서 받을 데이터 타입
                 data:{          //파라메터
+                    "noCode": noCodeInput.value,
                     "userId": userIdInput.value
                 },
                 success:function(response){//요청 성공
@@ -140,7 +141,7 @@
                         alert(message.message);
 
                         //목록화면으로 이동
-                        window.location.href = '/ehr/notice/doRetrieve.do?div='+${divValue};
+                        window.location.href = '/ehr/notice/doRetrieve.do?div=' + '${divValue}';
                      }else{
                         alert(message.message);
                      }                    
@@ -162,10 +163,9 @@
 </head>
 <body>     
     <div class="form-container">
-    <c:choose>
-        <c:when test="${20 == divValue }"><h2>자유 게시판 - 관리</h2></c:when>
-        <c:otherwise><h2>공지사항 - 관리</h2></c:otherwise>
-    </c:choose>    
+
+      <h2>공지사항 - 관리</h2>
+       
     <hr class="title-underline">
        
     <!-- Button area -->
@@ -174,12 +174,18 @@
         <input type="button" id="moveToList"   value="목록">
         <input type="button" id="doUpdate"     value="수정">
         <input type="button" id="doDelete"     value="삭제">
+      <%--   <input type="hidden" name="noCode" value="${notice.noCode}" /> --%>
+        
     </div>
     <!--// Button area -->
     
     <!-- form area -->
     <form action="/ehr/notice/doSave.do" method="post" >
         <input type="hidden" name="noCode" id="noCode" value="<c:out value='${vo.noCode }'/>">
+        
+        <label>글번호</label>
+            <input type="text" name="noCode" value="${notice.noCode}" readonly />   
+        
         <div class="form-group">
             <label for="userId">제목</label>
             <input type="text"  maxlength="50" name="title" id="title" value="${vo.title }" >

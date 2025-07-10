@@ -50,4 +50,5 @@ public class NoticeCommentSeveiceImpl implements NoticeCommentService {
 		return mapper.doSave(param);
 	}
 
+
 }

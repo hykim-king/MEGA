@@ -1,5 +1,6 @@
 package com.pcwk.ehr.board.controller;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
@@ -9,7 +10,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -21,7 +24,7 @@ import com.pcwk.ehr.cmn.SearchDTO;
 import com.pcwk.ehr.mapper.NoCommentMapper;
 
 @Controller
-@RequestMapping("/noticeComment")
+@RequestMapping("/noComment")
 public class NoCommentController {
 	Logger log = LogManager.getLogger(getClass());
 
@@ -36,23 +39,42 @@ public class NoCommentController {
 		log.debug("│ *NoCommentController()*   │");
 		log.debug("└───────────────────────────┘");
 	}
+	
+
+	/**
+	 * 댓글 수정
+	 */
+	@GetMapping("/doSelectOne.do")
+	public String doSelectOne(@RequestParam int noCommentCode, Model model) {
+		log.debug("┌───────────────────────────┐");
+		log.debug("│ *doSelectOne()*           │");
+		log.debug("└───────────────────────────┘");
+	    NoticeCommentDTO param = new NoticeCommentDTO();
+	    param.setCommentedCode(noCommentCode);
+
+	    NoticeCommentDTO outVO = mapper.doSelectOne(param);
+	    model.addAttribute("vo", outVO);
+
+	    return "notice/no_comment_update";  
+	}
+
+	
 
 	/**
 	 * 댓글 등록
 	 */
-	@PostMapping(value = "/doSave.do", produces = "text/plain;charset=UTF-8")
-	@ResponseBody
-	public String doSave(NoticeCommentDTO dto) {
-		log.debug("┌────────────────────────────┐");
-		log.debug("│ doSave()                   │");
-		log.debug("└────────────────────────────┘");
-		log.debug("dto: {}", dto);
+	 @PostMapping("/doSave.do")
+	 @ResponseBody
+	    public String doSave(@RequestBody NoticeCommentDTO param) {
+			log.debug("┌───────────────────────────┐");
+			log.debug("│ *doSave()*                │");
+			log.debug("└───────────────────────────┘");
+	        System.out.println("받은 댓글:" + param);
 
-		int flag = mapper.doSave(dto);
-		String message = (flag == 1) ? "댓글이 등록되었습니다." : "댓글 등록 실패!";
-		MessageDTO messageDTO = new MessageDTO(flag, message);
+	        int flag = noticeCommentService.doSave(param);
 
-		return new Gson().toJson(messageDTO);
+	        return "{\"flag\":" + flag + "}";
+	    
 	}
 
 	/**
@@ -77,7 +99,7 @@ public class NoCommentController {
 	 */
 	@PostMapping(value = "/doUpdate.do", produces = "text/plain;charset=UTF-8")
 	@ResponseBody
-	public String doUpdate(NoticeCommentDTO dto) {
+	public String doUpdate(@RequestBody NoticeCommentDTO dto) {
 		log.debug("┌────────────────────────────┐");
 		log.debug("│ doUpdate()                 │");
 		log.debug("└────────────────────────────┘");
@@ -106,16 +128,6 @@ public class NoCommentController {
 		MessageDTO messageDTO = new MessageDTO(flag, message);
 
 		return new Gson().toJson(messageDTO);
-	}
 
-	@GetMapping("/doSelectOne.do")
-	public String doSelectOne(@RequestParam int noCommentCode, Model model) {
-	    NoticeCommentDTO param = new NoticeCommentDTO();
-	    param.setCommentedCode(noCommentCode);
-
-	    NoticeCommentDTO outVO = mapper.doSelectOne(param);
-	    model.addAttribute("vo", outVO);
-
-	    return "board/no_comment_mod";
 	}
 }

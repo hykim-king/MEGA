@@ -2,9 +2,12 @@ package com.pcwk.ehr.mypage.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -82,7 +85,7 @@ public class FoodController {
 	}
 	
 	@GetMapping("/doForm.do")
-	public String doForm(FoodDTO param, Model model) {
+	public String doForm(FoodDTO param, Model model, HttpSession session) {
 	    String viewName = "/food/food_form";
 
 	    log.debug("┌───────────────────────────────────────┐");
@@ -90,18 +93,21 @@ public class FoodController {
 	    log.debug("└───────────────────────────────────────┘");
 	    log.debug("param: {}", param);
 
+	    //세션에서 userId 꺼내기
+	    String userId = (String) session.getAttribute("userId");
+	    
 	    // 🔐 로그인 여부 판단용: userId null 또는 빈 문자열
-	    if (param.getUserId() == null || param.getUserId().trim().isEmpty()) {
+	    if (userId == null || userId.trim().isEmpty()) {
 	        log.warn("▶ 로그인 없이 음식 일지 등록 시도 차단됨");
 
-	        model.addAttribute("message", "로그인 후에 음식을 등록할 수 있습니다.");
-	        model.addAttribute("nextUrl", "/ehr/login.do"); // 원하는 경로
+	        model.addAttribute("message", "로그인이 필요한 기능입니다. 먼저 로그인해 주세요.");
+	        model.addAttribute("nextUrl", "/ehr/login/login.do"); // 원하는 경로
 	        return "/common/error"; // 또는 에러 안내 페이지
 	    }
 
 	    // 정상 진입
 	    FoodDTO outVO = new FoodDTO();
-	    outVO.setUserId(param.getUserId());
+	    outVO.setUserId(userId);
 
 	    model.addAttribute("outVO", outVO);
 	    model.addAttribute("mode", "add");
@@ -112,28 +118,47 @@ public class FoodController {
 	
 	@PostMapping(value = "/doSave.do", produces = "text/plain;charset=UTF-8" )
 	@ResponseBody
-	public String doSave(FoodDTO param) {
+	public String doSave(FoodDTO param, HttpSession session) {
 		
 		log.debug("┌───────────────────────────────────────┐");
 		log.debug("│ doSave()                              │");
 		log.debug("└───────────────────────────────────────┘");
-		String jsonString = "";
 		log.debug("1. param:{}", param);
 		
-		int flag = foodService.doSave(param);
-		String message = "";
-		
-		if(1 == flag) {
-			message = param.getFoodName()+" 등록되었습니다.";
-		}else {
-			message = param.getFoodName()+" 등록 실패 했습니다.";
-		}
-		
-		MessageDTO messageDTO = new MessageDTO(flag, message);
-		jsonString = new Gson().toJson(messageDTO);
-		log.debug("2. jsonString: {}", jsonString);
-		
-		return jsonString;
+	    String jsonString = "";
+	    String message = "";
+	    int flag = 0;
+	    
+	    String userId = (String) session.getAttribute("userId");
+	    
+	    if (userId == null || userId.trim().isEmpty()) {
+	        log.warn("▶ 로그인 없이 음식 추가 시도 차단됨");
+	        MessageDTO messageDTO = new MessageDTO(-99, "로그인이 필요한 기능입니다. 먼저 로그인해 주세요.");
+	        return new Gson().toJson(messageDTO);
+	    }
+
+	    param.setUserId(userId); //세션에서 주입
+	    
+	    try {
+	        flag = foodService.doSave(param);
+
+	        if (flag == 1) {
+	            message = param.getFoodName() + " 등록되었습니다.";
+	        } else {
+	            message = param.getFoodName() + " 등록 실패했습니다.";
+	        }
+	    } catch (DuplicateKeyException e) {
+	        flag = -1;
+	        message = "❌ 이미 동일한 음식명이 존재합니다.";
+	    } catch (Exception e) {
+	        flag = -9;
+	        message = "🚨 시스템 에러 발생";
+	    }
+
+	    MessageDTO msg = new MessageDTO(flag, message);
+	    jsonString = new Gson().toJson(msg);
+
+	    return jsonString;
 	}
 		
 	
@@ -159,6 +184,8 @@ public class FoodController {
 	    // 3. 서비스 호출
 	    List<FoodDTO> list = foodService.doRetrieve(param);
 	    model.addAttribute("list", list);
+	    model.addAttribute("pageSize", pageSize);
+	    model.addAttribute("pageNo", pageNo);
 
 	    // 4. total count 추출 (cross join 결과에서)
 	    int totalCnt = 0;

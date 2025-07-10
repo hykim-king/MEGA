@@ -11,9 +11,9 @@
 <body>
 <h2>🍽️ 음식 일지 수정</h2>
 
-<form id="foodForm">
+<form id="foodDiaryForm">
   <input type="hidden" name="fdCode" value="${outVO.fdCode}" />
-  <input type="hidden" name="userId" value="${outVO.userId}" />
+  <input type="hidden" name="regDt" value="${outVO.regDt}" />
 
   <label>음식명: </label>
   <input type="text" name="foodName" value="${outVO.foodName}" readonly /><br/>
@@ -23,27 +23,26 @@
 
   <label>식사시간: </label>
   <select name="mealType" required>
-    <option value="아침" ${outVO.mealType == '아침' ? 'selected' : ''}>아침</option>
-    <option value="점심" ${outVO.mealType == '점심' ? 'selected' : ''}>점심</option>
-    <option value="저녁" ${outVO.mealType == '저녁' ? 'selected' : ''}>저녁</option>
+	<option value="아침" <c:if test="${outVO.mealType == '아침'}">selected</c:if>>아침</option>
+	<option value="점심" <c:if test="${outVO.mealType == '점심'}">selected</c:if>>점심</option>
+	<option value="저녁" <c:if test="${outVO.mealType == '저녁'}">selected</c:if>>저녁</option>
   </select><br/>
 
   <button type="button" id="updateBtn">수정</button>
 </form>
 
 <script>
-$('#updateBtn').click(function() {
-  const formData = $('#foodForm').serialize();
-  const userId = $('[name=userId]').val();
+	$('#updateBtn').click(function() {
+	  const formData = $('#foodDiaryForm').serialize();
 
-  $.post('/ehr/foodDiary/doUpdate.do', formData, function(response) {
-    const res = JSON.parse(response);
-    alert(res.message);
-    if (res.messageId === 1) {
-        window.location.href = '/ehr/foodDiary/doRetrieve.do?userId=' + encodeURIComponent(userId);
-    }
-  });
-});
+	$.post('/ehr/foodDiary/doUpdate.do', formData, function(response) {
+	  const res = JSON.parse(response);
+	  alert(res.message);
+	  if (res.messageId === 1) {
+		 window.location.href = '/ehr/foodDiary/doRetrieve.do?regDt=' + encodeURIComponent('${outVO.regDt}');
+	    }
+	  });
+	});
 </script>
 </body>
 </html>

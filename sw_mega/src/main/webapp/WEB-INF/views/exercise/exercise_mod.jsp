@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
@@ -31,15 +30,16 @@
 
 	<h3>🔥 총 소모 칼로리: ${vo.totalCal} kcal</h3>
     
-    <form action="/ehr/exerciseDiary/doForm.do" method="get"  onsubmit="return checkUserId()">
+    <form action="/ehr/exerciseDiary/doForm.do" method="get">
+        <input type="hidden" name="exerciseName" value="${vo.exerciseName}" />
         <input type="hidden" name="eCode" value="${vo.eCode}" />
         <input type="hidden" name="duration" value="${param.duration}" />
+        <input type="hidden" name="weight" value="${param.weight}" />
         <input type="hidden" name="setCount" value="${param.setCount}" />
         <input type="hidden" name="repsPerSet" value="${param.repsPerSet}" />
          <input type="hidden" name="strenthWeight" value="${param.strenthWeight}" />
         <!-- userId는 세션에서 꺼내거나 이미 바인딩된 값 사용 -->
-        <input type="hidden" name="userId" value="${param.userId}" />
-        <button type="submit">👉 음식 일지 추가</button>
+        <button type="submit">👉 운동 일지 추가</button>
     </form>
 
     <div class="btn-back">
@@ -48,15 +48,5 @@
 </div>
 
 
-<script>
-function checkUserId() {
-    const userId = document.getElementById('userId').value;
-    if (!userId || userId.trim() === "") {
-        alert('로그인이 필요합니다. 로그인 후 이용해주세요.');
-        return false; // 제출 막기
-    }
-    return true;
-}
-</script>
 </body>
 </html>

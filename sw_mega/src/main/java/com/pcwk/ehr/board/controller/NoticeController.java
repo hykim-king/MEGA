@@ -1,5 +1,6 @@
 package com.pcwk.ehr.board.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -16,7 +17,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.gson.Gson;
+import com.pcwk.ehr.board.domain.NoticeCommentDTO;
 import com.pcwk.ehr.board.domain.NoticeDTO;
+import com.pcwk.ehr.board.service.NoticeCommentService;
 import com.pcwk.ehr.board.service.NoticeService;
 import com.pcwk.ehr.cmn.MessageDTO;
 import com.pcwk.ehr.cmn.PcwkString;
@@ -30,11 +33,49 @@ public class NoticeController {
 	@Autowired
 	NoticeService noticeService;
 	
+	@Autowired
+	NoticeCommentService noticeCommentService;
+	
 	public NoticeController() {
 		log.debug("┌───────────────────────────┐");
 		log.debug("│ *NoticeController()*      │");
 		log.debug("└───────────────────────────┘");
 	}
+	
+	@GetMapping(value = "/doDetail.do")
+	public String doDetail(NoticeDTO param, Model model) {
+	    log.debug("┌───────────────────────────┐");
+	    log.debug("│ *doDetail()*              │");
+	    log.debug("└───────────────────────────┘");
+	    log.debug("1. param:{}", param);
+	    
+	  
+	    String viewName = "notice/notice_detail";
+
+	    // 게시글 조회
+	    NoticeDTO outVO = noticeService.doSelectOne(param);
+	    log.debug("2. outVO:{}", outVO);
+	    model.addAttribute("vo", outVO);
+
+	    // 댓글 목록 조회
+	    SearchDTO inVO = new SearchDTO();
+	    inVO.setPageNo(param.getPageNo());
+	    inVO.setPageSize(param.getPageSize());
+	    inVO.setSearchWord(Integer.toString(param.getNoCode()));
+	    List<NoticeCommentDTO> commentList = noticeCommentService.doRetrieve(inVO);
+
+		if (commentList == null) {
+			commentList = new ArrayList<>();
+		}
+
+		log.debug("commentList.size={}", commentList.size());
+		model.addAttribute("commentList", commentList);
+	    
+	    
+	    return "notice/notice_detail";
+	}
+
+	
 	
 	//등록화면조회	/board/doSaveView.do	doSaveView()	동기	GET	
 	@GetMapping("/doSaveView.do")
@@ -121,7 +162,7 @@ public class NoticeController {
 	
 
 	@GetMapping(value = "/doSelectOne.do")
-	public String doSelectOne(NoticeDTO param, Model model, HttpServletRequest req) {
+	public String doSelectOne(NoticeDTO param, Model model) {
 		log.debug("┌───────────────────────────┐");
 		log.debug("│ *doSelectOne()*           │");
 		log.debug("└───────────────────────────┘");
@@ -130,9 +171,7 @@ public class NoticeController {
 		
 		NoticeDTO outVO = noticeService.doSelectOne(param);
 		log.debug("2. outVO:{}", outVO);
-		
 		model.addAttribute("vo", outVO);
-		model.addAttribute("divValue", req.getParameter("div"));
 
 		return viewName;
 	}
