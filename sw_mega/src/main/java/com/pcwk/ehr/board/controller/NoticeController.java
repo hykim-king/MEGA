@@ -93,23 +93,42 @@ public class NoticeController {
 	    List<NoticeCommentDTO> commentList = noticeCommentService.doRetrieve(search);
 	    model.addAttribute("commentList", commentList);
 
-	    // 좋아요/싫어요 수 조회
-	    L_ReactionDTO likeParam = new L_ReactionDTO();
-	    likeParam.setTargetCode(param.getNoCode());
-	    likeParam.setTargetType("NOTICE");
-	    likeParam.setReactionType("L");
-	    int likeCount = reactionService.getCount(likeParam);
+	    // 공지사항 좋아요/싫어요 수 조회
+	    L_ReactionDTO nLikeParam = new L_ReactionDTO();
+	    nLikeParam.setTargetCode(param.getNoCode());
+	    nLikeParam.setTargetType("NOTICE");
+	    nLikeParam.setReactionType("L");
+	    int nLikeCount = reactionService.getCount(nLikeParam);
 
-	    L_ReactionDTO dislikeParam = new L_ReactionDTO();
-	    dislikeParam.setTargetCode(param.getNoCode());
-	    dislikeParam.setTargetType("NOTICE");
-	    dislikeParam.setReactionType("D");
-	    int dislikeCount = reactionService.getCount(dislikeParam);
+	    L_ReactionDTO nDislikeParam = new L_ReactionDTO();
+	    nDislikeParam.setTargetCode(param.getNoCode());
+	    nDislikeParam.setTargetType("NOTICE");
+	    nDislikeParam.setReactionType("D");
+	    int nDislikeCount = reactionService.getCount(nDislikeParam);
+	    
+	    // 댓글 좋아요/싫어요 수 조회
+	    for (NoticeCommentDTO comment : commentList) {
+	    L_ReactionDTO cLikeParam = new L_ReactionDTO();
+	    cLikeParam.setTargetCode(comment.getCommentedCode());
+	    cLikeParam.setTargetType("COMMENT");
+	    cLikeParam.setReactionType("L");
+	    int cLikeCount = reactionService.getCount(cLikeParam);
 
-	    model.addAttribute("likeCount", likeCount);
-	    log.debug("likeCount:{}",likeCount);
-	    model.addAttribute("dislikeCount", dislikeCount);
-	    model.addAttribute("commentList", commentList); // 
+	    L_ReactionDTO cDislikeParam = new L_ReactionDTO();
+	    cDislikeParam.setTargetCode(comment.getCommentedCode());
+	    cDislikeParam.setTargetType("COMMENT");
+	    cDislikeParam.setReactionType("D");
+	    int cDislikeCount = reactionService.getCount(cDislikeParam);
+
+
+	    // 🔥 댓글 객체에 바로 주입!
+	    comment.setLikeCount(cLikeCount);
+	    comment.setDislikeCount(cDislikeCount);
+	    }
+	    
+	    model.addAttribute("nLikeCount", nLikeCount);
+	    model.addAttribute("nDislikeCount", nDislikeCount);
+	    model.addAttribute("commentList", commentList);
 
 
 	    return "notice/notice_detail";

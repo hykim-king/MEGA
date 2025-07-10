@@ -87,7 +87,7 @@ public class L_ReactionController {
 	    reactionDTO.setUserId(userId);
 	
 
-	    int flag = reactionService.doSave(reactionDTO);
+	    int flag = reactionService.toggleReaction(reactionDTO);
 
 	    // 최신 좋아요/싫어요 개수 조회
 	    L_ReactionDTO likeParam = new L_ReactionDTO();
