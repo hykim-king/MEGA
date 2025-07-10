@@ -68,7 +68,7 @@
     <property name="host" value="smtp.naver.com"/>
     <property name="port" value="465"/>
     <property name="username" value="com0494@naver.com"/>
-    <property name="password" value=""/>
+    <property name="password" value="XQX1HXNM14Q6"/>
     <property name="defaultEncoding" value="utf-8"/>
 
      <property name="javaMailProperties">
@@ -80,13 +80,16 @@
             <prop key="mail.debug">true</prop>
         </props>
     </property>
+
+
 </bean>
 
-<<<<<<< HEAD
-    <alias name="mailSenderImpl" alias="mailSender"/>
-=======
 
->>>>>>> 4ce67fee0b1ce6c8313e98a61cd4875841089761
+ <alias name="mailSender" alias="mailSenderImpl"/>
+
+
+
+
     <bean id="transactionManager"
         class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref="dataSource" />
@@ -94,21 +97,17 @@
     <bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource">
         <property name="driverClassName"
             value="oracle.jdbc.driver.OracleDriver" />
-<<<<<<< HEAD
-      <!--  <property name="jdbcUrl"
-            value="jdbc:oracle:thin:@218.144.130.138:1522:XE" /> -->
-            
-      <property name="jdbcUrl"
 
-=======
+     
+
        <!--  <property name="jdbcUrl"
             value="jdbc:oracle:thin:@218.144.130.138:1522:XE" /> -->
       <property name="jdbcUrl"
->>>>>>> 4ce67fee0b1ce6c8313e98a61cd4875841089761
+
             value="jdbc:oracle:thin:@192.168.100.30:1522:XE" />
 
         <property name="username" value="MEGA" />
-        <property name="password" value="" />
+        <property name="password" value="m3395" />
         <!-- Optional settings -->
         <property name="maximumPoolSize" value="10" />
         <property name="minimumIdle" value="5" />

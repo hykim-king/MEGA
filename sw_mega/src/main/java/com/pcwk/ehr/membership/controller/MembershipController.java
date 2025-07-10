@@ -1,6 +1,5 @@
 package com.pcwk.ehr.membership.controller;
 
-
 import java.sql.SQLException;
 import java.util.List;
 
@@ -23,58 +22,40 @@ import com.pcwk.ehr.membership.domain.MembershipDTO;
 import com.pcwk.ehr.membership.service.MembershipService;
 
 @Controller
-@RequestMapping("/membership")           // 모든 URL 앞에 /membership
+@RequestMapping("/membership")
 public class MembershipController implements PLog {
 
     @Autowired private MembershipService membershipService;
-    @Autowired private JavaMailSender    mailSender;
+    @Autowired private JavaMailSender mailSender;
 
     /*──────────────────────────────────────────────────────*/
     /* 1. 등록 화면                                         */
     /*──────────────────────────────────────────────────────*/
     @GetMapping("/doSaveView.do")
     public String doSaveView() {
-        return "membership/membership_mng";   // /WEB-INF/views/...
+        return "membership/membership_mng"; // /WEB-INF/views/...
     }
 
-<<<<<<< HEAD
-    /*───────────────────────────────────────────────────────────*/
-    /* 2. 등록 처리                                              */
-    /*───────────────────────────────────────────────────────────*/
+    /*──────────────────────────────────────────────────────*/
+    /* 2. 등록 처리                                         */
+    /*──────────────────────────────────────────────────────*/
     @PostMapping("/doSave.do")
-    public String doSave(MembershipDTO param) throws SQLException {
-        log.debug("┌───────────────────────────┐");
-        log.debug("│ *doSave()* param: {}      │", param);
-        log.debug("└───────────────────────────┘");
-=======
-    /*──────────────────────────────────────────────────────*/
-    /* 2. 등록 처리 → 성공 시 로그인 페이지로 redirect        */
-    /*──────────────────────────────────────────────────────*/
-    @PostMapping("/doSave.do")                // 실제 URL : /membership/doSave.do
     public String doSave(@ModelAttribute MembershipDTO dto,
                          RedirectAttributes rttr) throws SQLException {
->>>>>>> 4ce67fee0b1ce6c8313e98a61cd4875841089761
+        log.debug("┌───────────────────────────┐");
+        log.debug("│ *doSave()* param: {}      │", dto);
+        log.debug("└───────────────────────────┘");
 
         int cnt = membershipService.save(dto);
 
-<<<<<<< HEAD
-        if (flag == 1) {
-            // 회원가입 성공 → 메인 페이지로 이동
-            return "redirect:/common/main.do";
-        } else {
-            // 회원가입 실패 → 다시 회원가입 페이지로
-            return "redirect:/membership/doSaveView.do?success=false";
-=======
-        if (cnt == 1) { // ── 성공
+        if (cnt == 1) { // 성공
             rttr.addFlashAttribute("msg", "회원가입이 완료되었습니다. 로그인 해주세요!");
-            return "redirect:/login.do";
-        } else {        // ── 실패
+            return "redirect:/common/main.do";
+        } else {        // 실패
             rttr.addFlashAttribute("msg", "회원가입 실패! 다시 시도해주세요.");
             return "redirect:/membership/doSaveView.do";
->>>>>>> 4ce67fee0b1ce6c8313e98a61cd4875841089761
         }
     }
-    
 
     /*──────────────────────────────────────────────────────*/
     /* 3. 목록 조회                                         */
@@ -82,8 +63,8 @@ public class MembershipController implements PLog {
     @GetMapping("/doRetrieve.do")
     public String doRetrieve(SearchDTO search, Model model) throws SQLException {
         List<MembershipDTO> list = membershipService.retrieve(search);
-        model.addAttribute("list",   list);
-        model.addAttribute("search", search);   // 검색조건 유지
+        model.addAttribute("list", list);
+        model.addAttribute("search", search);
         return "membership/membership_list";
     }
 
@@ -91,12 +72,9 @@ public class MembershipController implements PLog {
     /* 4. 단건 상세                                         */
     /*──────────────────────────────────────────────────────*/
     @GetMapping("/doSelectOne.do")
-    public String doSelectOne(@RequestParam String userId, Model model)
-                              throws SQLException {
-
+    public String doSelectOne(@RequestParam String userId, Model model) throws SQLException {
         MembershipDTO inVO = new MembershipDTO();
         inVO.setUserId(userId);
-
         model.addAttribute("member", membershipService.selectOne(inVO));
         return "membership/membership_detail";
     }
@@ -105,12 +83,9 @@ public class MembershipController implements PLog {
     /* 5. 수정 화면                                         */
     /*──────────────────────────────────────────────────────*/
     @GetMapping("/doUpdateView.do")
-    public String doUpdateView(@RequestParam String userId, Model model)
-                               throws SQLException {
-
+    public String doUpdateView(@RequestParam String userId, Model model) throws SQLException {
         MembershipDTO inVO = new MembershipDTO();
         inVO.setUserId(userId);
-
         model.addAttribute("member", membershipService.selectOne(inVO));
         return "membership/membership_update";
     }
@@ -119,9 +94,7 @@ public class MembershipController implements PLog {
     /* 6. 수정 처리                                         */
     /*──────────────────────────────────────────────────────*/
     @PostMapping("/doUpdate.do")
-    public String doUpdate(MembershipDTO dto, RedirectAttributes rttr)
-                           throws SQLException {
-
+    public String doUpdate(MembershipDTO dto, RedirectAttributes rttr) throws SQLException {
         int flag = membershipService.update(dto);
         rttr.addFlashAttribute("msg", (flag == 1) ? "수정 성공" : "수정 실패");
         return "redirect:/membership/doSelectOne.do?userId=" + dto.getUserId();
@@ -131,12 +104,9 @@ public class MembershipController implements PLog {
     /* 7. 삭제                                              */
     /*──────────────────────────────────────────────────────*/
     @PostMapping("/doDelete.do")
-    public String doDelete(@RequestParam String userId,
-                           RedirectAttributes rttr) throws SQLException {
-
+    public String doDelete(@RequestParam String userId, RedirectAttributes rttr) throws SQLException {
         MembershipDTO dto = new MembershipDTO();
         dto.setUserId(userId);
-
         int flag = membershipService.delete(dto);
         rttr.addFlashAttribute("msg", (flag == 1) ? "삭제 성공" : "삭제 실패");
         return "redirect:/membership/doRetrieve.do";
@@ -165,26 +135,21 @@ public class MembershipController implements PLog {
     @PostMapping("/sendAuthCode.do")
     @ResponseBody
     public String sendAuthCode(@RequestParam String email) throws Exception {
-
-        String code = String.format("%06d", (int)(Math.random()*1_000_000));
+        String code = String.format("%06d", (int)(Math.random() * 1_000_000));
 
         SimpleMailMessage mail = new SimpleMailMessage();
-        mail.setFrom("com0494@naver.com");
+        mail.setFrom("com0494@naver.com"); // XML 설정의 username과 일치해야 함
         mail.setTo(email);
         mail.setSubject("[MEGA] 이메일 인증 코드");
         mail.setText("인증코드: " + code);
-        
-        mail.setFrom("com0494@naver.com"); // ← XML 설정의 username과 반드시 일치!
-        
-        mailSender.send(mail);
 
+        mailSender.send(mail);
         membershipService.saveEmailToken(email, code);
         return "OK";
     }
 
     @GetMapping("/verifyEmail.do")
-    public String verifyEmail(@RequestParam String token, Model model)
-                              throws SQLException {
+    public String verifyEmail(@RequestParam String token, Model model) throws SQLException {
         boolean ok = membershipService.verifyEmailToken(token);
         model.addAttribute("msg", ok ? "이메일 인증 성공!" : "유효하지 않은 인증 링크입니다.");
         return "membership/verify_result";

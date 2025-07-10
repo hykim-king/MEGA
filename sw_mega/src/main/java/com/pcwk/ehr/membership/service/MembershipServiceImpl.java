@@ -17,19 +17,17 @@ import com.pcwk.ehr.membership.domain.MembershipDTO;
 @Transactional
 public class MembershipServiceImpl implements MembershipService {
 
-    /* ────── 의존성 주입 대상 ────── */
     private final MembershipMapper membershipMapper;
-    private final PasswordEncoder  passwordEncoder;
-    private final JavaMailSender   mailSender;
+    private final PasswordEncoder passwordEncoder;
+    private final JavaMailSender mailSender;
 
-    /* 생성자 주입: final 필드 모두 초기화 */
     @Autowired
     public MembershipServiceImpl(MembershipMapper membershipMapper,
-                                 PasswordEncoder  passwordEncoder,
-                                 JavaMailSender   mailSender) {
+                                 PasswordEncoder passwordEncoder,
+                                 JavaMailSender mailSender) {
         this.membershipMapper = membershipMapper;
-        this.passwordEncoder  = passwordEncoder;
-        this.mailSender       = mailSender;
+        this.passwordEncoder = passwordEncoder;
+        this.mailSender = mailSender;
     }
 
     /*──────────────────────────────────────────*/
@@ -37,44 +35,31 @@ public class MembershipServiceImpl implements MembershipService {
     /*──────────────────────────────────────────*/
     @Override
     public int save(MembershipDTO dto) throws SQLException {
-<<<<<<< HEAD
-        // ✅ null 방지 처리
+
+        // 1. null 방지 기본값 처리
         if (dto.getEmailAuthToken() == null) {
-            dto.setEmailAuthToken(""); // 빈 문자열 기본값
+            dto.setEmailAuthToken("");
         }
         if (dto.getEmailAuth() == null) {
-            dto.setEmailAuth("N"); // 인증 안됨 기본값
+            dto.setEmailAuth("N");
         }
         if (dto.getProfileImage() == null) {
-            dto.setProfileImage(""); // 빈 문자열 기본값
+            dto.setProfileImage("");
         }
 
-        return membershipMapper.doSave(dto);
-    }
-
-
-    /*───────────────────────────────────────────*/
-    /* 2. 목록 조회                               */
-    /*───────────────────────────────────────────*/
-=======
-
-        // 1차 서버-사이드 유효성 검사
+        // 2. 비밀번호 유효성 검사
         if (!isValidPassword(dto.getPassword())) {
-            throw new IllegalArgumentException(
-                "비밀번호는 8~16자이며 영문·숫자를 모두 포함해야 합니다.");
+            throw new IllegalArgumentException("비밀번호는 8~16자이며 영문·숫자를 모두 포함해야 합니다.");
         }
 
-        // 비밀번호 암호화
+        // 3. 비밀번호 암호화
         dto.setPassword(passwordEncoder.encode(dto.getPassword()));
 
-        // 매퍼에 저장 (Mapper 인터페이스·XML에 save(...) 정의 필요)
+        // 4. DB 저장
         return membershipMapper.doSave(dto);
     }
 
-    /*──────────────────────────────────────────*/
-    /* 2. 목록 조회                             */
-    /*──────────────────────────────────────────*/
->>>>>>> 4ce67fee0b1ce6c8313e98a61cd4875841089761
+    /* 2. 목록 조회 */
     @Override
     public List<MembershipDTO> retrieve(SearchDTO search) throws SQLException {
         return membershipMapper.doRetrieve(search);
@@ -86,13 +71,13 @@ public class MembershipServiceImpl implements MembershipService {
         return membershipMapper.doSelectOne(dto);
     }
 
-    /* 4. 회원 수정 */
+    /* 4. 수정 */
     @Override
     public int update(MembershipDTO dto) {
         return membershipMapper.doUpdate(dto);
     }
 
-    /* 5. 회원 삭제 */
+    /* 5. 삭제 */
     @Override
     public int delete(MembershipDTO dto) {
         return membershipMapper.doDelete(dto);
@@ -110,16 +95,26 @@ public class MembershipServiceImpl implements MembershipService {
         return membershipMapper.idCheck(userId) == 0;
     }
 
-    /*──── 공용 유틸 – 비밀번호 정규식 체크 ────*/
+    /* 비밀번호 정규식 검사 */
     private boolean isValidPassword(String pw) {
-        // 영문 + 숫자, 8~16자(공백 불가)
         return pw != null && pw.matches("^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,16}$");
     }
 
-    /*──── 이메일 관련 메서드 (미구현) ────*/
-    @Override public boolean isEmailAvailable(String email)                { return false; }
-    @Override public boolean sendEmailVerification(MembershipDTO dto)      { return false; }
-    @Override public boolean verifyEmailToken(String token)                { return false; }
+    /* 이메일 관련 (일부 미구현) */
+    @Override
+    public boolean isEmailAvailable(String email) {
+        return membershipMapper.existsByEmail(email) == 0;
+    }
+
+    @Override
+    public boolean sendEmailVerification(MembershipDTO dto) {
+        return false;
+    }
+
+    @Override
+    public boolean verifyEmailToken(String token) {
+        return membershipMapper.confirmEmailAuthToken(token) == 1;
+    }
 
     @Override
     public void saveEmailToken(String email, String code) throws SQLException {
