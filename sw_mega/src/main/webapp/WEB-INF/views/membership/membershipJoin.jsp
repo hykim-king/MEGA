@@ -58,7 +58,9 @@ button:hover {
 
 	<h2>회원가입</h2>
 
-	<form id="signupForm" action="${pageContext.request.contextPath}/membership/doSave.do" method="post">
+	<form id="signupForm"
+		action="${pageContext.request.contextPath}/membership/doSave.do"
+		method="post">
 
 
 		<!-- 아이디 -->
@@ -98,49 +100,49 @@ button:hover {
 		<button type="submit">회원가입 완료</button>
 	</form>
 
+
 	<script>
-/* ---------- 1. 인증코드 전송 ---------- */
-function sendAuthCode() {
-  const email = document.getElementById("email").value.trim();
-  if (!email) { alert("이메일을 입력해주세요."); return; }
+  /* ---------- 1. 인증코드 전송 ---------- */
+  const sendEmailUrl = '${pageContext.request.contextPath}/membership/sendEmailAuthCode.do';
 
-  fetch("<c:url value='/membership/sendEmailAuthCode.do'/>", {
-    method : "POST",
-    headers: { "Content-Type":"application/x-www-form-urlencoded" },
-    body   : "email=" + encodeURIComponent(email)
-  })
-  .then(r => r.text())
-  .then(alert)
-  .catch(err => alert("인증 메일 전송 실패: " + err));
-}
+  function sendAuthCode() {
+    const email = document.getElementById("email").value.trim();
+    if (!email) { alert("이메일을 입력해주세요."); return; }
 
-/* ---------- 2. 폼 제출 검증 ---------- */
-document.getElementById("signupForm").addEventListener("submit", function(e){
-
-  /* 약관 체크 */
-  if (!document.getElementById("termsAgree").checked) {
-    alert("이용약관에 동의해주세요.");
-    e.preventDefault(); return;
+    fetch(sendEmailUrl, {
+      method: "POST",
+      headers: { "Content-Type":"application/x-www-form-urlencoded" },
+      body: "email=" + encodeURIComponent(email)
+    })
+    .then(r => r.text())
+    .then(alert)
+    .catch(err => alert("인증 메일 전송 실패: " + err));
   }
 
-  const pw = document.getElementById("password").value;
-  const pwPattern = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,16}$/;
+  /* ---------- 2. 폼 제출 검증 ---------- */
+  document.getElementById("signupForm").addEventListener("submit", function(e){
+    if (!document.getElementById("termsAgree").checked) {
+      alert("이용약관에 동의해주세요.");
+      e.preventDefault(); return;
+    }
 
-  if (!pwPattern.test(pw)) {
-     alert("비밀번호는 영문과 숫자를 포함해 8~16자로 입력하세요.");
-     e.preventDefault();
-  }
+    const pw = document.getElementById("password").value;
+    const pwPattern = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,16}$/;
 
-  /* 생년월일 yyyyMMdd 변환 */
-  const birthEl  = document.getElementById("birth");
-  const yyyyMMdd = birthEl.value.replaceAll("-", "");
-  const hidden   = document.createElement("input");
-  hidden.type  = "hidden";
-  hidden.name  = "birth";
-  hidden.value = yyyyMMdd;
-  this.appendChild(hidden);
-  birthEl.disabled = true;        // 원본 필드 전송 방지
-});
+    if (!pwPattern.test(pw)) {
+      alert("비밀번호는 영문과 숫자를 포함해 8~16자로 입력하세요.");
+      e.preventDefault(); return;
+    }
+
+    const birthEl  = document.getElementById("birth");
+    const yyyyMMdd = birthEl.value.replaceAll("-", "");
+    const hidden   = document.createElement("input");
+    hidden.type  = "hidden";
+    hidden.name  = "birth";
+    hidden.value = yyyyMMdd;
+    this.appendChild(hidden);
+    birthEl.disabled = true;
+  });
 </script>
 </body>
 </html>
