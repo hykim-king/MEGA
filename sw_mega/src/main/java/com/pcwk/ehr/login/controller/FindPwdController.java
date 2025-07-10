@@ -57,6 +57,7 @@ public class FindPwdController{
             // 메일 발송
             try {
                 SimpleMailMessage mail = new SimpleMailMessage();
+                mail.setFrom("com0494@naver.com");
                 mail.setTo(dto.getEmail());
                 mail.setSubject("[Hellmate] 비밀번호 찾기 안내");
                 mail.setText("요청하신 비밀번호는: " + password + " 입니다.\n로그인 후 반드시 비밀번호를 변경해 주세요.");
