@@ -25,6 +25,26 @@
             color: #000;
         }
 
+        nav {
+            background-color: yellow;
+            padding: 12px 0;
+            font-size: 24px;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+        .nav-link {
+            cursor: pointer;
+            text-decoration: none;
+            color: black;
+            padding: 5px 15px;
+            border-radius: 5px;
+            transition: background 0.1s;
+        }
+        .nav-link:hover {
+            background-color: #fffacb;
+        }
+
         header {
             background-color: #f8f8f8;
             padding: 15px 20px;
@@ -74,41 +94,44 @@
         }
         
         .footer {
-		    background-color: #f1f1f1;
-		    color: #333;
-		    text-align: center;
-		    padding: 20px;
-		    font-size: 0.9rem;
-		    border-top: 1px solid #ccc;
-		    margin-top: 40px;
-		}
+            background-color: #f1f1f1;
+            color: #333;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9rem;
+            border-top: 1px solid #ccc;
+            margin-top: 40px;
+        }
 
         @media (max-width: 768px) {
-            .section .title {
-                font-size: 1.4rem;
-            }
-
-            .section .btn {
-                font-size: 1rem;
-                padding: 8px 16px;
-            }
-
-            .quote {
-                font-size: 1rem;
-            }
-            
-            .footer {
-		        font-size: 0.8rem;
-		        padding: 15px;
-		    }
+            nav { font-size: 18px; gap: 15px; }
+            .section .title { font-size: 1.4rem; }
+            .section .btn { font-size: 1rem; padding: 8px 16px; }
+            .quote { font-size: 1rem; }
+            .footer { font-size: 0.8rem; padding: 15px; }
         }
     </style>
 </head>
 <body>
 
+<nav>
+    <span class="nav-link" onclick="location.href='/ehr/common/main.do'">홈</span>
+    <span class="nav-link" onclick="location.href='/ehr/login/login.do'">운동</span>
+    <span class="nav-link" onclick="location.href='/ehr/login/login.do'">음식</span>
+    <span class="nav-link" onclick="location.href='/ehr/notice/doRetrieve.do'">커뮤니티</span>
+</nav>
+
 <header>
-    <a href="/login.do">로그인</a>
-    <a href="/join.do">회원가입</a>
+     <c:choose>
+    <c:when test="${not empty sessionScope.userId}">
+      <span>${sessionScope.userId}님 환영합니다!</span>
+      <a href="/ehr/login/logout.do">로그아웃</a>
+    </c:when>
+    <c:otherwise>
+      <a href="/ehr/login/login.do">로그인</a>
+      <a href="/ehr/membership/doSaveView.do">회원가입</a>
+    </c:otherwise>
+  </c:choose>
 </header>
 
 <div class="section">
@@ -116,7 +139,7 @@
         당신의 건강한 삶<br>
         지금부터 <span class="highlight">HELLMATE와 함께</span> 하세요
     </div>
-    <button class="btn" onclick="location.href='/start.do'">시작하기</button>
+    <button class="btn" onclick="location.href='/ehr/login/login.do'">시작하기</button>
     <img src="${pageContext.request.contextPath}/resources/images/main_1.jpg" alt="운동 시작">
 </div>
 

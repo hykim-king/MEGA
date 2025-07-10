@@ -127,15 +127,15 @@
     <div class="header">
         <a href="/"><img src="/resources/img/hellmate_logo.png" alt="Hellmate Logo"></a>
         <div class="header-menu">
-            <a href="/signup.jsp">가입하기</a> &nbsp;|&nbsp; 
-            <a href="/login.jsp">로그인</a>
+            <a href="/ehr/membership/doSaveView.do">가입하기</a> &nbsp;|&nbsp; 
+            <a href="/ehr/login/login.do">로그인</a>
         </div>
     </div>
     <div class="nav-bar">
-        <span class="active">홈</span>
-        <span>운동</span>
-        <span>음식</span>
-        <span>커뮤니티</span>
+        <span class="nav-link" onclick="location.href='/ehr/common/main.do'">홈</span>
+        <span class="nav-link" onclick="location.href='/ehr/login/login.do'">운동</span>
+        <span class="nav-link" onclick="location.href='/ehr/login/login.do'">음식</span>
+        <span class="nav-link" onclick="location.href='/ehr/notice/doRetrieve.do'">커뮤니티</span>
     </div>
     <div class="login-container">
         <div class="login-title">회원 로그인</div>
@@ -154,7 +154,7 @@
             <c:choose>
                 <c:when test="${loginResult eq true}">
                     alert("로그인에 성공하였습니다.");
-                    location.href = "/ehr/main.do";
+                    location.href = "/common/main.do";
                 </c:when>
                 <c:otherwise>
                     alert("${msg}");

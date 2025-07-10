@@ -19,6 +19,7 @@ public class FindPwdServiceImpl implements FindPwdService {
 
 	@Override
 	public String findPwd(FindPwdDTO dto) {
+		log.debug("findPwd() 호출: " + dto.getUserId() + ", " + dto.getEmail());
 		return findPwdMapper.findPwd(dto);
 	}
 	

@@ -19,10 +19,16 @@
       padding: 10px 0;
       font-size: 24px;
     }
-    nav a {
-      margin: 0 30px;
+    .nav-link {
+      cursor: pointer;
       text-decoration: none;
       color: black;
+      padding: 5px 15px;
+      border-radius: 5px;
+      transition: background 0.1s;
+    }
+    .nav-link:hover {
+      background-color: #fffacb;
     }
     .header {
       display: flex;
@@ -61,27 +67,27 @@
   <div class="header">
     <a href="/"><img src="/resources/img/hellmate_logo.png" alt="Hellmate Logo" height="50"></a>
     <div>
-      <a href="/ehr/signup.jsp">가입하기</a> |
-      <a href="/ehr/login.jsp">로그인</a>
+      <a href="/ehr/membership/doSaveView.do">가입하기</a> |
+      <a href="/ehr/login/login.do">로그인</a>
     </div>
   </div>
 
   <nav>
-    <a href="#">홈</a>
-    <a href="#">운동</a>
-    <a href="#">음식</a>
-    <a href="#">커뮤니티</a>
+    <span class="nav-link" onclick="location.href='/ehr/common/main.do'">홈</span>
+    <span class="nav-link" onclick="location.href='/ehr/login/login.do'">운동</span>
+    <span class="nav-link" onclick="location.href='/ehr/login/login.do'">음식</span>
+    <span class="nav-link" onclick="location.href='/ehr/notice/doRetrieve.do'">커뮤니티</span>
   </nav>
 
   <div class="container">
     <h1>아이디 찾기</h1>
-    <form action="findIdResult.jsp" method="post">
+    <form action="/ehr/login/findIdView.do" method="post">
       <input type="email" name="email" placeholder="이메일 입력" required><br>
       <button type="submit">아이디 찾기</button>
     </form>
     <div class="btn-area">
-      <button onclick="location.href='login.jsp'" type="button">로그인 홈</button>
-      <button onclick="location.href='findPwd.jsp'" type="button">비밀번호 찾기</button>
+      <button onclick="location.href='/ehr/login/login.do'" type="button">로그인 홈</button>
+      <button onclick="location.href='/ehr/login/findPwd.do'" type="button">비밀번호 찾기</button>
     </div>
   </div>
 </body>
