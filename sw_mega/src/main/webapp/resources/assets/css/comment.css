@@ -2,7 +2,7 @@
 .comment-box {
     border: 1px solid #ddd;
     border-radius: 8px;
-    padding: 15px;
+    padding: 10px;
     margin-bottom: 10px;
     background-color: #ffffffc0;
     box-shadow: 0 1px 3px rgba(0,0,0,0.05);
@@ -23,3 +23,12 @@
     cursor: pointer;
     color: #007bff;
 }
+
+.notice-actions{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 5px;
+}
+
+

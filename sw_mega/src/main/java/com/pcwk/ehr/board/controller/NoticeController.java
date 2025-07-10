@@ -1,9 +1,9 @@
 package com.pcwk.ehr.board.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -12,13 +12,16 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.gson.Gson;
+import com.pcwk.ehr.board.domain.L_ReactionDTO;
 import com.pcwk.ehr.board.domain.NoticeCommentDTO;
 import com.pcwk.ehr.board.domain.NoticeDTO;
+import com.pcwk.ehr.board.service.L_ReactionService;
 import com.pcwk.ehr.board.service.NoticeCommentService;
 import com.pcwk.ehr.board.service.NoticeService;
 import com.pcwk.ehr.cmn.MessageDTO;
@@ -34,6 +37,9 @@ public class NoticeController {
 	NoticeService noticeService;
 	
 	@Autowired
+	L_ReactionService reactionService; 
+	
+	@Autowired
 	NoticeCommentService noticeCommentService;
 	
 	public NoticeController() {
@@ -42,36 +48,78 @@ public class NoticeController {
 		log.debug("└───────────────────────────┘");
 	}
 	
-	@GetMapping(value = "/doDetail.do")
-	public String doDetail(NoticeDTO param, Model model) {
+
+	
+	@GetMapping("/doUpdateView.do")
+	public String doUpdateView(@RequestParam("noCode")int noCode,Model model) {
+	    log.debug("┌───────────────────────────┐");
+	    log.debug("│ *doUpdateView()*          │");
+	    log.debug("└───────────────────────────┘");
+	    
+	    NoticeDTO inVO = new NoticeDTO();
+	    inVO.setNoCode(noCode);
+	    
+	    NoticeDTO outVO = noticeService.doSelectOne(inVO);
+	    
+	    model.addAttribute("vo",outVO);
+	    return "notice/notice_update"; //수정 화면
+	    
+	}
+		
+	
+	@GetMapping("/doDetail.do")
+	public String doDetail(@RequestParam("noCode") int noCode,
+	                       Model model,
+	                       HttpSession session) {
 	    log.debug("┌───────────────────────────┐");
 	    log.debug("│ *doDetail()*              │");
 	    log.debug("└───────────────────────────┘");
-	    log.debug("1. param:{}", param);
-	    
-	  
-	    String viewName = "notice/notice_detail";
 
-	    // 게시글 조회
+	    String userId = (String) session.getAttribute("userId");
+	    if (userId == null || userId.isEmpty()) {
+	        userId = "user01"; // 테스트용
+	    }
+
+	    // 게시글 상세 조회
+	    NoticeDTO param = new NoticeDTO();
+	    param.setNoCode(noCode);
 	    NoticeDTO outVO = noticeService.doSelectOne(param);
-	    log.debug("2. outVO:{}", outVO);
 	    model.addAttribute("vo", outVO);
-
-	    // 댓글 목록 조회
-	    SearchDTO inVO = new SearchDTO();
-	    inVO.setPageNo(param.getPageNo());
-	    inVO.setPageSize(param.getPageSize());
-	    inVO.setSearchWord(Integer.toString(param.getNoCode()));
-	    List<NoticeCommentDTO> commentList = noticeCommentService.doRetrieve(inVO);
-
-		if (commentList == null) {
-			commentList = new ArrayList<>();
-		}
-
-		log.debug("commentList.size={}", commentList.size());
-		model.addAttribute("commentList", commentList);
 	    
-	    
+	    // 댓글 목록 조회 추가
+	    SearchDTO search = new SearchDTO();
+	    search.setSearchWord(String.valueOf(noCode));
+
+	    List<NoticeCommentDTO> commentList = noticeCommentService.doRetrieve(search);
+	    model.addAttribute("commentList", commentList);
+
+	    // 좋아요/싫어요 수 조회
+	    L_ReactionDTO likeParam = new L_ReactionDTO();
+	    likeParam.setTargetCode(noCode);
+	    likeParam.setTargetType("NOTICE");
+	    likeParam.setReactionType("L");
+	    int likeCount = reactionService.getCount(likeParam);
+
+	    L_ReactionDTO dislikeParam = new L_ReactionDTO();
+	    dislikeParam.setTargetCode(noCode);
+	    dislikeParam.setTargetType("NOTICE");
+	    dislikeParam.setReactionType("D");
+	    int dislikeCount = reactionService.getCount(dislikeParam);
+
+	    model.addAttribute("likeCount", likeCount);
+	    model.addAttribute("dislikeCount", dislikeCount);
+	    model.addAttribute("commentList", commentList); // 
+
+
+	    // 사용자 반응 상태 조회
+	    L_ReactionDTO userReactionParam = new L_ReactionDTO();
+	    userReactionParam.setUserId(userId);
+	    userReactionParam.setTargetType("NOTICE");
+	    userReactionParam.setTargetCode(noCode);
+	    L_ReactionDTO myReaction = reactionService.getUserReaction(userReactionParam);
+
+	    model.addAttribute("myReaction", myReaction); // JSP에서 활용
+
 	    return "notice/notice_detail";
 	}
 
@@ -92,25 +140,24 @@ public class NoticeController {
 		return viewNString;
 	
 	}
+	
 	//수정	/board/doUpdate.do	doUpdate(BoardDTO param)	비동기	POST	JSON
 	@PostMapping(value = "/doUpdate.do",produces ="text/plain;charset=UTF-8" )
 	@ResponseBody
-	public String doUpdate(NoticeDTO param, HttpServletRequest req) {
+	public String doUpdate(@RequestBody NoticeDTO param, HttpServletRequest req) {
 		log.debug("┌───────────────────────────┐");
 		log.debug("│ *doUpdate()*              │");
 		log.debug("└───────────────────────────┘");		
 		log.debug("1. param: {}",param);
 
 		int flag = noticeService.doUpdate(param);
-		String message = "";
-		if(1==flag) {
-			message = "수정 되었습니다.";
-		}else {
-			message = "수정 실패.";
-		}
+		String message = (flag == 1)? "수정 되었습니다." : "수정 실패.";
+		
 
 		return new Gson().toJson(new MessageDTO(flag, message));
 	}
+	
+	
 	//목록	/board/doRetrieve.do	doRetrieve(SearchDTO search)	동기	GET	Model
 		@GetMapping(value = "/doRetrieve.do")
 		public String doRetrieve(SearchDTO param,Model model) {

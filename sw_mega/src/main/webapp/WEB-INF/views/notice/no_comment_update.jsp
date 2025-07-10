@@ -7,6 +7,9 @@
 <meta charset="UTF-8">
 <title>댓글 수정</title>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- 좋아요/싫어요 스타일 있으면 여기다 -->
+
 </head>
 <body>
 
@@ -15,9 +18,10 @@
     <input type="hidden" id="commentedCode" value="${vo.commentedCode}" />
     <input type="hidden" id="noCode" value="${vo.noCode}" />
     <textarea id="content" rows="3" cols="50">${vo.content}</textarea><br/>
+    
+    
     <button type="button" id="btnCommentUpdate">수정 완료</button>
     <button type="button" id="btnCommentDelete">취소</button>
-    
 </form>
 
 

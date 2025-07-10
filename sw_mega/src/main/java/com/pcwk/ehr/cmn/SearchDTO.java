@@ -19,7 +19,15 @@ public class SearchDTO extends DTO {
 		this.searchWord = searchWord;
 	}
 
+	private int noCode;
 
+	public int getNoCode() {
+	    return noCode;
+	}
+
+	public void setNoCode(int noCode) {
+	    this.noCode = noCode;
+	}
 
 	/**
 	 * @return the searchDiv

@@ -58,7 +58,7 @@
                  AND content LIKE #{searchWord}||'%'
              </when>        
              <when test=" '30' == searchDiv">
-                 AND no_Code = #{searchWord}
+                 AND no_Code = TO_NUMBER(#{searchWord})
              </when>     
              <when test=" '40' == searchDiv">
                  AND ( title LIKE #{searchWord}||'%'
