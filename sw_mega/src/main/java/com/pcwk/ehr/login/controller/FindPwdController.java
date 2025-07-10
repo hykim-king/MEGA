@@ -67,6 +67,6 @@ public class FindPwdController{
         } else {
             model.addAttribute("msg", "가입하지 않은 이메일(아이디)입니다. 다시한번 확인해주세요.");
         }
-        return "findPwd";
+        return "/login/findPwdView";
     }
 }
