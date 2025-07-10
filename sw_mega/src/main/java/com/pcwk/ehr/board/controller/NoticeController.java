@@ -68,7 +68,7 @@ public class NoticeController {
 		
 	
 	@GetMapping("/doDetail.do")
-	public String doDetail(@RequestParam("noCode") int noCode,
+	public String doDetail(NoticeDTO param,
 	                       Model model,
 	                       HttpSession session) {
 	    log.debug("┌───────────────────────────┐");
@@ -81,44 +81,36 @@ public class NoticeController {
 	    }
 
 	    // 게시글 상세 조회
-	    NoticeDTO param = new NoticeDTO();
-	    param.setNoCode(noCode);
+	    param.setNoCode(param.getNoCode());
 	    NoticeDTO outVO = noticeService.doSelectOne(param);
-	    model.addAttribute("vo", outVO);
+	    model.addAttribute("outVO", outVO);
+	    log.debug("outVO:{}",outVO);
 	    
 	    // 댓글 목록 조회 추가
 	    SearchDTO search = new SearchDTO();
-	    search.setSearchWord(String.valueOf(noCode));
+	    search.setSearchWord(String.valueOf(outVO.getNoCode()));
 
 	    List<NoticeCommentDTO> commentList = noticeCommentService.doRetrieve(search);
 	    model.addAttribute("commentList", commentList);
 
 	    // 좋아요/싫어요 수 조회
 	    L_ReactionDTO likeParam = new L_ReactionDTO();
-	    likeParam.setTargetCode(noCode);
+	    likeParam.setTargetCode(param.getNoCode());
 	    likeParam.setTargetType("NOTICE");
 	    likeParam.setReactionType("L");
 	    int likeCount = reactionService.getCount(likeParam);
 
 	    L_ReactionDTO dislikeParam = new L_ReactionDTO();
-	    dislikeParam.setTargetCode(noCode);
+	    dislikeParam.setTargetCode(param.getNoCode());
 	    dislikeParam.setTargetType("NOTICE");
 	    dislikeParam.setReactionType("D");
 	    int dislikeCount = reactionService.getCount(dislikeParam);
 
 	    model.addAttribute("likeCount", likeCount);
+	    log.debug("likeCount:{}",likeCount);
 	    model.addAttribute("dislikeCount", dislikeCount);
 	    model.addAttribute("commentList", commentList); // 
 
-
-	    // 사용자 반응 상태 조회
-	    L_ReactionDTO userReactionParam = new L_ReactionDTO();
-	    userReactionParam.setUserId(userId);
-	    userReactionParam.setTargetType("NOTICE");
-	    userReactionParam.setTargetCode(noCode);
-	    L_ReactionDTO myReaction = reactionService.getUserReaction(userReactionParam);
-
-	    model.addAttribute("myReaction", myReaction); // JSP에서 활용
 
 	    return "notice/notice_detail";
 	}

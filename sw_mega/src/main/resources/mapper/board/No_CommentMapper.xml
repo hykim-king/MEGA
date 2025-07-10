@@ -17,32 +17,17 @@
         ORDER BY c_dt ASC
     </select>
 
-<select id="doRetrieve" parameterType="String" resultType="NoticeCommentDTO">
+<select id="doRetrieve" parameterType="SearchDTO" resultType="NoticeCommentDTO">
     SELECT 
-        NC.commented_code,
-        NC.no_code,
-        NC.user_id,
-        NC.content,
-        NC.c_dt,
-        NC.up_dt,
-        
-        -- 좋아요 수
-        (SELECT COUNT(*) 
-         FROM L_REACTION 
-         WHERE target_type = 'COMMENT' 
-           AND target_code = NC.commented_code 
-           AND reaction_type = 'L') AS likeCount,
-
-        -- 싫어요 수
-        (SELECT COUNT(*) 
-         FROM L_REACTION 
-         WHERE target_type = 'COMMENT' 
-           AND target_code = NC.commented_code 
-           AND reaction_type = 'D') AS dislikeCount
-        
-    FROM NO_COMMENTED NC
-    WHERE NC.no_code = #{noCode}
-    ORDER BY NC.c_dt DESC
+        commented_code,
+        no_code,
+	    user_id,
+	    content,
+	    c_dt,
+	    up_dt 
+    FROM NO_COMMENTED 
+    WHERE no_code = #{searchWord}
+    ORDER BY c_dt DESC
 </select>
 
   
