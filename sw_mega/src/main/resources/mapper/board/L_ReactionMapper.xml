@@ -48,7 +48,7 @@ VALUES (
  
 
 <select id="getCount" parameterType="L_ReactionDTO" resultType="int">
-		SELECT COUNT(*)
+		SELECT COUNT(*) AS totalCnt
 		FROM L_REACTION
 		WHERE REACTION_TYPE = #{reactionType, jdbcType=VARCHAR}
 		  AND TARGET_CODE = #{targetCode}

@@ -8,21 +8,21 @@
     <title>게시글 상세</title>
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/comment.css" />
     <meta charset="UTF-8">
-    <title>${vo.title}</title>
+    <title>${outVO.title}</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
 
-<h2>${vo.title}</h2>
+<h2>${outVO.title}</h2>
 <div>
-    작성자: ${vo.userId} <br/>
-    작성일: ${vo.cDt} <br/>
-    조회수: ${vo.viewCount}
+    작성자: ${outVO.userId} <br/>
+    작성일: ${outVO.cDt} <br/>
+    조회수: ${outVO.viewCount}
 </div>
 <hr/>
 
 <div>
-    ${vo.content}
+    ${outVO.content}
 </div>
 
 <hr/>
@@ -31,32 +31,32 @@
 <!-- 수정 + 삭제 + 좋아요/싫어요 묶음 -->
 <div class="notice-actions">
     <input type="hidden" id="reactiontype" name="reactiontype" value="notice">
-    <a href="/ehr/notice/doUpdateView.do?noCode=${vo.noCode}">
+    <a href="/ehr/notice/doUpdateView.do?noCode=${outVO.noCode}">
         <button>수정하기</button>
     </a>
-    <button onclick="deleteNotice(${vo.noCode})">삭제</button>
+    <button onclick="deleteNotice(${outVO.noCode})">삭제</button>
 
     <div style="display: flex; align-items: center; gap: 5px; margin-left: 13px;">
     
 		       <!-- 게시글 좋아요/싫어요 -->
-		<button id="likeBtn-NOTICE-${vo.noCode}" 
-		        onclick="toggleReaction('NOTICE', 'L', ${vo.noCode})">
-		    👍 좋아요 <span id="likeCount-NOTICE-${vo.noCode}">${likeCount}</span>
+		<button id="likeBtn-NOTICE-${outVO.noCode}" 
+		        onclick="toggleReaction('NOTICE', 'L', ${outVO.noCode})">
+		    👍 좋아요 <span id="likeCount-NOTICE-${outVO.noCode}">${likeCount}</span>
 		</button>
 		
-		<button id="dislikeBtn-NOTICE-${vo.noCode}" 
-		        onclick="toggleReaction('NOTICE', 'D', ${vo.noCode})">
-		    👎 싫어요 <span id="dislikeCount-NOTICE-${vo.noCode}">${dislikeCount}</span>
+		<button id="dislikeBtn-NOTICE-${outVO.noCode}" 
+		        onclick="toggleReaction('NOTICE', 'D', ${outVO.noCode})">
+		    👎 싫어요 <span id="dislikeCount-NOTICE-${outVO.noCode}">${dislikeCount}</span>
 		</button>
 
         
-        <button onclick="reportTarget('NOTICE', ${vo.noCode})">🚩 신고</button>
+        <button onclick="reportTarget('NOTICE', ${outVO.noCode})">🚩 신고</button>
     </div>
 </div>
 
 
 
-<h3>댓글 목록</h3>
+ <h3>댓글 목록</h3>
 <div id="commentList">
 <c:if test="${not empty commentList}">
     <c:forEach var="comment" items="${commentList}">
@@ -64,7 +64,7 @@
         <div class="comment-box">
             <p>${comment.content}</p> 
             <p>${comment.userId} / ${comment.cDt}</p>
-
+		</div>
             <!-- 버튼 영역 -->
             <div class="comment-actions">
                 <!-- 수정 버튼 -->
@@ -96,7 +96,7 @@
 
     </c:forEach>
 </c:if>
-</div>
+</div> 
 
 
 
@@ -265,7 +265,7 @@ function toggleReaction(targetType, reactionType, targetCode) {
         alert("에러 발생: " + err);
 });
 
-}
+
 
 
 // 버튼 스타일 변경 함수
@@ -306,7 +306,7 @@ window.onload = function () {
 
 </script>
 
-<!--JSP에서 사용자 반응 초기값 반영 -->
+<!-- <!--JSP에서 사용자 반응 초기값 반영 -->
 <script>
     var userReactions = {
         "NOTICE-${vo.noCode}": "${myReaction.reactionType}"
@@ -316,7 +316,7 @@ window.onload = function () {
         updateButtonStyles("NOTICE", ${vo.noCode});
     };
 </script>
-
+ -->
 
 
 <!-- 댓글 -->
