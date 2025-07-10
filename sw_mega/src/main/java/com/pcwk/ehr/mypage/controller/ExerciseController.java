@@ -167,8 +167,8 @@ public class ExerciseController {
 	
 	@GetMapping(value = "/doRetrieve.do")
 	public String doRetrieve(SearchDTO param, Model model){
-		//String viewName = "/exercise/exercise_list";
-		String viewName = "/exercise/demo_main";
+		String viewName = "/exercise/exercise_list";
+		//String viewName = "/exercise/demo_main";
 		log.debug("┌───────────────────────────────────────┐");
 		log.debug("│ doRetrieve()                          │");
 		log.debug("└───────────────────────────────────────┘");
