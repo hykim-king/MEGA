@@ -186,7 +186,7 @@ h2 {
 
 			<div class="form-group">
 				<label>비밀번호 *</label> <input type="password" name="password"
-					required>
+					placeholder="비밀번호를 입력해주세요"required>
 			</div>
 
 			<div class="form-group">
