@@ -8,9 +8,15 @@
 
 <style>
 body {
+<<<<<<< HEAD
     font-family: Noto Sans Korean;
     background-color: #f8f8f8;
     padding: 40px;
+=======
+	font-family: Noto Sans Korean;
+	background-color: #f8f8f8;
+	padding: 40px;
+>>>>>>> 4ce67fee0b1ce6c8313e98a61cd4875841089761
 }
 .form-container {
     width: 400px;
@@ -37,6 +43,70 @@ h2 {
     border: 1px solid #ccc;
     border-radius: 5px;
 }
+<<<<<<< HEAD
+=======
+
+.form-check {
+	margin: 10px 0;
+}
+
+.input-with-button input[type="text"], .input-with-button input[type="email"]
+	{
+	border: none;
+	flex: 1;
+	padding: 0 10px;
+	height: 100%;
+	font-size: 14px;
+	box-sizing: border-box;
+}
+
+.input-with-button .check-btn, .input-with-button .mail-btn {
+	border: none;
+	height: 100%;
+	padding: 0 16px;
+	background-color: #ccc;
+	color: white;
+	font-size: 14px;
+	cursor: not-allowed;
+	box-sizing: border-box;
+}
+
+.input-with-button input:focus {
+	outline: none;
+}
+
+/* 버튼 활성화 스타일 */
+.check-btn:disabled, .mail-btn:disabled {
+	background: #ccc;
+	cursor: not-allowed;
+}
+
+.check-btn:not(:disabled), .mail-btn:not(:disabled) {
+	background: #ADFF2F;
+	cursor: pointer;
+	color: black;
+}
+
+.form-check input {
+	margin-right: 5px;
+}
+
+.btn {
+	width: 100%;
+	padding: 10px;
+	background: #ADFF2F;
+	color: black;
+	border: none;
+	border-radius: 5px;
+	font-size: 16px;
+}
+
+.btn:hover {
+	background: #90cc27;
+	cursor: pointer;
+}
+
+>>>>>>> 4ce67fee0b1ce6c8313e98a61cd4875841089761
 .input-with-button {
     display: flex;
     align-items: center;
@@ -64,10 +134,18 @@ h2 {
     background-color: #ccc;
     color: white;
 }
+<<<<<<< HEAD
 .check-btn:not(:disabled), .mail-btn:not(:disabled) {
     background: #ADFF2F;
     color: black;
     cursor: pointer;
+=======
+
+.check-btn:not(:disabled) {
+	background: #ADFF2F;
+	cursor: pointer;
+	color: black;
+>>>>>>> 4ce67fee0b1ce6c8313e98a61cd4875841089761
 }
 .submit-btn {
     width: 100%;
@@ -159,15 +237,49 @@ h2 {
             </div>
         </div>
 
+<<<<<<< HEAD
         <button type="submit" class="submit-btn">회원가입 완료</button>
     </form>
 </div>
+=======
+			<div class="form-group">
+				<label>비밀번호 *</label> <input type="password" name="password"
+					placeholder="비밀번호를 입력해주세요"required>
+			</div>
+
+			<div class="form-group">
+				<label>비밀번호 확인 *</label> <input type="password" name="passwordCheck"
+					placeholder="비밀번호를 한 번 더 입력해주세요" required>
+			</div>
+
+
+
+			<div class="form-group">
+				<label>생년월일 *</label> <input type="date" name="birth"
+					placeholder="예) 19980101" required>
+			</div>
+			<div class="form-group">
+				<label>이메일 본인 인증 *</label>
+				<div class="input-with-button">
+					<input type="email" name="email" placeholder="abc123@naver.com"
+						required>
+					<button type="button" class="mail-btn" disabled>인증하기</button>
+				</div>
+				<input type="text" name="emailToken" placeholder="인증번호 6자리를 입력해주세요">
+			</div>
+>>>>>>> 4ce67fee0b1ce6c8313e98a61cd4875841089761
 
 <script>
 document.addEventListener('DOMContentLoaded', function () {
+<<<<<<< HEAD
     const ctx = '<%=request.getContextPath()%>';
     const idCheckUrl = ctx + '/membership/idCheck.do';
     const sendAuthCodeUrl = ctx + '/membership/sendAuthCode.do';
+=======
+  var ctx             = '<%=request.getContextPath()%>';
+  var idCheckUrl      = ctx + '/membership/idCheck.do';
+  var sendAuthCodeUrl = ctx + '/membership/sendAuthCode.do';
+>>>>>>> 4ce67fee0b1ce6c8313e98a61cd4875841089761
 
     // 아이디 확인
     const userIdInput = document.querySelector('input[name="userId"]');
@@ -195,6 +307,7 @@ document.addEventListener('DOMContentLoaded', function () {
         mailBtn.disabled = !valid;
     });
 
+<<<<<<< HEAD
     mailBtn.addEventListener('click', function () {
         const email = emailInput.value.trim();
         fetch(sendAuthCodeUrl, {
@@ -217,6 +330,33 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
+=======
+  mailBtn.addEventListener('click', function () {
+    var email = emailInput.value.trim();
+    fetch(sendAuthCodeUrl, {
+      method : 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body   : 'email=' + encodeURIComponent(email)
+    })
+    .then(function (r)  { return r.text(); })
+    .then(function ()    { alert('인증 메일 발송! 5분 내 코드 입력'); })
+    .catch(function (err){ alert('메일 발송 실패: ' + err);    });
+  });
+
+  /* ---------- 3. 비밀번호 확인 ---------- */
+const pw = document.getElementById("password").value;
+const pwPattern = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,16}$/;
+
+if (!pwPattern.test(pw)) {
+  alert("비밀번호는 영문과 숫자를 포함한 8~16자로 입력하세요.");
+  e.preventDefault(); return;
+}
+  });
+
+  
+  
+  
+>>>>>>> 4ce67fee0b1ce6c8313e98a61cd4875841089761
 </script>
 
 </body>

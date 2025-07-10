@@ -32,8 +32,13 @@
             #{email},
             #{password},
             #{birth},
+<<<<<<< HEAD
             #{emailAuth, jdbcType=VARCHAR},
             #{emailAuthToken},
+=======
+            #{emailAuth},
+            #{emailAuthToken, jdbcType=VARCHAR},
+>>>>>>> 4ce67fee0b1ce6c8313e98a61cd4875841089761
             #{grade},
             #{profileImage,jdbcType=VARCHAR},
             SYSDATE
@@ -137,6 +142,13 @@ UPDATE MEMBERSHIP
        TOKEN_EXPIRY     = SYSDATE + (10/1440)  <!-- 10분 후 만료 -->
  WHERE EMAIL = #{email}
 </update>
+
+<update id="updateEmailAuthToken" parameterType="map"> 
+    UPDATE MEMBERSHIP
+    SET EMAIL_AUTH_TOKEN = #{token}
+    WHERE EMAIL = #{email}
+</update>
+
 
 <update id="confirmEmailAuthToken">
     UPDATE MEMBERSHIP

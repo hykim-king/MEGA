@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -12,27 +13,31 @@ import com.pcwk.ehr.cmn.SearchDTO;
 import com.pcwk.ehr.mapper.MembershipMapper;
 import com.pcwk.ehr.membership.domain.MembershipDTO;
 
-
-
-@Service                // ① Service 빈으로 등록
-@Transactional          // (선택) 트랜잭션 전파
+@Service
+@Transactional
 public class MembershipServiceImpl implements MembershipService {
 
-    @Autowired          // ② MyBatis 매퍼 주입
-   MembershipMapper membershipMapper;
-    
-    @Autowired   //메일 발송기
-    private JavaMailSender mailSender;
+    /* ────── 의존성 주입 대상 ────── */
+    private final MembershipMapper membershipMapper;
+    private final PasswordEncoder  passwordEncoder;
+    private final JavaMailSender   mailSender;
 
-    
+    /* 생성자 주입: final 필드 모두 초기화 */
+    @Autowired
+    public MembershipServiceImpl(MembershipMapper membershipMapper,
+                                 PasswordEncoder  passwordEncoder,
+                                 JavaMailSender   mailSender) {
+        this.membershipMapper = membershipMapper;
+        this.passwordEncoder  = passwordEncoder;
+        this.mailSender       = mailSender;
+    }
 
-
-    
-    /*───────────────────────────────────────────*/
-    /* 1. 회원 등록                               */
-    /*───────────────────────────────────────────*/
+    /*──────────────────────────────────────────*/
+    /* 1. 회원 등록                             */
+    /*──────────────────────────────────────────*/
     @Override
     public int save(MembershipDTO dto) throws SQLException {
+<<<<<<< HEAD
         // ✅ null 방지 처리
         if (dto.getEmailAuthToken() == null) {
             dto.setEmailAuthToken(""); // 빈 문자열 기본값
@@ -51,101 +56,73 @@ public class MembershipServiceImpl implements MembershipService {
     /*───────────────────────────────────────────*/
     /* 2. 목록 조회                               */
     /*───────────────────────────────────────────*/
+=======
+
+        // 1차 서버-사이드 유효성 검사
+        if (!isValidPassword(dto.getPassword())) {
+            throw new IllegalArgumentException(
+                "비밀번호는 8~16자이며 영문·숫자를 모두 포함해야 합니다.");
+        }
+
+        // 비밀번호 암호화
+        dto.setPassword(passwordEncoder.encode(dto.getPassword()));
+
+        // 매퍼에 저장 (Mapper 인터페이스·XML에 save(...) 정의 필요)
+        return membershipMapper.doSave(dto);
+    }
+
+    /*──────────────────────────────────────────*/
+    /* 2. 목록 조회                             */
+    /*──────────────────────────────────────────*/
+>>>>>>> 4ce67fee0b1ce6c8313e98a61cd4875841089761
     @Override
     public List<MembershipDTO> retrieve(SearchDTO search) throws SQLException {
         return membershipMapper.doRetrieve(search);
     }
 
-    /*───────────────────────────────────────────*/
-    /* 3. 단건 조회                               */
-    /*───────────────────────────────────────────*/
+    /* 3. 단건 조회 */
     @Override
     public MembershipDTO selectOne(MembershipDTO dto) throws SQLException {
         return membershipMapper.doSelectOne(dto);
     }
 
-    /*───────────────────────────────────────────*/
-    /* 4. 회원 수정                               */
-    /*───────────────────────────────────────────*/
+    /* 4. 회원 수정 */
     @Override
     public int update(MembershipDTO dto) {
         return membershipMapper.doUpdate(dto);
     }
 
-    /*───────────────────────────────────────────*/
-    /* 5. 회원 삭제                               */
-    /*───────────────────────────────────────────*/
+    /* 5. 회원 삭제 */
     @Override
     public int delete(MembershipDTO dto) {
         return membershipMapper.doDelete(dto);
     }
-    
-    /*───────────────────────────────────────────*/
-    /* 6. 등록건수                                                                  */
-    /*───────────────────────────────────────────*/
+
+    /* 6. 등록 건수 */
     @Override
-    public int getCount() throws SQLException { 
-    	return membershipMapper.getCount(); } 
-    
-    /*───────────────────────────────────────────*/
-    /* 7. 아이디 체크                                                              */
-    /*───────────────────────────────────────────*/
-    
-    @Override
-    public boolean isUserIdAvailable(String userId) throws SQLException {                    
-    	return membershipMapper.idCheck(userId) == 0;
+    public int getCount() throws SQLException {
+        return membershipMapper.getCount();
     }
 
-	@Override
-	public boolean isEmailAvailable(String email) throws SQLException {
-		// TODO Auto-generated method stub
-		return false;
-	}
+    /* 7. 아이디 중복 체크 */
+    @Override
+    public boolean isUserIdAvailable(String userId) throws SQLException {
+        return membershipMapper.idCheck(userId) == 0;
+    }
 
-	@Override
-	public boolean sendEmailVerification(MembershipDTO dto) throws SQLException {
-		// TODO Auto-generated method stub
-		return false;
-	}
+    /*──── 공용 유틸 – 비밀번호 정규식 체크 ────*/
+    private boolean isValidPassword(String pw) {
+        // 영문 + 숫자, 8~16자(공백 불가)
+        return pw != null && pw.matches("^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,16}$");
+    }
 
-	@Override
-	public boolean verifyEmailToken(String token) throws SQLException {
-		// TODO Auto-generated method stub
-		return false;
-	}
-    
+    /*──── 이메일 관련 메서드 (미구현) ────*/
+    @Override public boolean isEmailAvailable(String email)                { return false; }
+    @Override public boolean sendEmailVerification(MembershipDTO dto)      { return false; }
+    @Override public boolean verifyEmailToken(String token)                { return false; }
 
-	@Override
-	public void saveEmailToken(String email, String code) throws SQLException {
-	    membershipMapper.updateEmailAuthToken(email, code); 
-	}
-
-    
-    
-//    /*───────────────────────────────────────────*/
-//    /* 8. 등급 업그레이드                                                           */
-//    /*───────────────────────────────────────────*/
-//    @Override
-//    public void upgradeLevels() throws SQLException {
-//        List<MembershipDTO> list = membershipMapper.getAll();
-//        for (MembershipDTO m : list) {
-//            boolean changed = false;
-//
-//           // BASIC → SILVER
-//           if (m.getGrade() == 1 && m.getLogin() >= MIN_LOGIN_COUNT_FOR_SILVER) {
-//               m.setGrade(2);
-//               changed = true;
-//           }
-//           // SILVER → GOLD
-//           if (m.getGrade() == 2 && m.getRecommend() >= MIN_RECOMMEND_FOR_GOLD) {
-//               m.setGrade(3);
-//               changed = true;
-//           }
-//           if (changed) {
-//               membershipMapper.doUpdate(m);
-//           }
-//      }
-//    }
-//
-
+    @Override
+    public void saveEmailToken(String email, String code) throws SQLException {
+        membershipMapper.updateEmailAuthToken(email, code);
+    }
 }
