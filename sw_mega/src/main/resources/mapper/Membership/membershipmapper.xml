@@ -32,8 +32,13 @@
             #{email},
             #{password},
             #{birth},
+<<<<<<< HEAD
+            #{emailAuth, jdbcType=VARCHAR},
+            #{emailAuthToken},
+=======
             #{emailAuth},
             #{emailAuthToken, jdbcType=VARCHAR},
+>>>>>>> 4ce67fee0b1ce6c8313e98a61cd4875841089761
             #{grade},
             #{profileImage,jdbcType=VARCHAR},
             SYSDATE

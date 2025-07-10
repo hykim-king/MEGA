@@ -37,23 +37,44 @@ public class MembershipController implements PLog {
         return "membership/membership_mng";   // /WEB-INF/views/...
     }
 
+<<<<<<< HEAD
+    /*───────────────────────────────────────────────────────────*/
+    /* 2. 등록 처리                                              */
+    /*───────────────────────────────────────────────────────────*/
+    @PostMapping("/doSave.do")
+    public String doSave(MembershipDTO param) throws SQLException {
+        log.debug("┌───────────────────────────┐");
+        log.debug("│ *doSave()* param: {}      │", param);
+        log.debug("└───────────────────────────┘");
+=======
     /*──────────────────────────────────────────────────────*/
     /* 2. 등록 처리 → 성공 시 로그인 페이지로 redirect        */
     /*──────────────────────────────────────────────────────*/
     @PostMapping("/doSave.do")                // 실제 URL : /membership/doSave.do
     public String doSave(@ModelAttribute MembershipDTO dto,
                          RedirectAttributes rttr) throws SQLException {
+>>>>>>> 4ce67fee0b1ce6c8313e98a61cd4875841089761
 
         int cnt = membershipService.save(dto);
 
+<<<<<<< HEAD
+        if (flag == 1) {
+            // 회원가입 성공 → 메인 페이지로 이동
+            return "redirect:/common/main.do";
+        } else {
+            // 회원가입 실패 → 다시 회원가입 페이지로
+            return "redirect:/membership/doSaveView.do?success=false";
+=======
         if (cnt == 1) { // ── 성공
             rttr.addFlashAttribute("msg", "회원가입이 완료되었습니다. 로그인 해주세요!");
             return "redirect:/login.do";
         } else {        // ── 실패
             rttr.addFlashAttribute("msg", "회원가입 실패! 다시 시도해주세요.");
             return "redirect:/membership/doSaveView.do";
+>>>>>>> 4ce67fee0b1ce6c8313e98a61cd4875841089761
         }
     }
+    
 
     /*──────────────────────────────────────────────────────*/
     /* 3. 목록 조회                                         */
@@ -152,6 +173,9 @@ public class MembershipController implements PLog {
         mail.setTo(email);
         mail.setSubject("[MEGA] 이메일 인증 코드");
         mail.setText("인증코드: " + code);
+        
+        mail.setFrom("com0494@naver.com"); // ← XML 설정의 username과 반드시 일치!
+        
         mailSender.send(mail);
 
         membershipService.saveEmailToken(email, code);

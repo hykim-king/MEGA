@@ -37,6 +37,26 @@ public class MembershipServiceImpl implements MembershipService {
     /*──────────────────────────────────────────*/
     @Override
     public int save(MembershipDTO dto) throws SQLException {
+<<<<<<< HEAD
+        // ✅ null 방지 처리
+        if (dto.getEmailAuthToken() == null) {
+            dto.setEmailAuthToken(""); // 빈 문자열 기본값
+        }
+        if (dto.getEmailAuth() == null) {
+            dto.setEmailAuth("N"); // 인증 안됨 기본값
+        }
+        if (dto.getProfileImage() == null) {
+            dto.setProfileImage(""); // 빈 문자열 기본값
+        }
+
+        return membershipMapper.doSave(dto);
+    }
+
+
+    /*───────────────────────────────────────────*/
+    /* 2. 목록 조회                               */
+    /*───────────────────────────────────────────*/
+=======
 
         // 1차 서버-사이드 유효성 검사
         if (!isValidPassword(dto.getPassword())) {
@@ -54,6 +74,7 @@ public class MembershipServiceImpl implements MembershipService {
     /*──────────────────────────────────────────*/
     /* 2. 목록 조회                             */
     /*──────────────────────────────────────────*/
+>>>>>>> 4ce67fee0b1ce6c8313e98a61cd4875841089761
     @Override
     public List<MembershipDTO> retrieve(SearchDTO search) throws SQLException {
         return membershipMapper.doRetrieve(search);

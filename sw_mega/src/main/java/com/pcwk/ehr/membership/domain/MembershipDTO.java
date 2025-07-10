@@ -37,17 +37,20 @@ public class MembershipDTO {
     
     @NotBlank(message = "이메일 인증 여부(Y/N)가 필요합니다.")
     @Pattern(regexp = "^[YN]$", message = "이메일 인증 여부는 Y 또는 N이어야 합니다.")
-    private String emailAuth;        // 이메일 인증 여부
+    private String emailAuth = "Y";
     private String emailAuthToken;
     private int    grade;            // 1:BASIC 2:SILVER 3:GOLD
     private String profileImage;
     private Date   regDt;            // 가입일 
+<<<<<<< HEAD
+=======
 
     
     @Pattern(regexp = "^(?=.*[A-Za-z])(?=.*\\d)(?=.*[!@#$%^&*()_+]).{8,16}$",
             message = "비밀번호는 8~16자, 영문/숫자/특수문자를 모두 포함해야 합니다.")
    private String password;
     
+>>>>>>> 4ce67fee0b1ce6c8313e98a61cd4875841089761
     
     
     public MembershipDTO() {}
