@@ -11,7 +11,7 @@
   <div class="navbar-left">
     <div class="logo">🏋️‍♂️ 헬메이트</div>
     <ul class="main-menu">
-      <li><a href="/ehr/main.do">홈</a></li>
+      <li><a href="/ehr/common/main.do">홈</a></li>
       <li class="has-submenu">
         <a href="/ehr/exercise/doRetrieve.do">운동</a>
         <div class="submenu-box">
