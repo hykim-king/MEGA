@@ -13,6 +13,14 @@
 </select>
 
 
+<update id="doUpdate" parameterType="L_ReactionDTO">
+  UPDATE REACTION
+  SET reaction_type = #{reactionType}
+  WHERE user_id = #{userId}
+    AND target_type = #{targetType}
+    AND target_code = #{targetCode}
+</update>
+
     <!-- 좋아요/싫어요 전체 조회 -->
     <select id="doRetrieve" parameterType="SearchDTO" resultType="L_ReactionDTO">
         SELECT

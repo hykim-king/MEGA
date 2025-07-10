@@ -41,12 +41,12 @@
 		       <!-- 게시글 좋아요/싫어요 -->
 		<button id="likeBtn-NOTICE-${outVO.noCode}" 
 		        onclick="toggleReaction('NOTICE', 'L', ${outVO.noCode})">
-		    👍 좋아요 <span id="likeCount-NOTICE-${outVO.noCode}">${likeCount}</span>
+		    👍 좋아요 <span id="likeCount-NOTICE-${outVO.noCode}">${nLikeCount}</span>
 		</button>
 		
 		<button id="dislikeBtn-NOTICE-${outVO.noCode}" 
 		        onclick="toggleReaction('NOTICE', 'D', ${outVO.noCode})">
-		    👎 싫어요 <span id="dislikeCount-NOTICE-${outVO.noCode}">${dislikeCount}</span>
+		    👎 싫어요 <span id="dislikeCount-NOTICE-${outVO.noCode}">${nDislikeCount}</span>
 		</button>
 
         
@@ -79,7 +79,7 @@
                <!-- 댓글 좋아요/싫어요 -->
 				    <div class="reaction-buttons">
 				    <button id="likeBtn-COMMENT-${comment.commentedCode}"
-				            onclick="toggleReaction('COMMENT', 'L', ${comment.commentedCode})">
+				            onclick="toggleReaction('COMMENT', 'L', '${comment.commentedCode}')">
 				        👍 <span id="likeCount-COMMENT-${comment.commentedCode}">${comment.likeCount}</span>
 				    </button>
 				
@@ -258,14 +258,14 @@ function toggleReaction(targetType, reactionType, targetCode) {
 
             updateButtonStyles(targetType, targetCode);
         } else {
-            alert(data.message || "처리 실패!");
+            alert("처리 실패: " + data.message);
         }
     })
-    .catch(function(err) {
+   .catch(err => {
         alert("에러 발생: " + err);
 });
 
-
+}
 
 
 // 버튼 스타일 변경 함수
@@ -289,93 +289,17 @@ function updateButtonStyles(targetType, targetCode) {
 }
 
 
-window.onload = function () {
-    const targetType = "NOTICE";
-    const targetCode = ${vo.noCode};
 
-    fetch(`/ehr/reaction/getUserReaction.do?targetType=${targetType}&targetCode=${targetCode}`)
-        .then(res => res.json())
-        .then(data => {
-            if (data && data.reactionType) {
-                const key = `${targetType}-${targetCode}`;
-                userReactions[key] = data.reactionType;
-                updateButtonStyles(targetType, targetCode);
-            }
-        });
-};
-
-</script>
-
-<!-- <!--JSP에서 사용자 반응 초기값 반영 -->
-<script>
-    var userReactions = {
-        "NOTICE-${vo.noCode}": "${myReaction.reactionType}"
-    };
-
-    window.onload = function () {
-        updateButtonStyles("NOTICE", ${vo.noCode});
-    };
-</script>
- -->
-
-
-<!-- 댓글 -->
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    var userReactions = {};
-
-    function updateButtonStyles(targetType, targetCode) {
-        const key = `${targetType}-${targetCode}`;
-        const likeBtn = document.getElementById("likeBtn-" + key);
-        const dislikeBtn = document.getElementById("dislikeBtn-" + key);
-
-        if (!likeBtn || !dislikeBtn) return;
-
-        if (userReactions[key] === 'L') {
-            likeBtn.classList.add('active');
-            dislikeBtn.classList.remove('active');
-        } else if (userReactions[key] === 'D') {
-            dislikeBtn.classList.add('active');
-            likeBtn.classList.remove('active');
-        } else {
-            likeBtn.classList.remove('active');
-            dislikeBtn.classList.remove('active');
-        }
-    }
-
-    function toggleReaction(targetType, reactionType, targetCode) {
-        const key = `${targetType}-${targetCode}`;
-        const current = userReactions[key];
-        const sendType = (current === reactionType) ? null : reactionType;
-
-        fetch('/ehr/reaction/doToggleReaction.do', {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({
-                targetType: targetType,
-                targetCode: targetCode,
-                reactionType: sendType
-            })
-        })
-        .then(res => res.json())
-        .then(data => {
-            if (data.flag === 1) {
-                document.getElementById("likeCount-" + key).innerText = data.likeCount;
-                document.getElementById("dislikeCount-" + key).innerText = data.dislikeCount;
-
-                userReactions[key] = sendType;
-                updateButtonStyles(targetType, targetCode);
-            } else {
-                alert("처리 실패: " + data.message);
-            }
-        });
-    }
 
     // 전역에서 사용할 수 있게 window에 바인딩
     window.toggleReaction = toggleReaction;
+    window.updateButtonStyles = updateButtonStyles;
 
-    // 게시글 상태 초기화
-    const postCode = ${vo.noCode};
+
+<!-- 댓글 -->
+
+document.addEventListener("DOMContentLoaded", function () {
+    const postCode = "${vo.noCode}";
     fetch(`/ehr/reaction/getUserReaction.do?targetType=NOTICE&targetCode=${postCode}`)
         .then(res => res.json())
         .then(data => {
@@ -385,6 +309,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 updateButtonStyles("NOTICE", postCode);
             }
         });
+
 
     // 댓글 상태 초기화
     document.querySelectorAll("[id^=likeBtn-COMMENT-]").forEach(function (btn) {

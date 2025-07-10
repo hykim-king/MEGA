@@ -28,5 +28,10 @@ public interface L_ReactionMapper extends WorkDiv<L_ReactionDTO> {
 	 * 전체삭제
 	 */
 	void deleteAll();
+	
+	/**
+	 * 수정
+	 */
+	int doUpdate(L_ReactionDTO param);
 
 }

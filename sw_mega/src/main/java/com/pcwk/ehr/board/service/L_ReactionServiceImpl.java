@@ -70,18 +70,24 @@ public class L_ReactionServiceImpl implements L_ReactionService {
 			// sendType=null 이면 취소 → 기존 반응 있으면 삭제
 			if (exist != null) {
 				return mapper.doDelete(exist);
-			} else {
+			} 
 				return 1; // 취소할 게 없지만 성공
-			}
-		} else {
-			if (exist != null) {
-				// 같은 타입의 반응을 이미 눌렀으면 삭제 (취소)
-				return mapper.doDelete(exist);
-			} else {
-				// 새로운 반응 추가
-				return mapper.doSave(reactionDTO);
-			}
-		}
-	}
+			
+	    }
 
+	    if (exist != null) {
+	        if (reactionDTO.getReactionType().equals(exist.getReactionType())) {
+	            // 같은 반응 → 토글 끄기
+	            return mapper.doDelete(exist);
+	        } else {
+	            // 다른 반응 → 업데이트 (좋아요 ↔ 싫어요 전환)
+	            return mapper.doUpdate(reactionDTO);
+	        }
+	    } else {
+	        // 처음 반응하는 경우
+	        return mapper.doSave(reactionDTO);
+	    }
+	}
 }
+
+
