@@ -74,7 +74,7 @@
                    )                         AS birth,
                    'N'                       AS emailAuth,
                    'dummy-token'             AS emailAuthToken,
-                   DECODE(MOD(LEVEL, 2), 0, 1, 9) AS grade,
+                   DECODE(MOD(LEVEL, 1), 0, 1, 9) AS grade,
                    NULL                      AS profileImage,
                    SYSDATE
               FROM dual

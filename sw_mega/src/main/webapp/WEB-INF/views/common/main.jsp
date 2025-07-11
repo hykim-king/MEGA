@@ -6,168 +6,172 @@
     <meta charset="UTF-8">
     <title>HELLMATE | 메인 페이지</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <!-- Do Hyeon Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
-
+    <link rel="stylesheet" href="/ehr/resources/assets/css/header.css">
+    <link rel="stylesheet" href="/ehr/resources/assets/css/pcwk_main.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Do Hyeon', sans-serif;
-        }
-
         body {
-            background-color: #fff;
-            color: #000;
+            background: #fff;
+            color: #222;
+            font-family: 'Do Hyeon', sans-serif;
+            margin: 0;
         }
-
-        nav {
-            background-color: yellow;
-            padding: 12px 0;
-            font-size: 24px;
+        .main-section {
+            width: 100%;
+            max-width: 850px;
+            margin: 48px auto 0 auto;
             display: flex;
-            justify-content: center;
-            gap: 30px;
+            flex-direction: column;
+            align-items: center;
         }
-        .nav-link {
-            cursor: pointer;
-            text-decoration: none;
-            color: black;
-            padding: 5px 15px;
-            border-radius: 5px;
-            transition: background 0.1s;
-        }
-        .nav-link:hover {
-            background-color: #fffacb;
-        }
-
-        header {
-            background-color: #f8f8f8;
-            padding: 15px 20px;
-            text-align: right;
-        }
-
-        header a {
-            margin-left: 15px;
-            text-decoration: none;
-            color: #333;
-        }
-
-        .section {
+        .main-title {
+            font-size: 2.3rem;
+            font-weight: 700;
+            margin-bottom: 18px;
             text-align: center;
-            padding: 40px 20px;
+            line-height: 1.35;
+            letter-spacing: 0.05em;
         }
-
-        .section img {
+        .main-title .highlight {
+            color: #6475F8;
+            background: #fdff48b0;
+            padding: 0 4px;
+            border-radius: 7px;
+        }
+        .main-btn {
+            margin-top: 16px;
+            margin-bottom: 30px;
+            padding: 17px 48px;
+            background: #6475F8;
+            color: #fff;
+            font-size: 1.45rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            box-shadow: 0 2px 8px #00000011;
+            transition: background 0.17s;
+        }
+        .main-btn:hover {
+            background: #4958b8;
+        }
+        .main-img {
             width: 100%;
             max-width: 500px;
-            height: auto;
-            margin: 20px 0;
+            border-radius: 15px;
+            margin: 16px 0 40px 0;
+            box-shadow: 0 6px 32px #0001;
         }
-
-        .section .title {
-            font-size: 1.8rem;
-            margin-bottom: 20px;
+        .feature-block {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 32px;
+            margin-bottom: 36px;
         }
-
-        .section .btn {
-            padding: 10px 20px;
-            background-color: #000;
-            color: #fff;
-            border: none;
-            font-size: 1.2rem;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-
-        .highlight {
-            color: #0066ff;
-        }
-
-        .quote {
-            font-size: 1.2rem;
-            margin-top: 20px;
-        }
-        
-        .footer {
-            background-color: #f1f1f1;
-            color: #333;
+        .feature {
+            flex: 1 1 220px;
+            max-width: 270px;
+            min-width: 170px;
+            background: #fff;
+            border-radius: 13px;
+            box-shadow: 0 4px 24px #00000013;
+            padding: 32px 20px;
             text-align: center;
-            padding: 20px;
-            font-size: 0.9rem;
-            border-top: 1px solid #ccc;
-            margin-top: 40px;
         }
-
-        @media (max-width: 768px) {
-            nav { font-size: 18px; gap: 15px; }
-            .section .title { font-size: 1.4rem; }
-            .section .btn { font-size: 1rem; padding: 8px 16px; }
-            .quote { font-size: 1rem; }
-            .footer { font-size: 0.8rem; padding: 15px; }
+        .feature-title {
+            font-size: 1.4rem;
+            margin-bottom: 18px;
+            font-weight: 600;
+            color: #222;
+        }
+        .feature-img {
+            width: 90%;
+            max-width: 180px;
+            border-radius: 8px;
+            margin-bottom: 6px;
+        }
+        .section-quote {
+            margin: 45px 0 0 0;
+            text-align: center;
+        }
+        .section-quote .quote-text {
+            font-size: 1.17rem;
+            color: #4958b8;
+            font-weight: 500;
+            margin-bottom: 18px;
+            line-height: 1.65;
+        }
+        .quote-img {
+            width: 100%;
+            max-width: 370px;
+            border-radius: 13px;
+            box-shadow: 0 2px 18px #00000018;
+        }
+        @media (max-width: 900px) {
+            .main-section { max-width: 99vw; padding: 0 2vw;}
+            .feature-block { gap: 18px; }
+            .feature { max-width: 90vw; }
+        }
+        @media (max-width: 600px) {
+            .main-title { font-size: 1.25rem; }
+            .main-btn { font-size: 1.01rem; padding: 9px 17px;}
+            .main-section { padding: 0 3vw;}
+            .feature { padding: 16px 7px; font-size: 0.9rem;}
+            .feature-title { font-size: 1.08rem;}
         }
     </style>
 </head>
 <body>
+<div id="container">
 
-<nav>
-    <span class="nav-link" onclick="location.href='/ehr/common/main.do'">홈</span>
-    <span class="nav-link" onclick="location.href='/ehr/login/login.do'">운동</span>
-    <span class="nav-link" onclick="location.href='/ehr/login/login.do'">음식</span>
-    <span class="nav-link" onclick="location.href='/ehr/notice/doRetrieve.do'">커뮤니티</span>
-</nav>
+    <%-- 헤더는 별도 파일에서 인클루드 --%>
+    <jsp:include page="/WEB-INF/views/include/header.jsp"></jsp:include>
 
-<header>
-     <c:choose>
-    <c:when test="${not empty sessionScope.userId}">
-      <span>${sessionScope.userId}님 환영합니다!</span>
-      <a href="/ehr/login/logout.do">로그아웃</a>
-    </c:when>
-    <c:otherwise>
-      <a href="/ehr/login/login.do">로그인</a>
-      <a href="/ehr/membership/doSaveView.do">회원가입</a>
-    </c:otherwise>
-  </c:choose>
-</header>
+    <!-- main section -->
+    <main id="main">
+        <div class="main-section">
+            <!-- 메인 슬로건 -->
+            <div class="main-title">
+                당신의 건강한 삶<br>
+                지금부터 <span class="highlight">HELLMATE</span>와 함께 하세요
+            </div>
+            <button class="main-btn" onclick="location.href='/ehr/login/login.do'">시작하기</button>
+            <img class="main-img" src="${pageContext.request.contextPath}/resources/images/운동3.jpg" alt="운동 시작">
 
-<div class="section">
-    <div class="title">
-        당신의 건강한 삶<br>
-        지금부터 <span class="highlight">HELLMATE와 함께</span> 하세요
-    </div>
-    <button class="btn" onclick="location.href='/ehr/login/login.do'">시작하기</button>
-    <img src="${pageContext.request.contextPath}/resources/images/main_1.jpg" alt="운동 시작">
+            <!-- 주요 서비스 안내 -->
+            <div class="feature-block">
+                <div class="feature">
+                    <div class="feature-title">식단 관리</div>
+                    <img class="feature-img" src="${pageContext.request.contextPath}/resources/images/음식1.jpg" alt="식단">
+                </div>
+                <div class="feature">
+                    <div class="feature-title">운동 일지</div>
+                    <img class="feature-img" src="${pageContext.request.contextPath}/resources/images/운동1.jpg" alt="운동 일지">
+                </div>
+                <div class="feature">
+                    <div class="feature-title">헬스케어 지원</div>
+                    <img class="feature-img" src="${pageContext.request.contextPath}/resources/images/헬스케어1.jpg" alt="헬스케어 지원">
+                </div>
+            </div>
+
+            <!-- 응원 메시지/러닝 이미지 -->
+            <div class="section-quote">
+                <div class="quote-text">
+                    365일 멈추지 않는 헬메이트는<br>
+                    오직 당신의 건강한 매일을 응원합니다.
+                </div>
+                <img class="quote-img" src="${pageContext.request.contextPath}/resources/images/운동2.jpg" alt="러닝 이미지">
+            </div>
+        </div>
+    </main>
+
+    <%-- 푸터는 별도 파일에서 인클루드 --%>
+    <jsp:include page="/WEB-INF/views/include/footer.jsp"></jsp:include>
 </div>
-
-<div class="section">
-    <div class="title">식단 관리</div>
-    <img src="${pageContext.request.contextPath}/resources/images/meal.jpg" alt="식단">
-</div>
-
-<div class="section">
-    <div class="title">운동 일지</div>
-    <img src="${pageContext.request.contextPath}/resources/images/exercise.jpg" alt="운동 일지">
-</div>
-
-<div class="section">
-    <div class="title">헬메이트는 언제나 당신과 함께</div>
-    <img src="${pageContext.request.contextPath}/resources/images/support.jpg" alt="헬스케어 지원">
-</div>
-
-<div class="section">
-    <div class="quote">
-        365일 멈추지 않는 헬메이트는<br>
-        오직 당신의 건강한 매일을 응원합니다.
-    </div>
-    <img src="${pageContext.request.contextPath}/resources/images/running.jpg" alt="러닝 이미지">
-</div>
-
-<footer class="footer">
-    <p>이 프로젝트는 소규모 프로젝트로 향후 업데이트 가능성이 열려있습니다.</p>
-</footer>
 </body>
 </html>
