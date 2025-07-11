@@ -78,15 +78,15 @@
 
                <!-- 댓글 좋아요/싫어요 -->
 				    <div class="reaction-buttons">
-				    <button id="likeBtn-COMMENT-${comment.commentedCode}"
-				            onclick="toggleReaction('COMMENT', 'L', '${comment.commentedCode}')">
-				        👍 <span id="likeCount-COMMENT-${comment.commentedCode}">${comment.likeCount}</span>
-				    </button>
-				
-				    <button id="dislikeBtn-COMMENT-${comment.commentedCode}"
-				            onclick="toggleReaction('COMMENT', 'D', ${comment.commentedCode})">
-				        👎 <span id="dislikeCount-COMMENT-${comment.commentedCode}">${comment.dislikeCount}</span>
-				    </button>
+					<button id="likeBtn-COMMENT-${comment.commentedCode}"
+					        onclick="toggleReaction('COMMENT', 'L', '${comment.commentedCode}')">
+					    👍 <span id="likeCount-COMMENT-${comment.commentedCode}">${comment.likeCount}</span>
+					</button>
+					
+					<button id="dislikeBtn-COMMENT-${comment.commentedCode}"
+					        onclick="toggleReaction('COMMENT', 'D', '${comment.commentedCode}')">
+					    👎 <span id="dislikeCount-COMMENT-${comment.commentedCode}">${comment.dislikeCount}</span>
+					</button>
                 
                 
                 <!-- 신고 -->
@@ -225,105 +225,164 @@ function reportTarget(type, id) {
 
 
 <script>
-//사용자의 반응 상태 관리: 예) { 'NOTICE-5': 'L', 'COMMENT-10': 'D' }
-var userReactions = {};
+document.addEventListener("DOMContentLoaded", function () {
+  const userReactions = {};
 
-function toggleReaction(targetType, reactionType, targetCode) {
-    const key = targetType + "-" + targetCode;
-    const current = userReactions[key];
-    
-    let sendType = reactionType;
-    if (current === reactionType) {
-        sendType = null;
-    }
+  // 댓글 등록
+  document.getElementById("btnCommentSave").addEventListener("click", function () {
+    const content = document.getElementById("content").value.trim();
+    const noCode = document.getElementById("noCode").value;
+    const userId = document.getElementById("userId").value;
 
-    fetch('/ehr/reaction/doToggleReaction.do', {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
+    if (!content) return alert("내용을 입력하세요.");
+    if (!userId) return alert("로그인이 필요합니다.");
+
+    fetch("/ehr/noComment/doSave.do", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ noCode, content, userId }),
+    })
+    .then(res => res.json())
+    .then(data => {
+      if (data.flag === 1) {
+        alert("댓글 등록 성공");
+        location.reload();
+      } else {
+        alert("댓글 등록 실패");
+      }
+    });
+  });
+
+  // 게시글 삭제
+  window.deleteNotice = function(noCode) {
+    if (!confirm("정말 삭제하시겠습니까?")) return;
+    fetch("/ehr/notice/doDelete.do", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams({ noCode }),
+    })
+    .then(res => res.json())
+    .then(data => {
+      alert(data.message);
+      if (data.messageId === 1) location.href = "/ehr/notice/doRetrieve.do";
+    });
+  };
+
+  // 댓글 삭제
+  document.querySelectorAll(".delete-comment-btn").forEach(btn => {
+    btn.addEventListener("click", function () {
+      if (!confirm("정말 삭제하시겠습니까?")) return;
+      const id = this.dataset.id;
+      fetch("/ehr/noComment/doDelete.do", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams({ commentedCode: id }),
+      })
+      .then(res => res.json())
+      .then(data => {
+        alert(data.message);
+        if (data.messageId === 1) location.reload();
+      });
+    });
+  });
+
+  // 신고 기능
+  document.querySelectorAll(".report-btn").forEach(btn => {
+    btn.addEventListener("click", function () {
+      if (!confirm("정말 신고하시겠습니까?")) return;
+      const id = this.dataset.id;
+      const type = this.dataset.type;
+
+      fetch("/ehr/report/doReport.do", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-            targetType: targetType,
-            targetCode: targetCode,
-            reactionType: sendType
-        })
-    })
-    .then(function(response) {
-        return response.json();
-    })
-    .then(function(data) {
-        if (data.flag === 1) {
-            document.getElementById("likeCount-" + key).innerText = data.likeCount;
-            document.getElementById("dislikeCount-" + key).innerText = data.dislikeCount;
+          userId: "user01",
+          reason: "부적절한 내용입니다.",
+          targetType: type,
+          targetCode: id
+        }),
+      })
+      .then(res => res.json())
+      .then(data => alert(data.message));
+    });
+  });
 
-            userReactions[key] = sendType;
+  // 좋아요/싫어요 초기화 (게시글)
+  const postCode = "${outVO.noCode}";
+  fetch(`/ehr/reaction/getUserReaction.do?targetType=NOTICE&targetCode=${postCode}`)
+    .then(res => res.json())
+    .then(data => {
+      if (data.reactionType) {
+        const key = `NOTICE-${postCode}`;
+        userReactions[key] = data.reactionType;
+        updateButtonStyles("NOTICE", postCode);
+      }
+    });
 
-            updateButtonStyles(targetType, targetCode);
-        } else {
-            alert("처리 실패: " + data.message);
+  // 좋아요/싫어요 초기화 (댓글)
+  document.querySelectorAll("[id^=likeBtn-COMMENT-]").forEach(btn => {
+    const code = btn.id.split("-")[2];
+    fetch(`/ehr/reaction/getUserReaction.do?targetType=COMMENT&targetCode=${code}`)
+      .then(res => res.json())
+      .then(data => {
+        if (data.reactionType) {
+          const key = `COMMENT-${code}`;
+          userReactions[key] = data.reactionType;
+          updateButtonStyles("COMMENT", code);
         }
+      });
+  });
+
+  // 버튼 클릭 이벤트 등록
+  document.querySelectorAll("[id^=likeBtn-]").forEach(btn => {
+    btn.addEventListener("click", function () {
+      const [_, type, code] = this.id.split("-");
+      toggleReaction(type, 'L', code);
+    });
+  });
+
+  document.querySelectorAll("[id^=dislikeBtn-]").forEach(btn => {
+    btn.addEventListener("click", function () {
+      const [_, type, code] = this.id.split("-");
+      toggleReaction(type, 'D', code);
+    });
+  });
+
+  function toggleReaction(targetType, reactionType, targetCode) {
+    const key = `${targetType}-${targetCode}`;
+    const current = userReactions[key];
+    let sendType = (current === reactionType) ? null : reactionType;
+
+    fetch("/ehr/reaction/doToggleReaction.do", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ targetType, targetCode, reactionType: sendType }),
     })
-   .catch(err => {
-        alert("에러 발생: " + err);
-});
+    .then(res => res.json())
+    .then(data => {
+      if (data.flag === 1) {
+        document.getElementById(`likeCount-${key}`).innerText = data.likeCount;
+        document.getElementById(`dislikeCount-${key}`).innerText = data.dislikeCount;
+        userReactions[key] = sendType;
+        updateButtonStyles(targetType, targetCode);
+      } else {
+        alert("처리 실패: " + data.message);
+      }
+    });
+  }
 
-}
-
-
-// 버튼 스타일 변경 함수
-function updateButtonStyles(targetType, targetCode) {
-    const key = targetType + "-" + targetCode;
-    const likeBtn = document.getElementById("likeBtn-" + key);
-    const dislikeBtn = document.getElementById("dislikeBtn-" + key);
+  function updateButtonStyles(targetType, targetCode) {
+    const key = `${targetType}-${targetCode}`;
+    const likeBtn = document.getElementById(`likeBtn-${key}`);
+    const dislikeBtn = document.getElementById(`dislikeBtn-${key}`);
 
     if (!likeBtn || !dislikeBtn) return;
 
-    if (userReactions[key] === 'L') {
-        likeBtn.classList.add('active');
-        dislikeBtn.classList.remove('active');
-    } else if (userReactions[key] === 'D') {
-        dislikeBtn.classList.add('active');
-        likeBtn.classList.remove('active');
-    } else {
-        likeBtn.classList.remove('active');
-        dislikeBtn.classList.remove('active');
-    }
-}
+    likeBtn.classList.toggle("active", userReactions[key] === 'L');
+    dislikeBtn.classList.toggle("active", userReactions[key] === 'D');
+  }
 
-
-
-
-    // 전역에서 사용할 수 있게 window에 바인딩
-    window.toggleReaction = toggleReaction;
-    window.updateButtonStyles = updateButtonStyles;
-
-
-<!-- 댓글 -->
-
-document.addEventListener("DOMContentLoaded", function () {
-    const postCode = "${vo.noCode}";
-    fetch(`/ehr/reaction/getUserReaction.do?targetType=NOTICE&targetCode=${postCode}`)
-        .then(res => res.json())
-        .then(data => {
-            if (data && data.reactionType) {
-                const key = `NOTICE-${postCode}`;
-                userReactions[key] = data.reactionType;
-                updateButtonStyles("NOTICE", postCode);
-            }
-        });
-
-
-    // 댓글 상태 초기화
-    document.querySelectorAll("[id^=likeBtn-COMMENT-]").forEach(function (btn) {
-        const code = btn.id.split("-")[2]; // 댓글번호
-        fetch(`/ehr/reaction/getUserReaction.do?targetType=COMMENT&targetCode=${code}`)
-            .then(res => res.json())
-            .then(data => {
-                const key = `COMMENT-${code}`;
-                if (data && data.reactionType) {
-                    userReactions[key] = data.reactionType;
-                    updateButtonStyles("COMMENT", code);
-                }
-            });
-    });
 });
 </script>
 

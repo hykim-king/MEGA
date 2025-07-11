@@ -128,7 +128,7 @@ public class NoCommentController {
 	/**
 	 * 댓글 등록
 	 */
-	 @PostMapping("/doSave.do")
+	 @PostMapping(value = "/doSave.do" , produces = "text/plain;charset=UTF-8")
 	 @ResponseBody
 	    public String doSave(@RequestBody NoticeCommentDTO param) {
 			log.debug("┌───────────────────────────┐");
