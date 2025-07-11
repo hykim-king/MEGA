@@ -41,180 +41,150 @@
    String pageHtml=PcwkString.renderingPager(maxNum, pageNo, pageSize, bottomCount, url, scriptName);
    //System.out.println(pageHtml);
 %>
-
-    
-<!DOCTYPE html>
-<html>
 <head>
-<meta charset="UTF-8">
-<link rel="stylesheet" href="/ehr/resources/assets/css/notice_list.css">
-<title>Insert title here</title>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
- <script src="${CP}/resources/assets/js/common.js"></script>
- <script>
- document.addEventListener('DOMContentLoaded', function(){
-       console.log('DOMContentLoaded');
-       //조회버튼
-       const doRetieveButton=document.querySelector("#doRetrieve");
-       console.log(doRetieveButton);
-       //등록 버튼
-       const moveToRegButton=document.querySelector("#moveToReg");
-       console.log(moveToRegButton);
-       
-      /*  const divInput = document.querySelector("#div");
-       console.log(divInput);
-    */
-       
-       //등록 버튼 이벤트 감지
-       moveToRegButton.addEventListener("click",function(event){
-           console.log('moveToRegButton click');
-           
-           if(confirm('등록 화면으로 이동 하시겠습니까?') === false)return;
-           
-           window.location.href = "/ehr/notice/doSaveView.do";
-           
-       });
-       
-       
-       //
-       doRetieveButton.addEventListener("click",function(event){
-           event.stopPropagation();// 이벤트 버블링 중지
-           console.log('doRetieveButton click');
-           doRetieve(1);
-           
-       });
-            
-       //
-       function doRetieve(pageNo){
-           console.log('doRetieve pageNo:'+pageNo);
-        
-           //form
-           const userForm = document.userForm;
-           userForm.pageNo.value =pageNo;
-           
-           userForm.action="/ehr/notice/doRetrieve.do";
-           
-           userForm.submit();
-       }
-       
-   
-       
- });      
- 
- 
- //페이징 
- function pagerDoRetrieve(url, pageNo){   
-     console.log('pagerDoRetrieve pageNo:'+pageNo);
-     console.log('pagerDoRetrieve url:'+url);
-     
-     //form
-     const userForm = document.userForm;
-     userForm.pageNo.value =pageNo;
-     
-     userForm.action=url;
-     
-     userForm.submit();     
-     
- }    
- </script> 
+    <meta charset="UTF-8">
+    <title>공지사항 목록</title>
+    <link rel="stylesheet" href="${CP}/resources/assets/css/header.css">
+    <link rel="stylesheet" href="${CP}/resources/assets/css/pcwk_main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        body { font-family: 'Do Hyeon', sans-serif; margin:0; background:#fff;}
+        #container { min-height:100vh; background:#fff;}
+        .main-container { display:flex; justify-content:center;}
+        .list-container {
+            width:100%; max-width:900px; margin:80px auto 60px auto;
+            background: #F5F7FF; border-radius:13px; box-shadow: 0 4px 18px #e4e7fa7e;
+            padding: 48px 38px 38px 38px;
+        }
+        .board-title { font-size:2.1rem; font-weight:bold; text-shadow:2px 2px #FDFF48; margin-bottom:16px;}
+        .title-underline { border:none; border-top:2px solid #e1e4eb; margin:20px 0 26px 0;}
+        .search-form {margin-bottom:20px;}
+        .top-bar {display:flex; justify-content:space-between; align-items:center;}
+        .search-box {display:flex; gap:7px;}
+        .search-select, .search-input {height:38px; font-size:1rem; border-radius:6px; border:1.5px solid #bbb;}
+        .search-input {width:220px; padding:0 12px;}
+        .btn-search, .btn-new-post {font-size:1rem; border-radius:6px; padding:8px 17px; background:#5C6EFF; color:#fff; border:none; cursor:pointer;}
+        .btn-search:hover, .btn-new-post:hover {background:#4958b8;}
+        .button-box {margin-left:12px;}
+        table.table {width:100%; border-collapse:collapse; margin-top:16px;}
+        th, td {padding:12px 8px; border-bottom:1px solid #e1e4eb; text-align:center;}
+        th {background:#ecf0ff; color:#222;}
+        .highlight a {color:#4958b8; text-decoration:none; font-weight:bold;}
+        .text-center {text-align:center;}
+        .text-right {text-align:right;}
+        .text-left {text-align:left;}
+        .table-cell {background:#fff;}
+        @media (max-width:600px){
+            .list-container{padding:14px 4vw;}
+            .search-input{width:100px;}
+            .board-title{font-size:1.25rem;}
+        }
+    </style>
+    <script>
+        // 등록 및 검색 버튼 이벤트
+        $(function(){
+            $("#moveToReg").click(function(){
+                if(confirm('등록 화면으로 이동 하시겠습니까?') === false) return;
+                window.location.href = "${CP}/notice/doSaveView.do";
+            });
+            $("#doRetrieve").click(function(){
+                $("form[name='userForm']").submit();
+            });
+        });
+        // 페이징 함수는 그대로 사용
+        function pagerDoRetrieve(url, pageNo){   
+            const userForm = document.userForm;
+            userForm.pageNo.value = pageNo;
+            userForm.action = url;
+            userForm.submit();
+        }  
+    </script>
 </head>
-
-
 <body>
-<div class="main-container">   
-   <h2>공지사항 - 목록</h2>
-
-
-    <hr class="title-underline"/>
-    <!--검색 영역-->
-    <form action="#" name="userForm" class="search-form"method="get" enctype="application/x-www-form-urlencoded">
-      <input type="hidden" name="pageNo" id="pageNo">
-      
-      <div class="top-bar">
-        <div class="search-box">
-	        <select name="searchDiv" id="searchDiv" class="search-select">	        
-	           <option value="">전체</option> 
-	           <option value="10" <c:if test="${search.searchDiv == 10 }">selected</c:if>>제목</option> 
-	           <option value="20" <c:if test="${search.searchDiv == 20 }">selected</c:if>>내용</option> 
-	           <option value="30" <c:if test="${search.searchDiv == 30 }">selected</c:if>>사용자ID</option>  
-	           <option value="40" <c:if test="${search.searchDiv == 40 }">selected</c:if>>제목+내용</option>  	           
-	        </select>
-	        
-            <input type="search" name="searchWord" id="searchWord" class="search-input" value="${search.searchWord }">
-	        <select name="pageSize" id="pageSize" class="search-select">
-	            <option value="10" <c:if test="${search.pageSize == 10 }">selected</c:if> >10</option>
-	            <option value="20" <c:if test="${search.pageSize == 20 }">selected</c:if> >20</option>
-	            <option value="30" <c:if test="${search.pageSize == 30 }">selected</c:if> >30</option>
-	            <option value="50" <c:if test="${search.pageSize == 50 }">selected</c:if> >50</option>
-	            <option value="100" <c:if test="${search.pageSize == 100 }">selected</c:if> >100</option>
-		        </select>       
-	            <input type="button" value="조회🔍" id="doRetrieve" class="btn-search">
-	        </div>   
-        
-         <div class="button-box">
-             <button type="button" id="moveToReg" class="btn-new-post">+ 새 글</button>
+<div id="container">
+    <jsp:include page="/WEB-INF/views/include/header.jsp"/>
+    <main class="main-container">
+        <div class="list-container">
+            <div class="board-title">공지사항</div>
+            <hr class="title-underline"/>
+            <!--검색 영역-->
+            <form action="${CP}/notice/doRetrieve.do" name="userForm" class="search-form" method="get">
+                <input type="hidden" name="pageNo" id="pageNo" value="${search.pageNo}"/>
+                <div class="top-bar">
+                    <div class="search-box">
+                        <select name="searchDiv" id="searchDiv" class="search-select">
+                            <option value="">전체</option> 
+                            <option value="10" <c:if test="${search.searchDiv == 10}">selected</c:if>>제목</option> 
+                            <option value="20" <c:if test="${search.searchDiv == 20}">selected</c:if>>내용</option> 
+                            <option value="30" <c:if test="${search.searchDiv == 30}">selected</c:if>>사용자ID</option>
+                            <option value="40" <c:if test="${search.searchDiv == 40}">selected</c:if>>제목+내용</option>
+                        </select>
+                        <input type="search" name="searchWord" id="searchWord" class="search-input" value="${search.searchWord}"/>
+                        <select name="pageSize" id="pageSize" class="search-select">
+                            <option value="10" <c:if test="${search.pageSize == 10}">selected</c:if>>10</option>
+                            <option value="20" <c:if test="${search.pageSize == 20}">selected</c:if>>20</option>
+                            <option value="30" <c:if test="${search.pageSize == 30}">selected</c:if>>30</option>
+                            <option value="50" <c:if test="${search.pageSize == 50}">selected</c:if>>50</option>
+                            <option value="100" <c:if test="${search.pageSize == 100}">selected</c:if>>100</option>
+                        </select>
+                        <input type="button" value="조회🔍" id="doRetrieve" class="btn-search"/>
+                    </div>
+                    <div class="button-box">
+                        <button type="button" id="moveToReg" class="btn-new-post">+ 새 글</button>
+                    </div>
+                </div>
+            </form>
+            <!--목록 테이블-->
+            <table class="table">
+                <colgroup>
+                    <col width="10%"><col width="40%"><col width="12%"><col width="18%"><col width="10%"><col width="0%">
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th>번호</th>
+                        <th>제목</th>
+                        <th>글쓴이</th>
+                        <th>작성일</th>
+                        <th>조회수</th>
+                        <th style="display:none;">noCode</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <c:choose>
+                        <c:when test="${list.size() > 0}">
+                            <c:forEach var="vo" items="${list}" varStatus="status">
+                                <tr>
+                                    <td class="table-cell text-center">${(search.pageNo-1)*search.pageSize+status.index+1}</td>
+                                    <td class="table-cell text-left highlight">
+                                        <a href="${CP}/notice/doDetail.do?noCode=${vo.noCode}&pageSize=10&pageNo=1">
+                                            <c:out value="${vo.title}"/>
+                                        </a>
+                                    </td>
+                                    <td class="table-cell text-center"><c:out value="${vo.userId}"/></td>
+                                    <td class="table-cell text-center"><c:out value="${vo.upDt}"/></td>
+                                    <td class="table-cell text-right"><c:out value="${vo.viewCount}"/></td>
+                                    <td style="display:none;"><c:out value="${vo.noCode}"/></td>
+                                </tr>
+                            </c:forEach>
+                        </c:when>
+                        <c:otherwise>
+                            <tr>
+                                <td colspan="99" class="table-cell text-center">조회된 데이터가 없습니다.</td>
+                            </tr>
+                        </c:otherwise>
+                    </c:choose>
+                </tbody>
+            </table>
+            <!-- paging -->
+            <div style="margin-top:24px;">
+                <% out.print(pageHtml); %>
+            </div>
         </div>
-       </div>
-    </form>
-    
-    
-    <!--//검색 영역 end-->
-    <table border="1" id="listTable"  class="table">
-      <colgroup>
-        <col width="10%">
-        <col width="40%">
-        <col width="10%">
-        <col width="10%">
-        <col width="10%">
-        <col width="0%"> 
-      </colgroup>
-      <thead>
-          <tr>
-            <th class="table-head">번호</th>
-            <th class="table-head">제목</th>
-            <th class="table-head">글쓴이</th>
-            <th class="table-head">작성일</th>
-            <th class="table-head">조회수</th>
-            <th style="display: none;">noCode</th>
-          </tr>
-      </thead>
-      <tbody>
-      
-      
-          <c:choose>
-            <c:when test="${list.size() > 0 }"> <!-- if -->
-                <c:forEach var="vo" items="${list }" varStatus="status"> <!-- 향상된 for -->
-                  <tr>
-                   <td class="table-cell text-center"><c:out value="${(search.pageNo - 1) * search.pageSize + status.index + 1}" /></td>
-                   
-                   <td class="table-cell text-left highlight">
-                    <a href="${CP}/notice/doDetail.do?noCode=${vo.noCode}&pageSize=${10}&pageNo=${1}">
-                        <c:out value="${vo.title}"/>
-                    </a>
-                   </td>                     
-                    <td class="table-cell text-center"><c:out value="${vo.userId }"/></td>
-                    <td class="table-cell text-center"><c:out value="${vo.upDt }"/></td>
-                    <td class="table-cell text-right"><c:out value="${vo.viewCount }"/></td>
-                    <td style="display: none;"><c:out value="${vo.noCode }"/></td>
-                  </tr> 
-                </c:forEach>
-            </c:when>
-            <c:otherwise>    <!-- else -->
-                <tr>
-                
-                   <td colspan="99"  class="table-cell text-center">조회된 데이터가 없습니다.</td> 
-                </tr>
-            </c:otherwise>
-          </c:choose>
-                   
-      </tbody>
-    </table>
-    <!-- paging -->
-    <%
-        out.print(pageHtml);
-    %>
-    <!--// paging end -->
+    </main>
+    <jsp:include page="/WEB-INF/views/include/footer.jsp"/>
 </div>
-
 </body>
 </html>
