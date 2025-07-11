@@ -60,7 +60,7 @@ public class LoginController{
 
           } else {
               model.addAttribute("msg", "일치하는 정보가 없습니다. 다시 입력해주세요.");
-              return "/login/login";
+              return "redirect:/login/login.do";
           }
       }
     
