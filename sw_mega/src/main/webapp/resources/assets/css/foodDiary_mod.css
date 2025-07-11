@@ -1,0 +1,62 @@
+@charset "UTF-8";
+
+.main-container {
+  max-width: 480px;
+  margin: 80px auto; /* 상단 여백 */
+  padding: 24px;
+}
+
+#foodDiaryForm {
+  background-color: white;
+  padding: 32px;
+  border-radius: 16px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+#foodDiaryForm h2 {
+  margin-top: auto;
+  text-align: center;
+  margin-bottom: 24px;
+  font-size: 22px;
+}
+
+#foodDiaryForm label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: bold;
+  color: #333;
+}
+
+#foodDiaryForm input[type="text"],
+#foodDiaryForm input[type="number"],
+#foodDiaryForm select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+}
+
+#foodDiaryForm input[readonly] {
+  background-color: #f9f9f9;
+  color: #666;
+}
+
+#updateBtn {
+  width: 100%;
+  padding: 12px;
+  background-color: #ff6666;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+#updateBtn:hover {
+  background-color: #e05555;
+}

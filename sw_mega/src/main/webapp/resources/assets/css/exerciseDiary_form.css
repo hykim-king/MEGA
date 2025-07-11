@@ -1,0 +1,88 @@
+@charset "UTF-8";
+
+/* 전체 컨테이너 */
+.exercise-form-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 60px;
+  margin-bottom: 100px;
+}
+
+/* 카드 스타일 */
+.exercise-form-card {
+  background-color: white;
+  padding: 40px 60px;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  width: 100%;
+  max-width: 480px;
+}
+
+/* 제목 스타일 */
+.exercise-form-card h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 24px;
+  color: #333;
+}
+
+/* 라벨 스타일 */
+.exercise-form-card label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: #555;
+}
+
+/* 입력창 스타일 */
+.exercise-form-card input[type="text"],
+.exercise-form-card input[type="number"],
+.exercise-form-card input[type="date"] {
+  width: 100%;
+  padding: 10px 12px;
+  margin-bottom: 18px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+  box-sizing: border-box;
+  background-color: #fff;
+}
+
+/* 버튼 스타일 */
+.exercise-form-card button {
+  width: 100%;
+  padding: 12px;
+  background-color: #ff5f5f;
+  color: white;
+  font-weight: bold;
+  font-size: 15px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.exercise-form-card button:hover {
+  background-color: #e64545;
+}
+
+/* 찾기 버튼 스타일 */
+.exercise-form-card .search-btn {
+  width: auto;
+  padding: 6px 14px;
+  background-color: #ff5f5f;
+  color: white;
+  font-weight: bold;
+  font-size: 13px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-left: 8px; /* 인풋과 간격 */
+  vertical-align: middle;
+  margin-bottom: 18px;
+}
+
+.exercise-form-card .search-btn:hover {
+  background-color: #e64545;
+}

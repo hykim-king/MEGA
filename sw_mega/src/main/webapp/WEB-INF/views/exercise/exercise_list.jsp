@@ -99,22 +99,33 @@
       </div>
     </c:forEach>
     </div>
-    <!-- 📄 페이징 영역 -->
-    <div style="text-align:center; margin-top: 20px;">
-      <c:if test="${totalCnt > 0}">
-        <c:set var="totalPages" value="${(totalCnt / pageSize) + (totalCnt % pageSize > 0 ? 1 : 0)}" />
-        <c:forEach begin="1" end="${totalPages}" var="i">
-          <c:choose>
-            <c:when test="${i == pageNo}">
-              <strong>[${i}]</strong>
-            </c:when>
-            <c:otherwise>
-              <a href="/ehr/exercise/doRetrieve.do?pageNo=${i}&pageSize=${pageSize}&searchDiv=${param.searchDiv}&searchWord=${param.searchWord}">[${i}]</a>
-            </c:otherwise>
-          </c:choose>
-        </c:forEach>
-      </c:if>
-    </div>
+<!-- 📄 페이징 영역 -->
+<div class="pagination">
+  <c:if test="${totalCnt > 0}">
+    <%-- 페이징 변수 세팅 --%>
+    <c:set var="pageSize" value="${empty pageSize || pageSize == 0 ? 10 : pageSize}" />
+    <c:set var="totalPages" value="${(totalCnt / pageSize) + (totalCnt % pageSize > 0 ? 1 : 0)}" />
+    <c:set var="startPage" value="${pageNo - 2 > 0 ? pageNo - 2 : 1}" />
+    <c:set var="endPage" value="${pageNo + 2 <= totalPages ? pageNo + 2 : totalPages}" />
+
+    <%-- << < [1] [2] [3] > >> 구성 --%>
+    <a href="?pageNo=1&pageSize=${pageSize}">«</a>
+    <a href="?pageNo=${pageNo - 1 > 0 ? pageNo - 1 : 1}&pageSize=${pageSize}">‹</a>
+
+    <c:forEach begin="${startPage}" end="${endPage}" var="i">
+      <c:choose>
+        <c:when test="${i == pageNo}">
+          <strong>[${i}]</strong>
+        </c:when>
+        <c:otherwise>
+          <a href="?pageNo=${i}&pageSize=${pageSize}">[${i}]</a>
+        </c:otherwise>
+      </c:choose>
+    </c:forEach>
+
+    <a href="?pageNo=${pageNo + 1 <= totalPages ? pageNo + 1 : totalPages}&pageSize=${pageSize}">›</a>
+  </c:if>
+</div>
       </div>
       </main>
       <!--//main end-------------------->

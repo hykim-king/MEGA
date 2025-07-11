@@ -38,8 +38,8 @@
         </select>
            <span class="divider">|</span>
         </div>
-            <button type="submit" class="search-button">➔</button>
         <input type="text" name="searchWord" id="searchWord"  placeholder="검색어를 입력하세요" class="search-input">
+            <button type="submit" class="search-button">➔</button>
     </form>
 </div>
 
@@ -74,19 +74,29 @@
 </c:forEach>
 </div>
 <!-- 📄 페이징 영역 -->
-<div style="text-align:center; margin-top: 20px;">
+<div class="pagination">
   <c:if test="${totalCnt > 0}">
+    <%-- 페이징 변수 세팅 --%>
     <c:set var="totalPages" value="${(totalCnt / pageSize) + (totalCnt % pageSize > 0 ? 1 : 0)}" />
-    <c:forEach begin="1" end="${totalPages}" var="i">
+    <c:set var="startPage" value="${pageNo - 2 > 0 ? pageNo - 2 : 1}" />
+    <c:set var="endPage" value="${pageNo + 2 <= totalPages ? pageNo + 2 : totalPages}" />
+
+    <%-- << < [1] [2] [3] > >> 구성 --%>
+    <a href="?pageNo=1&pageSize=${pageSize}">«</a>
+    <a href="?pageNo=${pageNo - 1 > 0 ? pageNo - 1 : 1}&pageSize=${pageSize}">‹</a>
+
+    <c:forEach begin="${startPage}" end="${endPage}" var="i">
       <c:choose>
         <c:when test="${i == pageNo}">
           <strong>[${i}]</strong>
         </c:when>
         <c:otherwise>
-          <a href="/ehr/food/doRetrieve.do?pageNo=${i}&pageSize=${pageSize}&searchWord=${param.searchWord}">[${i}]</a>
+          <a href="?pageNo=${i}&pageSize=${pageSize}">[${i}]</a>
         </c:otherwise>
       </c:choose>
     </c:forEach>
+
+    <a href="?pageNo=${pageNo + 1 <= totalPages ? pageNo + 1 : totalPages}&pageSize=${pageSize}">›</a>
   </c:if>
 </div>
 
