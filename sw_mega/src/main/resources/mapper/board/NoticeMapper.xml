@@ -69,36 +69,61 @@
          </choose>    
     </sql>
 
-
-<select id="doRetrieve" parameterType="SearchDTO" resultType="NoticeDTO">
-        SELECT A.*,B.*
+    <!-- 공지사항 조회 -->
+    <select id="doRetrieve" parameterType="SearchDTO" resultType="NoticeDTO">
+        SELECT A.*, B.*
         FROM (
             SELECT TT1.rnum AS no,
                    TT1.no_Code,
                    TT1.title,
                    TT1.view_Count,
-                   DECODE(TO_CHAR(SYSDATE,'YYYY/MM/DD'),TO_CHAR(TT1.up_dt,'YYYY/MM/DD')
-                     ,  TO_CHAR(TT1.up_dt,'HH24:MI')
-                     ,  TO_CHAR(TT1.up_dt,'YYYY/MM/DD')) up_dt,
+                   DECODE(TO_CHAR(SYSDATE,'YYYY/MM/DD'), TO_CHAR(TT1.up_dt,'YYYY/MM/DD'),
+                        TO_CHAR(TT1.up_dt,'HH24:MI'),
+                        TO_CHAR(TT1.up_dt,'YYYY/MM/DD')) up_dt,
                    TT1.user_id
-              FROM (
+            FROM (
                 SELECT ROWNUM rnum, T1.*
-                  FROM (
+                FROM (
                     SELECT *
-                      FROM notice
-                       <include refid="noticeWhere"></include> 
-                      ORDER BY up_dt DESC
-                )T1  
-    <![CDATA[   WHERE ROWNUM <=( #{pageSize} * (#{pageNo} - 1)+ #{pageSize}  )
+                    FROM notice
+                    <where>
+                        <if test="searchDiv != null and searchDiv == '10'">
+                            title LIKE #{searchWord}||'%'
+                        </if>
+                        <if test="searchDiv != null and searchDiv == '20'">
+                            content LIKE #{searchWord}||'%'
+                        </if>
+                        <if test="searchDiv != null and searchDiv == '30'">
+                            no_Code = TO_NUMBER(#{searchWord})
+                        </if>
+                        <if test="searchDiv != null and searchDiv == '40'">
+                            (title LIKE #{searchWord}||'%' OR content LIKE #{searchWord}||'%')
+                        </if>
+                    </where>
+                    ORDER BY up_dt DESC
+                ) T1
+                WHERE ROWNUM &lt;= (#{pageSize} * (#{pageNo} - 1) + #{pageSize})
             ) TT1
-            WHERE rnum >=( #{pageSize} * (#{pageNo} - 1)+ 1  )
-            ]]>    
-        )A
-        CROSS JOIN(
+            WHERE rnum &gt;= (#{pageSize} * (#{pageNo} - 1) + 1)
+        ) A
+        CROSS JOIN (
             SELECT COUNT(*) total_cnt
-              FROM notice
-             <include refid="noticeWhere"></include> 
-        )B
+            FROM notice
+            <where>
+                <if test="searchDiv != null and searchDiv == '10'">
+                    title LIKE #{searchWord}||'%'
+                </if>
+                <if test="searchDiv != null and searchDiv == '20'">
+                    content LIKE #{searchWord}||'%'
+                </if>
+                <if test="searchDiv != null and searchDiv == '30'">
+                    no_Code = TO_NUMBER(#{searchWord})
+                </if>
+                <if test="searchDiv != null and searchDiv == '40'">
+                    (title LIKE #{searchWord}||'%' OR content LIKE #{searchWord}||'%')
+                </if>
+            </where>
+        ) B
     </select>
 
     <!-- 공지사항 단건 조회 -->

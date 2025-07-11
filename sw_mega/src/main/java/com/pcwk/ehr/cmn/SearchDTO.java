@@ -20,6 +20,11 @@ public class SearchDTO extends DTO {
 	}
 
 	private int noCode;
+	private int fbCode;
+
+	public void setFbCode(int fbCode) {
+		this.fbCode = fbCode;
+	}
 
 	public int getNoCode() {
 	    return noCode;

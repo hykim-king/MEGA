@@ -13,13 +13,13 @@ public class FreeBoardDTO extends DTO{
 	private String title;//제목
 	private String content;//내용
 	private int viewCount;//조회수
-	private Date cDt;//작성일
-	private Date upDt;//수정일
+	private String cDt;//작성일
+	private String upDt;//수정일
 	
 	//기본 생성자
 	public FreeBoardDTO() {}
 	
-	public FreeBoardDTO(String userId, String title, String content, int viewCount, Date cDt, Date upDt) {
+	public FreeBoardDTO(String userId, String title, String content, int viewCount, String cDt, String upDt) {
 		super();
 		this.userId = userId;
 		this.title = title;
@@ -28,48 +28,64 @@ public class FreeBoardDTO extends DTO{
 		this.cDt = cDt;
 		this.upDt = upDt;
 	}
+
 	public int getFbCode() {
 		return fbCode;
 	}
+
 	public void setFbCode(int fbCode) {
 		this.fbCode = fbCode;
 	}
+
 	public String getUserId() {
 		return userId;
 	}
+
 	public void setUserId(String userId) {
 		this.userId = userId;
 	}
+
 	public String getTitle() {
 		return title;
 	}
+
 	public void setTitle(String title) {
 		this.title = title;
 	}
+
 	public String getContent() {
 		return content;
 	}
+
 	public void setContent(String content) {
 		this.content = content;
 	}
+
 	public int getViewCount() {
 		return viewCount;
 	}
+
 	public void setViewCount(int viewCount) {
 		this.viewCount = viewCount;
 	}
-	public Date getcDt() {
+
+	public String getcDt() {
 		return cDt;
 	}
-	public void setcDt(Date cDt) {
+
+	public void setcDt(String cDt) {
 		this.cDt = cDt;
 	}
-	public Date getUpDt() {
+
+	public String getUpDt() {
 		return upDt;
 	}
-	public void setUpDt(Date upDt) {
+
+	public void setUpDt(String upDt) {
 		this.upDt = upDt;
 	}
+
+	
 	@Override
 	public String toString() {
 		return "FreeBoardDTO [fbCode=" + fbCode + ", userId=" + userId + ", title=" + title + ", content=" + content

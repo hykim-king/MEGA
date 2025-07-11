@@ -2,38 +2,37 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.pcwk.ehr.mapper.FbCommentMapper">
 
+ <select id="doRetrieveByFbCode" parameterType="int" resultType="FreeBoardCommentDTO">
+        SELECT
+            commented_Code,
+            fb_code,
+            content,
+            user_id,
+            c_dt
+        FROM
+            commentedCode
+        WHERE
+            fb_code = #{fbCode}
+        ORDER BY c_dt ASC
+    </select>
+
       <select id="doRetrieve" parameterType="SearchDTO" resultType="FreeBoardCommentDTO"  >
-              
-    SELECT *                                                       
-       FROM (                                                              
-         SELECT tt3.RNUM AS no,                                            
-                tt3.commented_Code,                                               
-                tt3.fb_code,                                                  
-                tt3.user_id,                                              
-                tt3.content,                                                 
-                tt3.c_Dt, 
-                tt3.up_Dt                                                                                                                  
-         FROM (                                                            
-             SELECT ROWNUM as RNUM,                                        
-                    tt2.*                                                  
-               FROM(                                                       
-                     SELECT t1.*                                           
-                      FROM FB_COMMENTED t1         
-                        where fb_code LIKE #{searchWord} ||'%'                                          
-                     ORDER BY t1.c_dt DESC                               
-             )tt2
-         <![CDATA[                                                          
-             WHERE ROWNUM <= ( #{pageSize} * (#{pageNo} - 1 ) + #{pageSize} )                                             
-         )tt3                                                              
-         WHERE RNUM >= ( #{pageSize} * (#{pageNo} - 1 ) + 1 )
-         ]]>                                                       
-)
+    SELECT 
+        commented_code,
+        fb_code,
+        user_id,
+        content,
+        c_dt,
+        up_dt 
+    FROM FB_COMMENTED 
+    WHERE fb_code = #{searchWord}
+    ORDER BY c_dt DESC
    </select>
   
 
     <!-- 단건 조회 -->
-    <select id="doSelectOne" resultType="String" parameterType="FreeBoardCommentDTO">
-    SELECT
+    <select id="doSelectOne" resultType="FreeBoardCommentDTO" parameterType="FreeBoardCommentDTO">
+<!--     SELECT
     COMMENTED_CODE,
     FB_CODE,
     USER_ID,
@@ -41,27 +40,29 @@
     C_DT,
     UP_DT
     FROM FB_COMMENTED
-    WHERE COMMENTED_CODE = #{commentedCode};
+    WHERE COMMENTED_CODE = #{commentedCode}; -->
+    
+        SELECT * 
+    FROM FB_COMMENTED
+    WHERE COMMENTED_CODE = #{commentedCode}
     </select>
 
     
       <!-- 댓글 등록 -->
     <insert id="doSave" parameterType="FreeBoardCommentDTO">
-        INSERT INTO FB_COMMENTED (
-            COMMENTED_CODE,
-            FB_CODE,
-            USER_ID,
-            CONTENT,
-            C_DT,
-            UP_DT
-        ) VALUES (
-            FB_CO_SEQ.NEXTVAL,
-            #{fbCode},
-            #{userId},
-            #{content},
-            SYSDATE,
-            SYSDATE
-        )
+    INSERT INTO FB_COMMENTED (
+        commented_Code,
+        fb_code,
+        content,
+        user_id,
+        c_dt
+    ) VALUES (
+        fb_co_seq.NEXTVAL,
+        #{fbCode},
+        #{content, jdbcType=VARCHAR},  <!-- ✅ 핵심 수정 -->
+        #{userId, jdbcType=VARCHAR},
+        SYSDATE
+    )
     </insert>
     
     <!-- 수정 -->

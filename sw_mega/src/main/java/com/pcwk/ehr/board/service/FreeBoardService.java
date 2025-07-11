@@ -6,4 +6,5 @@ import com.pcwk.ehr.cmn.WorkDiv;
 public interface FreeBoardService extends WorkDiv<FreeBoardDTO>{
 
 
+
 }
