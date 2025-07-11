@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="/ehr/resources/assets/css/header.css">
 <link rel="stylesheet" href="/ehr/resources/assets/css/mypage_search.css">
 <link rel="stylesheet" href="/ehr/resources/assets/css/pcwk_main.css">
+<link rel="stylesheet" href="/ehr/resources/assets/css/foodDiary_form.css">
 <title>헬메이트</title>
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
  <script src="/ehr/resources/assets/js/common.js"></script>
@@ -24,13 +25,15 @@
       <main id="main">
       <div class="main-container">
 
+<div class="food-form-container">
+  <div class="food-form-card">
 <h2>🍽️ 음식 일지 등록</h2>
 
 <form id="foodDiaryForm">
 
   <label for="foodName">음식명: </label>
   <input type="text" id="foodName" name="foodName" value="${param.foodName}" required readonly />
-  <button type="button" onclick="goSearchFood()">찾기</button><br/>
+  <button type="button" onclick="goSearchFood()" class="search-btn">찾기</button><br/>
 
   <label>섭취 그람(g): </label>
   <input type="number" id="grams" name="grams" value="${param.grams}" required /><br/>
@@ -47,6 +50,8 @@
 
   <button type="button" id="saveBtn">등록</button>
 </form>
+ </div>
+</div>
 
 <script>
 	function goSearchFood() {

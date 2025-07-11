@@ -9,7 +9,7 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="/ehr/resources/assets/css/header.css">
-<link rel="stylesheet" href="/ehr/resources/assets/css/food_exercise_list.css">
+<link rel="stylesheet" href="/ehr/resources/assets/css/exerciseDiary_list.css">
 <link rel="stylesheet" href="/ehr/resources/assets/css/mypage_search.css">
 <link rel="stylesheet" href="/ehr/resources/assets/css/pcwk_main.css">
 <title>헬메이트</title>
@@ -25,7 +25,7 @@
       <main id="main">
       <div class="main-container">
 
-<h2>운동 일지</h2>
+<h1>운동 일지</h1>
 
 
 <!-- 날짜 선택 폼 시작 -->
@@ -42,20 +42,21 @@
 </div>
 
 <c:forEach var="meal" items="${exerciseType}">
+<section>
     <h3>
         <c:choose>
             <c:when test="${meal == '유산소'}">${meal}</c:when>
             <c:otherwise>${meal}</c:otherwise>
         </c:choose>
     </h3>
-
+</section>
     <c:set var="hasData" value="false" />
 
     <c:forEach var="item" items="${list}">
         <c:if test="${item.exerciseType == meal}">
             <c:set var="hasData" value="true" />
              <div class="exercise-card">
-            <p>${item.exerciseName}</p>
+            <h4>${item.exerciseName}</h4>
             <p>운동 타입: ${item.exerciseType}</p>
             
 	        <!-- 유산소 -->
@@ -87,7 +88,8 @@
         <p>등록된 운동 일지가 없습니다.</p>
     </c:if>
 </c:forEach>
-
+<section>
+</section>
 <c:if test="${not empty vo}">
  <div class="exercise-card">
     <h3>🍽️ 총 소모 칼로리 및 시간 요약</h3>

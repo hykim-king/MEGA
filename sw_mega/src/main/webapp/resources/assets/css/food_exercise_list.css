@@ -1,6 +1,7 @@
 @charset "UTF-8";
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Nanum+Pen+Script&display=swap');
 
+
 body {
   background: url('/ehr/resources/assets/img/bg_fitness.jpg') no-repeat center center fixed;
   background-size: cover;
@@ -136,4 +137,35 @@ label {
 .food-desc {
   font-size: 14px;
   color: #666;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin-top: 30px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.pagination a,
+.pagination strong {
+  display: inline-block;
+  padding: 6px 10px;
+  margin: 0 4px;
+  border-radius: 4px;
+  font-size: 14px;
+  text-decoration: none;
+  color: #5c6ef8;
+  transition: background-color 0.2s;
+}
+
+.pagination a:hover {
+  background-color: #f0f0f0;
+}
+
+.pagination strong {
+  font-weight: bold;
+  background-color: #5c6ef8;
+  color: white;
 }
