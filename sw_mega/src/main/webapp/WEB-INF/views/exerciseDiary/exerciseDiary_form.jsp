@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="/ehr/resources/assets/css/header.css">
 <link rel="stylesheet" href="/ehr/resources/assets/css/mypage_search.css">
 <link rel="stylesheet" href="/ehr/resources/assets/css/pcwk_main.css">
+<link rel="stylesheet" href="/ehr/resources/assets/css/exerciseDiary_form.css">
 <title>헬메이트</title>
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
  <script src="/ehr/resources/assets/js/common.js"></script>
@@ -23,16 +24,16 @@
     
       <!--main-->
       <main id="main">
-      <div class="main-container">
+     <div class="exercise-form-container">
       
-<h2>운동 일지 등록</h2>
-
+  <div class="exercise-form-card">
 <form id="exerciseDiaryForm">
+<h2>운동 일지 등록</h2>
     
     <label for="exerciseName">운동명: </label>
     <input type="text" id="exerciseName" name="exerciseName" value="${param.exerciseName }" required readonly />
     <input type="hidden" name="eCode" value="${param.eCode}"/>
-    <button type="button" onclick="goSearchExercise()">찾기</button><br/>
+    <button type="button" onclick="goSearchExercise()"class="search-btn">찾기</button><br/>
     
     <label>운동시간: </label>
     <input type="number" id="duration" name="duration" value="${param.duration}" required /><br/>
@@ -58,7 +59,7 @@
     <button type="button" id="saveBtn">등록</button>
     
 </form>
-
+</div>
 <script>
 function goSearchExercise() {
 	const regDt = $('#regDt').val();

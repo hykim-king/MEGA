@@ -6,13 +6,15 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="/ehr/resources/assets/css/exerciseDiary_mod.css">
 <title>헬메이트</title>
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 <body>
-<h2>운동 일지 수정</h2>
 
-<div>
+<div class="exercise-edit-container">
+  <div class="exercise-edit-card">
+<h2>운동 일지 수정</h2>
 <form id="exerciseDiaryForm">
   <input type="hidden" name="edCode" value="${outVO.edCode}" />
   <input type="hidden" name="userId" value="${outVO.userId}" />
@@ -34,8 +36,8 @@
 
   <button type="button" id="updateBtn">수정</button>
 </form>
+  </div>
 </div>
-
 <script>
 	$('#updateBtn').click(function() {
 	  const formData = $('#exerciseDiaryForm').serialize();

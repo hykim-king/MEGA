@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="/ehr/resources/assets/css/food_exercise_list.css">
+<link rel="stylesheet" href="/ehr/resources/assets/css/exercise_form.css">
 <link rel="stylesheet" href="/ehr/resources/assets/css/header.css">
 <link rel="stylesheet" href="/ehr/resources/assets/css/mypage_search.css">
 <link rel="stylesheet" href="/ehr/resources/assets/css/pcwk_main.css">
@@ -23,11 +23,10 @@
    
      <!--main-->
      <main id="main">
-     <div class="main-container">
-	
+     <div class="exercise-form-container">
+	<div class="exercise-form-card">
 	<h2>운동 추가</h2>
 	<br>
-	<h4>세부 내용:</h4>
 	  <form id="exerciseForm">
 	    
 	    <label for="exerciseName">운동명:</label>
@@ -58,7 +57,7 @@
 	    <br/>
 	    <button type="button" id="saveBtn">등록</button>
 	  </form>
-	  
+	  </div>
 	  <script>
 		  $('#saveBtn').click(function() {
 			  if ($('#exerciseType').val() === '유산소') {

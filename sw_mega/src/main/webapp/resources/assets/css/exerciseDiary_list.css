@@ -1,0 +1,163 @@
+@charset "UTF-8";
+
+/* 글씨 기본 폰트 및 배경 */
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  background: linear-gradient(to bottom, #f9f7fb 0%, #f0eef5 100%);
+}
+
+section {
+  padding-bottom: 24px;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 24px;
+}
+
+/* 중앙 정렬 + 최대 너비 설정 */
+.main-container {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 40px 16px;
+}
+
+/* 제목 스타일 */
+h1 {
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 30px;
+  color: #333;
+  font-weight: 700;
+}
+
+/* 날짜 선택 폼 */
+form {
+  background-color: white;
+  padding: 24px 20px;
+  border-radius: 16px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+form label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #555;
+}
+
+form input[type="date"] {
+  padding: 8px 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+form button {
+  background-color: #ff6b6b;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+form button:hover {
+  background-color: #e95656;
+}
+
+/* 추가 버튼 (우측 상단 링크 스타일) */
+div[style*="text-align: right"] a {
+  background-color: #5c6ef8;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 24px;
+  font-size: 13px;
+  text-decoration: none;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+div[style*="text-align: right"] a:hover {
+  background-color: #4a5ae0;
+}
+
+/* 섹션 제목: 아침/점심/저녁 */
+h3 {
+  margin-top: 24px;
+  font-size: 16px;
+  background-color: yellow;
+  color: #333;
+  padding: 6px 12px;
+  border-radius: 12px;
+  display: inline-block;
+  margin-bottom: 12px;
+}
+
+/* 개별 운동 카드 */
+.exercise-card {
+  background-color: white;
+  border-left: 6px solid #ffd600;
+  padding: 16px 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  margin-bottom: 16px;
+}
+
+.exercise-card p {
+  margin: 4px 0;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* 수정/삭제 버튼 */
+.exercise-card a {
+  font-size: 13px;
+  color: #5c6ef8;
+  margin-right: 8px;
+  text-decoration: none;
+}
+
+.exercise-card a:hover {
+  text-decoration: underline;
+}
+
+.exercise-card button {
+  background-color: #f67280;
+  color: white;
+  border: none;
+  padding: 4px 10px;
+  font-size: 13px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.exercise-card button:hover {
+  background-color: #ee5a6f;
+}
+
+/* 등록된 운동이 없을 때 메시지 */
+p.empty {
+  font-style: italic;
+  color: #999;
+  font-size: 14px;
+  padding-left: 4px;
+}
+
+/* 요약 박스 스타일 */
+.exercise-card:last-of-type {
+  margin-top: 40px;
+  text-align: center;
+  background-color: #fdfdfd;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.exercise-card:last-of-type h3 {
+  background-color: transparent;
+  font-size: 17px;
+  margin-bottom: 10px;
+}
