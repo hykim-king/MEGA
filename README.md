@@ -15,10 +15,6 @@
 
 ## 테스트
 
-### 시연 영상
--Test  
-
-
 ### 프로젝트 수행결과(이미지)  
 
 - 메인페이지  
@@ -55,4 +51,25 @@
 ![자유게시판](https://github.com/hykim-king/MEGA/blob/main/doc/%EC%9E%90%EC%9C%A0%EA%B2%8C%EC%8B%9C%ED%8C%90.png)
 - 자유게시판(게시글 및 댓글 등록, 수정, 삭제/ 좋아요, 싫어요/ 신고)  
 ![자유게시판 상세](https://github.com/hykim-king/MEGA/blob/main/doc/%EC%9E%90%EC%9C%A0%EA%B2%8C%EC%8B%9C%ED%8C%90%EC%84%B8%EB%B6%80%EC%82%AC%ED%95%AD.png)
+
+
+### 시연 영상
+- 로그인  
+
+https://github.com/user-attachments/assets/65b2fbc6-8902-4175-bc88-53696e775a8a
+
+- 운동  
+
+https://github.com/user-attachments/assets/65fccd12-26dd-4175-864a-52a70dfb9de1
+
+- 음식  
+
+https://github.com/user-attachments/assets/8b6d60bd-beae-4269-b4b3-52ed001c24ee
+
+- 공지사항/자유게시판  
+  테스트중  
+
+- 회원가입  
+
+https://github.com/user-attachments/assets/799fc0c3-3979-4dec-b38b-c0f84f2c1531
 
