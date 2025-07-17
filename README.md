@@ -62,8 +62,19 @@
 
 ## 파일 설계서
 - 파일 설계
-![파일설계서]
+![파일설계서](https://github.com/hykim-king/MEGA/blob/3949e26f2008151d2fc0c488c893c75293d203d0/doc/%ED%8C%8C%EC%9D%BC%EC%84%A4%EA%B3%84%EC%84%9C.png)
 
+
+## ERD
+
+- 전체ERD
+![전체ERD](https://github.com/hykim-king/MEGA/blob/3949e26f2008151d2fc0c488c893c75293d203d0/doc/%EC%A0%84%EC%B2%B4ERD.png)
+
+- 멤버십및게시판ERD
+![멤버십및게시판ERD](https://github.com/hykim-king/MEGA/blob/3949e26f2008151d2fc0c488c893c75293d203d0/doc/%EB%A9%A4%EB%B2%84%EC%8B%AD%EB%B0%8F%EA%B2%8C%EC%8B%9C%ED%8C%90ERD.png)
+
+- 멤버십및일지ERD
+![멤버십및일지ERD](https://github.com/hykim-king/MEGA/blob/3949e26f2008151d2fc0c488c893c75293d203d0/doc/%EB%A9%A4%EB%B2%84%EC%8B%AD%EB%B0%8F%EC%9D%BC%EC%A7%80ERD.png)
 
 
 ## 테스트
