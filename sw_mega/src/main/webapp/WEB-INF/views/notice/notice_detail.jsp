@@ -2,192 +2,28 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <c:set var="CP" value="${pageContext.request.contextPath}" />
+<c:set var="now" value="<%=new java.util.Date()%>" />
+<c:set var="sysDate"><fmt:formatDate value="${now}" pattern="yyyy-MM-dd_HH:mm:ss" /></c:set> 
+
+
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
     <title>${outVO.title} | 게시글 상세</title>
-    <link rel="stylesheet" href="${CP}/resources/assets/css/header.css">
-    <link rel="stylesheet" href="${CP}/resources/assets/css/pcwk_main.css">
-    <link rel="stylesheet" href="${CP}/resources/assets/css/comment.css">
+    <link rel="stylesheet" href="/ehr/resources/assets/css/header.css">
+    <link rel="stylesheet" href="/ehr/resources/assets/css/pcwk_main.css">
+    <link rel="stylesheet" href="/ehr/resources/assets/css/comment.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/ehr/resources/assets/css/notice_detail.css">
+    
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <style>
-        body {
-            font-family: 'Do Hyeon', sans-serif;
-            margin: 0;
-            background: #fff;
-        }
-        #container {
-            min-height: 100vh;
-            background: #fff;
-        }
-        .main-container {
-            display: flex;
-            justify-content: center;
-        }
-        .detail-container {
-            width: 100%;
-            max-width: 700px;
-            margin: 70px auto 60px auto;
-            background: #F5F7FF;
-            border-radius: 13px;
-            box-shadow: 0 4px 18px #e4e7fa7e;
-            padding: 45px 38px 38px 38px;
-        }
-        .notice-title {
-            font-size: 2.1rem;
-            font-weight: bold;
-            text-shadow: 2px 2px #FDFF48;
-            margin-bottom: 18px;
-            text-align: left;
-        }
-        .notice-meta {
-            color: #555;
-            font-size: 1.05rem;
-            margin-bottom: 7px;
-            text-align: left;
-        }
-        .notice-content {
-            font-size: 1.12rem;
-            margin: 28px 0 35px 0;
-            white-space: pre-line;
-            text-align: left;
-        }
-        .notice-actions {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 7px;
-            margin-bottom: 20px;
-        }
-        .notice-actions button {
-            font-family: 'Do Hyeon', sans-serif;
-            font-size: 1rem;
-            border-radius: 6px;
-            padding: 9px 20px;
-            background: #5C6EFF;
-            color: #fff;
-            border: none;
-            margin-right: 4px;
-            transition: background 0.15s;
-            cursor: pointer;
-        }
-        .notice-actions button:hover {
-            background: #4958b8;
-        }
-        .notice-actions .reaction-buttons button {
-            background: #F5F7FF;
-            color: #222;
-            border: 1px solid #aaa;
-            padding: 7px 15px;
-        }
-        .notice-actions .reaction-buttons button.active {
-            background: #4958b8;
-            color: #fff;
-            border-color: #4958b8;
-        }
-        hr {
-            border: none;
-            border-top: 1.5px solid #e1e4eb;
-            margin: 24px 0;
-        }
-        .comment-section {
-            margin-top: 30px;
-        }
-        .comment-box {
-            background: #fff;
-            border-radius: 8px;
-            margin-bottom: 16px;
-            padding: 18px 16px 11px 16px;
-            box-shadow: 0 1px 3px #ededed9e;
-        }
-        .comment-box p {
-            margin: 3px 0;
-            text-align: left;
-        }
-        .comment-actions {
-            display: flex;
-            gap: 5px;
-            margin-top: 6px;
-        }
-        .comment-actions button {
-            font-size: 0.95rem;
-            background: #F5F7FF;
-            color: #222;
-            border: 1px solid #aaa;
-            border-radius: 5px;
-            padding: 6px 14px;
-            transition: background 0.15s;
-        }
-        .comment-actions button.active {
-            background: #4958b8;
-            color: #fff;
-            border-color: #4958b8;
-        }
-        .comment-actions .reaction-buttons button {
-            padding: 4px 10px;
-        }
-        .comment-section h3 {
-            text-align: left;
-            font-size: 1.2rem;
-            margin-bottom: 7px;
-            margin-top: 36px;
-        }
-        .comment-write-box {
-            text-align: left;
-            margin-top: 22px;
-        }
-        .comment-write-box textarea {
-            width: 97%;
-            font-family: 'Do Hyeon', sans-serif;
-            font-size: 1.04rem;
-            padding: 10px;
-            border: 1.5px solid #bbb;
-            border-radius: 6px;
-            margin-bottom: 7px;
-            min-height: 54px;
-            resize: vertical;
-            background: #fff;
-            color: #222;
-        }
-        .comment-write-box button {
-            font-size: 1rem;
-            border-radius: 6px;
-            padding: 8px 21px;
-            background: #5C6EFF;
-            color: #fff;
-            border: none;
-            margin-top: 7px;
-            cursor: pointer;
-        }
-        .to-list-btn {
-            margin-top: 40px;
-            margin-bottom: 8px;
-            padding: 12px 40px;
-            font-size: 18px;
-            background-color: #F5F7FF;
-            color: #222;
-            border: 1px solid #aaa;
-            border-radius: 7px;
-            cursor: pointer;
-        }
-        .to-list-btn:hover {
-            background: #ecefff;
-            color: #4958b8;
-            border-color: #4958b8;
-        }
-        @media (max-width: 600px) {
-            .detail-container {
-                padding: 18px 4vw;
-                margin-top: 26px;
-            }
-            .notice-title { font-size: 1.25rem; }
-            .to-list-btn { padding: 11px 12vw; font-size: 16px; }
-        }
-    </style>
+    
+    
+    
 </head>
 <body>
 <div id="container">
@@ -195,6 +31,7 @@
     <jsp:include page="/WEB-INF/views/include/header.jsp"></jsp:include>
     <main class="main-container">
       <div class="detail-container">
+      
         <div class="notice-title">${outVO.title}</div>
         <div class="notice-meta">
             작성자: <b>${outVO.userId}</b> &nbsp; | &nbsp;
