@@ -1,107 +1,79 @@
-@charset "UTF-8";
-@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
-
-/* ========== [헤더/네비게이션 영역] ========== */
-.navbar {
-  background-color: transparent;
+/* === header.css === */
+#header {
+  width: 100%;
+  background-color: #fff;
+  border-bottom: 1px solid #ccc;
+  position: relative;
+  z-index: 1000;
 }
 
-.menu-bar {
-  position: relative;
-  background-color: yellow;
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+}
+
+.navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1px 30px;
-  width: 100%;
+  flex-wrap: wrap;
 }
 
 .navbar-left {
   display: flex;
   align-items: center;
-  gap: 40px;
-}
-
-.navbar-right a {
-  font-size: 14px;          /* 글씨 크기 */
-  color: #000000;           /* 글씨 색상 */
-  text-decoration: none;    /* 밑줄 제거 */
-  font-weight: normal;      /* 굵기 조절: normal, bold, 500 등 */
-  margin-left: 10px;        /* 로그인과 회원가입 간격 */
 }
 
 .logo {
+  font-size: 1.5rem;
   font-weight: bold;
-  font-size: 20px;
+  margin-right: 2rem;
 }
 
 .main-menu {
-  display: flex;
   list-style: none;
-  margin: 0;
-  padding: 0;
-  gap: 30px;
+  display: flex;
+  gap: 1.5rem;
 }
 
-.main-menu > li > a {
-  text-decoration: none;
-  color: black;
-  font-weight: bold;
-  padding: 8px 12px;
-  display: block;
-}
-
-.has-submenu {
+.main-menu li {
   position: relative;
 }
 
-.submenu-box { 
-  display: none;
+.main-menu a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+}
+
+.submenu-box {
   position: absolute;
   top: 100%;
   left: 0;
-  width: 100vw;
-  background-color: transparent;
-  z-index: 999;
-  justify-content: flex-start; /* ← 내용도 왼쪽 정렬 */
-  height: 40px;
+  display: none;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  z-index: 100;
 }
 
-.submenu {
-  flex-direction: row; 
-  list-style: none;
-  display: flex;
-  gap: 30px;
-  padding: 0; /* 여기로 안쪽 여백 이동 */
-}
-
-.submenu li {
-  list-style: none;
-  margin-bottom: 0;
-}
-
-.submenu li a {
-  color: #333;
-  text-decoration: none;
-  font-size: 14px;
-  transition: all 0.2s;
-}
-
-.submenu li a:hover {
-  color: #ff3377;
-}
-
-/* 마우스 오버 시 서브메뉴 박스 나타남 */
-.has-submenu:hover .submenu-box,
-.submenu-box:hover {
+.has-submenu:hover .submenu-box {
   display: block;
 }
 
-/* 오른쪽 로그인/회원가입 영역 */
-.navbar-right {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+.submenu {
+  list-style: none;
+  margin: 0;
+  padding: 0.5rem 1rem;
 }
 
+.submenu li {
+  margin: 0.5rem 0;
+}
 
+.navbar-right {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
