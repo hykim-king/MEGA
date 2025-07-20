@@ -61,7 +61,7 @@
     <property name="host" value="smtp.naver.com"/>
     <property name="port" value="465"/>
     <property name="username" value="com0494@naver.com"/>
-    <property name="password" value=""/>
+    <property name="password" value="N3LH5SEFC1U2"/>
     <property name="defaultEncoding" value="utf-8"/>
 
     <property name="javaMailProperties">
@@ -87,15 +87,10 @@
        <property name="jdbcUrl"
             value="jdbc:oracle:thin:@218.144.130.138:1522:XE" /> 
         <!-- <property name="jdbcUrl"
-
             value="jdbc:oracle:thin:@192.168.100.30:1522:XE" />-->
 
-            
-        <property name="jdbcUrl"
-            value="jdbc:oracle:thin:@218.144.130.138:1522:XE" />
-
         <property name="username" value="MEGA" />
-        <property name="password" value="" />
+        <property name="password" value="m3395" />
         <!-- Optional settings -->
         <property name="maximumPoolSize" value="10" />
         <property name="minimumIdle" value="5" />
