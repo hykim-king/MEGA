@@ -17,35 +17,19 @@
         ORDER BY c_dt ASC
     </select>
 
-<!-- 전체조회 -->
-      <select id="doRetrieve" parameterType="SearchDTO" resultType="NoticeCommentDTO"  >
-              
-     SELECT *                                                        
-       FROM (                                                              
-         SELECT tt3.RNUM AS no,                                            
-                tt3.commented_Code,                                               
-                tt3.no_code,                                                  
-                tt3.user_id,                                              
-                tt3.content,                                                 
-                tt3.c_Dt, 
-                tt3.up_Dt                                                                                                                  
-         FROM (                                                            
-             SELECT ROWNUM as RNUM,                                        
-                    tt2.*                                                  
-               FROM(                                                       
-                     SELECT t1.*                                           
-                      FROM NO_COMMENTED t1         
-                        where no_code LIKE #{searchWord} ||'%'                                          
-                     ORDER BY t1.c_dt DESC                               
-             )tt2
-         <![CDATA[                                                          
-             WHERE ROWNUM <= ( #{pageSize} * (#{pageNo} - 1 ) + #{pageSize} )                                             
-         )tt3                                                              
-         WHERE RNUM >= ( #{pageSize} * (#{pageNo} - 1 ) + 1 )
-         ]]>                                                       
-)
+<select id="doRetrieve" parameterType="SearchDTO" resultType="NoticeCommentDTO">
+    SELECT 
+        commented_code,
+        no_code,
+	    user_id,
+	    content,
+	    c_dt,
+	    up_dt 
+    FROM NO_COMMENTED 
+    WHERE no_code = #{searchWord}
+    ORDER BY c_dt DESC
+</select>
 
-   </select>
   
 
     <!-- 단건 조회 -->

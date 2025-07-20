@@ -7,10 +7,12 @@
 <head>
   <title>🍽️ 음식 일지 수정</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="/ehr/resources/assets/css/foodDiary_mod.css">
 </head>
 <body>
-<h2>🍽️ 음식 일지 수정</h2>
 
+<div class="main-container">
+<h2 style="text-align: center;">🍽️ 음식 일지 수정</h2>
 <form id="foodDiaryForm">
   <input type="hidden" name="fdCode" value="${outVO.fdCode}" />
   <input type="hidden" name="regDt" value="${outVO.regDt}" />
@@ -30,6 +32,7 @@
 
   <button type="button" id="updateBtn">수정</button>
 </form>
+</div>
 
 <script>
 	$('#updateBtn').click(function() {

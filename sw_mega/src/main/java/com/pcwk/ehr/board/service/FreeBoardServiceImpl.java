@@ -18,6 +18,9 @@ public class FreeBoardServiceImpl implements FreeBoardService {
 	@Autowired
 	FreeBoardMapper mapper;
 	
+	public FreeBoardServiceImpl() {
+	}
+	
 	
 	@Override
 	public List<FreeBoardDTO> doRetrieve(SearchDTO param) {
@@ -38,6 +41,12 @@ public class FreeBoardServiceImpl implements FreeBoardService {
 	}
 
 	@Override
+	public int doSave(FreeBoardDTO param) {
+		return mapper.doSave(param);
+		
+	}
+	
+	@Override
 	public FreeBoardDTO doSelectOne(FreeBoardDTO param) {
 		//단건 조회 + 조회 count증가
 		log.debug("param:{}",param);
@@ -48,10 +57,5 @@ public class FreeBoardServiceImpl implements FreeBoardService {
 		return mapper.doSelectOne(param);
 	}
 
-	@Override
-	public int doSave(FreeBoardDTO param) {
-		return mapper.doSave(param);
-
-	}
 
 }

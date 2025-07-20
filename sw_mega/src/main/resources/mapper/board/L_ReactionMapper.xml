@@ -2,7 +2,24 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.pcwk.ehr.mapper.L_ReactionMapper">
 
+    <!-- 단일 조회 -->
+<select id="doSelectOne" parameterType="L_ReactionDTO" resultType="L_ReactionDTO">
+    SELECT reaction_code, user_id, reaction_type, target_type, target_code
+    FROM L_REACTION
+    WHERE user_id = #{userId, jdbcType=VARCHAR}
+      AND target_type = #{targetType, jdbcType=VARCHAR}
+      AND target_code = #{targetCode}
+      AND reaction_type = #{reactionType, jdbcType=VARCHAR}
+</select>
 
+
+<update id="doUpdate" parameterType="L_ReactionDTO">
+  UPDATE REACTION
+  SET reaction_type = #{reactionType}
+  WHERE user_id = #{userId}
+    AND target_type = #{targetType}
+    AND target_code = #{targetCode}
+</update>
 
     <!-- 좋아요/싫어요 전체 조회 -->
     <select id="doRetrieve" parameterType="SearchDTO" resultType="L_ReactionDTO">
@@ -21,19 +38,14 @@
 
  <!-- 좋아요/싫어요 등록 -->
     <insert id="doSave" parameterType="L_ReactionDTO">
-        INSERT INTO L_REACTION (
-            REACTION_CODE,
-            USER_ID,
-            REACTION_TYPE,
-            TARGET_TYPE,
-            TARGET_CODE
-        ) VALUES (
-            L_RE_SEQ.NEXTVAL,
-            #{userId},
-            #{reactionType},
-            #{targetType},
-            #{targetCode}
-        )
+      INSERT INTO L_REACTION (REACTION_CODE, USER_ID, REACTION_TYPE, TARGET_TYPE, TARGET_CODE)
+VALUES (
+    L_RE_SEQ.NEXTVAL,
+    #{userId, jdbcType=VARCHAR},
+    #{reactionType, jdbcType=VARCHAR},
+    #{targetType, jdbcType=VARCHAR},
+    #{targetCode}
+)
     </insert>
 
     <!-- 좋아요/싫어요 삭제 -->
@@ -42,10 +54,14 @@
         WHERE REACTION_CODE = #{reactionCode}
     </delete>
  
-     <!-- 5. 전체 건수 -->
-    <select id="getCount" resultType="java.lang.Integer">
-        SELECT COUNT(*) FROM L_REACTION
-    </select>
+
+<select id="getCount" parameterType="L_ReactionDTO" resultType="int">
+		SELECT COUNT(*) AS totalCnt
+		FROM L_REACTION
+		WHERE REACTION_TYPE = #{reactionType, jdbcType=VARCHAR}
+		  AND TARGET_CODE = #{targetCode}
+		  AND TARGET_TYPE = #{targetType, jdbcType=VARCHAR}
+</select>
     
         <!-- 7. 전체 삭제  -->
     <delete id="deleteAll">

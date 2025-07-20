@@ -49,11 +49,15 @@ public class FindPwdController{
     	 log.debug("┌────────────────────────┐");
 		 log.debug("│ findPwdView()          │");
 		 log.debug("└────────────────────────┘");
+		 
+		 log.debug("userId: " + dto.getUserId());
+		 log.debug("email: " + dto.getEmail());
     	String password = findPwdService.findPwd(dto);
         if (password != null && !password.trim().isEmpty()) {
             // 메일 발송
             try {
                 SimpleMailMessage mail = new SimpleMailMessage();
+                mail.setFrom("com0494@naver.com");
                 mail.setTo(dto.getEmail());
                 mail.setSubject("[Hellmate] 비밀번호 찾기 안내");
                 mail.setText("요청하신 비밀번호는: " + password + " 입니다.\n로그인 후 반드시 비밀번호를 변경해 주세요.");
@@ -67,6 +71,7 @@ public class FindPwdController{
         } else {
             model.addAttribute("msg", "가입하지 않은 이메일(아이디)입니다. 다시한번 확인해주세요.");
         }
-        return "findPwd";
+        log.debug("==> userId: [{}], email: [{}]", dto.getUserId(), dto.getEmail());
+        return "/login/findPwdView";
     }
 }

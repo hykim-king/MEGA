@@ -52,31 +52,48 @@
             pointcut-ref="txPointCut" />
     </aop:config>
 
+  <bean id="passwordEncoder"
+      class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/>
+
+    
+
+
     <!-- Dummy -->
     <bean id="dummyMailService"
         class="com.pcwk.ehr.user.service.DummyMailService" />
+    
     <!-- naver mail -->
-   <bean id="mailSenderImpl"
+   <bean id="mailSender"
       class="org.springframework.mail.javamail.JavaMailSenderImpl">
     <property name="host" value="smtp.naver.com"/>
     <property name="port" value="465"/>
     <property name="username" value="com0494@naver.com"/>
+
     <property name="password" value="N3LH5SEFC1U2"/>
+
+    <property name="password" value="XQX1HXNM14Q6"/>
+>>>>>>> e40234e2f8a17301b5375ceb1bb8a04b2bc60802
     <property name="defaultEncoding" value="utf-8"/>
 
-    <property name="javaMailProperties">
+     <property name="javaMailProperties">
         <props>
-            <prop key="mail.smtp.host">smtp.naver.com</prop>
-            <prop key="mail.smtp.port">465</prop>
             <prop key="mail.smtp.auth">true</prop>
-            <prop key="mail.smtp.ssl.protocols">TLSv1.2</prop>
             <prop key="mail.smtp.ssl.enable">true</prop>
             <prop key="mail.smtp.ssl.trust">smtp.naver.com</prop>
+            <prop key="mail.smtp.ssl.protocols">TLSv1.2</prop>
             <prop key="mail.debug">true</prop>
         </props>
     </property>
+
+
 </bean>
-    <alias name="mailSenderImpl" alias="mailSender"/>
+
+
+ <alias name="mailSender" alias="mailSenderImpl"/>
+
+
+
+
     <bean id="transactionManager"
         class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref="dataSource" />
@@ -84,6 +101,7 @@
     <bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource">
         <property name="driverClassName"
             value="oracle.jdbc.driver.OracleDriver" />
+
        <property name="jdbcUrl"
             value="jdbc:oracle:thin:@218.144.130.138:1522:XE" /> 
         <!-- <property name="jdbcUrl"
@@ -91,6 +109,18 @@
 
         <property name="username" value="MEGA" />
         <property name="password" value="m3395" />
+
+
+     
+
+       <!--  <property name="jdbcUrl"
+            value="jdbc:oracle:thin:@218.144.130.138:1522:XE" /> -->
+
+<property name="jdbcUrl" value="jdbc:oracle:thin:@//192.168.0.29:1521/XEPDB1"/>
+
+        <property name="username" value="megaboard" />
+        <property name="password" value="hell" />
+
         <!-- Optional settings -->
         <property name="maximumPoolSize" value="10" />
         <property name="minimumIdle" value="5" />

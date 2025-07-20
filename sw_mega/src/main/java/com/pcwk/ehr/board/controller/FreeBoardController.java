@@ -3,6 +3,7 @@ package com.pcwk.ehr.board.controller;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -11,12 +12,20 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.gson.Gson;
+import com.pcwk.ehr.board.domain.FreeBoardCommentDTO;
 import com.pcwk.ehr.board.domain.FreeBoardDTO;
+import com.pcwk.ehr.board.domain.L_ReactionDTO;
+import com.pcwk.ehr.board.domain.NoticeCommentDTO;
+import com.pcwk.ehr.board.domain.NoticeDTO;
+import com.pcwk.ehr.board.service.FreeBoardCommentService;
 import com.pcwk.ehr.board.service.FreeBoardService;
+import com.pcwk.ehr.board.service.L_ReactionService;
 import com.pcwk.ehr.cmn.MessageDTO;
 import com.pcwk.ehr.cmn.PcwkString;
 import com.pcwk.ehr.cmn.SearchDTO;
@@ -29,28 +38,133 @@ public class FreeBoardController {
 	@Autowired
 	FreeBoardService freeBoardService;
 
+	@Autowired
+	L_ReactionService reactionService;
+
+	@Autowired
+	FreeBoardCommentService freeboardCommentService;
+
 	public FreeBoardController() {
 		log.debug("┌───────────────────────────┐");
 		log.debug("│ *FreeBoardController()*   │");
 		log.debug("└───────────────────────────┘");
 	}
+
+	@GetMapping("/doDetail.do")
+	public String doDetail(FreeBoardDTO param, Model model, HttpSession session) {
+		log.debug("┌───────────────────────────┐");
+		log.debug("│ *doDetail()*              │");
+		log.debug("└───────────────────────────┘");
+
+		String userId = (String) session.getAttribute("userId");
+		if (userId == null || userId.isEmpty()) {
+			userId = "user01"; // 테스트용
+		}
+
+		// 게시글 상세 조회
+		param.setFbCode(param.getFbCode());
+		FreeBoardDTO outVO = freeBoardService.doSelectOne(param);
+		model.addAttribute("outVO", outVO);
+		log.debug("outVO:{}", outVO);
+
+		// 댓글 목록 조회 추가
+		SearchDTO search = new SearchDTO();
+		search.setSearchWord(String.valueOf(outVO.getFbCode()));
+
+		List<FreeBoardCommentDTO> commentList = freeboardCommentService.doRetrieve(search);
+		model.addAttribute("commentList", commentList);
+
 		
-		//수정	/board/doUpdate.do	doUpdate(BoardDTO param)	비동기	POST	JSON
+		 // 공지사항 좋아요/싫어요 수 조회 
+		L_ReactionDTO nLikeParam = new L_ReactionDTO();
+			
+			nLikeParam.setTargetCode(param.getFbCode());
+			nLikeParam.setTargetType("freeboard");
+			nLikeParam.setReactionType("L"); int
+			nLikeCount = reactionService.getCount(nLikeParam);
+			
+			L_ReactionDTO nDislikeParam = new L_ReactionDTO();
+			nDislikeParam.setTargetCode(param.getFbCode());
+			nDislikeParam.setTargetType("freeboard"); 
+			nDislikeParam.setReactionType("D");
+			int nDislikeCount = reactionService.getCount(nDislikeParam);
+			
+			// 댓글 좋아요/싫어요 수 조회 
+			for (FreeBoardCommentDTO comment : commentList) {
+			L_ReactionDTO cLikeParam = new L_ReactionDTO();
+			cLikeParam.setTargetCode(comment.getCommentedCode());
+			cLikeParam.setTargetType("COMMENT"); 
+			cLikeParam.setReactionType("L"); int
+			cLikeCount = reactionService.getCount(cLikeParam);
+			
+			
+			L_ReactionDTO cDislikeParam = new L_ReactionDTO();
+			cDislikeParam.setTargetCode(comment.getCommentedCode());
+			cDislikeParam.setTargetType("COMMENT"); 
+			cDislikeParam.setReactionType("D");
+			int cDislikeCount = reactionService.getCount(cDislikeParam);
+			
+			// 🔥 댓글 객체에 바로 주입! 
+			comment.setLikeCount(cLikeCount);
+			comment.setDislikeCount(cDislikeCount);
+			
+	
+			}
+	model.addAttribute("nLikeCount", nLikeCount);
+	model.addAttribute("nDislikeCount", nDislikeCount);	
+	model.addAttribute("commentList",commentList);
+
+	return"freeboard/freeboard_detail";
+
+	}
+
+	// 등록화면조회 /board/doSaveView.do doSaveView() 동기 GET
+	@GetMapping("/doSaveView.do")
+	public String doSaveView(@RequestParam(name = "div", defaultValue = "10") String div, Model model) {
+		String viewNString = "freeboard/freeboard_reg";
+		log.debug("┌───────────────────────────┐");
+		log.debug("│ *doSaveView()*            │");
+		log.debug("└───────────────────────────┘");
+		log.debug("div: {}", div);
+		model.addAttribute("freeboard_div", div);
+
+		log.debug("viewNString: {}", viewNString);
+
+		return viewNString;
+
+	}
+	
+	
+	
+	@GetMapping("/doUpdateView.do")
+	public String doUpdateView(@RequestParam("fbCode")int fbCode,Model model) {
+	    log.debug("┌───────────────────────────┐");
+	    log.debug("│ *doUpdateView()*          │");
+	    log.debug("└───────────────────────────┘");
+	    
+	    FreeBoardDTO inVO = new FreeBoardDTO();
+	    inVO.setFbCode(fbCode);
+	    
+	    FreeBoardDTO outVO = freeBoardService.doSelectOne(inVO);
+	    
+	    model.addAttribute("vo",outVO);
+	    return "freeboard/freeboard_update"; //수정 화면
+	    
+	}
+	
+
+	// 수정 /board/doUpdate.do doUpdate(BoardDTO param) 비동기 POST JSON
 	@PostMapping(value = "/doUpdate.do", produces = "text/plain;charset=UTF-8")
 	@ResponseBody
-	public String doUpdate(FreeBoardDTO param, HttpServletRequest req) {
+	public String doUpdate(@RequestBody FreeBoardDTO param, HttpServletRequest req) {
 		log.debug("┌───────────────────────────┐");
 		log.debug("│ *doUpdate()*              │");
 		log.debug("└───────────────────────────┘");
 		log.debug("1. param: {}", param);
 
 		int flag = freeBoardService.doUpdate(param);
-		String message = "";
-		if (1 == flag) {
-			message = "수정 되었습니다.";
-		} else {
-			message = "수정 실패.";
-		}
+		String message = (flag == 1)? "수정 되었습니다." : "수정 실패.";
+
 
 		return new Gson().toJson(new MessageDTO(flag, message));
 	}
@@ -58,7 +172,7 @@ public class FreeBoardController {
 	// 목록 /board/doRetrieve.do doRetrieve(SearchDTO search) 동기 GET Model
 	@GetMapping(value = "/doRetrieve.do")
 	public String doRetrieve(SearchDTO param, Model model) {
-		String viewName = "freeboard/freeboard_mod";
+		String viewName = "freeboard/freeboard_list";
 
 		log.debug("┌───────────────────────────┐");
 		log.debug("│ *doRetrieve()*            │");
@@ -97,6 +211,7 @@ public class FreeBoardController {
 		}
 
 		model.addAttribute("totalCnt", totalCnt);
+		model.addAttribute("search", param);
 
 		return viewName;
 	}

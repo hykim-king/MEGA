@@ -7,9 +7,12 @@ public class L_ReactionDTO {
 	private String reactionType; // L: 좋아요 / D: 싫어요
 	private String targetType;// 대상 게시글 유형 : 'Notice', 'Free_Board', etc
 	private int targetCode;// 대상 게시글 및 댓글 유형
+	private Integer totalCnt;
+	
 
 //기본 생성자
 	public L_ReactionDTO() {
+
 	}
 
 	public L_ReactionDTO(String userId, String reactionType, String targetType, int targetCode) {
@@ -18,6 +21,22 @@ public class L_ReactionDTO {
 		this.reactionType = reactionType;
 		this.targetType = targetType;
 		this.targetCode = targetCode;
+	}
+	
+	// ✅ 생성자2: userId 없이 사용할 수 있도록 추가
+	public L_ReactionDTO(String targetType, int targetCode, String reactionType) {
+		this.targetType = targetType;
+		this.targetCode = targetCode;
+		this.reactionType = reactionType;
+	}
+	
+
+	public Integer getTotalCnt() {
+		return totalCnt;
+	}
+
+	public void setTotalCnt(Integer totalCnt) {
+		this.totalCnt = totalCnt;
 	}
 
 	public int getReactionCode() {
@@ -63,8 +82,10 @@ public class L_ReactionDTO {
 	@Override
 	public String toString() {
 		return "L_ReactionDTO [reactionCode=" + reactionCode + ", userId=" + userId + ", reactionType=" + reactionType
-				+ ", targetType=" + targetType + ", targetCode=" + targetCode + ", toString()=" + super.toString()
-				+ "]";
+				+ ", targetType=" + targetType + ", targetCode=" + targetCode + ", totalCnt=" + totalCnt
+				+ ", toString()=" + super.toString() + "]";
 	}
+
+
 
 }

@@ -1,6 +1,10 @@
 package com.pcwk.ehr.board.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -9,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -21,12 +26,12 @@ import com.pcwk.ehr.cmn.SearchDTO;
 import com.pcwk.ehr.mapper.L_ReactionMapper;
 
 @Controller
-@RequestMapping("/l_reaction")
+@RequestMapping("/reaction")
 public class L_ReactionController {
 	Logger log = LogManager.getLogger(getClass());
 
 	@Autowired
-	L_ReactionService l_reactionService;
+	L_ReactionService reactionService;
     
 	@Autowired
     L_ReactionMapper mapper;
@@ -38,6 +43,105 @@ public class L_ReactionController {
 		log.debug("└───────────────────────────┘");
 		
 	}
+	
+	
+	@GetMapping(value = "/getUserReaction.do", produces = "application/json;charset=UTF-8")
+	@ResponseBody
+	public L_ReactionDTO getUserReaction(
+	        @RequestParam("targetType") String targetType,
+	        @RequestParam("targetCode") int targetCode,
+	        HttpServletRequest req) {
+
+	    log.debug("┌────────────────────────┐");
+	    log.debug("│ getUserReaction()      │");
+	    log.debug("└────────────────────────┘");
+
+	    String userId = (String) req.getSession().getAttribute("userId");
+	    if (userId == null) {
+	        userId = "user01"; // 테스트용	
+	    }
+
+	    L_ReactionDTO param = new L_ReactionDTO();
+	    param.setUserId(userId);
+	    param.setTargetType(targetType);
+	    param.setTargetCode(targetCode);
+
+	    return reactionService.getUserReaction(param); // null 이면 아직 반응 없음
+	}
+	
+	
+	
+	@PostMapping(value = "/doToggleReaction.do", produces = "application/json;charset=UTF-8")
+	@ResponseBody
+	public Map<String, Object> doToggleReaction(@RequestBody L_ReactionDTO reactionDTO, HttpServletRequest req) {
+        log.debug("┌──────────────────────┐");
+        log.debug("│ doToggleReaction()   │");
+        log.debug("└──────────────────────┘");
+        log.debug("toggleReaction param: {}", reactionDTO);
+
+		
+		String userId = (String) req.getSession().getAttribute("userId");
+	    if (userId == null) {
+	        userId = "user01"; // 테스트용
+	    }
+	    reactionDTO.setUserId(userId);
+	
+
+	    int flag = reactionService.toggleReaction(reactionDTO);
+
+	    // 최신 좋아요/싫어요 개수 조회
+	    L_ReactionDTO likeParam = new L_ReactionDTO();
+	    likeParam.setTargetCode(reactionDTO.getTargetCode());
+	    likeParam.setTargetType(reactionDTO.getTargetType());
+	    likeParam.setReactionType("L");
+	    int likeCount = reactionService.getCount(likeParam);
+
+	    L_ReactionDTO dislikeParam = new L_ReactionDTO();
+	    dislikeParam.setTargetCode(reactionDTO.getTargetCode());
+	    dislikeParam.setTargetType(reactionDTO.getTargetType());
+	    dislikeParam.setReactionType("D");
+	    int dislikeCount = reactionService.getCount(dislikeParam);
+
+	    Map<String, Object> result = new HashMap<>();
+	    result.put("flag", flag);
+	    result.put("likeCount", likeCount);
+	    result.put("dislikeCount", dislikeCount);
+	    result.put("message", "처리 완료");
+
+	    return result;
+	}
+	
+	
+	@PostMapping(value = "/doLike.do", produces = "application/json; charset=UTF-8")
+	@ResponseBody
+	public Map<String, Object> doLike(@RequestBody L_ReactionDTO dto) {
+	    log.debug("▶ doLike(): {}", dto);
+	    
+	    dto.setReactionType("L"); // 좋아요
+	    mapper.doSave(dto);
+
+	    int likeCount = mapper.getCount(dto);
+
+	    Map<String, Object> res = new HashMap<>();
+	    res.put("likeCount", likeCount);	    
+	    return res;
+	}
+
+	@PostMapping(value = "/doDislike.do", produces = "application/json; charset=UTF-8")
+	@ResponseBody
+	public Map<String, Object> doDislike(@RequestBody L_ReactionDTO dto) {
+	    log.debug("▶ doDislike(): {}", dto);
+	    
+	    dto.setReactionType("D"); // 싫어요
+	    mapper.doSave(dto);
+
+	    int dislikeCount = mapper.getCount(dto);
+
+	    Map<String, Object> res = new HashMap<>();
+	    res.put("dislikeCount", dislikeCount);
+	    return res;
+	}
+	
 	
 	 // 등록: /reaction/doSave.do
     @PostMapping(value = "/doSave.do", produces = "text/plain;charset=UTF-8")

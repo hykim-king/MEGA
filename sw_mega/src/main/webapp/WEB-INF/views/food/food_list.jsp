@@ -1,58 +1,45 @@
+<%@page import="java.util.Date"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>   
+<c:set var="CP" value="${pageContext.request.contextPath }" />   
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="/ehr/resources/assets/css/food_list.css">
+<link rel="stylesheet" href="/ehr/resources/assets/css/header.css">
+<link rel="stylesheet" href="/ehr/resources/assets/css/mypage_search.css">
+<link rel="stylesheet" href="/ehr/resources/assets/css/pcwk_main.css">
+<link rel="stylesheet" href="/ehr/resources/assets/css/food_exercise_list.css">
 <title>헬메이트</title>
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+ <script src="/ehr/resources/assets/js/common.js"></script>
 </head>
 <body>
 
-<div class="navbar">
-  <div class="navbar-left">
-    <div class="logo">🏋️‍♂️ 헬메이트</div>
-    <ul class="main-menu">
-      <li><a href="#">홈</a></li>
-      <li class="has-submenu">
-        <a href="#">운동</a>
-        <ul class="submenu">
-          <li><a href="/ehr/exerciseDiary/doRetrieve.do">운동 일지</a></li>
-          <li><a href="/ehr/exercise/doRetrieve.do">운동 조회</a></li>
-          <li><a href="/ehr/exercise/doForm.do">운동 추가</a></li>
-        </ul>
-      </li>
-      <li class="has-submenu">
-        <a href="#">음식</a>
-        <ul class="submenu">
-          <li><a href="/ehr/foodDiary/doRetrieve.do">음식 일지</a></li>
-          <li><a href="/ehr/food/doRetrieve.do">음식 조회</a></li>
-          <li><a href="/ehr/food/doForm.do">음식 추가</a></li>
-        </ul>
-      </li>
-      <li><a href="#">커뮤니티</a></li>
-    </ul>
-  </div>
+   <div id="container">
+   
+    <jsp:include page="/WEB-INF/views/include/header.jsp"></jsp:include>
+    
+      <!--main-->
+      <main id="main">
+      <div class="main-container">
 
-  <div class="navbar-right">
-    <span>🔔</span>
-    <div class="circle"></div>
-    <span>로그인</span>
-  </div>
-</div>
+
 
 <!-- 🔍 검색 영역 -->
-<div>
-    <form action="/ehr/food/doRetrieve.do"  method="get">
-        <input type="text" name="searchWord" id="searchWord"  size="15" placeholder="검색어를 입력하세요">
-        <select name="pageSize" id="pageSize">
+<div class="search-bar">
+    <form action="/ehr/food/doRetrieve.do"  method="get" class="search-form">
+        <div class="select-wrapper with-divider">
+        <select name="pageSize" id="pageSize" class="search-select">
             <option value="10">10개씩</option>
             <option value="20">20개씩</option>
         </select>
-        <input type="submit" value="조회">
+           <span class="divider">|</span>
+        </div>
+        <input type="text" name="searchWord" id="searchWord"  placeholder="검색어를 입력하세요" class="search-input">
+            <button type="submit" class="search-button">➔</button>
     </form>
 </div>
 
@@ -87,19 +74,29 @@
 </c:forEach>
 </div>
 <!-- 📄 페이징 영역 -->
-<div style="text-align:center; margin-top: 20px;">
+<div class="pagination">
   <c:if test="${totalCnt > 0}">
+    <%-- 페이징 변수 세팅 --%>
     <c:set var="totalPages" value="${(totalCnt / pageSize) + (totalCnt % pageSize > 0 ? 1 : 0)}" />
-    <c:forEach begin="1" end="${totalPages}" var="i">
+    <c:set var="startPage" value="${pageNo - 2 > 0 ? pageNo - 2 : 1}" />
+    <c:set var="endPage" value="${pageNo + 2 <= totalPages ? pageNo + 2 : totalPages}" />
+
+    <%-- << < [1] [2] [3] > >> 구성 --%>
+    <a href="?pageNo=1&pageSize=${pageSize}">«</a>
+    <a href="?pageNo=${pageNo - 1 > 0 ? pageNo - 1 : 1}&pageSize=${pageSize}">‹</a>
+
+    <c:forEach begin="${startPage}" end="${endPage}" var="i">
       <c:choose>
         <c:when test="${i == pageNo}">
           <strong>[${i}]</strong>
         </c:when>
         <c:otherwise>
-          <a href="/ehr/food/doRetrieve.do?pageNo=${i}&pageSize=${pageSize}&searchWord=${param.searchWord}">[${i}]</a>
+          <a href="?pageNo=${i}&pageSize=${pageSize}">[${i}]</a>
         </c:otherwise>
       </c:choose>
     </c:forEach>
+
+    <a href="?pageNo=${pageNo + 1 <= totalPages ? pageNo + 1 : totalPages}&pageSize=${pageSize}">›</a>
   </c:if>
 </div>
 
@@ -113,5 +110,12 @@
 	  }
 	}
 </script>
+      </div>
+      </main>
+      <!--//main end-------------------->
+
+      
+ <jsp:include page="/WEB-INF/views/include/footer.jsp"></jsp:include>
+   </div> 
 </body>
 </html>
