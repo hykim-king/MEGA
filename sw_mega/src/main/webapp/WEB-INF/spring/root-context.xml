@@ -68,7 +68,6 @@
     <property name="host" value="smtp.naver.com"/>
     <property name="port" value="465"/>
     <property name="username" value="com0494@naver.com"/>
-
     <property name="password" value=""/>
 
     <property name="defaultEncoding" value="utf-8"/>
