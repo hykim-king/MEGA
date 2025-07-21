@@ -9,6 +9,8 @@ public class FreeBoardCommentDTO {
 	private String content;// 내용
 	private Date cDt;// 작성일
 	private Date upDt;// 수정일
+	private int likeCount;
+	private int dislikeCount;
 
 	// 기본 생성자
 	public FreeBoardCommentDTO() {
@@ -23,6 +25,22 @@ public class FreeBoardCommentDTO {
 
 	public int getCommentedCode() {
 		return commentedCode;
+	}
+
+	public int getLikeCount() {
+		return likeCount;
+	}
+
+	public void setLikeCount(int likeCount) {
+		this.likeCount = likeCount;
+	}
+
+	public int getDislikeCount() {
+		return dislikeCount;
+	}
+
+	public void setDislikeCount(int dislikeCount) {
+		this.dislikeCount = dislikeCount;
 	}
 
 	public void setCommentedCode(int commentedCode) {
@@ -72,7 +90,11 @@ public class FreeBoardCommentDTO {
 	@Override
 	public String toString() {
 		return "FreeBoardCommentDTO [commentedCode=" + commentedCode + ", fbCode=" + fbCode + ", userId=" + userId
-				+ ", content=" + content + ", cDt=" + cDt + ", upDt=" + upDt + ", toString()=" + super.toString() + "]";
+				+ ", content=" + content + ", cDt=" + cDt + ", upDt=" + upDt + ", likeCount=" + likeCount
+				+ ", dislikeCount=" + dislikeCount + ", toString()=" + super.toString() + "]";
 	}
+
+	
+	
 
 }

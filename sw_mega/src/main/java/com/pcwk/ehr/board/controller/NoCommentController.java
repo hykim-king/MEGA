@@ -1,7 +1,8 @@
 package com.pcwk.ehr.board.controller;
 
-import java.sql.SQLException;
 import java.util.List;
+
+import javax.servlet.http.HttpSession;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -12,13 +13,16 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.gson.Gson;
+import com.pcwk.ehr.board.domain.L_ReactionDTO;
 import com.pcwk.ehr.board.domain.NoticeCommentDTO;
+import com.pcwk.ehr.board.domain.NoticeDTO;
+import com.pcwk.ehr.board.service.L_ReactionService;
 import com.pcwk.ehr.board.service.NoticeCommentService;
+import com.pcwk.ehr.board.service.NoticeService;
 import com.pcwk.ehr.cmn.MessageDTO;
 import com.pcwk.ehr.cmn.SearchDTO;
 import com.pcwk.ehr.mapper.NoCommentMapper;
@@ -32,6 +36,12 @@ public class NoCommentController {
 	NoCommentMapper mapper;
 
 	@Autowired
+	NoticeService noticeservice;
+	
+	@Autowired
+	L_ReactionService reactionService;
+	
+	@Autowired
 	NoticeCommentService noticeCommentService;
 
 	public NoCommentController() {
@@ -39,6 +49,61 @@ public class NoCommentController {
 		log.debug("│ *NoCommentController()*   │");
 		log.debug("└───────────────────────────┘");
 	}
+	
+	
+	@GetMapping("/doDetail.do")
+	public String doDetail(@RequestParam("noCode") int noCode, Model model, HttpSession session) {
+	    log.debug("┌───────────────────────────┐");
+	    log.debug("│ *doDetail()*              │");
+	    log.debug("└───────────────────────────┘");
+
+	    String userId = (String) session.getAttribute("userId");
+	    if (userId == null || userId.isEmpty()) {
+	        userId = "user01"; // 테스트용 기본 사용자
+	    }
+
+	    // 1. 게시글 조회
+	    NoticeDTO param = new NoticeDTO();
+	    param.setNoCode(noCode);
+	    NoticeDTO outVO = noticeservice.doSelectOne(param);
+	    model.addAttribute("vo", outVO);
+
+	    // 2. 댓글 목록 조회
+	    SearchDTO search = new SearchDTO();
+	    search.setSearchWord(String.valueOf(noCode));
+	    search.setPageNo(1); // 기본 페이지 설정
+	    search.setPageSize(100); // 충분히 큰 값 설정
+
+	    List<NoticeCommentDTO> commentList = noticeCommentService.doRetrieve(search);
+
+	    // 3. 댓글별 좋아요/싫어요 수 계산 및 주입
+	    for (NoticeCommentDTO comment : commentList) {
+	        int like = reactionService.getCount(new L_ReactionDTO("COMMENT", comment.getCommentedCode(), "L"));
+	        int dislike = reactionService.getCount(new L_ReactionDTO("COMMENT", comment.getCommentedCode(), "D"));
+	        comment.setLikeCount(like);
+	        comment.setDislikeCount(dislike);
+	    }
+
+	    model.addAttribute("commentList", commentList);
+
+	    // 4. 게시글 좋아요/싫어요
+	    L_ReactionDTO likeParam = new L_ReactionDTO("NOTICE", noCode, "L");
+	    L_ReactionDTO dislikeParam = new L_ReactionDTO("NOTICE", noCode, "D");
+	    model.addAttribute("likeCount", reactionService.getCount(likeParam));
+	    model.addAttribute("dislikeCount", reactionService.getCount(dislikeParam));
+
+	    // 5. 사용자 반응 여부
+	    L_ReactionDTO userReactionParam = new L_ReactionDTO();
+	    userReactionParam.setUserId(userId);
+	    userReactionParam.setTargetType("NOTICE");
+	    userReactionParam.setTargetCode(noCode);
+	    L_ReactionDTO myReaction = reactionService.getUserReaction(userReactionParam);
+
+	    model.addAttribute("myReaction", myReaction);
+
+	    return "notice/notice_detail";
+	}
+
 	
 
 	/**
@@ -63,7 +128,7 @@ public class NoCommentController {
 	/**
 	 * 댓글 등록
 	 */
-	 @PostMapping("/doSave.do")
+	 @PostMapping(value = "/doSave.do" , produces = "text/plain;charset=UTF-8")
 	 @ResponseBody
 	    public String doSave(@RequestBody NoticeCommentDTO param) {
 			log.debug("┌───────────────────────────┐");

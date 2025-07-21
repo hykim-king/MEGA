@@ -1,49 +1,32 @@
+<%@page import="java.util.Date"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>   
+<c:set var="CP" value="${pageContext.request.contextPath }" />   
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="/ehr/resources/assets/css/food_list.css">
-<title>Insert title here</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<link rel="stylesheet" href="/ehr/resources/assets/css/header.css">
+<link rel="stylesheet" href="/ehr/resources/assets/css/exerciseDiary_list.css">
+<link rel="stylesheet" href="/ehr/resources/assets/css/mypage_search.css">
+<link rel="stylesheet" href="/ehr/resources/assets/css/pcwk_main.css">
+<title>헬메이트</title>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+ <script src="/ehr/resources/assets/js/common.js"></script>
 </head>
 <body>
+   <div id="container">
+   
+    <jsp:include page="/WEB-INF/views/include/header.jsp"></jsp:include>
+    
+      <!--main-->
+      <main id="main">
+      <div class="main-container">
 
-<h2>운동 일지</h2>
-<div class="navbar">
-  <div class="navbar-left">
-    <div class="logo">🏋️‍♂️ 헬메이트</div>
-    <ul class="main-menu">
-      <li><a href="#">홈</a></li>
-      <li class="has-submenu">
-        <a href="#">운동</a>
-        <ul class="submenu">
-          <li><a href="/ehr/exerciseDiary/doRetrieve.do">운동 일지</a></li>
-          <li><a href="/ehr/exercise/doRetrieve.do">운동 조회</a></li>
-          <li><a href="/ehr/exercise/doForm.do">운동 추가</a></li>
-        </ul>
-      </li>
-      <li class="has-submenu">
-        <a href="#">음식</a>
-        <ul class="submenu">
-          <li><a href="/ehr/foodDiary/doRetrieve.do">음식 일지</a></li>
-          <li><a href="/ehr/food/doRetrieve.do">음식 조회</a></li>
-          <li><a href="/ehr/food/doForm.do">음식 추가</a></li>
-        </ul>
-      </li>
-      <li><a href="#">커뮤니티</a></li>
-    </ul>
-  </div>
+<h1>운동 일지</h1>
 
-  <div class="navbar-right">
-    <span>🔔</span>
-    <div class="circle"></div>
-    <span>로그인</span>
-  </div>
-</div>
 
 <!-- 날짜 선택 폼 시작 -->
 <form method="get" action="/ehr/exerciseDiary/doRetrieve.do">
@@ -59,28 +42,28 @@
 </div>
 
 <c:forEach var="meal" items="${exerciseType}">
+<section>
     <h3>
         <c:choose>
             <c:when test="${meal == '유산소'}">${meal}</c:when>
             <c:otherwise>${meal}</c:otherwise>
         </c:choose>
     </h3>
-
+</section>
     <c:set var="hasData" value="false" />
 
     <c:forEach var="item" items="${list}">
         <c:if test="${item.exerciseType == meal}">
             <c:set var="hasData" value="true" />
              <div class="exercise-card">
-            <p>${item.exerciseName}</p>
+            <h4>${item.exerciseName}</h4>
             <p>운동 타입: ${item.exerciseType}</p>
             
 	        <!-- 유산소 -->
 	        <c:if test="${item.exerciseType eq '유산소'}">
-	            <p>기준 체중: ${item.weight} kg</p>
-	            <p>기준무게: ${item.weight}kg</p>
-	            <p>성별: ${item.region}kg</p>
-	            <p>입력한 시간: ${item.duration} 분</p>
+	            <p>기준 체중: ${item.weight}kg</p>
+	            <p>성별: ${item.gender}</p>
+	            <p>운동 시간: ${item.duration} 분</p>
 	            <p>총 소모 칼로리: ${item.totalCalories} kcal</p>
 	        </c:if>
 	
@@ -90,7 +73,7 @@
 	            <p>세트 수: ${item.setCount}</p>
 	            <p>세트당 반복 수: ${item.repsPerSet}</p>
 	            <p>덤벨 무게: ${item.strenthWeight} kg</p>
-	            <p>입력한 시간: ${item.duration} 분</p>
+	            <p>운동 시간: ${item.duration} 분</p>
 	            <p>총 소모 칼로리: ${item.totalCalories} kcal</p>
 	        </c:if>
 	        
@@ -105,7 +88,8 @@
         <p>등록된 운동 일지가 없습니다.</p>
     </c:if>
 </c:forEach>
-
+<section>
+</section>
 <c:if test="${not empty vo}">
  <div class="exercise-card">
     <h3>🍽️ 총 소모 칼로리 및 시간 요약</h3>
@@ -138,5 +122,12 @@
     });
   }
 </script>
+      </div>
+      </main>
+      <!--//main end-------------------->
+
+      
+ <jsp:include page="/WEB-INF/views/include/footer.jsp"></jsp:include>
+   </div> 
 </body>
 </html>

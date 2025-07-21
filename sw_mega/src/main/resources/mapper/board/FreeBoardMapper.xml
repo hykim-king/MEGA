@@ -48,32 +48,83 @@
 </insert>
     
 
+    <sql id="noticeWhere">
+         <choose>
+             <when test=" '10' == searchDiv">
+                 AND title LIKE #{searchWord}||'%'
+             </when>
+             <when test=" '20' == searchDiv">
+                 AND content LIKE #{searchWord}||'%'
+             </when>        
+             <when test=" '30' == searchDiv">
+                 AND fb_Code = TO_NUMBER(#{searchWord})
+             </when>     
+             <when test=" '40' == searchDiv">
+                 AND ( title LIKE #{searchWord}||'%'
+                       OR
+                       content LIKE #{searchWord}||'%'
+                     )
+             </when>                          
+         </choose>    
+    </sql>
+
     <!-- 자유게시판 전체 조회 -->
-    <select id="doRetrieve" resultType="FreeBoardDTO" parameterType="SearchDTO">
-<![CDATA[
-			SELECT *
-			FROM (
-			    SELECT 
-			        ROW_NUMBER() OVER (ORDER BY FB_CODE DESC) AS rnum,
-			        FB_CODE,
-			        USER_ID,
-			        TITLE,
-			        CONTENT,
-			        VIEW_COUNT,
-			        C_DT,
-			        UP_DT
-			    FROM FREE_BOARD
-			    WHERE
-			        (
-			            (#{searchDiv, jdbcType=VARCHAR} = '10' AND TITLE LIKE '%' || #{searchWord, jdbcType=VARCHAR} || '%')
-			            OR (#{searchDiv, jdbcType=VARCHAR} = '20' AND CONTENT LIKE '%' || #{searchWord, jdbcType=VARCHAR} || '%')
-			            OR (#{searchDiv, jdbcType=VARCHAR} = '30' AND USER_ID LIKE '%' || #{searchWord, jdbcType=VARCHAR} || '%')
-			        )
-			)
-			WHERE rnum > (#{pageNo} - 1) * #{pageSize}
-			  AND rnum <= #{pageNo} * #{pageSize}
-]]>
-    </select>
+<select id="doRetrieve" parameterType="searchDTO" resultType="FreeBoardDTO">
+    SELECT A.*, B.*
+    FROM (
+        SELECT TT1.rnum AS no,
+               TT1.fb_Code,
+               TT1.title,
+               TT1.view_Count,
+               DECODE(TO_CHAR(SYSDATE,'YYYY/MM/DD'), TO_CHAR(TT1.up_dt,'YYYY/MM/DD'),
+                    TO_CHAR(TT1.up_dt,'HH24:MI'),
+                    TO_CHAR(TT1.up_dt,'YYYY/MM/DD')) up_dt,
+               TT1.user_id
+          FROM (
+            SELECT ROWNUM rnum, T1.*
+              FROM (
+                SELECT *
+                  FROM free_board
+                  <where>
+                    <if test="searchDiv != null and searchDiv == '10'">
+                      AND title LIKE #{searchWord}||'%'
+                    </if>
+                    <if test="searchDiv != null and searchDiv == '20'">
+                      AND content LIKE #{searchWord}||'%'
+                    </if>
+                    <if test="searchDiv != null and searchDiv == '30'">
+                      AND user_id LIKE #{searchWord}||'%'
+                    </if>
+                    <if test="searchDiv != null and searchDiv == '40'">
+                      AND (title LIKE #{searchWord}||'%' OR content LIKE #{searchWord}||'%')
+                    </if>
+                  </where>
+                  ORDER BY up_dt DESC
+              ) T1
+             WHERE ROWNUM &lt;= (#{pageSize} * (#{pageNo} - 1) + #{pageSize})
+          ) TT1
+         WHERE rnum &gt;= (#{pageSize} * (#{pageNo} - 1) + 1)
+    ) A
+    CROSS JOIN (
+        SELECT COUNT(*) total_cnt
+          FROM free_board
+          <where>
+            <if test="searchDiv != null and searchDiv == '10'">
+              AND title LIKE #{searchWord}||'%'
+            </if>
+            <if test="searchDiv != null and searchDiv == '20'">
+              AND content LIKE #{searchWord}||'%'
+            </if>
+            <if test="searchDiv != null and searchDiv == '30'">
+              AND user_id LIKE #{searchWord}||'%'
+            </if>
+            <if test="searchDiv != null and searchDiv == '40'">
+              AND (title LIKE #{searchWord}||'%' OR content LIKE #{searchWord}||'%')
+            </if>
+          </where>
+    ) B
+</select>
+
 
     <!-- 자유게시판 단건 조회 -->
     <select id="doSelectOne" parameterType="FreeBoardDTO" resultType="FreeBoardDTO">
@@ -83,8 +134,8 @@
             TITLE,
             CONTENT,
             VIEW_COUNT,
-            C_DT,
-            UP_DT
+                TO_CHAR(C_DT, 'YYYY/MM/DD HH24:MI:SS') AS C_DT,
+                TO_CHAR(UP_DT, 'YYYY/MM/DD HH24:MI:SS') AS UP_DT
         FROM FREE_BOARD
         WHERE FB_CODE = #{fbCode}
     </select>

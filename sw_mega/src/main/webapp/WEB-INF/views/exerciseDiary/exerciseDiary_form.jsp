@@ -1,29 +1,48 @@
+<%@page import="java.util.Date"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>   
+<c:set var="CP" value="${pageContext.request.contextPath }" />    
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="/ehr/resources/assets/css/header.css">
+<link rel="stylesheet" href="/ehr/resources/assets/css/mypage_search.css">
+<link rel="stylesheet" href="/ehr/resources/assets/css/pcwk_main.css">
+<link rel="stylesheet" href="/ehr/resources/assets/css/exerciseDiary_form.css">
 <title>헬메이트</title>
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+ <script src="/ehr/resources/assets/js/common.js"></script>
 </head>
 <body>
-<h2>운동 일지 등록</h2>
-
+   <div id="container">
+   
+    <jsp:include page="/WEB-INF/views/include/header.jsp"></jsp:include>
+    
+      <!--main-->
+      <main id="main">
+     <div class="exercise-form-container">
+      
+  <div class="exercise-form-card">
 <form id="exerciseDiaryForm">
+<h2>운동 일지 등록</h2>
     
     <label for="exerciseName">운동명: </label>
     <input type="text" id="exerciseName" name="exerciseName" value="${param.exerciseName }" required readonly />
     <input type="hidden" name="eCode" value="${param.eCode}"/>
-    <button type="button" onclick="goSearchExercise()">찾기</button><br/>
+    <button type="button" onclick="goSearchExercise()"class="search-btn">찾기</button><br/>
     
     <label>운동시간: </label>
-    <input type="number" id="duration" name="duration" value="${param.duration}" required readonly /><br/>
+    <input type="number" id="duration" name="duration" value="${param.duration}" required /><br/>
      
-    <label>체중(유산소): </label>
-    <input type="number" id="weight" name="weight" value="${param.weight}" /><br/>
+    <label>성별(유산소): </label>
+    <input type="text" id="gender" name="gender" value="${param.gender}" readonly/><br/> 
+     
+    <label>기준 체중(유산소): </label>
+    <input type="number" id="weight" name="weight" value="${param.weight}" readonly/><br/>
     
     <label>덤벨무게(근력): </label>
     <input type="number" id="strenthWeight" name="strenthWeight" value="${param.strenthWeight}" /><br/>
@@ -40,7 +59,7 @@
     <button type="button" id="saveBtn">등록</button>
     
 </form>
-
+</div>
 <script>
 function goSearchExercise() {
 	const regDt = $('#regDt').val();
@@ -63,5 +82,12 @@ $('#saveBtn').click(function() {
     });
 });
 </script>
+      </div>
+      </main>
+      <!--//main end-------------------->
+
+      
+ <jsp:include page="/WEB-INF/views/include/footer.jsp"></jsp:include>
+   </div> 
 </body>
 </html>

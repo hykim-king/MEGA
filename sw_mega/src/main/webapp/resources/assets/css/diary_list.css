@@ -1,0 +1,178 @@
+@charset "UTF-8";
+
+/* 글씨 기본 폰트 정리 */
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  background: linear-gradient(to bottom, #f9f7fb 0%, #f0eef5 100%);
+}
+
+section {
+  padding-bottom: 24px;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 24px;
+}
+
+/* 중앙 정렬 + 최대 너비 설정 */
+.main-container {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 40px 16px;
+}
+
+/* 제목 스타일 */
+h1 {
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 30px;
+  color: #333;
+  font-weight: 700;
+}
+
+/* 날짜 선택 폼 */
+form {
+  background-color: white;
+  padding: 24px 20px;
+  border-radius: 16px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+form label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #555;
+}
+
+form input[type="date"] {
+  padding: 8px 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+form button {
+  background-color: #ff6b6b;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+form button:hover {
+  background-color: #e95656;
+}
+
+/* 음식 추가 버튼 */
+div[style*="text-align: right"] a {
+  background-color: #5c6ef8;
+  color: white;
+  padding: 7px 14px;
+  border-radius: 50px;
+  font-size: 13px;
+  text-decoration: none;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+div[style*="text-align: right"] a:hover {
+  background-color: #4a5ae0;
+}
+
+/* 섹션 제목: 아침/점심/저녁 */
+h3 {
+  margin-top: 24px;
+  font-size: 16px;
+  background-color: yellow;
+  color: #333;
+  padding: 6px 12px;
+  border-radius: 12px;
+  display: inline-block;
+  margin-bottom: 12px;
+}
+
+/* 음식 항목 카드 */
+.food-item {
+  border-left: 6px solid #ffd600;
+  background-color: white;
+  padding: 16px 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  margin-bottom: 12px;
+  width: 100%;
+}
+
+.food-item p {
+  margin: 4px 0;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.food-item .actions {
+  margin-top: 8px;
+}
+
+.food-item .actions a {
+  font-size: 13px;
+  color: #5c6ef8;
+  margin-right: 8px;
+  text-decoration: none;
+}
+
+.food-item .actions a:hover {
+  text-decoration: underline;
+}
+
+.food-item .actions button {
+  background-color: #f67280;
+  color: white;
+  border: none;
+  padding: 4px 10px;
+  font-size: 13px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.food-item .actions button:hover {
+  background-color: #ee5a6f;
+}
+
+/* 없음 문구 */
+p.empty {
+  font-style: italic;
+  color: #999;
+  font-size: 14px;
+  padding-left: 4px;
+}
+
+/* 요약 카드도 중앙으로 */
+.summary-box {
+  margin: 40px auto;
+  width: 90%; /* 혹은 max-width: 500px */
+  background-color: white;
+  padding: 20px 0; /* 내부 상하 여백 (위→아래 20px) */
+  border-radius: 16px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.06);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.summary-box h3, .summary-box h4, .summary-box p {
+  margin-top: 0;     /* ✅ 위쪽 여백 제거 */
+  margin-bottom: 8px; /* 아래쪽만 조금 */
+}
+.summary-box p {
+  margin: 0;
+  font-weight: 600;
+  font-size: 14px;
+}

@@ -20,5 +20,8 @@ public interface FbCommentMapper extends WorkDiv<FreeBoardCommentDTO> {
 	 */
 	int getCount();
 
-	NoticeCommentDTO doSelectOne(int commentedCode);
+	@Override
+	FreeBoardCommentDTO doSelectOne(FreeBoardCommentDTO dto);
+	
+	int doRetrieveByFbCode();
 }
