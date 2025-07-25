@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<title>회원가입</title>
+<title>회원가입</title>  <!-- 회원가입 페이지  사용자가 가입 정보를 입력하는 화면 -->
 
 <!-- Noto Sans KR 폰트 -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
