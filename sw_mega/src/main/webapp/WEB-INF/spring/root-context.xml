@@ -68,7 +68,8 @@
     <property name="host" value="smtp.naver.com"/>
     <property name="port" value="465"/>
     <property name="username" value="com0494@naver.com"/>
-    <property name="password" value="XQX1HXNM14Q6"/>
+    <property name="password" value=""/>
+
     <property name="defaultEncoding" value="utf-8"/>
 
      <property name="javaMailProperties">
@@ -98,15 +99,17 @@
         <property name="driverClassName"
             value="oracle.jdbc.driver.OracleDriver" />
 
-     
+   
+     <property name="jdbcUrl"
+            value="jdbc:oracle:thin:@218.144.130.138:1522:XE" /> 
+      <!-- <property name="jdbcUrl"
+        value="jdbc:oracle:thin:@192.168.100.30:1522:XE" />-->
 
-       <!--  <property name="jdbcUrl"
-            value="jdbc:oracle:thin:@218.144.130.138:1522:XE" /> -->
+        <property name="username" value="hellmate" />
+        <property name="password" value="" />
 
-<property name="jdbcUrl" value="jdbc:oracle:thin:@//192.168.0.29:1521/XEPDB1"/>
 
-        <property name="username" value="megaboard" />
-        <property name="password" value="hell" />
+
         <!-- Optional settings -->
         <property name="maximumPoolSize" value="10" />
         <property name="minimumIdle" value="5" />
