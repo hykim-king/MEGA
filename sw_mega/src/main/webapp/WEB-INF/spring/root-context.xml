@@ -105,6 +105,7 @@
       <!-- <property name="jdbcUrl"
         value="jdbc:oracle:thin:@192.168.100.30:1522:XE" />-->
 
+      <property name="jdbcUrl" value="jdbc:oracle:thin:@192.168.100.166 :1521:XE" />
         <property name="username" value="hellmate" />
         <property name="password" value="" />
 

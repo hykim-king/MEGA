@@ -105,8 +105,14 @@ public class L_ReactionController {
 	    Map<String, Object> result = new HashMap<>();
 	    result.put("flag", flag);
 	    result.put("likeCount", likeCount);
+	    log.debug("likeCount: {}", likeCount);
+	    
 	    result.put("dislikeCount", dislikeCount);
+	    log.debug("dislikeCount: {}", dislikeCount);
+
 	    result.put("message", "처리 완료");
+	    
+	    
 
 	    return result;
 	}

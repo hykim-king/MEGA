@@ -54,40 +54,38 @@ public class L_ReactionServiceImpl implements L_ReactionService {
 		return mapper.getCount(param);
 
 	}
-	
+
 	@Override
 	public L_ReactionDTO getUserReaction(L_ReactionDTO param) {
-	    return mapper.doSelectOne(param);
+		return mapper.doSelectOne(param);
 	}
 
 	@Override
 	@Transactional
 	public int toggleReaction(L_ReactionDTO reactionDTO) {
-		// 이미 누른 반응 있는지 확인
 		L_ReactionDTO exist = mapper.doSelectOne(reactionDTO);
 
+		// 취소 요청이면, 해당 타입만 삭제
 		if (reactionDTO.getReactionType() == null) {
-			// sendType=null 이면 취소 → 기존 반응 있으면 삭제
+			// 여기서는 reactionDTO에 이전 타입을 프론트에서 넘겨주도록 변경
 			if (exist != null) {
 				return mapper.doDelete(exist);
-			} 
-				return 1; // 취소할 게 없지만 성공
-			
-	    }
+			}
+			return 1;
+		}
 
-	    if (exist != null) {
-	        if (reactionDTO.getReactionType().equals(exist.getReactionType())) {
-	            // 같은 반응 → 토글 끄기
-	            return mapper.doDelete(exist);
-	        } else {
-	            // 다른 반응 → 업데이트 (좋아요 ↔ 싫어요 전환)
-	            return mapper.doUpdate(reactionDTO);
-	        }
-	    } else {
-	        // 처음 반응하는 경우
-	        return mapper.doSave(reactionDTO);
-	    }
+		// 기존 반응이 동일하면 취소
+		if (exist != null) {
+			if (reactionDTO.getReactionType().equals(exist.getReactionType())) {
+				return mapper.doDelete(exist);
+			} else {
+				// 다른 반응 → 전환
+				return mapper.doUpdate(reactionDTO);
+			}
+		} else {
+			// 새 반응
+			return mapper.doSave(reactionDTO);
+		}
 	}
+
 }
-
-

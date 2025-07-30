@@ -50,13 +50,13 @@
                 <button>수정</button>
             </a>
             <button onclick="deleteNotice(${outVO.noCode})">삭제</button>
-            <div class="reaction-buttons" style="display: flex; align-items: center; gap: 5px; margin-left: 11px;">
-                <button id="likeBtn-NOTICE-${outVO.noCode}" onclick="toggleReaction('NOTICE', 'L', ${outVO.noCode})">
-                    👍 좋아요 <span id="likeCount-NOTICE-${outVO.noCode}">${nLikeCount}</span>
-                </button>
-                <button id="dislikeBtn-NOTICE-${outVO.noCode}" onclick="toggleReaction('NOTICE', 'D', ${outVO.noCode})">
-                    👎 싫어요 <span id="dislikeCount-NOTICE-${outVO.noCode}">${nDislikeCount}</span>
-                </button>
+	<div class="reaction-buttons" style="display: flex; align-items: center; gap: 5px; margin-left: 11px;">
+		<button id="likeBtn-NOTICE-${outVO.noCode}" onclick="toggleReaction('NOTICE', 'L', '${outVO.noCode}')">
+		    👍 좋아요 <span id="likeCount-NOTICE-${outVO.noCode}">${nLikeCount}</span>
+		</button>
+		<button id="dislikeBtn-NOTICE-${outVO.noCode}" onclick="toggleReaction('NOTICE', 'D', '${outVO.noCode}')">
+		    👎 싫어요 <span id="dislikeCount-NOTICE-${outVO.noCode}">${nDislikeCount}</span>
+		</button>
                 <button onclick="reportTarget('NOTICE', ${outVO.noCode})">🚩 신고</button>
             </div>
         </div>
@@ -231,7 +231,13 @@
 
     // 좋아요/싫어요 버튼 이벤트
     function toggleReaction(targetType, reactionType, targetCode) {
-        const key = `${targetType}-${targetCode}`;
+        console.log("🧪 targetType:", targetType);
+        console.log("🧪 reactionType:", reactionType);
+        console.log("🧪 targetCode:", targetCode);
+        
+        const key = targetType+"-"+targetCode;
+        console.log("💡 key:", key);
+
         const current = userReactions[key];
         let sendType = (current === reactionType) ? null : reactionType;
 
@@ -243,7 +249,9 @@
             success: function(data) {
                 if (data.flag === 1) {
                     $("#likeCount-" + key).text(data.likeCount);
+                    console.log($("#likeCount-" + key));
                     $("#dislikeCount-" + key).text(data.dislikeCount);
+                    console.log("싫어요 수:{}",key);
                     userReactions[key] = sendType;
                     updateButtonStyles(targetType, targetCode);
                 } else {
@@ -252,6 +260,7 @@
             }
         });
     }
+    
 
     // 버튼 스타일 업데이트
     function updateButtonStyles(targetType, targetCode) {
