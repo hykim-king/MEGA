@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>회원가입</title>
+<title>회원가입</title>     <!-- 회원 정보 관리 (관리자용)가입된 회원 목록 확인, 등급 변경, 탈퇴 처리 등 관리 기능 -->
 
 <style>
 body {
@@ -119,12 +119,12 @@ h2 {
 
         <div class="form-group">
             <label>비밀번호 *</label>
-            <input type="password" name="password" placeholder="비밀번호 입력" required>
+            <input type="password" name="password" placeholder="비밀번호를 입력해 주세요" required>
         </div>
 
         <div class="form-group">
             <label>비밀번호 확인 *</label>
-            <input type="password" name="passwordCheck" placeholder="다시 입력해주세요" required>
+            <input type="password" name="passwordCheck" placeholder="비밀번호를 다시 입력해주세요" required>
         </div>
 
         <div class="form-group">

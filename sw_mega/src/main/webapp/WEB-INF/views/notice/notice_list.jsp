@@ -1,8 +1,7 @@
 <%@page import="com.pcwk.ehr.cmn.PcwkString"%>
 <%@page import="com.pcwk.ehr.cmn.SearchDTO"%>
 <%@page import="java.util.Date"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <c:set var="CP" value="${pageContext.request.contextPath }" />
@@ -41,6 +40,8 @@
    String pageHtml=PcwkString.renderingPager(maxNum, pageNo, pageSize, bottomCount, url, scriptName);
    //System.out.println(pageHtml);
 %>
+<!DOCTYPE html>
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <title>공지사항 목록</title>
@@ -50,7 +51,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <style>
+  <style>
         body { font-family: 'Do Hyeon', sans-serif; margin:0; background:#fff;}
         #container { min-height:100vh; background:#fff;}
         .main-container { display:flex; justify-content:center;}

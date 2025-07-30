@@ -6,8 +6,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="/ehr/resources/assets/css/notice_form.css">
-    <link rel="stylesheet" href="/ehr/resources/assets/css/header.css">
+		<link rel="stylesheet" href="/ehr/resources/assets/css/notice_form.css">
+   		<link rel="stylesheet" href="/ehr/resources/assets/css/header.css">
         <link rel="stylesheet" href="/ehr/resources/assets/css/pcwk_main.css">
     
 
@@ -172,7 +172,6 @@
          </div>         
       </form>
       <!--//form end-->
-
    </div>
    </main>
 <jsp:include page="/WEB-INF/views/include/footer.jsp"/>
