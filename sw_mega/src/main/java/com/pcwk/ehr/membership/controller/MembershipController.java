@@ -115,17 +115,26 @@ public class MembershipController implements PLog {
     /*──────────────────────────────────────────────────────*/
     /* 8. AJAX 중복 체크                                    */
     /*──────────────────────────────────────────────────────*/
-    @ResponseBody
-    @GetMapping("/idCheck.do")
-    public String idCheck(@RequestParam String userId) throws SQLException {
-        MembershipDTO dto = new MembershipDTO();
-        dto.setUserId(userId);
-        return (membershipService.selectOne(dto) == null) ? "0" : "1";
-    }
+//    @ResponseBody
+//    @GetMapping("/idCheck.do")
+//    public String idCheck(@RequestParam String userId) throws SQLException {
+//        MembershipDTO dto = new MembershipDTO();
+//        dto.setUserId(userId);
+//        return (membershipService.selectOne(dto) == null) ? "0" : "1";
+//    }
 
     @ResponseBody
+    @GetMapping("/idCheck.do")
+    public int idCheck(@RequestParam String userId) throws SQLException {
+        return membershipService.idCheck(userId);
+    }
+
+    
+    
+    @ResponseBody
     @GetMapping("/checkEmail.do")
-    public boolean checkEmail(@RequestParam String email) throws SQLException {
+    public boolean checkEmail(@RequestParam String email) throws
+ SQLException {
         return membershipService.isEmailAvailable(email);
     }
 
