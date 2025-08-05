@@ -69,7 +69,10 @@
     <property name="port" value="465"/>
     <property name="username" value="com0494@naver.com"/>
     <property name="password" value=""/>
+<<<<<<< HEAD
+=======
 
+>>>>>>> main
     <property name="defaultEncoding" value="utf-8"/>
 
      <property name="javaMailProperties">
@@ -111,6 +114,11 @@
 
 
 
+<<<<<<< HEAD
+        <property name="username" value="MEGA" />
+        <property name="password" value="" />
+=======
+>>>>>>> main
         <!-- Optional settings -->
         <property name="maximumPoolSize" value="10" />
         <property name="minimumIdle" value="5" />
