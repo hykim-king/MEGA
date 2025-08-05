@@ -89,10 +89,17 @@ public class MembershipServiceImpl implements MembershipService {
         return membershipMapper.getCount();
     }
 
-    /* 7. 아이디 중복 체크 */
+    /* 7. 아이디 중복 체크 - boolean */
     @Override
     public boolean isUserIdAvailable(String userId) throws SQLException {
         return membershipMapper.idCheck(userId) == 0;
+    }
+    
+    
+    /* 8. 아이디 중복 체크 - int 반환용 (AJAX 대응) */
+    @Override
+    public int idCheck(String userId) throws SQLException {
+        return membershipMapper.idCheck(userId);  // 0: 사용 가능 / 1: 중복
     }
 
     /* 비밀번호 정규식 검사 */

@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>회원가입</title>
+<title>회원가입</title>     <!-- 회원 정보 관리 (관리자용)가입된 회원 목록 확인, 등급 변경, 탈퇴 처리 등 관리 기능 -->
 
 <style>
 body {
@@ -119,12 +119,12 @@ h2 {
 
         <div class="form-group">
             <label>비밀번호 *</label>
-            <input type="password" name="password" placeholder="비밀번호 입력" required>
+            <input type="password" name="password" placeholder="비밀번호를 입력해 주세요" required>
         </div>
 
         <div class="form-group">
             <label>비밀번호 확인 *</label>
-            <input type="password" name="passwordCheck" placeholder="다시 입력해주세요" required>
+            <input type="password" name="passwordCheck" placeholder="비밀번호를 다시 입력해주세요" required>
         </div>
 
         <div class="form-group">
@@ -169,6 +169,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const idCheckUrl = ctx + '/membership/idCheck.do';
     const sendAuthCodeUrl = ctx + '/membership/sendAuthCode.do';
 
+    let isIdChecked = false;
+
     // 아이디 확인
     const userIdInput = document.querySelector('input[name="userId"]');
     const checkBtn = document.querySelector('.check-btn');
@@ -176,13 +178,25 @@ document.addEventListener('DOMContentLoaded', function () {
     userIdInput.addEventListener('input', function () {
         const valid = /^[a-zA-Z0-9]{6,12}$/.test(userIdInput.value.trim());
         checkBtn.disabled = !valid;
+        isIdChecked = false; // 값이 바뀌면 다시 확인해야 함
+        userIdInput.readOnly = false;
     });
 
     checkBtn.addEventListener('click', function () {
         const userId = userIdInput.value.trim();
         fetch(idCheckUrl + '?userId=' + encodeURIComponent(userId))
             .then(r => r.text())
-            .then(res => alert(res === '0' ? '사용 가능' : '이미 사용 중입니다.'))
+            .then(res => {
+                if (res === '0') {
+                    alert('사용 가능한 아이디입니다.');
+                    isIdChecked = true;
+                    checkBtn.disabled = true;
+                    userIdInput.readOnly = true;
+                } else {
+                    alert('이미 사용 중입니다.');
+                    isIdChecked = false;
+                }
+            })
             .catch(err => alert('ID 확인 오류: ' + err));
     });
 
@@ -216,8 +230,17 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     });
+
+    // 최종 제출 시 중복 확인 체크 확인
+    document.querySelector('form').addEventListener('submit', function (e) {
+        if (!isIdChecked) {
+            e.preventDefault();
+            alert("아이디 중복 확인을 먼저 해주세요!");
+        }
+    });
 });
 </script>
+
 
 </body>
 </html>

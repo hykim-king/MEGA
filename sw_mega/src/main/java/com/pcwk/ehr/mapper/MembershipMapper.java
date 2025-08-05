@@ -28,7 +28,8 @@ public interface MembershipMapper extends WorkDiv<MembershipDTO> {
 	
 	
 	/** ID 중복 체크: 0이면 사용 가능 */
-	int idCheck(String userId) throws SQLException;
+	int idCheck(@Param("userId") String userId) throws SQLException;
+	
 	
 	// 아이디 존재 여부
 	int existsByUserId(String userId);

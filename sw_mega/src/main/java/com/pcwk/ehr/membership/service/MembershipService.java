@@ -43,11 +43,21 @@ public interface MembershipService {
     int getCount() throws SQLException;
     
     /**
-     * 7.아이디 중복
+     * 7.아이디 중복 여부 (boolean 리턴)
      */
     
     boolean isUserIdAvailable(String userId) throws SQLException;
     
+    /**
+     * 8. 아이디 중복 체크 (0 또는 1 리턴)
+     */
+    
+    int idCheck(String userId) throws SQLException;
+    
+    
+    /**
+     * 9. 이메일 중복 여부
+     */
 
     boolean isEmailAvailable(String email) throws SQLException;
     

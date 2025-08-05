@@ -6,10 +6,19 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="/ehr/resources/assets/css/freeboard_form.css">
+		<link rel="stylesheet" href="/ehr/resources/assets/css/freeboard_form.css">
+ 		<link rel="stylesheet" href="/ehr/resources/assets/css/header.css">
+        <link rel="stylesheet" href="/ehr/resources/assets/css/pcwk_main.css">
 <title>즐거운_코딩</title>
 <!--외부에 생성한 *.js-->
 <!-- <script src="/ehr/resources/assets/js/common.js"></script> -->
+<style>
+	.form-container {
+	            width:100%; max-width:900px; margin:80px auto 60px auto;
+	            background: #F5F7FF; border-radius:13px; box-shadow: 0 4px 18px #e4e7fa7e;
+	            padding: 48px 38px 38px 38px;
+	        }
+</style>
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
  <script src="/ehr/resources/assets/js/common.js"></script>
 <script>
@@ -129,7 +138,9 @@
 </script>
 </head>
 <body>
-
+<div id="container">
+ <jsp:include page="/WEB-INF/views/include/header.jsp"/>
+ <main id="main">
    <div class="form-container">
             <h2>자유게시판 등록</h2>
             
@@ -159,7 +170,9 @@
          </div>         
       </form>
       <!--//form end-->
-
+   </div>
+   </main>
+   <jsp:include page="/WEB-INF/views/include/footer.jsp"/>
    </div>
 </body>
 </html>

@@ -1,8 +1,7 @@
 <%@page import="com.pcwk.ehr.cmn.PcwkString"%>
 <%@page import="com.pcwk.ehr.cmn.SearchDTO"%>
 <%@page import="java.util.Date"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <c:set var="CP" value="${pageContext.request.contextPath }" />
@@ -41,16 +40,18 @@
    String pageHtml=PcwkString.renderingPager(maxNum, pageNo, pageSize, bottomCount, url, scriptName);
    //System.out.println(pageHtml);
 %>
+<!DOCTYPE html>
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <title>공지사항 목록</title>
-    <link rel="stylesheet" href="${CP}/resources/assets/css/header.css">
-    <link rel="stylesheet" href="${CP}/resources/assets/css/pcwk_main.css">
+    <link rel="stylesheet" href="/ehr/resources/assets/css/header.css">
+    <link rel="stylesheet" href="/ehr/resources/assets/css/pcwk_main.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <style>
+  <style>
         body { font-family: 'Do Hyeon', sans-serif; margin:0; background:#fff;}
         #container { min-height:100vh; background:#fff;}
         .main-container { display:flex; justify-content:center;}
@@ -81,7 +82,47 @@
             .list-container{padding:14px 4vw;}
             .search-input{width:100px;}
             .board-title{font-size:1.25rem;}
+            
         }
+        
+			        .pagination {
+			  display: flex;
+			  justify-content: center;
+			  align-items: center;
+			  margin: 20px 0;
+			  font-size: 16px;
+			  gap: 5px;
+			}
+			
+			.pagination  a{
+			  display: inline-block;
+			  padding: 8px 12px;
+			  text-decoration: none;
+			  color: #007bff;
+			  border: 1px solid #dddddd;
+			  border-radius: 4px;
+			  background-color: #ffffff;
+			  transition: all 0.3s ease;
+			}
+			.pagination a:hover{
+			  background-color: #007bff;
+			  color: #ffffff;
+			  border-color: #007bff;
+			}
+			
+			.pagination a.active{ 
+			  background-color: #007bff;
+			  color: #ffffff;
+			  border-color: #007bff;
+			} 
+			 
+			.pagination a.disabled{
+			  background-color: #f8f9fa;
+			  color: #000;
+			  pointer-events: none;
+			  border-color: #dddddd; 
+			  cursor: not-allowed;
+			}
     </style>
     <script>
         // 등록 및 검색 버튼 이벤트
@@ -106,7 +147,7 @@
 <body>
 <div id="container">
     <jsp:include page="/WEB-INF/views/include/header.jsp"/>
-    <main class="main-container">
+    <main class="main-container" id="main">
         <div class="list-container">
             <div class="board-title">공지사항</div>
             <hr class="title-underline"/>
@@ -179,9 +220,7 @@
                 </tbody>
             </table>
             <!-- paging -->
-            <div style="margin-top:24px;">
                 <% out.print(pageHtml); %>
-            </div>
         </div>
     </main>
     <jsp:include page="/WEB-INF/views/include/footer.jsp"/>

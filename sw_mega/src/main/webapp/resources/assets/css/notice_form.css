@@ -7,7 +7,7 @@ body{
     padding: 0;
     display: flex;
     justify-content: center;
-    align-items: centers;
+    align-items: center;
     min-width: 100vh;
     background-color: #f4f4f9;
 }
