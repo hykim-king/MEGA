@@ -115,21 +115,23 @@ public class MembershipController implements PLog {
     /*──────────────────────────────────────────────────────*/
     /* 8. AJAX 중복 체크                                    */
     /*──────────────────────────────────────────────────────*/
-//    @ResponseBody
-//    @GetMapping("/idCheck.do")
-//    public String idCheck(@RequestParam String userId) throws SQLException {
-//        MembershipDTO dto = new MembershipDTO();
-//        dto.setUserId(userId);
-//        return (membershipService.selectOne(dto) == null) ? "0" : "1";
-//    }
-
     @ResponseBody
     @GetMapping("/idCheck.do")
-    public int idCheck(@RequestParam String userId) throws SQLException {
-        return membershipService.idCheck(userId);
+	/*
+	 * public String idCheck(@RequestParam String userId) throws SQLException {
+	 * MembershipDTO dto = new MembershipDTO(); dto.setUserId(userId); return
+	 * (membershipService.selectOne(dto) == null) ? "0" : "1"; }
+	 */
+    public String idCheck(@RequestParam String USER_ID) {
+        try {
+            int count = membershipService.idCheck(USER_ID); // DB에서 USER_ID 개수 확인
+            return String.valueOf(count); // "0"이면 사용 가능, "1" 이상이면 중복
+        } catch (Exception e) {
+            e.printStackTrace(); // ← 콘솔에 전체 오류 로그 출력
+            return "error";
+        }
     }
-
-    
+   
     
     @ResponseBody
     @GetMapping("/checkEmail.do")
