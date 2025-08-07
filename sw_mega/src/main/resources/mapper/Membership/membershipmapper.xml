@@ -87,10 +87,16 @@
         DELETE FROM MEMBERSHIP
     </delete>
 
+    
     <!-- 8. ID 중복 체크 -->
     <select id="idCheck" parameterType="string" resultType="int">
-        SELECT COUNT(*) FROM MEMBERSHIP WHERE USER_ID = #{userId}
+    SELECT COUNT(*)
+    FROM MEMBERSHIP
+    WHERE USER_ID = #{userId}
     </select>
+
+    
+    
 
     <!-- 9. 목록 조회 -->
     <select id="doRetrieve"
